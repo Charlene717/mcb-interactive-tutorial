@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 20: 細胞生物學與疾病前沿 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html" class="active">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 20 / 20 · BLOCK E</div>
+<h1 data-zh="細胞生物學與疾病前沿" data-en="Cell Biology in Disease — Frontier">細胞生物學與疾病前沿</h1>
+<p class="subtitle" data-lang="zh">從癌症 14 大特徵到 prime editing 與 AI 驅動藥物——分子細胞生物學在 2024-2026 的臨床轉化全景。</p>
+<p class="subtitle" data-lang="en">From 14 cancer hallmarks to prime editing and AI-driven drugs — the 2024-2026 translation landscape of molecular cell biology.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="從機制到臨床的最後一哩" data-en="The Last Mile from Mechanism to Clinic">從機制到臨床的最後一哩</h2>
+<div data-lang="zh">
+<p>本章整合前 19 章的機制基礎，聚焦三大轉化前沿：① <strong>癌症 hallmarks 2022</strong> 與<strong>老化 hallmarks 2023</strong>整合視角；② <strong>神經退化</strong>共通機制與 disease-modifying 介入；③ <strong>基因組編輯 + 細胞療法 + AI 藥物設計</strong>四維工具箱。</p>
+</div>
+<div data-lang="en">
+<p>This chapter integrates the mechanistic groundwork of Ch 1-19, focusing on three translational frontiers: ① <strong>2022 cancer hallmarks</strong> + <strong>2023 aging hallmarks</strong> integrated view; ② common <strong>neurodegeneration</strong> mechanisms with disease-modifying interventions; ③ <strong>genome editing + cell therapy + AI drug design</strong> toolbox.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>2023-2025 標誌性事件：</strong>Casgevy（CRISPR/Cas9 治療鐮形貧血/β-thal，FDA 2023 核准）為<strong>首個 in-vivo CRISPR 療法</strong>；mRNA-LNP（COVID 疫苗外）擴展至癌症 (BNT122) 與罕病；AlphaFold3 (2024) 與 RFdiffusion (2023) 重塑 de novo 藥物設計。</span>
+<span data-lang="en"><strong>2023-2025 milestones:</strong> Casgevy (CRISPR/Cas9 for SCD/β-thal, FDA-approved 2023) is the <strong>first ex-vivo CRISPR therapy</strong>; mRNA-LNP extends beyond COVID to cancer (BNT122) and rare diseases; AlphaFold3 (2024) + RFdiffusion (2023) reshape de novo drug design.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="癌症 hallmarks" data-en="CANCER HALLMARKS">癌症 14 大特徵</div>
+<h2 data-zh="一、Hanahan 2022：癌症 14 大特徵" data-en="I. Hanahan 2022: 14 Cancer Hallmarks">一、癌症 14 大特徵</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="類別" data-en="Category">類別</th><th data-zh="特徵" data-en="Hallmark">特徵</th><th data-zh="關聯章節" data-en="Linked chapter">章節</th></tr></thead>
+<tbody>
+<tr><td rowspan="3" data-zh="原始 6 (2000)" data-en="Original 6 (2000)">原始 6</td><td data-zh="持續增殖、規避停止訊號、抵抗死亡" data-en="Sustained proliferation, evading growth suppressors, resisting death">持續增殖 / 規避停止 / 抗死亡</td><td>Ch9/12/17</td></tr>
+<tr><td data-zh="複製永生、誘導血管新生、侵襲/轉移" data-en="Replicative immortality, angiogenesis, invasion/metastasis">永生 / 血管新生 / 侵襲</td><td>Ch10/11/19</td></tr>
+<tr><td data-zh="（基礎標誌）" data-en="(Foundational)">（基礎）</td><td>—</td></tr>
+<tr><td rowspan="2" data-zh="新興 4 (2011)" data-en="Emerging 4 (2011)">新興 4</td><td data-zh="代謝重編、免疫逃避" data-en="Metabolic deregulation, immune evasion">代謝重編 / 免疫逃避</td><td>Ch15/Ch20</td></tr>
+<tr><td data-zh="基因組不穩、發炎促癌" data-en="Genome instability, tumor-promoting inflammation">基因組不穩 / 發炎促癌</td><td>Ch2/19</td></tr>
+<tr><td rowspan="4"><strong data-zh="2022 新增 4" data-en="New 2022 (4)">2022 新增</strong></td><td data-zh="表型可塑性 (phenotypic plasticity)" data-en="Unlocking phenotypic plasticity">表型可塑性</td><td>Ch19</td></tr>
+<tr><td data-zh="非突變表觀重編 (non-mutational epigenetic)" data-en="Non-mutational epigenetic reprogramming">非突變表觀重編</td><td>Ch5/6</td></tr>
+<tr><td data-zh="多型微生物群 (polymorphic microbiome)" data-en="Polymorphic microbiome">多型微生物群</td><td>Ch20</td></tr>
+<tr><td data-zh="衰老細胞促瘤 (senescent cells)" data-en="Senescent cells (SASP)">衰老細胞 SASP</td><td>Ch19</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="神經退化" data-en="NEURODEGENERATION">神經退化共通機制</div>
+<h2 data-zh="二、神經退化疾病：共通機制與治療" data-en="II. Neurodegeneration: Shared Mechanisms &amp; Therapeutics">二、神經退化共通機制</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🧠</div><h4>Alzheimer's</h4>
+<div data-lang="zh"><p><strong>Aβ 斑塊 + tau NFTs</strong>。APP 經 β-/γ-secretase 切出 Aβ42 → 寡聚毒性 → tau 過磷酸化 (AT8)。療法：<strong>Lecanemab/Donanemab</strong>（抗 Aβ-protofibrils，2023-2024 FDA 核准）；BACE/γ-sec 抑制劑多失敗；tau 抗體在試。</p></div>
+<div data-lang="en"><p><strong>Aβ plaques + tau NFTs</strong>. APP cleaved by β-/γ-secretase → Aβ42 → toxic oligomers → tau hyperphosphorylation (AT8). Therapies: <strong>Lecanemab/Donanemab</strong> (anti-Aβ protofibrils, FDA 2023-24); BACE/γ-sec inhibitors mostly failed; tau antibodies in trials.</p></div></div>
+<div class="card"><div class="card-icon">🌀</div><h4>Parkinson's</h4>
+<div data-lang="zh"><p><strong>α-synuclein Lewy body</strong> + 黑質多巴胺神經元喪失。LRRK2/GBA/PINK1/Parkin 突變家族型。療法：levodopa；GBA1 modulator (venglustat 失敗)；α-syn 抗體 prasinezumab；GDNF 基因療法；GFP-iPSC dopaminergic 神經元移植 (Studer 2024 phase 1)。</p></div>
+<div data-lang="en"><p><strong>α-synuclein Lewy body</strong> + nigral dopaminergic loss. Familial: LRRK2/GBA/PINK1/Parkin. Tx: levodopa; GBA1 modulators (venglustat failed); α-syn antibodies prasinezumab; GDNF gene therapy; iPSC-derived dopaminergic transplant (Studer 2024 phase 1).</p></div></div>
+<div class="card"><div class="card-icon">🧬</div><h4>ALS / Huntington's</h4>
+<div data-lang="zh"><p><strong>ALS</strong>：TDP-43/FUS LLPS 失調、C9orf72 GGGGCC 六核苷酸擴展 → RAN 翻譯 DPR；療法 Tofersen (ASO-SOD1, 2023 FDA)。<strong>HD</strong>：HTT CAG 擴展 → polyQ aggregate；Tominersen/branaplam ASO 試驗（前者 2021 失敗，重新設計中）。</p></div>
+<div data-lang="en"><p><strong>ALS</strong>: TDP-43/FUS LLPS dysregulation; C9orf72 GGGGCC hexanucleotide expansion → RAN-translated DPRs. Tx: Tofersen (ASO-SOD1, FDA 2023). <strong>HD</strong>: HTT CAG expansion → polyQ aggregates; Tominersen/branaplam ASO trials (2021 failure, redesign).</p></div></div>
+</div>
+<div data-lang="zh"><p style="margin-top:1em;"><strong>跨疾病共通機制：</strong>① 蛋白質聚集 + 蛋白穩態失常（Ch8）；② 失能自噬（Ch18）；③ 粒線體功能異常（Ch15）；④ neuroinflammation（小膠細胞 NLRP3）；⑤ 異常凝聚物（Ch4 RNA-binding protein LLPS）；⑥ 突觸功能損傷。整合多元治療（如 ASO + senolytics + autophagy enhancer）為新方向。</p></div>
+<div data-lang="en"><p style="margin-top:1em;"><strong>Shared mechanisms across disorders:</strong> ① protein aggregation + proteostasis collapse (Ch8); ② disabled autophagy (Ch18); ③ mitochondrial dysfunction (Ch15); ④ neuroinflammation (NLRP3 microglia); ⑤ aberrant condensates (Ch4 RBP LLPS); ⑥ synaptic deficits. Combinatorial therapy (ASO + senolytic + autophagy enhancer) is an emerging direction.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="基因組編輯" data-en="GENOME EDITING">編輯工具箱</div>
+<h2 data-zh="三、基因組編輯三代工具與細胞療法" data-en="III. Three Generations of Editors &amp; Cell Therapies">三、編輯工具與細胞療法</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="工具" data-en="Tool">工具</th><th data-zh="機制" data-en="Mechanism">機制</th><th data-zh="可達編輯" data-en="Edit type">編輯類型</th><th data-zh="臨床代表" data-en="Clinical landmark">臨床</th></tr></thead>
+<tbody>
+<tr><td><strong>CRISPR/Cas9</strong></td><td data-zh="DSB → NHEJ (indel) 或 HDR (template)" data-en="DSB → NHEJ (indel) or HDR (template)">DSB → NHEJ/HDR</td><td>Indel KO；HDR 替換 (低效率)</td><td>Casgevy (SCD/β-thal, 2023 FDA)</td></tr>
+<tr><td><strong>Base editing</strong></td><td data-zh="nickase Cas9 + 胞嘧啶 (CBE) 或 腺嘌呤 (ABE) 去胺酶" data-en="Cas9-nickase + cytosine (CBE) or adenine (ABE) deaminase">nCas9 + 去胺酶</td><td>C→T (CBE)；A→G (ABE)；無 DSB</td><td>Verve VERVE-101 (HoFH, PCSK9, 2023 phase 1b)</td></tr>
+<tr><td><strong>Prime editing</strong></td><td data-zh="nCas9-RT + pegRNA (含 RT template)" data-en="nCas9-RT + pegRNA">nCas9-RT + pegRNA</td><td data-zh="所有 12 種點變、小插/刪 (&lt;~100 bp)" data-en="All 12 conversions, small indels">12 種轉換 + 小 indel</td><td>Prime Med PM359 (CGD, 2024 trial)</td></tr>
+<tr><td><strong>CRISPRoff/on</strong></td><td data-zh="dCas9 + DNMT3A/3L 甲基化（可遺傳沉默）" data-en="dCas9 + DNMT3A/3L methylation (heritable)">dCas9-DNMTs</td><td data-zh="不改變序列的表觀沉默" data-en="Sequence-preserving silencing">表觀沉默</td><td data-zh="臨床前 (Tune Tx, 2024)" data-en="Preclinical (Tune Tx 2024)">臨床前</td></tr>
+<tr><td><strong>Cell therapies</strong></td><td colspan="3" data-zh="CAR-T (Kymriah, Yescarta, Carvykti…), TCR-T (afami-cel), in-vivo CAR (LNP-mRNA, 2024), 多重編輯 allo-CAR-T，多特異 BCMA-CD19" data-en="CAR-T (Kymriah, Yescarta, Carvykti…), TCR-T (afami-cel), in-vivo CAR (LNP-mRNA, 2024), multi-edit allo-CAR-T, BCMA/CD19 multispecific">CAR-T (多代)、TCR-T、in-vivo CAR (LNP-mRNA)、allo-CAR-T、多特異</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>NTLA-2001（hATTR）：</strong>首個<strong>體內</strong> CRISPR/Cas9 注射（LNP-Cas9 mRNA + sgRNA 至肝臟敲除 TTR），2021-2024 phase 1-3 顯示血清 TTR 下降 &gt;90%——驗證 in-vivo editing 可行性。</span>
+<span data-lang="en"><strong>NTLA-2001 (hATTR):</strong> first <strong>in-vivo</strong> CRISPR/Cas9 injection (LNP-Cas9 mRNA + sgRNA to liver, knocks out TTR). 2021-2024 phase 1-3 show serum TTR drop &gt;90% — proof of in-vivo editing.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="AI 與前沿" data-en="AI &amp; FRONTIER">AI 驅動前沿</div>
+<h2 data-zh="四、AI、空間多組學、CryoET 與單細胞擾動" data-en="IV. AI, Spatial Multi-omics, CryoET, Single-cell Perturbation">四、前沿四領域</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 你的研究問題對應哪個前沿工具？" data-en="🌳 Which frontier tool fits your question?">🌳 前沿工具決策</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">想設計新蛋白 / 靶向結合物？→ <strong>RFdiffusion + ProteinMPNN + AlphaFold3</strong>（Baker lab pipeline，2023-2024）</span><span data-lang="en">Want to design a new protein / binder? → <strong>RFdiffusion + ProteinMPNN + AlphaFold3</strong> (Baker lab pipeline, 2023-24)</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">想擾動單細胞數萬個基因看表型？→ <strong>Perturb-seq / ECCITE-seq / CROP-seq</strong>（CRISPRi + scRNA）；2024 Genome-wide Perturb-seq (Replogle)</span><span data-lang="en">Want to perturb thousands of genes at single-cell scale? → <strong>Perturb-seq / ECCITE-seq / CROP-seq</strong> (CRISPRi + scRNA); 2024 Genome-wide Perturb-seq (Replogle)</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">想看組織內細胞鄰里互動？→ <strong>空間轉錄組</strong>（Visium HD, Xenium, MERFISH, Stereo-seq），配 cell2location/CellChat 分析</span><span data-lang="en">Want tissue-context cell neighborhoods? → <strong>Spatial transcriptomics</strong> (Visium HD, Xenium, MERFISH, Stereo-seq), with cell2location/CellChat</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">想看原位分子複合體結構？→ <strong>CryoET + FIB-milling lamella + subtomogram averaging</strong>；deep learning 分割 (membrain-seg, TomoTwin)</span><span data-lang="en">Want in-situ structures? → <strong>CryoET + FIB-milled lamella + subtomogram averaging</strong>; deep-learning segmentation (membrain-seg, TomoTwin)</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">想做生理性疾病建模？→ <strong>Organoid + organ-on-chip + assembloid</strong>；microfluidic + iPSC</span><span data-lang="en">Want physiological disease modeling? → <strong>Organoids + organ-on-chip + assembloids</strong>; microfluidic + iPSC</span></div>
+<div class="dt-node"><span class="dt-q">Q6</span><span class="dt-arrow">→</span><span data-lang="zh">想自動執行藥物化學？→ <strong>ChemCrow / Coscientist (LLM agent + lab automation)</strong>，2023-2024 已展示閉環合成</span><span data-lang="en">Want autonomous drug chemistry? → <strong>ChemCrow / Coscientist (LLM agent + lab automation)</strong>; closed-loop synthesis demonstrated 2023-24</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、整合分析工作流" data-en="V. Integrated Analysis Workflow">五、整合分析範例</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · Hallmark scoring</button>
+    <button class="code-tab-btn" data-tab="py">Python · sgRNA designer</button>
+    <button class="code-tab-btn" data-tab="ai">AI · RFdiffusion binder</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># 對 TCGA 樣本評分 14 個 Hanahan hallmarks</span>
+<span class="kw">library</span>(GSVA); <span class="kw">library</span>(msigdbr)
+hallmark &lt;- msigdbr(species=<span class="str">"Homo sapiens"</span>, category=<span class="str">"H"</span>)
+gs &lt;- <span class="func">split</span>(hallmark$gene_symbol, hallmark$gs_name)
+expr &lt;- readRDS(<span class="str">"TCGA_LUAD_logTPM.rds"</span>)
+scores &lt;- gsva(expr, gs, method=<span class="str">"ssgsea"</span>, kcdf=<span class="str">"Gaussian"</span>)
+<span class="comment"># 與臨床 outcome 關聯</span>
+clin &lt;- readRDS(<span class="str">"TCGA_LUAD_clin.rds"</span>)
+<span class="kw">library</span>(survival)
+coxph(Surv(OS_time, OS_event) ~ scores[<span class="str">"HALLMARK_INFLAMMATORY_RESPONSE"</span>,] + age + stage, data=clin)
+<span class="comment"># 老化 12 hallmarks 同步以 SenMayo + GenAge 補完</span></pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># Python: 用 CRISPRitz / FlashFry 設計 sgRNA 與評估 off-target</span>
+<span class="kw">from</span> Bio <span class="kw">import</span> SeqIO
+<span class="kw">import</span> subprocess
+target = <span class="str">"PCSK9"</span>; genome = <span class="str">"GRCh38.fa"</span>
+<span class="comment"># 1) 找 PAM (NGG) 的 20 nt protospacer</span>
+seq = <span class="func">str</span>(<span class="func">next</span>(SeqIO.<span class="func">parse</span>(<span class="str">f"{target}.fa"</span>,<span class="str">"fasta"</span>)).seq)
+<span class="kw">import</span> re
+candidates = [m.<span class="func">start</span>() <span class="kw">for</span> m <span class="kw">in</span> re.<span class="func">finditer</span>(<span class="str">"(?=.{20}GG)"</span>, seq)]
+guides = [seq[i:i+<span class="num">20</span>] <span class="kw">for</span> i <span class="kw">in</span> candidates]
+<span class="comment"># 2) 評估 on/off-target 用 CRISPRitz (allow up to 4 mismatches)</span>
+subprocess.<span class="func">run</span>([<span class="str">"crispritz.py"</span>,<span class="str">"search"</span>,genome,<span class="str">"guides.txt"</span>,<span class="str">"results"</span>,<span class="str">"-mm"</span>,<span class="str">"4"</span>,<span class="str">"-bMaxE"</span>,<span class="str">"2"</span>])
+<span class="comment"># 3) 評估 base editing 編輯窗口 (~4-8 nt from PAM)</span>
+<span class="kw">def</span> <span class="func">be_window</span>(guide): <span class="kw">return</span> guide[<span class="num">3</span>:<span class="num">8</span>]
+[be_window(g) <span class="kw">for</span> g <span class="kw">in</span> guides[:<span class="num">3</span>]]</pre></div>
+  <div class="code-tab-content" data-tab="ai"><pre><span class="comment"># RFdiffusion 設計靶向結合物 (binder) 工作流</span>
+<span class="comment"># 1) 環境 (Baker lab 公開 repo, 2023)</span>
+git clone https://github.com/RosettaCommons/RFdiffusion
+<span class="comment"># 2) 對 target PDB 設計 80-aa 結合物，hotspot 殘基指定</span>
+python scripts/run_inference.py \
+  inference.output_prefix=binder_design \
+  inference.input_pdb=target.pdb \
+  <span class="str">"contigmap.contigs=[A1-150/0 80-80]"</span> \
+  <span class="str">"ppi.hotspot_res=[A45,A67,A92]"</span> \
+  inference.num_designs=<span class="num">100</span>
+<span class="comment"># 3) ProteinMPNN 重新序列化 backbone</span>
+python ProteinMPNN/run.py --pdb_path binder_design_0.pdb --num_seq_per_target <span class="num">8</span>
+<span class="comment"># 4) AlphaFold3 預測複合體並計算 pAE/ipTM 過濾</span>
+<span class="comment"># 5) 實驗驗證：BLI/SPR Kd 量測</span>
+<span class="comment"># 此 pipeline 已成功設計流感 HA、PD-L1、GLP-1R 高親和力 binders</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. 對於只需要在基因中做<strong>單一 A → G 點變</strong>且不希望製造 DSB 的應用，最合適的編輯工具是什麼？</p>
+<p data-lang="en">1. For a single <strong>A → G point edit</strong> without creating a DSB, the most suitable tool is:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 經典 CRISPR/Cas9 + HDR</span><span data-lang="en">A. Classic CRISPR/Cas9 + HDR</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. Adenine Base Editor (ABE)</span><span data-lang="en">B. Adenine Base Editor (ABE)</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. ZFN nuclease</span><span data-lang="en">C. ZFN nuclease</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. dCas9-VPR</span><span data-lang="en">D. dCas9-VPR</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：ABE 由 nickase Cas9 + adenine 去胺酶構成，將 A→I→G，避免 DSB 與 NHEJ 失序——適合精準點變。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: ABE uses nCas9 + adenine deaminase to convert A→I→G, avoiding DSB and NHEJ — ideal for precise point edits.</div>
+</div>
+
+<div class="quiz-q" data-ans="D">
+<p data-lang="zh">2. Hanahan 2022 新增的 4 個癌症特徵，下列哪一項<strong>不</strong>屬於？</p>
+<p data-lang="en">2. Which is <strong>NOT</strong> among Hanahan's 4 new 2022 cancer hallmarks?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 表型可塑性 (phenotypic plasticity)</span><span data-lang="en">A. Unlocking phenotypic plasticity</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 非突變表觀重編程</span><span data-lang="en">B. Non-mutational epigenetic reprogramming</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 多型微生物群與衰老細胞</span><span data-lang="en">C. Polymorphic microbiome / senescent cells</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 代謝重編 (deregulating energetics)</span><span data-lang="en">D. Deregulating cellular energetics</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>D</strong>：代謝重編屬於 2011 emerging hallmarks，不是 2022 新增的 4 項。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>D</strong>: Deregulated energetics belongs to the 2011 emerging hallmarks, not the 2022 additions.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）RFdiffusion + ProteinMPNN + AlphaFold3 形成的「設計-序列化-驗證」pipeline，已成功實驗驗證設計流感 HA、PD-L1、GLP-1R 等靶向高親和力 binder。</p>
+<p data-lang="en">3. (T/F) The RFdiffusion + ProteinMPNN + AlphaFold3 "design-sequence-validate" pipeline has been experimentally validated for high-affinity binders against flu HA, PD-L1, and GLP-1R.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：Watson, Baker 等 2023 Nature 與後續論文展示 de novo binder 設計成功率達 10-30%，遠超過去傳統方法。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Watson, Baker et al. (Nature 2023 and follow-ups) showed 10-30% experimental success rate, far exceeding traditional methods.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="cellular-senescence-stemness.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 19 · 細胞衰老與幹性" data-en="Ch 19 · Cellular Senescence &amp;amp; Stemness">Ch 19 · 細胞衰老與幹性</span></a>
+<div class="placeholder"></div>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

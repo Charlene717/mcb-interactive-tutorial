@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 7: mRNA 生命週期與表觀轉錄體 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html" class="active">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 7 / 20 · BLOCK B</div>
+<h1 data-zh="mRNA 生命週期與表觀轉錄體" data-en="mRNA Life Cycle &amp; the Epitranscriptome">mRNA 生命週期與表觀轉錄體</h1>
+<p class="subtitle" data-lang="zh">從 capping、剪接、輸出到 NMD 與 codon optimality——加上 m6A 表觀轉錄體如何重新定義「mRNA 是什麼」。</p>
+<p class="subtitle" data-lang="en">From capping, splicing, and export to NMD and codon optimality — plus how m6A epitranscriptomics redefines what an mRNA is.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="mRNA 的五大關卡" data-en="Five Checkpoints in the mRNA Life Cycle">mRNA 的五大關卡</h2>
+<div data-lang="zh">
+<p>從 Pol II 轉錄到核糖體上的功能 mRNA，每分子要通過至少五道品管：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>5′ Capping</strong>：m7G + 2′-O-methyl，新生轉錄 25-30 nt 即發生</li>
+<li><strong>Co-transcriptional splicing</strong>：U1/U2/U4/U5/U6 spliceosome 在 Pol II 延伸時切除內含子</li>
+<li><strong>3′ end processing</strong>：CPSF 切位 + ~200 A polyadenylation</li>
+<li><strong>Export</strong>：TREX (THO + Aly/Ref) 招募 Nxf1-Nxt1 異二聚體穿越 NPC</li>
+<li><strong>Decay quality control</strong>：NMD、no-go decay、non-stop decay、CCR4-NOT 去 polyA</li>
+</ol>
+<p>每一道都附加 PTM 與 RNA modification（m6A、m5C、ψ、Cap1 m6Am）——構成<strong>表觀轉錄體 (epitranscriptome)</strong>，這是 2010 後最大的 RNA 生物學變革。</p>
+</div>
+<div data-lang="en">
+<p>From Pol II nascent RNA to functional mRNA, each molecule passes at least five QC gates:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>5′ Capping</strong>: m7G + 2′-O-methyl, after ~25-30 nt of transcription</li>
+<li><strong>Co-transcriptional splicing</strong>: U1/U2/U4/U5/U6 spliceosome removes introns during elongation</li>
+<li><strong>3′ end processing</strong>: CPSF cleavage + ~200 A polyadenylation</li>
+<li><strong>Export</strong>: TREX (THO + Aly/Ref) recruits Nxf1-Nxt1 heterodimer to cross the NPC</li>
+<li><strong>Decay QC</strong>: NMD, no-go decay, non-stop decay, CCR4-NOT deadenylation</li>
+</ol>
+<p>Each step layers PTMs and RNA modifications (m6A, m5C, ψ, Cap1 m6Am), forming the <strong>epitranscriptome</strong> — the biggest RNA-biology shift since 2010.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>耦合原則：</strong>capping、splicing、3′-end processing 都<strong>耦合於 Pol II CTD</strong>（Ch6）。CTD 修飾切換決定哪些 mRNA 加工因子被招募——這是「轉錄與 mRNA 加工不可分」的分子基礎。</span>
+<span data-lang="en"><strong>Coupling principle:</strong> capping, splicing, 3′-processing are all <strong>coupled to Pol II CTD</strong> (Ch6). CTD phospho-state determines which processing factor is recruited — the molecular basis of "transcription and mRNA processing are inseparable".</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Splicing" data-en="SPLICING">剪接</div>
+<h2 data-zh="一、Spliceosome 動力學" data-en="I. Spliceosome Dynamics">一、剪接體動力學</h2>
+<div data-lang="zh"><p>真核 pre-mRNA 約 90% 包含內含子，需被剪除——每個內含子由<strong>5 個 snRNP（U1, U2, U4, U5, U6）+ ~150 個輔因子</strong>組成的剪接體切除。整個循環經歷多個構象，每步 ATP 依賴：</p></div>
+<div data-lang="en"><p>~90% of eukaryotic pre-mRNAs contain introns, removed by spliceosomes built from <strong>5 snRNPs (U1, U2, U4, U5, U6) + ~150 cofactors</strong>. The catalytic cycle involves multiple ATP-dependent conformational states:</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="複合體" data-en="Complex">複合體</th><th data-zh="關鍵組成" data-en="Components">關鍵組成</th><th data-zh="事件" data-en="Event">事件</th></tr></thead>
+<tbody>
+<tr><td>E complex</td><td>U1 + 5′SS, SF1 + BP, U2AF + 3′SS/PPT</td><td data-zh="識別剪接位點 (ATP-independent)" data-en="Splice site recognition (ATP-independent)">識別位點</td></tr>
+<tr><td>A complex</td><td>U2 取代 SF1 結合 BP (ATP)</td><td data-zh="branch point 認定" data-en="BP commitment">BP commit</td></tr>
+<tr><td>B complex</td><td>U4/U6.U5 tri-snRNP 加入</td><td data-zh="前催化態" data-en="Pre-catalytic">前催化</td></tr>
+<tr><td>Bact</td><td>BRR2 解開 U4-U6；PRP8 活化</td><td data-zh="活化 (ATP)" data-en="Activation (ATP)">活化</td></tr>
+<tr><td>C complex</td><td>第一次轉酯：5′SS + BP-A</td><td data-zh="形成 lariat" data-en="Lariat formation">形成 lariat</td></tr>
+<tr><td>C* / P complex</td><td>第二次轉酯：exon-exon 連接</td><td data-zh="切除 intron" data-en="Intron excision">切除 intron</td></tr>
+<tr><td>ILS / disassembly</td><td>Prp22 釋放 mRNA；intron 被 debranching enzyme 處理</td><td data-zh="解體" data-en="Disassembly">解體</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>Alternative splicing (AS) 與疾病：</strong>~95% 多外顯子人類基因 AS。<strong>SF3B1</strong>（U2 因子）在 MDS、CLL、葡萄膜黑色素瘤反覆突變（K700E 為熱點），導致 cryptic 3′SS 使用、aberrant mRNA。SF3B1i (H3B-8800) 為相關治療嘗試。<strong>U1 snRNA</strong> 突變 (r.3a&gt;g) 出現在 SHH-medulloblastoma 與 CLL。</span>
+<span data-lang="en"><strong>Alternative splicing &amp; disease:</strong> ~95% of multi-exon human genes are AS. <strong>SF3B1</strong> (U2 factor) is recurrently mutated in MDS, CLL, uveal melanoma (K700E hotspot), causing cryptic 3′SS usage and aberrant mRNAs. SF3B1i (H3B-8800) is in trials. <strong>U1 snRNA</strong> mutation (r.3a&gt;g) occurs in SHH-medulloblastoma and CLL.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="m6A 表觀" data-en="m6A EPITRANSCRIPTOME">m6A 表觀轉錄體</h2>
+<h2 data-zh="二、m6A 與表觀轉錄體" data-en="II. m6A and the Epitranscriptome">二、m6A 表觀轉錄體</h2>
+<div data-lang="zh"><p>N6-methyladenosine (m6A) 是 mRNA 上最豐富的修飾——每條 mRNA 含 1-3 個 m6A（共識序列 DRACH），主要在 3′ UTR 與 stop codon 附近。系統由「writer-eraser-reader」組成：</p></div>
+<div data-lang="en"><p>N6-methyladenosine (m6A) is the most abundant mRNA modification — 1-3 per mRNA at DRACH consensus motifs, enriched near stop codons and in 3′ UTRs. A writer-eraser-reader system:</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="角色" data-en="Role">角色</th><th data-zh="蛋白" data-en="Proteins">蛋白</th><th data-zh="功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td data-zh="Writer" data-en="Writer">寫入</td><td>METTL3-METTL14 + WTAP, VIRMA, ZC3H13, HAKAI</td><td data-zh="共轉錄添加 m6A" data-en="Co-transcriptional m6A deposition">沉積 m6A</td></tr>
+<tr><td data-zh="Eraser" data-en="Eraser">移除</td><td>FTO, ALKBH5</td><td data-zh="去甲基化（FTO 偏好 m6Am cap）" data-en="Demethylation (FTO prefers m6Am cap)">去甲基</td></tr>
+<tr><td data-zh="Reader (Y家族)" data-en="Reader (Y family)">讀取</td><td>YTHDF1/2/3, YTHDC1/2</td><td data-zh="YTHDF1=轉譯 ↑；YTHDF2=降解；YTHDF3=雙；YTHDC1=核 splicing/export" data-en="YTHDF1=translation↑; YTHDF2=decay; YTHDF3=both; YTHDC1=nuclear splicing/export">命運決定</td></tr>
+<tr><td data-zh="Reader (其他)" data-en="Reader (others)">讀取</td><td>IGF2BP1/2/3, HNRNPA2B1</td><td data-zh="m6A 穩定化 (癌症中過表現)" data-en="m6A stabilization (overexpressed in cancer)">穩定化</td></tr>
+</tbody>
+</table>
+<div class="callout danger"><span class="callout-icon">⛔</span><div>
+<span data-lang="zh"><strong>2022-2024 修正：</strong>傳統「YTHDF1=轉譯，YTHDF2=降解」分工被質疑——Lan, He et al. 顯示三者高度冗餘，主要共同促進降解。最新模型：YTHDF1/2/3 是 m6A-mRNA 流向 P-body/decay 凝聚物的<strong>聚合驅動者</strong>。FDA 已有 METTL3i (STC-15) 進入 phase I AML 治療。</span>
+<span data-lang="en"><strong>2022-2024 revision:</strong> The classical YTHDF1=translation, YTHDF2=decay split is questioned — Lan, He et al. show high redundancy, mostly driving decay together. New model: YTHDF1/2/3 are <strong>condensation drivers</strong> moving m6A-mRNA into P-body/decay condensates. METTL3i (STC-15) is in phase I AML trials.</span>
+</div></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🧪</div><h4>m5C</h4>
+<div data-lang="zh"><p>NSUN2 寫入；ALYREF 讀取促進 export；TET2 移除。stem cell, tRNA, mRNA</p></div>
+<div data-lang="en"><p>Written by NSUN2; ALYREF reader → export; removed by TET2. Stem cells, tRNA, mRNA.</p></div></div>
+<div class="card"><div class="card-icon">🔬</div><h4>ψ (pseudouridine)</h4>
+<div data-lang="zh"><p>PUS 酵素或 dyskerin-snoRNP；mRNA ψ 提升轉譯效率。mRNA 疫苗 (Pfizer, Moderna) 用 N1-methylψ 代替 U → 減少 TLR 活化、增加表達</p></div>
+<div data-lang="en"><p>PUS enzymes or dyskerin-snoRNPs; ψ in mRNA boosts translation. mRNA vaccines (Pfizer, Moderna) use N1-methyl-ψ to reduce TLR activation and increase expression</p></div></div>
+<div class="card"><div class="card-icon">🎩</div><h4>Cap1 m6Am</h4>
+<div data-lang="zh"><p>+1 adenosine 上 N6-methylation；PCIF1 寫入、FTO 移除。提升 cap-dependent 轉譯，與穩定性連結</p></div>
+<div data-lang="en"><p>N6-methylation on +1 adenosine; written by PCIF1, removed by FTO. Promotes cap-dependent translation and stability</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="降解 / NMD" data-en="DECAY / NMD">降解</div>
+<h2 data-zh="三、NMD、Codon optimality 與品管降解" data-en="III. NMD, Codon Optimality and QC Decay">三、降解與 codon optimality</h2>
+<div data-lang="zh">
+<p><strong>NMD (Nonsense-Mediated Decay)</strong>：核心邏輯是「stop codon 後方還剩 EJC (Exon Junction Complex) ≥ 50-55 nt」即觸發降解：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Ribosome 終止於 PTC（premature stop）</li>
+<li>SURF complex 形成：SMG1 (PIKK kinase) + UPF1 + eRF1 + eRF3</li>
+<li>SMG1 磷酸化 UPF1 → DECID 複合體</li>
+<li>SMG6 (endonuclease) 切割 mRNA；SMG5-SMG7 招募 CCR4-NOT 與 DCP1/2</li>
+<li>XRN1 與 exosome 完成降解</li>
+</ol>
+<p><strong>Codon optimality (Coller 2014+)</strong>：mRNA 半衰期受其密碼子組成影響——常用密碼子（高 tRNA 豐度）→ 翻譯流暢 → mRNA 穩定；罕用密碼子 → ribosome 停頓 → CCR4-NOT 招募 → deadenylation → 降解。這解釋為何同樣序列、不同密碼子使用導致截然不同的蛋白表現量。</p>
+</div>
+<div data-lang="en">
+<p><strong>NMD (Nonsense-Mediated Decay)</strong>: triggered when an EJC remains ≥ 50-55 nt downstream of the stop codon:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Ribosome terminates at PTC</li>
+<li>SURF: SMG1 (PIKK kinase) + UPF1 + eRF1 + eRF3</li>
+<li>SMG1 phosphorylates UPF1 → DECID complex</li>
+<li>SMG6 endonuclease cleaves mRNA; SMG5-SMG7 recruit CCR4-NOT and DCP1/2</li>
+<li>XRN1 + exosome complete decay</li>
+</ol>
+<p><strong>Codon optimality (Coller 2014+)</strong>: mRNA half-life depends on codon composition — common codons (high tRNA pools) → smooth translation → stable mRNA; rare codons → ribosome stalling → CCR4-NOT recruitment → deadenylation → decay. Explains why identical proteins from different codon-optimized sequences have vastly different expression.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、MeRIP-seq、SLAM-seq、Nanopore direct RNA" data-en="IV. MeRIP-seq, SLAM-seq, Nanopore Direct RNA">四、表觀轉錄體分析</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · exomePeak2</button>
+    <button class="code-tab-btn" data-tab="py">Python · slamdunk / m6Anet</button>
+    <button class="code-tab-btn" data-tab="nano">Nanopore · m6A direct</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># MeRIP-seq / m6A-seq 分析 (exomePeak2)</span>
+<span class="kw">library</span>(exomePeak2)
+<span class="comment"># 1) IP + Input BAM</span>
+ip_bams &lt;- <span class="func">c</span>(<span class="str">"IP_rep1.bam"</span>,<span class="str">"IP_rep2.bam"</span>)
+input_bams &lt;- <span class="func">c</span>(<span class="str">"Input_rep1.bam"</span>,<span class="str">"Input_rep2.bam"</span>)
+<span class="comment"># 2) Peak calling on transcriptome (exome)</span>
+peaks &lt;- exomePeakCalling(merip = ip_bams, input = input_bams,
+                         gff = <span class="str">"gencode.gff3"</span>, genome = <span class="str">"hg38"</span>)
+<span class="comment"># 3) Motif enrichment (應出現 DRACH 共識)</span>
+motif_search(peaks, genome=<span class="str">"hg38"</span>)
+<span class="comment"># 4) Differential m6A: METTL3 KD vs WT</span>
+diff &lt;- exomePeak2(merip_ip_bams, merip_input_bams,
+                  treated_ip_bams, treated_input_bams,
+                  gff = <span class="str">"gencode.gff3"</span>, genome=<span class="str">"hg38"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># SLAM-seq: metabolic labeling 量測 mRNA 半衰期</span>
+<span class="comment"># 4sU 摻入 nascent RNA → 烷化 → C→T 突變</span>
+<span class="kw">import</span> slamdunk
+<span class="comment"># 1) 對齊 + 突變呼叫</span>
+<span class="comment"># slamdunk map -r genome.fa -b 3utr.bed sample.fastq</span>
+<span class="comment"># slamdunk count -s snp.vcf -b 3utr.bed -o counts/</span>
+
+<span class="comment"># 2) 半衰期計算</span>
+<span class="kw">import</span> pandas <span class="kw">as</span> pd; <span class="kw">import</span> numpy <span class="kw">as</span> np
+counts = pd.read_csv(<span class="str">"slam_counts.tsv"</span>, sep=<span class="str">"\t"</span>)
+<span class="comment"># 新 mRNA fraction (TCfraction) 隨時間衰減：N(t)/N0 = exp(-kdeg t)</span>
+<span class="comment"># t1/2 = ln2 / kdeg</span>
+
+<span class="comment"># m6A 對 t1/2 的影響：</span>
+<span class="comment"># METTL3 KD 通常使 m6A-target 半衰期延長 2-5×</span>
+
+<span class="comment"># m6Anet: Nanopore direct RNA m6A 偵測</span>
+<span class="kw">from</span> m6anet <span class="kw">import</span> inference
+<span class="comment"># m6anet dataprep --eventalign nanopolish_output --out_dir prep/</span>
+<span class="comment"># m6anet inference --input_dir prep/ --out_dir results/</span>
+<span class="comment"># 輸出 per-site m6A probability (single-molecule resolution!)</span></pre></div>
+  <div class="code-tab-content" data-tab="nano"><pre><span class="comment"># Nanopore direct RNA sequencing for m6A + isoforms</span>
+
+<span class="comment"># 1) ONT MinION/PromethION 直接定序 RNA (no cDNA, no PCR)</span>
+guppy_basecaller -i fast5_dir -s basecalls --kit SQK-RNA002 \
+  --flowcell FLO-MIN106 -x cuda:0
+
+<span class="comment"># 2) 對齊到 transcriptome (minimap2 -ax splice -uf -k14)</span>
+minimap2 -ax splice -uf -k14 transcripts.fa reads.fq | samtools view -bh &gt; aln.bam
+
+<span class="comment"># 3) m6A 偵測 (Modkit / m6Anet / Dorado-rna-m6A)</span>
+dorado basecaller rna004_130bps_sup@v3.0.1,m6A_DRACH \
+  fast5/ --reference transcripts.fa &gt; modified.bam
+
+<span class="comment"># 4) Modification frequency table</span>
+modkit pileup modified.bam m6a.bedmethyl --motif DRACH 0
+
+<span class="comment"># 5) Isoform 量化 (long reads 可一次跨整條 transcript)</span>
+flair quantify -r reads.fq -i transcripts.fa -o flair_out
+
+<span class="comment"># 同一 run 同時得到 m6A + alternative splicing + poly(A) tail length</span>
+nanopolish polya -g genome.fa -b aln.bam -r reads.fq &gt; polya.tsv</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. NMD 的「50-55 nt 規則」是指：</p>
+<p data-lang="en">1. The NMD "50-55 nt rule" refers to:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. mRNA 短於 50-55 nt 才會降解</span><span data-lang="en">A. mRNAs shorter than 50-55 nt are degraded</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. stop codon 後方仍存在 EJC（距離下個 exon-exon junction ≥ 50-55 nt）即觸發 NMD</span><span data-lang="en">B. NMD triggers if an EJC remains ≥ 50-55 nt downstream of the stop codon</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. polyA tail 短於 50-55 nt 觸發</span><span data-lang="en">C. PolyA tail &lt; 50-55 nt triggers NMD</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 5′ UTR 須長於 50-55 nt</span><span data-lang="en">D. 5′ UTR must exceed 50-55 nt</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：EJC 於剪接後留在 exon-exon junction 上游 ~20 nt；ribosome 通過時會清除它。若 PTC 後方仍有 EJC，視為「異常」並觸發 NMD。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: EJCs deposit ~20 nt upstream of exon-exon junctions; the ribosome strips them off. A retained EJC downstream of a stop codon flags an aberrant mRNA, triggering NMD.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. mRNA 疫苗為何使用 N1-methylpseudouridine (m1ψ) 取代 U？</p>
+<p data-lang="en">2. Why do mRNA vaccines replace U with N1-methylpseudouridine (m1ψ)?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 減少 cost</span><span data-lang="en">A. Reduce cost</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 加快轉錄</span><span data-lang="en">B. Speed up transcription</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 減少 TLR3/7/8 活化（innate immune evasion）並提升轉譯效率</span><span data-lang="en">C. Reduce TLR3/7/8 activation (innate immune evasion) and boost translation efficiency</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 增加 mRNA 抗原性</span><span data-lang="en">D. Increase mRNA antigenicity</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：m1ψ 避免 dsRNA-like TLR 訊號被觸發，避免 IFN-I 強反應，並使 ribosome 滑動更平順——這是 Karikó &amp; Weissman 2023 諾貝爾獎核心發現。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: m1ψ evades dsRNA-like TLR signaling and IFN-I responses, plus smooths ribosome elongation — Karikó &amp; Weissman 2023 Nobel discovery.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Nanopore direct RNA-seq 能在單分子尺度同時得到 m6A 位點、alternative splicing 與 poly(A) tail 長度。</p>
+<p data-lang="en">3. (T/F) Nanopore direct RNA-seq can simultaneously detect m6A sites, alternative splicing, and poly(A) tail length at the single-molecule level.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：因為定序 native RNA、long read，可在同一條 read 上偵測修飾（電流偏移）、isoform 結構與 polyA 長度——這是 short-read 不可能做到的。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Long-read sequencing of native RNA captures modifications (current deviation), isoform structure, and polyA length on the same read — impossible with short reads.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="transcription-regulation.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 6 · 轉錄調控當代圖像" data-en="Ch 6 · Modern View of Transcription Regulation">Ch 6 · 轉錄調控當代圖像</span></a>
+<a href="translation-proteostasis.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 8 · 轉譯調控與蛋白穩態" data-en="Ch 8 · Translation Regulation &amp;amp; Proteostasis">Ch 8 · 轉譯調控與蛋白穩態</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

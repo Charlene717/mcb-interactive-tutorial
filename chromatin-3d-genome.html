@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 5: 染色質與 3D 基因組 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html" class="active">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 5 / 20 · BLOCK B</div>
+<h1 data-zh="染色質與 3D 基因組" data-en="Chromatin &amp; the 3D Genome">染色質與 3D 基因組</h1>
+<p class="subtitle" data-lang="zh">從 147 bp 核小體到 megabase TAD——histone code、cohesin loop extrusion 與 A/B compartments 如何在三個維度組織基因表達。</p>
+<p class="subtitle" data-lang="en">From 147 bp nucleosome to megabase TAD — how the histone code, cohesin loop extrusion, and A/B compartments organize gene expression in three dimensions.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="3D 基因組的層級組織" data-en="Hierarchical Organization of the 3D Genome">3D 基因組的層級</h2>
+<div data-lang="zh">
+<p>每個人類細胞核（直徑 ~10 µm）內塞著 2 公尺的 DNA，這要求<strong>多尺度組織</strong>：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>核小體 (10 nm)</strong>：147 bp DNA 纏繞 H2A-H2B-H3-H4 八聚體 1.65 圈</li>
+<li><strong>染色質纖維 (30 nm)</strong>：傳統「珠鏈」模型，但活細胞中存在性受質疑——可能更接近液態高分子刷</li>
+<li><strong>染色質環 (50–500 kb)</strong>：cohesin loop extrusion，被 CTCF 邊界錨定</li>
+<li><strong>TAD (Topologically Associating Domain, ~1 Mb)</strong>：高頻接觸的功能域</li>
+<li><strong>A/B compartments (~5 Mb)</strong>：A=活躍/開放、B=異染色質/封閉</li>
+<li><strong>染色體領地 (chromosome territory)</strong>：每條染色體在核內占據相對固定區域</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Each human nucleus (~10 µm diameter) packs 2 metres of DNA — requiring <strong>multiscale organization</strong>:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Nucleosome (10 nm)</strong>: 147 bp DNA wrapping the H2A-H2B-H3-H4 octamer 1.65 times</li>
+<li><strong>30 nm fibre</strong>: classical "beads-on-string" model — existence in live cells contested; likely closer to a liquid polymer brush</li>
+<li><strong>Chromatin loops (50–500 kb)</strong>: cohesin loop extrusion, anchored by CTCF boundaries</li>
+<li><strong>TAD (~1 Mb)</strong>: topologically associating domain — functional contact unit</li>
+<li><strong>A/B compartments (~5 Mb)</strong>: A=active/open, B=heterochromatin/closed</li>
+<li><strong>Chromosome territories</strong>: each chromosome occupies a relatively fixed region</li>
+</ul>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>當代轉折：</strong>2017 年 Ou et al. 的 ChromEMT 顯示活細胞中染色質不形成固定 30 nm 纖維；2023 後共識是染色質為<strong>動態、不規則折疊的高分子</strong>，其組織由 active forces (loop extrusion, transcription, condensate formation) 持續維持。</span>
+<span data-lang="en"><strong>Modern shift:</strong> 2017 ChromEMT (Ou et al.) showed no fixed 30 nm fibre in live cells. The 2023+ consensus: chromatin is a <strong>dynamic, irregularly folded polymer</strong>, organized by active forces (loop extrusion, transcription, condensates).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Histone Code" data-en="HISTONE CODE">組蛋白密碼</div>
+<h2 data-zh="一、組蛋白修飾與變異體" data-en="I. Histone Modifications &amp; Variants">一、組蛋白密碼</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="修飾" data-en="Modification">修飾</th><th data-zh="寫入酵素" data-en="Writer">寫入</th><th data-zh="位置" data-en="Location">位置</th><th data-zh="功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td>H3K4me3</td><td>MLL/KMT2A-D, SETD1A/B</td><td data-zh="活躍 promoter" data-en="Active promoter">活躍 promoter</td><td data-zh="轉錄起始；TAF3 招募 TFIID" data-en="Transcription initiation; TAF3 recruits TFIID">招募 TFIID</td></tr>
+<tr><td>H3K27ac</td><td>p300/CBP</td><td>Active enhancer</td><td data-zh="enhancer 活化標記；BRD4 結合" data-en="Enhancer activation; BRD4 binding">BRD4 結合</td></tr>
+<tr><td>H3K27me3</td><td data-zh="PRC2 (EZH2)" data-en="PRC2 (EZH2)">PRC2 (EZH2)</td><td data-zh="Polycomb 沉默" data-en="Polycomb-silenced">Polycomb 沉默</td><td data-zh="發育基因暫時抑制；可逆" data-en="Developmental gene repression; reversible">發育沉默</td></tr>
+<tr><td>H3K9me3</td><td>SUV39H1/2, SETDB1</td><td data-zh="持久異染色質" data-en="Constitutive heterochromatin">持久異染色質</td><td data-zh="HP1 招募；端粒、著絲粒" data-en="HP1 recruitment; telomere, centromere">HP1 招募</td></tr>
+<tr><td>H3K36me3</td><td>SETD2</td><td data-zh="基因體 (gene body)" data-en="Gene body">基因體</td><td data-zh="剪接精度；抑制 cryptic 起始" data-en="Splicing fidelity; suppress cryptic initiation">剪接精度</td></tr>
+<tr><td>H3K9ac / H4K16ac</td><td>GCN5, MOF</td><td data-zh="活化染色質" data-en="Active chromatin">活化</td><td data-zh="鬆開核小體接觸" data-en="Disrupt nucleosome contacts">鬆開染色質</td></tr>
+<tr><td>H2BK120ub</td><td>RNF20/40 (Bre1)</td><td data-zh="活躍基因體" data-en="Active gene body">活躍基因</td><td data-zh="促進 H3K4/K79 甲基化、轉錄延伸" data-en="Promotes H3K4/K79 me; elongation">轉錄延伸</td></tr>
+</tbody>
+</table>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🧬</div><h4>H2A.Z</h4>
+<div data-lang="zh"><p>取代 H2A 於 +1 nucleosome；轉錄起始位點附近，便於 Pol II 進入。SWR1 沉積。</p></div>
+<div data-lang="en"><p>Replaces H2A at +1 nucleosome near TSS; facilitates Pol II entry. Deposited by SWR1.</p></div></div>
+<div class="card"><div class="card-icon">🔄</div><h4>H3.3</h4>
+<div data-lang="zh"><p>不依賴 DNA 複製的變異體；ATRX-DAXX 沉積於異染色質，HIRA 沉積於活躍區。K27M/K36M 為兒童腦瘤致癌驅動。</p></div>
+<div data-lang="en"><p>Replication-independent variant; ATRX-DAXX → heterochromatin, HIRA → active regions. K27M/K36M are oncohistones in pediatric brain tumors.</p></div></div>
+<div class="card"><div class="card-icon">🛡️</div><h4>macroH2A</h4>
+<div data-lang="zh"><p>含 macrodomain；標記去活化 X 染色體 (Xi) 與部分異染色質。腫瘤抑制功能。</p></div>
+<div data-lang="en"><p>Contains macrodomain; marks inactive X (Xi) and some heterochromatin. Tumor-suppressive functions.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="重塑酵素" data-en="REMODELERS">染色質重塑</div>
+<h2 data-zh="二、ATP-依賴重塑酵素四家族" data-en="II. Four Families of ATP-Dependent Remodelers">二、染色質重塑酵素</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="家族" data-en="Family">家族</th><th data-zh="代表" data-en="Examples">代表</th><th data-zh="主要功能" data-en="Function">功能</th><th data-zh="臨床" data-en="Clinical">臨床</th></tr></thead>
+<tbody>
+<tr><td>SWI/SNF (BAF)</td><td>BRG1, BRM, ARID1A, SMARCB1</td><td data-zh="逐核小體滑動或彈出；開放染色質" data-en="Slide or eject nucleosomes; open chromatin">開放染色質</td><td data-zh="~20% 癌症突變" data-en="~20% cancer mutations">~20% 癌症</td></tr>
+<tr><td>ISWI</td><td>SNF2H, ACF1, CHRAC</td><td data-zh="等間距核小體排列 (組裝/成熟)" data-en="Evenly space nucleosomes">核小體排列</td><td data-zh="細胞分化" data-en="Differentiation">分化</td></tr>
+<tr><td>CHD</td><td>CHD1-9, NuRD (MBD3+HDAC1/2)</td><td data-zh="核小體滑動 + 去乙醯化 (NuRD)" data-en="Sliding + deacetylation (NuRD)">滑動 + HDAC</td><td data-zh="CHARGE syndrome; ASD" data-en="CHARGE syndrome; ASD">CHD7 突變</td></tr>
+<tr><td>INO80 / SWR1</td><td>INO80, SRCAP (=SWR1)</td><td data-zh="替換組蛋白變異體 (H2A↔H2A.Z)" data-en="Exchange histone variants (H2A↔H2A.Z)">變異體交換</td><td data-zh="DNA 修復；轉錄起始" data-en="DNA repair; transcription initiation">DDR</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>SMARCB1 與 ARID1A：</strong>SMARCB1 缺失驅動 rhabdoid tumor (近 100% 病例)；ARID1A 在卵巢透明細胞癌、子宮內膜癌、胃癌中突變率高達 30-50%。這使 BAF complex 成為 cancer 藥物開發的熱點 (EZH2 inhibitor tazemetostat 已 FDA 核准用於 SMARCB1-deficient sarcoma)。</span>
+<span data-lang="en"><strong>SMARCB1 &amp; ARID1A:</strong> SMARCB1 loss drives rhabdoid tumor (~100%); ARID1A is mutated in 30-50% of ovarian clear-cell, endometrial, and gastric cancers. The BAF complex is a hot drug target — FDA-approved EZH2 inhibitor tazemetostat for SMARCB1-deficient sarcoma.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Loop Extrusion" data-en="LOOP EXTRUSION">環擠出</div>
+<h2 data-zh="三、Cohesin Loop Extrusion 與 TAD" data-en="III. Cohesin Loop Extrusion &amp; TADs">三、Cohesin Loop Extrusion</h2>
+<div data-lang="zh"><p>2017-2019 的單分子實驗（Davidson, Kim et al.）直接證明 <strong>cohesin 是 ATP-依賴的 DNA-motor</strong>，能將 DNA 擠成擴大的環。模型如下：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>NIPBL-MAU2</strong> 將 cohesin (SMC1-SMC3-RAD21-STAG1/2) 裝載到 DNA</li>
+<li>Cohesin 以 ~0.5-2 kb/s 速率擠出 loop（雙向）</li>
+<li>遇到「<strong>收斂 (convergent)</strong>」方向的 CTCF 時被卡住（CTCF N-term 與 cohesin SA 結合）</li>
+<li><strong>WAPL</strong> 與 PDS5 從 DNA 上釋放 cohesin（負調控）</li>
+<li>結果：在 CTCF-CTCF 對之間形成 50-500 kb 的<strong>染色質環</strong>，定義 TAD 邊界</li>
+</ol>
+</div>
+<div data-lang="en"><p>2017-2019 single-molecule experiments (Davidson, Kim et al.) directly demonstrated <strong>cohesin is an ATP-dependent DNA motor</strong> extruding loops. Model:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>NIPBL-MAU2</strong> loads cohesin (SMC1-SMC3-RAD21-STAG1/2) onto DNA</li>
+<li>Cohesin extrudes loops bidirectionally at ~0.5-2 kb/s</li>
+<li>Stops at <strong>convergent</strong> CTCF sites (CTCF N-term binds cohesin SA)</li>
+<li><strong>WAPL</strong> + PDS5 unload cohesin (negative regulator)</li>
+<li>Result: 50-500 kb chromatin loops between CTCF-CTCF pairs, defining TAD boundaries</li>
+</ol>
+</div>
+<div class="callout danger"><span class="callout-icon">⛔</span><div>
+<span data-lang="zh"><strong>TAD 邊界破壞的疾病後果：</strong>CTCF 結合位點的單核苷酸變異或<strong>結構變異 (SV)</strong> 可能將遠端 enhancer 「劫持 (hijack)」到不適當的基因，例如 EPHA4 locus 的 SV 重新分配 enhancer，導致肢體畸形 (Lupiáñez et al. 2015)。腦瘤中 IDH 突變 → 5hmC ↑ → CTCF 結合丟失 → PDGFRA enhancer hijack。</span>
+<span data-lang="en"><strong>Disease consequences of TAD boundary disruption:</strong> SNVs or structural variants at CTCF sites can "<strong>hijack</strong>" distal enhancers to inappropriate genes — e.g., EPHA4 locus SVs cause limb malformations (Lupiáñez et al. 2015). In glioma, IDH-mutant 5hmC↑ → CTCF binding loss → PDGFRA enhancer hijacking.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、Hi-C 與 ChIP-seq 工作流" data-en="IV. Hi-C and ChIP-seq Workflows">四、3D 基因組分析</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · diffHic</button>
+    <button class="code-tab-btn" data-tab="py">Python · cooltools</button>
+    <button class="code-tab-btn" data-tab="cli">CLI · Hi-C pipeline</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># R: chromVAR + ATAC-seq motif accessibility</span>
+<span class="kw">library</span>(chromVAR); <span class="kw">library</span>(motifmatchr); <span class="kw">library</span>(SummarizedExperiment)
+<span class="comment"># 1) 讀 ATAC peak counts</span>
+counts &lt;- readRDS(<span class="str">"atac_counts.rds"</span>)
+counts &lt;- addGCBias(counts, genome=BSgenome.Hsapiens.UCSC.hg38)
+<span class="comment"># 2) 比對 JASPAR motif</span>
+motifs &lt;- getJasparMotifs(species=<span class="str">"Homo sapiens"</span>)
+motif_ix &lt;- matchMotifs(motifs, counts, genome=<span class="str">"hg38"</span>)
+<span class="comment"># 3) 計算 motif deviation Z-score</span>
+dev &lt;- computeDeviations(object=counts, annotations=motif_ix)
+variability &lt;- computeVariability(dev)
+plotVariability(variability)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># cooltools: A/B compartment, TAD insulation, loop calling</span>
+<span class="kw">import</span> cooler, cooltools
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+clr = cooler.Cooler(<span class="str">"sample.mcool::/resolutions/10000"</span>)
+
+<span class="comment"># 1) A/B compartments via eigendecomposition</span>
+ev = cooltools.eigs_cis(clr, phasing_track=gc_content_track)
+<span class="comment"># E1 &gt; 0 → A compartment; &lt; 0 → B</span>
+
+<span class="comment"># 2) TAD insulation score (10 kb resolution, 200 kb window)</span>
+ins = cooltools.insulation(clr, window_bp=[200_000])
+
+<span class="comment"># 3) Loop calling (HiCCUPS-like)</span>
+dots = cooltools.dots(clr,
+        expected=cooltools.expected_cis(clr),
+        max_loci_separation=10_000_000)
+
+<span class="comment"># 4) Plot Pile-up around CTCF loops</span>
+<span class="kw">from</span> coolpup <span class="kw">import</span> pileup
+pup = pileup(clr, ctcf_pairs_bed, expected=expected_cis)</pre></div>
+  <div class="code-tab-content" data-tab="cli"><pre><span class="comment"># Hi-C / Micro-C pipeline (Open2C: distiller-nf or hicexplorer)</span>
+
+<span class="comment"># 1) 雙端對齊 (bwa mem -SP5M)</span>
+bwa mem -SP5M -t 16 hg38.fa R1.fq.gz R2.fq.gz | \
+  pairtools parse --chroms-path hg38.chrom.sizes \
+                  --min-mapq 30 --walks-policy 5unique &gt; pairs.txt
+
+<span class="comment"># 2) 排序與去重</span>
+pairtools sort --nproc 8 pairs.txt | \
+  pairtools dedup --output-stats stats.txt -o dedup.pairs.gz
+
+<span class="comment"># 3) 建立 .cool 多解析度矩陣</span>
+cooler cload pairs --assembly hg38 -c1 2 -p1 3 -c2 4 -p2 5 \
+       hg38.chrom.sizes:1000 dedup.pairs.gz sample.1kb.cool
+cooler zoomify --balance -p 16 sample.1kb.cool
+
+<span class="comment"># 4) Micro-C：用 MNase 取代 HindIII，獲得 ~200 bp 解析度（可解析單核小體!）</span>
+<span class="comment">#    Hsieh et al. 2020 揭示 ~50 kb 級的「精細 loops」</span></pre></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="特殊案例" data-en="SPECIAL CASES">X 失活與 Polycomb</div>
+<h2 data-zh="五、Xist 與 X-chromosome 失活" data-en="V. Xist and X-Chromosome Inactivation">五、Xist / Polycomb</h2>
+<div data-lang="zh">
+<p><strong>Xist lncRNA</strong>（約 17 kb）由失活 X 染色體單獨表達，是已知最大的順式 (cis) 作用 ncRNA。它從 Xic locus 起始，「<strong>塗布 (coat)</strong>」整條 X，依序招募：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>SPEN</strong>（透過 A-repeat）→ HDAC3 → 去乙醯化</li>
+<li><strong>hnRNPK</strong>（透過 B/C-repeat）→ PRC1.6 → H2AK119ub</li>
+<li><strong>PRC2</strong> 被 H2AK119ub 招募 → H3K27me3 廣泛沉積</li>
+<li><strong>SMCHD1</strong>、macroH2A 進一步穩定異染色質</li>
+<li>形成失活 X (Xi) — 整條染色體濃縮成 Barr body</li>
+</ol>
+<p>2023-2024 揭示 Xist 形成<strong>多個 LLPS 域</strong>，每個域內維持局部沉默；這是「凝聚物機制」在染色質沉默的關鍵案例。</p>
+</div>
+<div data-lang="en">
+<p><strong>Xist lncRNA</strong> (~17 kb) is exclusively expressed from the inactive X — the largest known cis-acting ncRNA. From the Xic, it <strong>coats</strong> the entire X, sequentially recruiting:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>SPEN</strong> (via A-repeat) → HDAC3 → deacetylation</li>
+<li><strong>hnRNPK</strong> (via B/C-repeat) → PRC1.6 → H2AK119ub</li>
+<li><strong>PRC2</strong> recruited by H2AK119ub → broad H3K27me3</li>
+<li><strong>SMCHD1</strong>, macroH2A stabilize heterochromatin</li>
+<li>Inactive X (Xi) condenses into the Barr body</li>
+</ol>
+<p>2023-2024 work shows Xist forms <strong>multiple LLPS domains</strong>, each maintaining local silencing — a key example of condensate-mediated chromatin silencing.</p>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. 在 CTCF-CTCF pair 之間 cohesin loop extrusion 停止，最關鍵的 CTCF 方向性需求為何？</p>
+<p data-lang="en">1. Cohesin loop extrusion stops between CTCF pairs. What CTCF orientation is required?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 同向 (tandem) 排列</span><span data-lang="en">A. Tandem orientation</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 收斂 (convergent) 方向</span><span data-lang="en">B. Convergent orientation</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 發散 (divergent) 方向</span><span data-lang="en">C. Divergent orientation</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 方向不重要</span><span data-lang="en">D. Orientation irrelevant</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：cohesin 只在收斂方向的 CTCF 對之間被停住——CTCF N-term 必須面向被擠出的 loop 才能與 cohesin SA 結合。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Cohesin halts only at convergent CTCF pairs — the CTCF N-term must face the extruded loop to engage cohesin SA.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. 兒童 DIPG 腦瘤的 H3.3 K27M 突變是經典「<strong>致癌組蛋白 (oncohistone)</strong>」，其機制為何？</p>
+<p data-lang="en">2. The H3.3 K27M mutation in pediatric DIPG is a classic oncohistone. Mechanism?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 增加 H3K27 甲基化，沉默 tumor suppressor</span><span data-lang="en">A. Increases H3K27 methylation, silencing tumor suppressors</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 釋放 H3K4me3，過度活化致癌基因</span><span data-lang="en">B. Releases H3K4me3 to overactivate oncogenes</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. K27M 殘基黏住 EZH2 活性中心，全域抑制 H3K27me3，解除 Polycomb 沉默</span><span data-lang="en">C. K27M lodges in EZH2 active site, globally inhibiting H3K27me3 and lifting Polycomb silencing</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. K27M 加速 H3.3 降解</span><span data-lang="en">D. K27M accelerates H3.3 degradation</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：K27M 像「酵素抑制劑」一樣抓住 EZH2，導致全域 H3K27me3 喪失。EZH2 抑制劑反而能挽救這類腫瘤的部分表型。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: K27M acts like an enzyme inhibitor trapping EZH2, causing global H3K27me3 loss. EZH2 inhibitors paradoxically rescue some phenotypes.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Xist lncRNA 透過招募 PRC2 進行 H3K27me3 廣泛沉積，並形成 LLPS 凝聚物來局部維持失活狀態。</p>
+<p data-lang="en">3. (T/F) Xist lncRNA recruits PRC2 for broad H3K27me3 deposition and forms LLPS condensates to maintain local silencing.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：Xist 透過 hnRNPK → PRC1.6 → H2AK119ub → PRC2 → H3K27me3 級聯實現沉默，並組裝多個 LLPS 域維持區域沉默。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Xist drives silencing via hnRNPK → PRC1.6 → H2AK119ub → PRC2 → H3K27me3, while assembling multiple LLPS domains.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="biomolecular-condensates.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 4 · 生物分子凝聚物與液-液相分離" data-en="Ch 4 · Biomolecular Condensates &amp;amp; LLPS">Ch 4 · 生物分子凝聚物與液-液相分離</span></a>
+<a href="transcription-regulation.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 6 · 轉錄調控當代圖像" data-en="Ch 6 · Modern View of Transcription Regulation">Ch 6 · 轉錄調控當代圖像</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

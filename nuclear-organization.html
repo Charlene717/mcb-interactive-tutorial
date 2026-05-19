@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 13: 核組織與核孔 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html" class="active">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 13 / 20 · BLOCK D</div>
+<h1 data-zh="核組織、核孔與核纖層" data-en="Nuclear Organization, NPC &amp; Lamina">核組織與核孔</h1>
+<p class="subtitle" data-lang="zh">~30 nucleoporins 組成的城門、Ran-GTP 動力、lamin 網狀核纖層——核如何同時封閉又敞開？</p>
+<p class="subtitle" data-lang="en">~30 nucleoporins forming the gate, Ran-GTP energetics, lamin meshwork — how the nucleus stays both closed and open at once.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="核 = 雙層膜 + NPC + 核纖層 + 多個無膜次核體" data-en="Nucleus = Double Membrane + NPC + Lamina + Membraneless Bodies">核的四層架構</h2>
+<div data-lang="zh">
+<p>核膜由<strong>外核膜 (ONM)</strong>與<strong>內核膜 (INM)</strong>組成。ONM 連續於粗糙 ER，是膜蛋白合成與脂質供應通路；INM 富含 lamin 接觸蛋白 (LBR, LAP2β, emerin, MAN1)；兩膜在 NPC 處融合，核周間隙 ~50 nm。</p>
+<p>核內部呈現高度<strong>非隨機組織</strong>：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>染色質區域 (Chromosome territories)</strong>：每條染色體佔據獨立空間 (Cremer)；基因密集染色體 (19, 17) 靠核中心；基因稀疏 (18, X-inactive) 靠核纖層</li>
+  <li><strong>LADs (Lamina-Associated Domains)</strong>：~1,300 LAD 平均 0.5 Mb，富含異染色質 (H3K9me2/3)，是 lamin B 與 PRR14 招募的目標</li>
+  <li><strong>核小體 (Nucleolus)</strong>：rRNA 轉錄/加工/組裝中心；FC + DFC + GC 三層結構</li>
+  <li><strong>其他無膜次核體</strong>：Cajal、PML、splicing speckle、paraspeckle、HLB (histone locus body)</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>The NE is a double membrane: <strong>ONM</strong> (continuous with rough ER, supplies lipid and TM proteins) and <strong>INM</strong> (enriched in lamin-binding proteins LBR, LAP2β, emerin, MAN1). The two fuse at NPCs; perinuclear space ~50 nm.</p>
+<p>The interior is highly <strong>non-random</strong>:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Chromosome territories</strong> (Cremer): each chromosome occupies a distinct domain; gene-dense (19, 17) sit centrally, gene-poor (18, inactive X) at the lamina</li>
+  <li><strong>LADs</strong>: ~1,300 domains, mean 0.5 Mb, H3K9me2/3-rich heterochromatin, tethered by lamin B and PRR14</li>
+  <li><strong>Nucleolus</strong>: rRNA transcription/processing/assembly hub; FC + DFC + GC tri-layer</li>
+  <li><strong>Membraneless bodies</strong>: Cajal, PML, splicing speckles, paraspeckles, HLB</li>
+</ul>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="NPC" data-en="NPC">核孔複合體</div>
+<h2 data-zh="一、核孔複合體 (NPC)：~30 種 nucleoporin 的城門" data-en="I. NPC: A City Gate of ~30 Nucleoporins">一、NPC 結構與選擇性</h2>
+<div data-lang="zh">
+<p>NPC 是<strong>真核細胞最大的蛋白質複合體</strong>（~110 MDa, ~1,000 個 nucleoporins (Nups)，~30 種類型，8 重對稱）。2022 由 <strong>Beck / Hoelz / Schwartz</strong> 三組獨立發表的近原子解析度結構整合了 X-ray、CryoEM、CryoET、AlphaFold 預測，揭示完整架構：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Cytoplasmic ring (CR)</strong>：8 個 Y-shaped Nup107-160 複合體 + Nup358/RanBP2 細胞質絲</li>
+  <li><strong>Inner ring (IR)</strong>：Nup93、Nup205、Nup188 等，是 scaffold 主體</li>
+  <li><strong>Nuclear ring (NR)</strong>：Y-complex 鏡像 + Nup50, ELYS</li>
+  <li><strong>Nuclear basket</strong>：TPR、Nup153 構成籃狀向核質延伸</li>
+  <li><strong>FG-Nup 中央通道</strong>：~200 FG-rich IDR，形成<strong>選擇性凝聚相</strong>——疏水 FG 重複互動建立屏障，僅允許 importin/exportin 包裹的貨物穿越</li>
+</ul>
+<p><strong>2024 進展：</strong>Hoelz 解析 NPC 在 mitotic NE breakdown 時的解構順序——cyclin B-CDK1 磷酸化 Nup98 觸發解離，這也是癌細胞 chromatin 損傷敏感性的重要節點。</p>
+</div>
+<div data-lang="en">
+<p>The NPC is the <strong>largest eukaryotic protein complex</strong> (~110 MDa, ~1,000 Nups, ~30 types, 8-fold symmetric). The 2022 near-atomic structures from <strong>Beck / Hoelz / Schwartz</strong> integrated X-ray, CryoEM, CryoET, and AlphaFold, revealing:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Cytoplasmic ring (CR)</strong>: 8 Y-shaped Nup107-160 complexes + Nup358/RanBP2 fibrils</li>
+  <li><strong>Inner ring (IR)</strong>: Nup93, Nup205, Nup188 — the scaffold body</li>
+  <li><strong>Nuclear ring (NR)</strong>: mirror Y-complex + Nup50, ELYS</li>
+  <li><strong>Nuclear basket</strong>: TPR, Nup153 extending nucleoplasm-side</li>
+  <li><strong>FG-Nup central channel</strong>: ~200 FG-rich IDRs forming a <strong>selective phase</strong> — hydrophobic FG interactions create a barrier permeable only to importin/exportin-cargoed traffic</li>
+</ul>
+<p><strong>2024:</strong> Hoelz lab resolved NPC disassembly during mitotic NE breakdown — cyclin B-CDK1 phosphorylates Nup98, triggering dissolution. Key node for cancer chromatin-damage sensitivity.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>NPC 與 LLPS：</strong>FG-Nup IDR 是經典 LLPS 系統——in vitro 重構 hydrogel 可選擇性招募 importin。Frey/Görlich 2007 開創 selective phase model；2023 Lemke 實驗室證實 FG-Nup condensates 在活細胞中亦呈相分離行為。</span>
+<span data-lang="en"><strong>NPC and LLPS:</strong> FG-Nup IDRs are a classic LLPS system — reconstituted hydrogels in vitro selectively recruit importins (Frey/Görlich 2007 selective-phase model). Lemke (2023) confirmed FG-Nup condensates phase-separate in live cells.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="運輸" data-en="TRANSPORT">Ran 系統</div>
+<h2 data-zh="二、Importin / Exportin · Ran-GTP 不對稱" data-en="II. Importin / Exportin · Ran-GTP Asymmetry">二、Ran 系統</h2>
+<div data-lang="zh"><p><strong>Ran GTPase</strong> 的核質不對稱是核質運輸的能量基礎：核內 <strong>Ran-GTP</strong> 高（因 RCC1/GEF 駐於染色質）；質內 <strong>Ran-GDP</strong> 高（因 RanGAP1 駐於細胞質側 NPC fibrils）。</p>
+<p><strong>Import 循環：</strong>① cargo-NLS 與 importin-α 結合，importin-α 與 importin-β 結合 → 進入核 → ② Ran-GTP 結合 importin-β 使其釋放 cargo → ③ importin-β/Ran-GTP 出核 → ④ 細胞質側 RanGAP 水解 GTP → importin-β 釋放、重新使用。</p>
+<p><strong>Export 循環：</strong>cargo-NES 與 <strong>CRM1/XPO1</strong> 在 Ran-GTP 存在下形成複合體 → 出核 → 質內 RanGAP 水解 GTP → 釋放 cargo。<strong>Selinexor</strong> (KPT-330) 為 XPO1 抑制劑，2019 FDA 核准用於 multiple myeloma；機制為阻斷腫瘤抑制因子 (p53, FOXO, IκB) 的核外運輸——讓它們留在核內發揮抑制作用。</p></div>
+<div data-lang="en"><p><strong>Ran GTPase</strong> asymmetry powers transport: nuclear <strong>Ran-GTP</strong> is high (RCC1/GEF on chromatin); cytoplasmic <strong>Ran-GDP</strong> is high (RanGAP1 on cytoplasmic NPC fibrils).</p>
+<p><strong>Import cycle:</strong> (1) NLS-cargo binds importin-α; importin-α binds importin-β → enter nucleus → (2) Ran-GTP binds importin-β, releasing cargo → (3) importin-β/Ran-GTP exits → (4) cytoplasmic RanGAP hydrolyzes GTP → importin-β recycles.</p>
+<p><strong>Export cycle:</strong> NES-cargo binds <strong>CRM1/XPO1</strong> with Ran-GTP → exits → cytoplasmic RanGAP → cargo released. <strong>Selinexor</strong> (KPT-330) — XPO1 inhibitor, FDA-approved 2019 for multiple myeloma — blocks nuclear export of tumor suppressors (p53, FOXO, IκB), retaining them where they can suppress oncogenesis.</p></div>
+<div class="decision-tree">
+<h4 data-zh="🌳 我的蛋白能否進核？" data-en="🌳 Can my protein enter the nucleus?">🌳 進核判定</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">分子量 &lt; ~40 kDa 且 no LDS？→ 可被動擴散</span><span data-lang="en">Mol wt &lt; ~40 kDa with no LDS? → Passive diffusion</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">含 classical NLS (PKKKRKV-like) → importin-α/β 主動運輸</span><span data-lang="en">Contains classical NLS (PKKKRKV-like) → importin-α/β active transport</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">含 PY-NLS (RX(2-5)PY) → 經 importin-β2/transportin (e.g., hnRNP A1, FUS)</span><span data-lang="en">PY-NLS (RX(2-5)PY) → importin-β2/transportin (e.g., hnRNP A1, FUS)</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">含 LXX(L/F/I)XXL 樣 NES → CRM1/XPO1 出核</span><span data-lang="en">LXX(L/F/I)XXL-like NES → CRM1/XPO1 export</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">RNA 出核：mRNA → TREX-NXF1/NXT1；tRNA → XPO-t；ribosome → CRM1+Nmd3</span><span data-lang="en">RNA export: mRNA → TREX-NXF1/NXT1; tRNA → XPO-t; ribosome → CRM1+Nmd3</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Lamina" data-en="LAMINA">核纖層</div>
+<h2 data-zh="三、核纖層、LADs 與層病" data-en="III. Lamina, LADs &amp; Laminopathies">三、核纖層與 LADs</h2>
+<div data-lang="zh">
+<p><strong>核纖層 (nuclear lamina)</strong> 是 INM 內側 ~10-20 nm 的 type-V 中間絲網狀層，由 <strong>lamin A/C (LMNA)</strong> 與 <strong>lamin B1/B2 (LMNB1/2)</strong> 組成。A/B 形成獨立但交織的網狀結構——A 較動態、B 較靜態。Lamin A 前驅物 prelamin A 經 farnesylation → 切除 → 成熟 lamin A；progerin 缺少最後切割步驟，殘留 farnesyl 卡在膜上。</p>
+<p><strong>LADs：</strong>~30-40% 基因組與 lamina 接觸，DamID 技術 (van Steensel) 是繪製 LADs 的金標準。LADs 富含 H3K9me2/me3 異染色質，PRR14 為連接器。Mitosis 時 LADs 重置；G1 早期重新建立 (~99% 維持，但仍有<strong>「LAD 漂移」</strong>變化基因表達)。</p>
+</div>
+<div data-lang="en">
+<p>The <strong>nuclear lamina</strong> is a ~10-20 nm type-V IF meshwork on the INM, built from <strong>lamin A/C (LMNA)</strong> and <strong>lamin B1/B2 (LMNB1/2)</strong>. A and B form independent but interwoven networks — A is dynamic, B is static. Prelamin A is farnesylated and cleaved to mature lamin A; progerin lacks the final cleavage step, leaving a farnesyl that traps it at the membrane.</p>
+<p><strong>LADs:</strong> ~30-40% of the genome contacts lamina; DamID (van Steensel) is the gold standard for mapping. LADs are H3K9me2/3-rich heterochromatin; PRR14 is a tether. LADs reset during mitosis and reestablish in early G1 (~99% maintained, with measurable <strong>"LAD drift"</strong> shifting expression).</p>
+</div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🧓</div><h4>HGPS (Progeria)</h4>
+<div data-lang="zh"><p>LMNA c.1824C&gt;T；progerin 殘 farnesyl 鎖膜，nucleus blebs。Lonafarnib (FTI) 2020 FDA 核准。</p></div>
+<div data-lang="en"><p>LMNA c.1824C&gt;T; farnesylated progerin traps to membrane, nuclear blebs. Lonafarnib (FTI) FDA-approved 2020.</p></div></div>
+<div class="card"><div class="card-icon">💔</div><h4>Emery-Dreifuss</h4>
+<div data-lang="zh"><p>LMNA 或 emerin 突變 → 心肌病 + 肌肉萎縮；機械敏感性增加（→ Ch10 LINC）。</p></div>
+<div data-lang="en"><p>LMNA or emerin mutations → cardiomyopathy + muscular dystrophy; increased mechanosensitivity (→ Ch10 LINC).</p></div></div>
+<div class="card"><div class="card-icon">🫀</div><h4>DCM (LMNA)</h4>
+<div data-lang="zh"><p>家族性擴張型心肌病；&gt; 450 LMNA 變異；ARRY-371797 (p38 inhibitor) 進入 III 期。</p></div>
+<div data-lang="en"><p>Familial dilated cardiomyopathy; &gt;450 LMNA variants; ARRY-371797 (p38 inhibitor) in phase III.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、DamID/LAD 分析 + NPC 結構視覺化" data-en="IV. DamID/LAD Analysis + NPC Structure Visualization">四、DamID 與結構</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · DamID-seq</button>
+    <button class="code-tab-btn" data-tab="py">Python · NLS scan</button>
+    <button class="code-tab-btn" data-tab="pml">ChimeraX · NPC</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># DamID-seq → LAD calling (damidseq_pipeline + R)</span>
+<span class="kw">library</span>(GenomicRanges); <span class="kw">library</span>(rtracklayer)
+<span class="comment"># 1) GATC fragment counts (Dam-only vs Dam-LaminB1)</span>
+ratio &lt;- import.bedGraph(<span class="str">"lmnB1_vs_dam.bedgraph"</span>)
+<span class="comment"># 2) HMM 二態分割: LAD vs interLAD</span>
+<span class="kw">library</span>(HMMt); <span class="kw">library</span>(LADetector)
+scores &lt;- score(ratio)
+hmm &lt;- BaumWelchT(scores, m=<span class="num">2</span>)
+LADs &lt;- ratio[hmm$state == <span class="num">2</span>]
+<span class="func">message</span>(<span class="str">"LAD coverage: "</span>,
+        <span class="func">round</span>(<span class="func">sum</span>(width(LADs))/<span class="num">3e9</span>*<span class="num">100</span>,<span class="num">1</span>), <span class="str">"%"</span>)  <span class="comment"># 預期 ~35%</span>
+<span class="comment"># 3) 重疊已知 H3K9me3 ChIP — 應 &gt; 70% overlap</span>
+H3K9me3 &lt;- import(<span class="str">"h3k9me3.bed"</span>)
+ovl &lt;- findOverlaps(LADs, H3K9me3)
+<span class="func">length</span>(<span class="func">unique</span>(queryHits(ovl)))/<span class="func">length</span>(LADs)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># NLSdb / NLStradamus — 蛋白序列掃描</span>
+<span class="kw">from</span> Bio <span class="kw">import</span> SeqIO
+<span class="kw">import</span> re
+<span class="comment"># Classical monopartite NLS pattern (Lange 2007)</span>
+mono = re.compile(<span class="str">r"K[KR].[KR]"</span>)
+<span class="comment"># Bipartite NLS pattern</span>
+bipart = re.compile(<span class="str">r"[KR]{2}.{10,12}[KR]{3,5}"</span>)
+<span class="comment"># PY-NLS (Lee 2006)</span>
+pynls = re.compile(<span class="str">r"[KR].{2,5}PY"</span>)
+
+<span class="kw">for</span> rec <span class="kw">in</span> SeqIO.parse(<span class="str">"proteins.fa"</span>, <span class="str">"fasta"</span>):
+    s = str(rec.seq)
+    hits = {
+        <span class="str">"mono"</span>: mono.findall(s),
+        <span class="str">"bipart"</span>: bipart.findall(s),
+        <span class="str">"py"</span>: pynls.findall(s),
+    }
+    <span class="kw">if</span> <span class="func">any</span>(hits.values()):
+        <span class="func">print</span>(rec.id, hits)
+<span class="comment"># 進階: 用 NLStradamus HMM (Nguyen Ba 2009) 提升 specificity</span></pre></div>
+  <div class="code-tab-content" data-tab="pml"><pre><span class="comment"># ChimeraX — 載入 2022 完整 NPC 結構 (Beck PDB 7R5J / 7R5K)</span>
+open 7R5K
+<span class="comment"># 顯示 8-fold symmetry</span>
+sym #1 c8 axis z
+<span class="comment"># 著色：cytoplasmic ring=金，inner ring=藍，nuclear ring=綠</span>
+color #1.1.A-Z gold
+color #1.2.A-Z slate
+color #1.3.A-Z forest
+<span class="comment"># 顯示 FG-Nup 區段 (從序列 annotation)</span>
+sel /A&amp;@CA&amp;name FG
+color sel coral
+<span class="comment"># 截切視圖看中央通道</span>
+clip on
+view orient +z</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. NPC 的選擇性通透屏障由哪類分子組成？</p>
+<p data-lang="en">1. The selective permeability barrier of the NPC is built from which class of molecules?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 摺疊好的核糖體蛋白</span><span data-lang="en">A. Folded ribosomal proteins</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. FG-repeat 內在無序區，形成 selective phase</span><span data-lang="en">B. FG-repeat IDRs forming a selective phase</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Phosphatidylinositol 脂質層</span><span data-lang="en">C. Phosphatidylinositol lipid layer</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. SUN-KASH 跨膜複合體</span><span data-lang="en">D. SUN-KASH transmembrane complex</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：FG-Nup IDR 互動形成 hydrogel 樣相分離，是選擇性屏障的物理本質。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: FG-Nup IDR interactions form a hydrogel-like phase — the physical basis of selectivity.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. Selinexor 為 XPO1 抑制劑，其抗癌機制最直接的解釋為何？</p>
+<p data-lang="en">2. Selinexor inhibits XPO1. What is the most direct anticancer mechanism?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 抑制 importin-β 進口</span><span data-lang="en">A. Inhibits importin-β import</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 干擾 Ran-GAP1</span><span data-lang="en">B. Disrupts Ran-GAP1</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 阻斷 p53 / FOXO 等腫瘤抑制因子的核外運輸，使其留核發揮抑制作用</span><span data-lang="en">C. Blocks nuclear export of p53/FOXO tumor suppressors, retaining them in nucleus</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 破壞核纖層完整性</span><span data-lang="en">D. Damages lamina integrity</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：許多腫瘤透過 XPO1 過表達將 p53/FOXO/IκB 外移；selinexor 強制其留核而活化 apoptosis 與抑癌轉錄。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: Many tumors overexpress XPO1 to export p53/FOXO/IκB; selinexor traps them in the nucleus, activating apoptosis and tumor-suppressor transcription.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）progerin 由 LMNA c.1824C&gt;T 隱性剪接位點產生，缺失 50 殘基且殘留 farnesyl 基團，使其卡在內核膜並導致 HGPS 早衰症。</p>
+<p data-lang="en">3. (T/F) Progerin arises from a cryptic splice site (LMNA c.1824C&gt;T), missing 50 residues and retaining a farnesyl group that anchors it at the INM, causing HGPS progeria.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：lonafarnib (FTI) 抑制 farnesylation，FDA 2020 核准延長 HGPS 患者生命。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Lonafarnib (FTI) blocks farnesylation; FDA-approved 2020, extending HGPS patient lifespan.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="cell-cycle-checkpoints.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 12 · 細胞週期與檢查點" data-en="Ch 12 · Cell Cycle &amp;amp; Checkpoints">Ch 12 · 細胞週期與檢查點</span></a>
+<a href="er-golgi-secretion.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 14 · ER-Golgi 與分泌途徑" data-en="Ch 14 · ER-Golgi &amp;amp; Secretory Pathway">Ch 14 · ER-Golgi 與分泌途徑</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

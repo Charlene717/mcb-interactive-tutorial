@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 4: 生物分子凝聚物 LLPS — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html" class="active">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 4 / 20 · BLOCK A</div>
+<h1 data-zh="生物分子凝聚物與液-液相分離" data-en="Biomolecular Condensates &amp; LLPS">生物分子凝聚物與 LLPS</h1>
+<p class="subtitle" data-lang="zh">無膜胞器的物理學——multivalent 弱交互作用如何驅動相分離、形成功能性凝聚物，並在神經退化中走向病態固化。</p>
+<p class="subtitle" data-lang="en">The physics of membraneless organelles — how multivalent weak interactions drive phase separation, form functional condensates, and undergo pathological hardening in neurodegeneration.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="無膜胞器的物理：LLPS 原理" data-en="The Physics of Membraneless Organelles: LLPS Principles">無膜胞器的物理</h2>
+<div data-lang="zh">
+<p>2009 年 Brangwynne 與 Hyman 觀察到秀麗線蟲 P granules 像液滴一樣<strong>融合、剪切、彈回球形</strong>，揭示了無膜胞器本質：<strong>液-液相分離 (Liquid-Liquid Phase Separation, LLPS)</strong>。從那時起，細胞內超過 30 種「凝聚物 (condensates)」被定義——皆為由多價弱交互作用驅動、與周圍細胞質保持動態平衡的液態次相 (sub-phase)。</p>
+<p>核心物理為 <strong>Flory-Huggins 理論</strong>：當蛋白濃度超過 saturation concentration (C<sub>sat</sub>)，且溫度低於 critical temperature (T<sub>crit</sub>)，系統會分裂為「dense phase (凝聚物內)」與「dilute phase (細胞質)」。LLPS 不只是「結晶 vs 溶液」的二元選擇，而是 phase diagram 上連續的相轉變。</p>
+</div>
+<div data-lang="en">
+<p>In 2009, Brangwynne &amp; Hyman observed C. elegans P granules <strong>fusing, shearing, and rebounding into spheres</strong> like liquid droplets — revealing the essence of membraneless organelles: <strong>Liquid-Liquid Phase Separation (LLPS)</strong>. Since then, 30+ cellular "condensates" have been defined — liquid sub-phases driven by multivalent weak interactions, in dynamic equilibrium with the surrounding cytoplasm.</p>
+<p>Core physics: <strong>Flory-Huggins theory</strong>. When protein concentration exceeds saturation concentration (C<sub>sat</sub>) and T &lt; T<sub>crit</sub>, the system separates into "dense phase" (inside condensate) and "dilute phase" (cytoplasm). LLPS is not binary crystal-vs-solution but a continuous phase transition on the phase diagram.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>驅動力 = multivalency：</strong>需要多個弱相互作用位點同時存在。經典模式為「<strong>stickers and spacers</strong>」——IDR 中的芳香殘基 (Y, F, W)、帶電殘基簇、SH3-PRM 重複、RNA-binding motifs 都可作為 sticker。</span>
+<span data-lang="en"><strong>Driving force = multivalency:</strong> Multiple weak interaction sites must coexist. Classic "stickers and spacers" model — aromatics (Y, F, W), charge patches, SH3-PRM repeats, RNA-binding motifs in IDRs act as stickers.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="生理凝聚物" data-en="PHYSIOLOGICAL CONDENSATES">生理凝聚物</div>
+<h2 data-zh="一、細胞內凝聚物地圖" data-en="I. Map of Cellular Condensates">一、細胞內凝聚物地圖</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="凝聚物" data-en="Condensate">凝聚物</th><th data-zh="位置" data-en="Location">位置</th><th data-zh="關鍵 scaffolds" data-en="Key scaffolds">關鍵 scaffolds</th><th data-zh="功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td data-zh="核仁 (Nucleolus)" data-en="Nucleolus">核仁</td><td data-zh="核內" data-en="Nuclear">核內</td><td>FBL, NPM1, rDNA, pre-rRNA</td><td data-zh="rRNA 轉錄 + ribosome 組裝（三層液態結構）" data-en="rRNA transcription + ribosome assembly (3-layer liquid)">rRNA + ribosome 組裝</td></tr>
+<tr><td>Cajal body</td><td data-zh="核內" data-en="Nuclear">核內</td><td>Coilin, SMN, snRNP</td><td data-zh="snRNP 與 snoRNP 成熟" data-en="snRNP / snoRNP maturation">snRNP 成熟</td></tr>
+<tr><td>PML body</td><td data-zh="核內" data-en="Nuclear">核內</td><td>PML, SP100, SUMO</td><td data-zh="抗病毒、DNA 損傷、p53 調控" data-en="Antiviral, DNA damage, p53 regulation">抗病毒 / DDR</td></tr>
+<tr><td data-zh="剪接點 (Splicing speckles)" data-en="Splicing speckles">剪接點</td><td data-zh="核內" data-en="Nuclear">核內</td><td>SRRM2, SON, SR proteins</td><td data-zh="splicing factor 儲存與遞送" data-en="Splicing factor storage / delivery">splicing 工廠</td></tr>
+<tr><td data-zh="轉錄凝聚物" data-en="Transcription condensates">轉錄凝聚物</td><td data-zh="核內 (super-enhancer)" data-en="Nuclear (super-enhancer)">核內</td><td>Mediator (MED1), BRD4, Pol II CTD</td><td data-zh="高水平轉錄；身分基因表達" data-en="High-output transcription; identity genes">SE 驅動轉錄</td></tr>
+<tr><td data-zh="應力顆粒 (Stress granules)" data-en="Stress granules">應力顆粒</td><td data-zh="細胞質" data-en="Cytoplasmic">細胞質</td><td>G3BP1/2, TIA-1, mRNA, eIF3</td><td data-zh="應力時 mRNA 暫存；翻譯抑制" data-en="mRNA storage under stress; translation arrest">應力 mRNA 倉</td></tr>
+<tr><td>P-bodies</td><td data-zh="細胞質" data-en="Cytoplasmic">細胞質</td><td>DDX6, EDC3/4, CCR4-NOT, XRN1</td><td data-zh="mRNA 降解 + miRNA 抑制" data-en="mRNA decay + miRNA repression">mRNA 降解</td></tr>
+<tr><td>Centrosome / PCM</td><td data-zh="細胞質" data-en="Cytoplasmic">細胞質</td><td>SPD-5 (C. elegans), CDK5RAP2</td><td data-zh="MT 成核；體細胞分裂 (Ch11)" data-en="MT nucleation; mitosis (Ch11)">MT 成核</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>判斷一個結構是否 LLPS：</strong>①球形且融合 ②FRAP 快速回復（液態）③ 1,6-hexanediol 敏感（破壞疏水弱交互作用）④ 隨濃度/溫度可逆組裝 ⑤ in vitro 純化蛋白 + RNA 可重組。注意：1,6-hexanediol 並非萬靈丹，會破壞許多結構。</span>
+<span data-lang="en"><strong>To prove LLPS:</strong> ①spherical &amp; fusing ②fast FRAP recovery (liquid) ③1,6-hexanediol sensitive (disrupts hydrophobic weak interactions) ④reversible concentration/temperature dependence ⑤in vitro reconstitution from purified protein + RNA. Caveat: 1,6-hexanediol is not a clean probe and disrupts many structures.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="病態凝聚物" data-en="PATHOLOGICAL">病態</div>
+<h2 data-zh="二、ALS/FTD 與凝聚物老化" data-en="II. ALS/FTD and Condensate Aging">二、凝聚物老化與神經退化</h2>
+<div data-lang="zh"><p><strong>液 → 凝膠 → 固體</strong>的轉變是凝聚物的「<strong>老化 (aging)</strong>」現象。<strong>FUS、TDP-43、hnRNPA1</strong>都含 prion-like domain (PrLD)，正常情形下進入應力顆粒短暫存在；但<strong>ALS/FTD 病人突變</strong>（FUS R495X、TDP-43 G298S、hnRNPA1 D262V）使凝聚物無法解體，逐漸固化為 amyloid-like fibrils，導致神經元死亡。</p>
+<p>2023-2024 的關鍵進展：<strong>RNA 比例</strong>決定凝聚物物性——低 RNA 時 FUS 凝聚物易老化；高 RNA 維持液態。這解釋為何核內 (RNA 豐富) FUS 為液態，細胞質應力顆粒 (RNA 稀少) 易老化。</p></div>
+<div data-lang="en"><p>The <strong>liquid → gel → solid</strong> transition is condensate <strong>"aging"</strong>. <strong>FUS, TDP-43, hnRNPA1</strong> all carry prion-like domains (PrLD) and normally pass through stress granules transiently. But <strong>ALS/FTD mutations</strong> (FUS R495X, TDP-43 G298S, hnRNPA1 D262V) prevent disassembly, leading to amyloid-like fibrils and neuronal death.</p>
+<p>Key 2023-2024 finding: <strong>RNA stoichiometry</strong> dictates material properties — low RNA promotes FUS aging; high RNA maintains liquid state. This explains why nuclear FUS (RNA-rich) is liquid while cytoplasmic stress granules (RNA-poor) age.</p></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">💧</div><h4 data-zh="液態 (Liquid)" data-en="Liquid">液態</h4>
+<div data-lang="zh"><p>球形、融合、FRAP 秒級回復。動態交換內外分子。生理狀態。</p></div>
+<div data-lang="en"><p>Spherical, fusing, sec-scale FRAP recovery. Dynamic molecular exchange. Physiological.</p></div></div>
+<div class="card"><div class="card-icon">🟦</div><h4 data-zh="凝膠 (Gel)" data-en="Gel">凝膠</h4>
+<div data-lang="zh"><p>FRAP 部分回復、形狀不規則。出現持久應力顆粒；老化中間態。</p></div>
+<div data-lang="en"><p>Partial FRAP recovery; irregular shape. Persistent stress granules; aging intermediate.</p></div></div>
+<div class="card"><div class="card-icon">🟥</div><h4 data-zh="固態纖維" data-en="Solid fibrils">固態纖維</h4>
+<div data-lang="zh"><p>無 FRAP；amyloid-like。TDP-43/FUS 包涵體。神經元死亡。</p></div>
+<div data-lang="en"><p>No FRAP; amyloid-like. TDP-43/FUS inclusions. Neuronal death.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="PTM 控制" data-en="PTM CONTROL">PTM 調控</div>
+<h2 data-zh="三、後轉譯修飾 (PTM) 調控相分離" data-en="III. PTMs Regulate Phase Separation">三、PTM 調控 LLPS</h2>
+<div data-lang="zh"><p>細胞透過 PTM 動態地改寫蛋白的「相分離傾向」，等同於對 IDR 的<strong>序列文法</strong>進行即時編輯：</p></div>
+<div data-lang="en"><p>Cells dynamically rewrite phase-separation propensity via PTMs — real-time editing of IDR <strong>sequence grammar</strong>:</p></div>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li data-lang="zh"><strong>磷酸化 (Ser/Thr/Tyr)</strong>：增加負電 → 破壞 electrostatic stickers (如 FUS RGG)；多位點磷酸化可<strong>溶解</strong>凝聚物（細胞週期關閉核仁的機制）</li>
+<li data-lang="en"><strong>Phosphorylation:</strong> adds negative charge → disrupts electrostatic stickers (e.g. FUS RGG); multi-site phospho can <strong>dissolve</strong> condensates (used to disassemble nucleolus during mitosis)</li>
+<li data-lang="zh"><strong>Arg 甲基化 (PRMT1/5)</strong>：減弱 cation-π → 抑制 FUS LLPS；ALS 風險因子</li>
+<li data-lang="en"><strong>Arg methylation (PRMT1/5):</strong> weakens cation-π → inhibits FUS LLPS; ALS risk factor</li>
+<li data-lang="zh"><strong>SUMOylation / ubiquitination</strong>：SUMO 提供 multivalent SIM-SUMO 介面（PML body 核心驅動力）；K63-Ub 鏈促 NEMO 凝聚物</li>
+<li data-lang="en"><strong>SUMOylation / ubiquitination:</strong> SUMO provides multivalent SIM-SUMO interface (PML body driver); K63-Ub chains promote NEMO condensates</li>
+<li data-lang="zh"><strong>O-GlcNAc</strong>：取代磷酸化位點，常為「促進凝聚物」之反向訊號</li>
+<li data-lang="en"><strong>O-GlcNAc:</strong> competes with phosphorylation; usually pro-condensate</li>
+</ul>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、LLPS 預測與光遺傳學重組" data-en="IV. LLPS Prediction &amp; Optogenetic Reconstitution">四、預測與光遺傳工具</h2>
+<div data-lang="zh"><p>R/Python 預測 LLPS 傾向 + Cry2-optoDroplet 實作活細胞光控相分離 (Shin et al. 2017)。</p></div>
+<div data-lang="en"><p>R/Python LLPS propensity prediction + Cry2-optoDroplet for blue-light-induced live-cell phase separation (Shin et al. 2017).</p></div>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · idpr</button>
+    <button class="code-tab-btn" data-tab="py">Python · FuzDrop</button>
+    <button class="code-tab-btn" data-tab="opto">Optogenetics</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># idpr — IDP/IDR 性質分析</span>
+<span class="kw">library</span>(idpr)
+seq &lt;- <span class="str">"MASNDYTQQATQSYGAYPTQPGQGYSQQSSQPYGQQSYS..."</span>  <span class="comment"># FUS LCD</span>
+<span class="comment"># 1) Charge-Hydropathy plot (Uversky)</span>
+chargeHydropathyPlot(sequence = seq)
+<span class="comment"># 2) PLAAC-like prion 預測</span>
+plaac &lt;- prionAggregationPrediction(seq)
+<span class="comment"># 3) Kappa (charge patterning, Pappu)</span>
+kappa &lt;- sequenceKappa(seq)
+<span class="comment"># 4) IDR 區段定位</span>
+idrs &lt;- IDRMapper(seq)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># FuzDrop / catGRANULE / PSPredictor — LLPS 預測</span>
+<span class="kw">import</span> requests
+<span class="kw">def</span> <span class="func">fuzdrop_score</span>(seq):
+    <span class="comment"># 提交至 FuzDrop API; 回傳 pLLPS &amp; droplet-promoting regions</span>
+    r = requests.post(<span class="str">"https://fuzdrop.bio.unipd.it/api/predict"</span>,
+                      json={<span class="str">"sequence"</span>: seq})
+    <span class="kw">return</span> r.json()  <span class="comment"># {pLLPS: 0.87, DPR: [(1,165), ...]}</span>
+
+<span class="comment"># 互補：用 localCIDER 計算 IDR 物理屬性</span>
+<span class="kw">from</span> localcider.sequenceParameters <span class="kw">import</span> SequenceParameters
+sp = SequenceParameters(seq)
+<span class="func">print</span>(sp.get_kappa(), sp.get_FCR(), sp.get_NCPR())  <span class="comment"># kappa, fraction-charged, net-charge</span>
+
+<span class="comment"># 結合 Lasker et al. 的 Phase-Diagram simulator (slab MD)</span>
+<span class="kw">import</span> hoomd  <span class="comment"># Mpipi-GG coarse-grained for IDRs</span></pre></div>
+  <div class="code-tab-content" data-tab="opto"><pre><span class="comment"># Cry2-optoDroplet 構築 (Shin, Brangwynne 2017)</span>
+<span class="comment"># 質粒設計: Cry2olig - mCherry - [target IDR e.g. FUS-LCD aa1-214]</span>
+<span class="comment"># 1) 轉染 HEK293T / U2OS</span>
+<span class="comment"># 2) 488 nm 藍光照射 → Cry2 oligomerize → 增加 valency</span>
+<span class="comment"># 3) 共焦顯微觀察 droplet 形成 (秒級)</span>
+<span class="comment"># 4) 關閉藍光 → droplets 解體 (min)</span>
+
+<span class="comment"># FRAP 工作流：</span>
+<span class="comment">#  - 漂白 droplet 中心 1 µm² 5%/100ms</span>
+<span class="comment">#  - 監測螢光回復 60 s</span>
+<span class="comment">#  - 擬合: F(t) = A(1 - exp(-t/τ))</span>
+<span class="comment">#  - 液態 τ &lt; 10 s, mobile fraction &gt; 80%</span>
+<span class="comment">#  - 老化後 τ &gt; 60 s, mobile fraction &lt; 40%</span>
+
+<span class="comment"># 治療概念: 1,6-hexanediol 5% 30 min 解體凝聚物（不專一！）</span>
+<span class="comment"># 新工具: chemical biology probes 如 lipoamide (Saar et al. 2024)</span></pre></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="選擇樹" data-en="DECISION TREE">選擇樹</div>
+<h2 data-zh="五、我的目標蛋白會 LLPS 嗎？" data-en="V. Will My Protein Undergo LLPS?">五、判斷 LLPS</h2>
+<div class="decision-tree">
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">有 IDR/IDP (AF pLDDT&lt;50)？ → 是 LLPS 候選</span><span data-lang="en">Has IDR/IDP (AF pLDDT&lt;50)? → LLPS candidate</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">FuzDrop pLLPS &gt; 0.6？ → 強候選</span><span data-lang="en">FuzDrop pLLPS &gt; 0.6? → Strong candidate</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">細胞內 puncta 共定位於已知凝聚物 (G3BP1/FBL/MED1)？</span><span data-lang="en">Cellular puncta colocalize with known condensates (G3BP1/FBL/MED1)?</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">FRAP τ &lt; 30 s + 1,6-HD 敏感 + 球形融合？ → 通過 LLPS 基本檢測</span><span data-lang="en">FRAP τ &lt; 30 s + 1,6-HD sensitive + sphericity? → Passes basic LLPS test</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">純化蛋白 ± RNA in vitro 重組成 droplets？ → 充分證據</span><span data-lang="en">Purified protein ± RNA reconstitutes droplets in vitro? → Sufficient evidence</span></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. 一名 ALS 病人 FUS 突變導致細胞質應力顆粒 FRAP τ 從 8s 上升至 90s 且 mobile fraction 從 85% 降至 25%。最佳描述為？</p>
+<p data-lang="en">1. An ALS patient's FUS mutant causes cytoplasmic stress granule FRAP τ to rise from 8s to 90s and mobile fraction to drop from 85% to 25%. Best description?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 凝聚物變得更液態</span><span data-lang="en">A. Condensate is more liquid-like</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 凝聚物老化為凝膠/固態纖維</span><span data-lang="en">B. Condensate aged toward gel/solid fibrils</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 凝聚物完全解體</span><span data-lang="en">C. Condensate fully disassembled</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 與 LLPS 無關</span><span data-lang="en">D. Unrelated to LLPS</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：FRAP 慢化 + mobile fraction 下降是凝聚物液→凝膠/固態轉變的典型指標，與 ALS 病程吻合。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Slower FRAP + reduced mobile fraction is the hallmark of liquid-to-gel/solid transition — consistent with ALS pathology.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. 細胞進入 mitosis 時核仁消失，最可能機制為何？</p>
+<p data-lang="en">2. The nucleolus disappears during mitosis. Most likely mechanism?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 核仁蛋白被泛素降解</span><span data-lang="en">A. Nucleolar proteins ubiquitinated and degraded</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. rRNA 完全分解</span><span data-lang="en">B. rRNA fully degraded</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. CDK1 多位點磷酸化核仁蛋白 → 破壞 multivalency → LLPS 解體</span><span data-lang="en">C. CDK1 multi-site phospho on nucleolar proteins → disrupts multivalency → LLPS dissolves</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 核膜破裂直接擠出核仁</span><span data-lang="en">D. NEBD physically extrudes nucleolus</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：mitosis 中 CDK1 對 NPM1 等核仁蛋白多位點磷酸化引入大量負電，瓦解 multivalent 弱交互作用，凝聚物 LLPS 解體。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: CDK1 multi-site phospho on NPM1 etc. introduces negative charge, disrupting multivalency and dissolving the LLPS condensate.</div>
+</div>
+
+<div class="quiz-q" data-ans="F">
+<p data-lang="zh">3.（是非）細胞處理 1,6-hexanediol 後 puncta 消失，即可結論該結構為 LLPS 凝聚物。</p>
+<p data-lang="en">3. (T/F) If puncta disappear after 1,6-hexanediol treatment, the structure must be an LLPS condensate.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>F</strong>：1,6-HD 並非專一探針，也會破壞核孔、actin 等結構，需配合 FRAP、in vitro 重組、球形/融合等多項證據。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>F</strong>: 1,6-HD is not specific — it also disrupts NPCs and actin. Multiple lines of evidence (FRAP, in vitro reconstitution, sphericity/fusion) are required.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="membrane-biophysics.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 3 · 膜生物物理與脂質組學" data-en="Ch 3 · Membrane Biophysics &amp;amp; Lipidomics">Ch 3 · 膜生物物理與脂質組學</span></a>
+<a href="chromatin-3d-genome.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 5 · 染色質與 3D 基因組" data-en="Ch 5 · Chromatin &amp;amp; the 3D Genome">Ch 5 · 染色質與 3D 基因組</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

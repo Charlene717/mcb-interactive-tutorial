@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 8: 轉譯調控與蛋白穩態 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html" class="active">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 8 / 20 · BLOCK B</div>
+<h1 data-zh="轉譯調控與蛋白穩態" data-en="Translation Regulation &amp; Proteostasis">轉譯調控與蛋白穩態</h1>
+<p class="subtitle" data-lang="zh">從 eIF4F cap 識別、uORF 重編碼，到 ISR/UPR、ubiquitin code 與 ribosome quality control——蛋白穩態網絡的當代藍圖。</p>
+<p class="subtitle" data-lang="en">From eIF4F cap recognition and uORF reprogramming to ISR/UPR, the ubiquitin code, and ribosome quality control — a modern map of the proteostasis network.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="蛋白穩態網絡 (Proteostasis Network)" data-en="The Proteostasis Network">蛋白穩態網絡</h2>
+<div data-lang="zh">
+<p>細胞每秒合成 ~10⁵-10⁶ 個蛋白；同時面對誤折疊、損傷、聚集的持續壓力。<strong>蛋白穩態 (proteostasis)</strong> 由三大模組維持，每個都偶合於環境訊號：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>合成 (synthesis)</strong>：cap-dependent 翻譯、scanning、uORF、密碼子優化</li>
+<li><strong>折疊 (folding)</strong>：HSP70/HSP90/HSP60/CCT chaperone 網絡</li>
+<li><strong>降解 (degradation)</strong>：UPS (ubiquitin-proteasome) + autophagy (Ch18)</li>
+</ol>
+<p>當這些模組失衡——稱為「<strong>proteostasis collapse</strong>」——出現於 Alzheimer (Aβ, tau)、Parkinson (α-synuclein)、Huntington (polyQ)、ALS (TDP-43)，並普遍見於衰老 (Ch19)。</p>
+</div>
+<div data-lang="en">
+<p>Cells synthesize ~10⁵-10⁶ proteins per second while facing constant misfolding, damage, and aggregation. <strong>Proteostasis</strong> is maintained by three modules, each coupled to environmental signals:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Synthesis</strong>: cap-dependent translation, scanning, uORFs, codon optimality</li>
+<li><strong>Folding</strong>: HSP70/HSP90/HSP60/CCT chaperone networks</li>
+<li><strong>Degradation</strong>: UPS (ubiquitin-proteasome) + autophagy (Ch18)</li>
+</ol>
+<p>Imbalance — "<strong>proteostasis collapse</strong>" — drives Alzheimer's (Aβ, tau), Parkinson's (α-synuclein), Huntington's (polyQ), ALS (TDP-43), and is general in aging (Ch19).</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>分子箴言：</strong>「<em>蛋白的命運從第一個密碼子開始決定</em>」——signal peptide 決定 ER 靶向、N-端規則決定半衰期、密碼子優化決定 ribosome 速度，皆在合成階段已寫入。</span>
+<span data-lang="en"><strong>Aphorism:</strong> "<em>A protein's fate is sealed at the first codon</em>" — signal peptide directs ER targeting, N-end rule sets half-life, codon optimality sets ribosome speed — all encoded at synthesis.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Initiation" data-en="INITIATION">起始</div>
+<h2 data-zh="一、Cap-dependent 起始 + uORF 重編碼" data-en="I. Cap-Dependent Initiation + uORF Reprogramming">一、起始與 uORF</h2>
+<div data-lang="zh"><p>真核轉譯起始為「掃描模型 (scanning model)」：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>eIF4F</strong> (eIF4E + eIF4G + eIF4A) 結合 m7G cap；eIF4A 解開 5′ UTR 二級結構</li>
+<li><strong>43S PIC</strong> (40S + eIF1/1A/2-GTP-Met-tRNAi/3/5) 被 eIF4G 招募</li>
+<li>40S 掃描至 AUG（Kozak: gccRccAUGG，R=嘌呤）</li>
+<li>eIF5 觸發 eIF2-GTP 水解 → eIF2-GDP 釋出、60S 加入 → 80S</li>
+<li>第一肽鍵形成</li>
+</ol>
+<p><strong>uORF (upstream ORF)</strong> 是 5′ UTR 中位於主 ORF 上游的小 ORF，常作為「過濾器」抑制下游表達。ATF4、GCN4 的奇妙設計：在<strong>正常</strong>狀態 uORF1 被翻譯後 ribosome 重啟動，使用 uORF2 而<strong>跳過</strong>主 ORF；在<strong>應激</strong>下 eIF2-GTP 稀缺，重啟動慢，ribosome 直接抵達主 ORF 啟動。這實現「<strong>應激誘導的翻譯啟動</strong>」。</p></div>
+<div data-lang="en"><p>Eukaryotic initiation follows the <strong>scanning model</strong>:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>eIF4F</strong> (eIF4E + eIF4G + eIF4A) binds m7G cap; eIF4A unwinds 5′ UTR</li>
+<li><strong>43S PIC</strong> (40S + eIF1/1A/2-GTP-Met-tRNAi/3/5) recruited by eIF4G</li>
+<li>40S scans to AUG (Kozak: gccRccAUGG, R=purine)</li>
+<li>eIF5 triggers eIF2-GTP hydrolysis → eIF2-GDP released, 60S joins → 80S</li>
+<li>First peptide bond</li>
+</ol>
+<p><strong>uORFs (upstream ORFs)</strong> in 5′ UTRs filter downstream translation. The elegant ATF4 / GCN4 design: under <strong>normal</strong> conditions, after uORF1 translation, the ribosome reinitiates at uORF2, <strong>skipping</strong> the main ORF; under <strong>stress</strong>, eIF2-GTP is scarce, reinitiation is slow, the ribosome reaches the main ORF directly. This achieves <strong>stress-induced translation initiation</strong>.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="ISR / UPR" data-en="ISR / UPR">應激網絡</div>
+<h2 data-zh="二、Integrated Stress Response 與 UPR" data-en="II. Integrated Stress Response (ISR) &amp; UPR">二、ISR 與 UPR</h2>
+<div data-lang="zh"><p><strong>ISR (Integrated Stress Response)</strong> 集中於 <strong>eIF2α 磷酸化（Ser51）</strong>。四個 kinase 偵測不同應激，殊途同歸：</p></div>
+<div data-lang="en"><p><strong>ISR (Integrated Stress Response)</strong> converges on <strong>eIF2α phosphorylation (Ser51)</strong>. Four kinases sense different stresses, all funneling to the same hub:</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="Kinase" data-en="Kinase">Kinase</th><th data-zh="感應應激" data-en="Stress sensed">應激</th><th data-zh="位置" data-en="Location">位置</th></tr></thead>
+<tbody>
+<tr><td>GCN2</td><td data-zh="胺基酸缺乏 (未充電 tRNA)" data-en="Amino acid deficiency (uncharged tRNA)">胺基酸缺乏</td><td data-zh="細胞質" data-en="Cytoplasmic">細胞質</td></tr>
+<tr><td>PERK</td><td data-zh="ER 壓力（misfolded 蛋白）" data-en="ER stress (misfolded protein)">ER 壓力</td><td>ER 膜</td></tr>
+<tr><td>HRI</td><td data-zh="Heme 缺乏；粒線體壓力" data-en="Heme deficiency; mitochondrial stress">Heme / mito stress</td><td data-zh="細胞質 (紅血球)" data-en="Cytoplasmic (erythroid)">細胞質</td></tr>
+<tr><td>PKR</td><td data-zh="dsRNA (病毒感染)" data-en="dsRNA (viral infection)">dsRNA</td><td data-zh="細胞質" data-en="Cytoplasmic">細胞質</td></tr>
+</tbody>
+</table>
+<div data-lang="zh">
+<p>eIF2αP 結果：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>整體 cap-dependent 翻譯 <strong>下降</strong> (~80%)</li>
+<li>含 uORF 的 ATF4 mRNA 反而<strong>上升翻譯</strong> → 啟動 CHOP, GADD34, 胺基酸合成基因</li>
+<li>形成<strong>應力顆粒</strong> (Ch4)：G3BP1 主導 LLPS</li>
+<li>持續活化 → CHOP 介導 apoptosis (Ch17)</li>
+</ul>
+<p><strong>UPR (Unfolded Protein Response)</strong>：ER 中 misfolded 蛋白超載，三條平行通路活化：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>IRE1α</strong>：自磷酸化 + 切割 XBP1 mRNA → XBP1s 轉錄因子 → ER 擴張、chaperone 上調</li>
+<li><strong>PERK</strong>：磷酸化 eIF2α (ISR 分支) + ATF4 + Nrf2</li>
+<li><strong>ATF6</strong>：轉位至 Golgi → S1P/S2P 切割 → ATF6f TF</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Consequences of eIF2αP:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Global cap-dependent translation <strong>drops</strong> (~80%)</li>
+<li>uORF-containing ATF4 mRNA is <strong>preferentially translated</strong> → induces CHOP, GADD34, amino acid biosynthesis</li>
+<li>Stress granules form (Ch4): G3BP1-driven LLPS</li>
+<li>Sustained activation → CHOP → apoptosis (Ch17)</li>
+</ul>
+<p><strong>UPR (Unfolded Protein Response)</strong>: ER misfolded-protein overload activates three parallel branches:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>IRE1α</strong>: autophosphorylation + XBP1 mRNA splicing → XBP1s TF → ER expansion, chaperone upregulation</li>
+<li><strong>PERK</strong>: phosphorylates eIF2α (ISR arm) + ATF4 + Nrf2</li>
+<li><strong>ATF6</strong>: translocates to Golgi → S1P/S2P cleavage → ATF6f TF</li>
+</ul>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>ISRIB：</strong>Walter lab 2013 發現小分子 ISRIB 可<strong>逆轉 eIF2αP 的下游效應</strong>（穩定 eIF2B GEF）。在小鼠模型改善 cognition、TBI 復原、prion disease。</span>
+<span data-lang="en"><strong>ISRIB:</strong> Walter lab 2013 discovered a small molecule that <strong>reverses downstream eIF2αP effects</strong> (stabilizes eIF2B GEF). In mice it improves cognition, TBI recovery, and prion disease.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Ubiquitin Code" data-en="UBIQUITIN CODE">泛素密碼</div>
+<h2 data-zh="三、Ubiquitin Code 與蛋白酶體" data-en="III. Ubiquitin Code &amp; the Proteasome">三、Ubiquitin code</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="鏈型" data-en="Chain type">鏈型</th><th data-zh="連接位點" data-en="Linkage">連接位點</th><th data-zh="主要功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td>K48</td><td>K48-K48</td><td data-zh="26S proteasome 降解（最經典）" data-en="26S proteasome degradation (canonical)">蛋白酶體降解</td></tr>
+<tr><td>K63</td><td>K63-K63</td><td data-zh="訊號（NFκB, DDR, mitophagy）；非降解" data-en="Signaling (NFκB, DDR, mitophagy); non-degradative">訊號傳導</td></tr>
+<tr><td>M1 (linear)</td><td>Met1-α-amino</td><td data-zh="LUBAC 合成；NFκB 活化、TNF 訊號" data-en="Synthesized by LUBAC; NFκB activation, TNF signaling">LUBAC / NFκB</td></tr>
+<tr><td>K11</td><td>K11-K11</td><td data-zh="細胞週期：APC/C 標記 cyclin B 降解 (Ch12)" data-en="Cell cycle: APC/C tags cyclin B (Ch12)">細胞週期</td></tr>
+<tr><td>K27 / K6 / K29 / K33</td><td>—</td><td data-zh="多樣（DDR、Parkin mitophagy K6/K11）" data-en="Diverse (DDR; Parkin mitophagy uses K6/K11)">多樣</td></tr>
+</tbody>
+</table>
+<div data-lang="zh"><p><strong>泛素級聯</strong>：E1 (UBA1) 活化 ubiquitin → E2 (~40 種) → E3 ligase (~600+ 種，分 RING/HECT/RBR) 賦予專一性。<strong>26S proteasome</strong> 為 K48-Ub 標記蛋白的主要降解機器：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>19S RP</strong> (regulatory particle)：辨識 Ub 鏈 (Rpn10/13)、解除泛素化 (Rpn11)、ATP 依賴解折疊 (Rpt1-6)、餵入 20S</li>
+<li><strong>20S CP</strong> (core particle)：α₇β₇β₇α₇ 圓桶，β1/β2/β5 三個催化亞基 (caspase/trypsin/chymotrypsin-like)</li>
+</ul>
+<p><strong>藥物標靶</strong>：bortezomib、carfilzomib 是 β5 抑制劑，用於 multiple myeloma；MM 細胞依賴 plasma 細胞高蛋白合成 → 對蛋白酶體抑制特別敏感。</p></div>
+<div data-lang="en"><p><strong>Ubiquitin cascade</strong>: E1 (UBA1) activates Ub → E2 (~40) → E3 ligase (~600+, RING/HECT/RBR) provides specificity. The <strong>26S proteasome</strong> degrades K48-Ub-tagged proteins:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>19S RP</strong>: recognizes Ub chains (Rpn10/13), deubiquitinates (Rpn11), ATP-dependent unfolding (Rpt1-6), feeds 20S</li>
+<li><strong>20S CP</strong>: α₇β₇β₇α₇ barrel; β1/β2/β5 catalytic subunits (caspase/trypsin/chymotrypsin-like)</li>
+</ul>
+<p><strong>Drugs</strong>: bortezomib, carfilzomib inhibit β5, used in multiple myeloma; MM cells depend on plasma-cell high protein output → exquisitely sensitive.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="RQC" data-en="RQC">核糖體品管</div>
+<h2 data-zh="四、Ribosome Quality Control (RQC)" data-en="IV. Ribosome Quality Control (RQC)">四、核糖體品管</h2>
+<div data-lang="zh"><p>當 ribosome 在 mRNA 上「<strong>碰撞 (collision)</strong>」——前方 ribosome 停頓導致後方追撞——形成<strong>disome / trisome</strong>，這是異常訊號。應對機制：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>ZNF598</strong> (E3) 識別 disome 介面，<strong>泛素化 RPS10/RPS20</strong>（K48 + K63 混合）</li>
+<li><strong>ASCC</strong> 複合體 + Hbs1l-Pelota 將兩個 ribosome 分開</li>
+<li><strong>NEMF</strong> 與 <strong>Listerin (LTN1)</strong> 於 60S 上抓住未完成肽鏈，添加 <strong>CAT-tail (Ala-Thr)</strong> 並用 K48-Ub 標記降解</li>
+<li>mRNA 透過 <strong>no-go decay (Dom34-Hbs1)</strong> 降解</li>
+<li><strong>GCN2 sensor</strong> 偵測 disome → 觸發 ISR</li>
+</ol>
+<p>RQC 失靈見於神經退化 (NEMF 突變 → 兒童神經病變)。</p></div>
+<div data-lang="en"><p>When ribosomes <strong>collide</strong> (a stalled leader hit from behind), they form <strong>disomes/trisomes</strong> — an aberrant signal. Response:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>ZNF598</strong> (E3) recognizes the disome interface, <strong>ubiquitinates RPS10/RPS20</strong> (K48 + K63)</li>
+<li><strong>ASCC</strong> + Hbs1l-Pelota split the disome</li>
+<li><strong>NEMF</strong> + <strong>Listerin (LTN1)</strong> grab nascent chains on 60S, add <strong>CAT-tail (Ala-Thr)</strong>, K48-Ub tag for degradation</li>
+<li>mRNA degraded via <strong>no-go decay (Dom34-Hbs1)</strong></li>
+<li><strong>GCN2</strong> senses disomes → triggers ISR</li>
+</ol>
+<p>RQC failure causes neurodegeneration (NEMF mutations → pediatric neuropathy).</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、Ribosome profiling 與 proteostasis 分析" data-en="V. Ribosome Profiling and Proteostasis Analysis">五、實作工作流</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · ribosomeProfilingQC</button>
+    <button class="code-tab-btn" data-tab="py">Python · RiboCode / Plastid</button>
+    <button class="code-tab-btn" data-tab="cli">CLI · disome / RQC</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># Ribo-seq + RNA-seq → translation efficiency</span>
+<span class="kw">library</span>(ribosomeProfilingQC); <span class="kw">library</span>(DESeq2)
+ribo &lt;- readGAlignments(<span class="str">"ribo.bam"</span>)
+<span class="comment"># 1) Read length distribution (28-32 nt = ribosome footprint)</span>
+readsLength &lt;- summaryReadsLength(ribo)
+<span class="comment"># 2) 3-nt periodicity 圖（活躍翻譯特徵）</span>
+period &lt;- frameTracking(ribo, txdb=TxDb.Hsapiens.UCSC.hg38.knownGene)
+<span class="comment"># 3) Translation efficiency = ribo / mRNA</span>
+te &lt;- counts_ribo / counts_rna
+<span class="comment"># 4) uORF 偵測 (RiboTaper 或 RibORF)</span>
+<span class="comment"># 5) 應激下 ATF4 主 ORF 翻譯應 ↑↑（uORF 跳過）</span></pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># RiboCode / Plastid for translated ORF discovery + stall sites</span>
+<span class="kw">import</span> plastid
+<span class="kw">from</span> plastid <span class="kw">import</span> BAMGenomeArray, FivePrimeMapFactory
+
+ga = BAMGenomeArray([<span class="str">"ribo.bam"</span>])
+ga.set_mapping(FivePrimeMapFactory(offset=<span class="num">12</span>))  <span class="comment"># P-site offset</span>
+
+<span class="comment"># 1) Metagene profile around start codons</span>
+<span class="kw">from</span> plastid <span class="kw">import</span> metagene
+profile = metagene.do_count(ga, roi_table=<span class="str">"start_rois.txt"</span>)
+
+<span class="comment"># 2) 偵測 disome (Ribo-seq 帶 ~60 nt footprint reads)</span>
+<span class="comment"># 在 ZNF598 KO 下 disome reads ↑↑</span>
+
+<span class="comment"># 3) Stall site detection: read-density 局部峰</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">def</span> <span class="func">stall_score</span>(prof, window=<span class="num">30</span>):
+    <span class="kw">return</span> prof / (np.convolve(prof, np.ones(window)/window, mode=<span class="str">"same"</span>) + <span class="num">1e-3</span>)
+<span class="comment"># 高 stall score 提示 ribosome collision</span></pre></div>
+  <div class="code-tab-content" data-tab="cli"><pre><span class="comment"># Disome-seq 與 RQC 工具鏈</span>
+
+<span class="comment"># 1) 雙重 footprint (60-70 nt) 富集：sucrose 梯度收集 disome 區段</span>
+<span class="comment"># 2) Library prep 同 Ribo-seq 但選 60-70 nt</span>
+<span class="comment"># 3) 對齊與 5′-end mapping</span>
+bowtie2 -x hg38 -U disome.fq.gz -S disome.sam --very-sensitive
+samtools view -b -q 30 disome.sam | samtools sort -o disome.bam
+
+<span class="comment"># 4) 在 mRNA 上找 disome peaks (5′ leading + trailing 約 30 nt 配對)</span>
+<span class="comment"># 5) ZNF598 KO 與 WT 比較</span>
+
+<span class="comment"># 蛋白組分析 (proteostasis):</span>
+<span class="comment"># SILAC + MS 量測蛋白半衰期 (Schwanhausser 2011)</span>
+<span class="comment"># MG132 處理 → K48-Ub 蛋白堆積 → diGly proteomics (KGG site mapping)</span>
+diaPASEF + Spectronaut 17  <span class="comment"># 當代 high-throughput proteomics 標配</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 在 ISR 活化（eIF2αP↑）狀態，為何 ATF4 mRNA 反而<strong>更多</strong>翻譯？</p>
+<p data-lang="en">1. Under ISR activation (eIF2αP↑), why is ATF4 mRNA <strong>more</strong> translated?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. ATF4 mRNA 有 IRES，繞過 cap</span><span data-lang="en">A. ATF4 has an IRES, bypassing the cap</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. ATF4 mRNA 缺乏 uORF</span><span data-lang="en">B. ATF4 mRNA lacks uORFs</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. eIF2-GTP 稀缺時 ribosome 重啟動慢，跳過抑制性 uORF 直接抵達主 ORF</span><span data-lang="en">C. When eIF2-GTP is scarce, reinitiation is slow, so the ribosome bypasses inhibitory uORFs and reaches the main ORF</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. ATF4 蛋白被 HSP70 直接合成</span><span data-lang="en">D. ATF4 is directly synthesized by HSP70</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：ATF4 5′ UTR 含 2 個 uORF。正常時 uORF1→uORF2 抑制主 ORF；應激時 eIF2-GTP 補充慢，ribosome 來不及在 uORF2 重啟動，反而抵達 ATF4 ORF。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: ATF4's 5′ UTR has 2 uORFs. Normally uORF1→uORF2 represses the main ORF; under stress, slow eIF2-GTP recycling means the ribosome misses uORF2 reinitiation and reaches the ATF4 ORF.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. 哪一種 ubiquitin 鏈型最常見於 NFκB 訊號的非降解性活化？</p>
+<p data-lang="en">2. Which ubiquitin chain type is most prominent in non-degradative NFκB signaling?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. K48</span><span data-lang="en">A. K48</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. K63 與 M1 (linear)</span><span data-lang="en">B. K63 and M1 (linear)</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. K11</span><span data-lang="en">C. K11</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. K33</span><span data-lang="en">D. K33</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：K63 與 LUBAC 產生的 M1 linear chain 為 NFκB 通路關鍵——招募 NEMO/IKK 複合體而非降解。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: K63 and LUBAC-generated M1 linear chains are critical for NFκB — recruiting NEMO/IKK rather than driving degradation.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Ribosome collision 觸發 ZNF598 ubiquitinate RPS10/RPS20，啟動 ASCC-Pelota 將 disome 分開，並透過 NEMF-Listerin 對未完成肽鏈加 CAT-tail 並降解之。</p>
+<p data-lang="en">3. (T/F) Ribosome collision triggers ZNF598 ubiquitination of RPS10/RPS20, ASCC-Pelota splits the disome, and NEMF-Listerin adds CAT-tail to the nascent chain for degradation.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：這是 RQC 的標準路徑。NEMF 突變導致兒童神經退化（CAT-tail 機制失靈）。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: This is the canonical RQC pathway. NEMF mutations cause pediatric neurodegeneration (CAT-tail mechanism failure).</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="mrna-life-cycle.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 7 · mRNA 生命週期與表觀轉錄體" data-en="Ch 7 · mRNA Life Cycle &amp;amp; the Epitranscriptome">Ch 7 · mRNA 生命週期與表觀轉錄體</span></a>
+<a href="signal-transduction-networks.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 9 · 訊號傳導網路" data-en="Ch 9 · Signal Transduction Networks">Ch 9 · 訊號傳導網路</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

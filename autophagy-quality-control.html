@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 18: 自噬與品質管控 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html" class="active">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 18 / 20 · BLOCK E</div>
+<h1 data-zh="自噬與細胞品質管控" data-en="Autophagy &amp; Quality Control">自噬與細胞品質管控</h1>
+<p class="subtitle" data-lang="zh">從 ULK1 到 ATG9 lipid scramblase——選擇性自噬如何標靶清除受損胞器與聚集物。</p>
+<p class="subtitle" data-lang="en">From ULK1 to ATG9 lipid scramblase — selective autophagy targets damaged organelles and aggregates.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="自噬：細胞的「再生計畫」" data-en="Autophagy: The Cell's Recycling Program">自噬：細胞的再生計畫</h2>
+<div data-lang="zh">
+<p>Autophagy（2016 Yoshinori Ohsumi 諾貝爾獎）並非單一「飢餓反應」，而是一系列以 ATG 蛋白為核心的<strong>降解品質管控網絡</strong>：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Macroautophagy</strong>：phagophore → autophagosome → fuse with lysosome</li>
+<li><strong>Microautophagy</strong>：lysosome 直接內陷吞噬</li>
+<li><strong>Chaperone-Mediated Autophagy (CMA)</strong>：LAMP2A + HSC70 + KFERQ motif，單分子層級</li>
+<li><strong>Selective autophagy</strong>：mitophagy、aggrephagy、ER-phagy、ribophagy、lysophagy、xenophagy 等</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Autophagy (Yoshinori Ohsumi 2016 Nobel) is not a single starvation response but an ATG-driven <strong>degradation quality-control network</strong>:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Macroautophagy</strong>: phagophore → autophagosome → fusion with lysosome</li>
+<li><strong>Microautophagy</strong>: direct lysosomal invagination</li>
+<li><strong>CMA</strong>: LAMP2A + HSC70 + KFERQ motif, single-substrate level</li>
+<li><strong>Selective autophagy</strong>: mitophagy, aggrephagy, ER-phagy, ribophagy, lysophagy, xenophagy</li>
+</ul>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>2024 ATG9：</strong>長久以來 ATG9 被視為「ATG 招募囊泡」，2020-2023 發現其為<strong>跨層脂質 scramblase</strong>，催化磷脂跨層雙向交換，是 phagophore 從 ER 接收脂質的關鍵——配合 ATG2 bridge LTP 完成大量供脂。</span>
+<span data-lang="en"><strong>2024 ATG9:</strong> long viewed as a vesicle for ATG recruitment, 2020-2023 work shows it is a <strong>lipid scramblase</strong> catalyzing transbilayer flip-flop — key for phagophore receiving lipids from ER (paired with ATG2 bridge LTP for bulk supply).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="機制" data-en="MECHANISM">機制五步</div>
+<h2 data-zh="一、Macroautophagy 五大階段" data-en="I. Five Stages of Macroautophagy">一、五階段機械</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="階段" data-en="Stage">階段</th><th data-zh="核心複合體" data-en="Core complex">核心複合體</th><th data-zh="關鍵產物 / 事件" data-en="Output / event">產物</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Initiation</strong></td><td>ULK1 complex (ULK1/2 + ATG13 + FIP200 + ATG101)</td><td data-zh="ULK1 磷酸化下游 ATG (Beclin1, ATG9, ATG14)" data-en="ULK1 phosphorylates downstream ATGs">磷酸化下游</td></tr>
+<tr><td><strong>2. Nucleation</strong></td><td>PI3K-III (VPS34 + Beclin1 + ATG14 + VPS15)</td><td>PI3P 於 omegasome / phagophore</td></tr>
+<tr><td><strong>3. Elongation</strong></td><td>ATG12-ATG5-ATG16L1 + LC3/GABARAP lipidation (ATG7-ATG3 + PE)</td><td>LC3-II (PE-conjugated, 膜結合)</td></tr>
+<tr><td><strong>4. Closure</strong></td><td>ESCRT (CHMP2A/CHMP4B) 介導 phagophore 邊緣閉合</td><td data-zh="封閉的自噬小體" data-en="Sealed autophagosome">自噬小體</td></tr>
+<tr><td><strong>5. Fusion</strong></td><td>SNARE (STX17-SNAP29-VAMP8) + HOPS + Rab7</td><td>Autolysosome</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>LC3-II 解讀陷阱：</strong>WB 看到 LC3-II 增加≠ 自噬被「促進」——也可能是 fusion 被阻斷導致堆積。<strong>必須做 autophagic flux assay</strong>：± bafilomycin A1 或 chloroquine，比較 LC3-II 累積差異。另推薦 tandem mRFP-GFP-LC3 報告（lysosome 內 GFP 淬滅）。</span>
+<span data-lang="en"><strong>LC3-II reading pitfall:</strong> increased LC3-II on WB ≠ enhanced autophagy — could mean blocked fusion causing accumulation. <strong>Must do flux assay</strong>: ± bafilomycin A1 or chloroquine, compare LC3-II accumulation. Tandem mRFP-GFP-LC3 reporter is also recommended (GFP quenched in lysosomes).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="選擇性自噬" data-en="SELECTIVE">選擇性自噬</div>
+<h2 data-zh="二、Selective Autophagy 受體圖譜" data-en="II. Selective Autophagy Receptor Map">二、選擇性自噬 receptor 圖譜</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">⚡</div><h4>Mitophagy</h4>
+<div data-lang="zh"><p><strong>PINK1-Parkin 軸</strong>：膜電位喪失 → PINK1 在 OMM 累積 → 磷酸化 Ub (S65) → 招募並活化 Parkin (E3 ligase) → 大量 Ub 鏈於 OMM 蛋白 → 招募 OPTN / NDP52（受 TBK1 磷酸化增強）→ LC3。Receptor-mediated mitophagy：BNIP3 / NIX / FUNDC1 直接含 LIR motif（缺氧誘導）。</p></div>
+<div data-lang="en"><p><strong>PINK1-Parkin axis</strong>: depolarization → PINK1 accumulates on OMM → phosphorylates Ub (S65) → recruits/activates Parkin (E3 ligase) → polyUb chains on OMM proteins → recruits OPTN/NDP52 (TBK1-phosphorylated) → LC3. Receptor-mediated: BNIP3/NIX/FUNDC1 with LIR motifs (hypoxia-induced).</p></div></div>
+<div class="card"><div class="card-icon">🗑️</div><h4>Aggrephagy</h4>
+<div data-lang="zh"><p>蛋白聚集物（α-synuclein、Htt-polyQ、TDP-43）→ Ub 標記 → <strong>p62/SQSTM1</strong>、<strong>NBR1</strong>、<strong>TOLLIP</strong> 識別 → UBA domain 結合 Ub + LIR motif 結合 LC3。p62 自身可 LLPS 形成 condensate。</p></div>
+<div data-lang="en"><p>Aggregates (α-synuclein, Htt-polyQ, TDP-43) → Ub-tagged → <strong>p62/SQSTM1</strong>, <strong>NBR1</strong>, <strong>TOLLIP</strong> recognize via UBA domain (binds Ub) + LIR motif (binds LC3). p62 itself can LLPS into condensates.</p></div></div>
+<div class="card"><div class="card-icon">📜</div><h4>ER-phagy</h4>
+<div data-lang="zh"><p>區域特異受體：<strong>FAM134B</strong>（sheet ER、cuts via reticulon-homology domain）、<strong>RTN3L</strong>（tubule ER）、<strong>CCPG1</strong>、<strong>SEC62</strong>（recovery from UPR）、<strong>ATL3</strong>、<strong>TEX264</strong>（廣譜，大部分 ER-phagy 貢獻者）。皆含 LIR。</p></div>
+<div data-lang="en"><p>Region-specific receptors: <strong>FAM134B</strong> (sheet ER, scissions via reticulon-homology domain), <strong>RTN3L</strong> (tubule ER), <strong>CCPG1</strong>, <strong>SEC62</strong> (UPR recovery), <strong>ATL3</strong>, <strong>TEX264</strong> (broad, major contributor). All harbor LIR motifs.</p></div></div>
+<div class="card"><div class="card-icon">🛡️</div><h4>Xenophagy</h4>
+<div data-lang="zh"><p>胞內病原（Salmonella、Mtb）→ galectin-8 偵測露出糖鏈 → 招募 NDP52 → 結合 LC3。Mtb 在 macrophage 內藉<strong>抑制 phagosome-lysosome 融合</strong>逃避。</p></div>
+<div data-lang="en"><p>Cytosolic pathogens (Salmonella, Mtb) → galectin-8 detects exposed glycans → recruits NDP52 → LC3. Mtb evades by <strong>blocking phagosome-lysosome fusion</strong> in macrophages.</p></div></div>
+<div class="card"><div class="card-icon">🧬</div><h4>Nucleophagy / Lysophagy</h4>
+<div data-lang="zh"><p>核膜片段降解（核纖層蛋白損傷時）→ LC3 直接於核外膜結合 LMNB1。Lysophagy：LMP → galectin-3/8 → ESCRT 修補 + p62/NDP52/TAX1BP1。</p></div>
+<div data-lang="en"><p>Nuclear fragment degradation (lamina damage) → LC3 directly binds LMNB1 at outer nuclear membrane. Lysophagy: LMP → galectin-3/8 → ESCRT repair + p62/NDP52/TAX1BP1.</p></div></div>
+<div class="card"><div class="card-icon">🔁</div><h4>CMA</h4>
+<div data-lang="zh"><p>Chaperone-mediated：含 <strong>KFERQ</strong>-like motif（~30% 蛋白組）→ HSC70 結合 → 結合 LAMP2A 多聚化通道 → 解折疊穿入 lysosome → cathepsin 降解。單分子層級，無需囊泡。</p></div>
+<div data-lang="en"><p>Substrates with <strong>KFERQ</strong>-like motif (~30% proteome) → HSC70 binds → docks to multimerized LAMP2A channel → unfolded translocation → lysosomal cathepsins degrade. Single-substrate; no vesicle.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="調控" data-en="REGULATION">調控網絡</div>
+<h2 data-zh="三、mTORC1-AMPK-TFEB 三軸調控" data-en="III. mTORC1-AMPK-TFEB Triaxial Regulation">三、三軸調控網絡</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 自噬訊號的整合邏輯" data-en="🌳 Integration logic of autophagy signals">🌳 自噬訊號整合</h4>
+<div class="dt-node"><span class="dt-q">營養感應</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>胺基酸</strong> → SLC38A9 / GATOR1-2 / Rag GTPase → mTORC1 至溶酶體 → 磷酸化 ULK1 S757 → <strong>抑制自噬</strong></span><span data-lang="en"><strong>Amino acids</strong> → SLC38A9 / GATOR1-2 / Rag → mTORC1 at lysosome → phosphorylate ULK1 S757 → <strong>inhibit autophagy</strong></span></div>
+<div class="dt-node"><span class="dt-q">能量感應</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>AMP/ATP 比上升</strong> → AMPK 活化 → ① 磷酸化 ULK1 S317/S555 活化；② 抑制 mTORC1（經 TSC2/RAPTOR）→ <strong>促進自噬</strong></span><span data-lang="en"><strong>AMP/ATP rises</strong> → AMPK active → ① phosphorylate ULK1 S317/S555 (activate); ② inhibit mTORC1 (via TSC2/RAPTOR) → <strong>promote autophagy</strong></span></div>
+<div class="dt-node"><span class="dt-q">轉錄調節</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>TFEB / TFE3</strong>（master regulator）→ 入核啟動 CLEAR network（>500 autophagy/lysosome 基因）→ 大規模生產自噬機械</span><span data-lang="en"><strong>TFEB / TFE3</strong> (master) → nuclear → CLEAR network (&gt;500 autophagy/lysosome genes) → bulk machinery production</span></div>
+<div class="dt-node"><span class="dt-q">壓力訊號</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>ROS、UPR (PERK-ATF4)、DNA 損傷 (p53)、缺氧 (HIF1α-BNIP3)</strong>各以不同入口刺激</span><span data-lang="en"><strong>ROS, UPR (PERK-ATF4), DNA damage (p53), hypoxia (HIF1α-BNIP3)</strong> activate via distinct entry points</span></div>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>CASM (Conjugation of ATG8 to Single Membrane)：</strong>新發現一條<strong>非典型 LC3 偶聯</strong>路徑——LC3 被偶聯至單膜結構（lysosome、endosome、phagosome）而非雙膜 phagophore。觸發者包含 ionophores、lysosomotropic drugs、TLR signaling。功能差異與經典 macroautophagy 不同。</span>
+<span data-lang="en"><strong>CASM (Conjugation of ATG8 to Single Membrane):</strong> a newly defined <strong>non-canonical LC3 conjugation</strong> pathway — LC3 attaches to single membranes (lysosome, endosome, phagosome) rather than double-membrane phagophores. Triggers: ionophores, lysosomotropic drugs, TLR signaling. Functionally distinct from canonical macroautophagy.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、自噬流量量化工作流" data-en="IV. Autophagy Flux Quantification Workflow">四、自噬流量量化</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · LC3 puncta</button>
+    <button class="code-tab-btn" data-tab="py">Python · tandem reporter</button>
+    <button class="code-tab-btn" data-tab="omic">Mitophagy proteomics</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># R: ImageJ 量化 LC3 puncta 配合 flux 計算</span>
+<span class="kw">library</span>(EBImage)
+img &lt;- readImage(<span class="str">"GFP_LC3.tif"</span>)
+g    &lt;- gblur(img, sigma=<span class="num">1</span>) - gblur(img, sigma=<span class="num">5</span>)   <span class="comment"># DoG</span>
+mask &lt;- g &gt; <span class="num">0.02</span>
+puncta &lt;- bwlabel(mask)
+puncta_per_cell &lt;- <span class="func">table</span>(puncta)[-<span class="num">1</span>]
+<span class="comment"># Flux = (LC3-II/actin)_BafA1 − (LC3-II/actin)_vehicle</span>
+df &lt;- read.csv(<span class="str">"WB_quant.csv"</span>)
+flux &lt;- df$LC3II[df$cond==<span class="str">"BafA1"</span>] - df$LC3II[df$cond==<span class="str">"DMSO"</span>]
+<span class="func">cat</span>(<span class="str">"Autophagic flux index:"</span>, <span class="func">round</span>(flux,<span class="num">2</span>), <span class="str">"\n"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># Python: tandem mRFP-GFP-LC3 自動化分析</span>
+<span class="kw">import</span> tifffile, numpy <span class="kw">as</span> np
+<span class="kw">from</span> skimage.feature <span class="kw">import</span> blob_log
+g = tifffile.<span class="func">imread</span>(<span class="str">"GFP.tif"</span>); r = tifffile.<span class="func">imread</span>(<span class="str">"mRFP.tif"</span>)
+blobs_g = blob_log(g, min_sigma=<span class="num">1</span>, max_sigma=<span class="num">3</span>, threshold=<span class="num">0.02</span>)
+blobs_r = blob_log(r, min_sigma=<span class="num">1</span>, max_sigma=<span class="num">3</span>, threshold=<span class="num">0.02</span>)
+<span class="comment"># Yellow puncta = autophagosome (GFP+ RFP+)</span>
+<span class="comment"># Red-only puncta = autolysosome (GFP quenched)</span>
+yellow = <span class="func">len</span>([b <span class="kw">for</span> b <span class="kw">in</span> blobs_g <span class="kw">if</span> <span class="func">np.any</span>(<span class="func">np.linalg.norm</span>(blobs_r[:,:<span class="num">2</span>]-b[:<span class="num">2</span>],axis=<span class="num">1</span>)&lt;<span class="num">2</span>)])
+red_only = <span class="func">len</span>(blobs_r) - yellow
+<span class="func">print</span>(<span class="str">f"AP:{yellow}  AL:{red_only}  flux ratio={red_only/(yellow+1):.2f}"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="omic"><pre><span class="comment"># Mitophagy proteomics: mt-Keima 流式 + TMT 比較</span>
+<span class="comment"># 1) mt-Keima fluorescence: 488 nm (neutral, mitochondria) vs 561 nm (acidic, mitolysosome)</span>
+<span class="comment">#    Ratio 561/488 ↑ = mitophagy</span>
+<span class="comment"># 2) TMT 10-plex 比較 WT vs PINK1-KO ± CCCP</span>
+<span class="kw">library</span>(limma); <span class="kw">library</span>(MSnbase)
+e &lt;- readMSnSet2(<span class="str">"tmt_tmt10.csv"</span>, ecol=<span class="num">2</span>:<span class="num">11</span>)
+design &lt;- model.matrix(~<span class="num">0</span> + group, pData(e))
+fit &lt;- lmFit(exprs(e), design)
+contr &lt;- makeContrasts(WT_CCCP - PINK1KO_CCCP, levels=design)
+tt &lt;- topTable(eBayes(contrasts.fit(fit, contr)), n=<span class="kw">Inf</span>)
+<span class="comment"># 期望 OMM 蛋白下降明顯（被選擇性降解）</span>
+mitoCarta &lt;- read.csv(<span class="str">"MitoCarta3.csv"</span>)
+tt$inMito &lt;- rownames(tt) %in% mitoCarta$Symbol</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. WB 測得實驗組 LC3-II 高於對照，但加入 bafilomycin A1 後兩組 LC3-II 一樣高，最合理結論是？</p>
+<p data-lang="en">1. WB shows treatment increases LC3-II vs control, but with bafilomycin A1 both reach the same level. The best interpretation is:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 處理組自噬流量增加</span><span data-lang="en">A. Treatment increases autophagic flux</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 處理組自噬流量降低</span><span data-lang="en">B. Treatment decreases flux</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 處理組阻斷 autolysosome 降解，LC3-II 堆積——並非促進自噬</span><span data-lang="en">C. Treatment blocks autolysosomal degradation, LC3-II accumulates — not enhanced autophagy</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. LC3-I 大量被切為 LC3-II</span><span data-lang="en">D. LC3-I massively converted to LC3-II</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：BafA1 dock 後若兩組同高，代表處理組是「fusion/degradation 被阻」，而非新生增多——即<strong>flux 並未增加</strong>。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: If BafA1 equalizes both groups, the treated group blocks fusion/degradation rather than enhancing biogenesis — flux did not actually rise.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. PINK1-KO 細胞為何 mitophagy 缺陷？</p>
+<p data-lang="en">2. Why are PINK1-KO cells mitophagy-deficient?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 無法生成 LC3-II</span><span data-lang="en">A. Cannot generate LC3-II</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 無法在受損粒線體上磷酸化 Ub (S65)，無法招募/活化 Parkin</span><span data-lang="en">B. Cannot phosphorylate Ub (S65) on damaged mito to recruit/activate Parkin</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. ATG7 表達下降</span><span data-lang="en">C. ATG7 expression drops</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. mTORC1 永久活化</span><span data-lang="en">D. mTORC1 constitutively active</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：PINK1 是受損 OMM 上的 phospho-ubiquitin 製造者；無 PINK1 即無 pS65-Ub 平台，Parkin 無法活化。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: PINK1 generates pS65-Ub on damaged OMM; without it Parkin cannot be recruited or activated.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）ATG9 不僅是 ATG 招募囊泡，2020 後已被證實為跨層脂質 scramblase，是 phagophore 接收脂質的關鍵。</p>
+<p data-lang="en">3. (T/F) ATG9 is not just a vesicle for ATG recruitment — post-2020 studies established it as a transbilayer lipid scramblase, key for phagophore lipid acquisition.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：與 ATG2 (bridge LTP) 配合，ATG9 把抵達的脂質 scramble 至外層，使 phagophore 雙層平衡擴展。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Paired with ATG2 (bridge LTP), ATG9 scrambles incoming lipids to the outer leaflet, enabling balanced bilayer expansion.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="cell-death-pathways.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 17 · 調節型細胞死亡途徑" data-en="Ch 17 · Regulated Cell Death Pathways">Ch 17 · 調節型細胞死亡途徑</span></a>
+<a href="cellular-senescence-stemness.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 19 · 細胞衰老與幹性" data-en="Ch 19 · Cellular Senescence &amp;amp; Stemness">Ch 19 · 細胞衰老與幹性</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 6: 轉錄調控當代圖像 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html" class="active">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 6 / 20 · BLOCK B</div>
+<h1 data-zh="轉錄調控當代圖像" data-en="Modern View of Transcription Regulation">轉錄調控當代圖像</h1>
+<p class="subtitle" data-lang="zh">Pol II CTD 循環、promoter-proximal pausing、Mediator-BRD4 凝聚物——當代轉錄不是線性過程而是動態相分離工廠。</p>
+<p class="subtitle" data-lang="en">Pol II CTD cycle, promoter-proximal pausing, Mediator-BRD4 condensates — modern transcription is not linear but a dynamic phase-separated factory.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="重新理解「轉錄」：從線性級聯到凝聚物" data-en="Rethinking Transcription: From Linear Cascade to Condensates">從線性到凝聚物</h2>
+<div data-lang="zh">
+<p>傳統教科書描繪轉錄為「TF 結合 → 招募 Pol II → 起始 → 延伸 → 終止」的線性流程。今日已知這幅圖過於簡化——當代轉錄涉及：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Pol II CTD 翻譯後修飾循環</strong>：YSPTSPS 重複 52 次的 CTD 在 Ser5P→Ser2P 之間切換，協調 capping、splicing、3′ 加工</li>
+<li><strong>Promoter-proximal pausing</strong>：~80% 哺乳類基因 Pol II 啟動 30-60 bp 後即停頓，等待釋放訊號</li>
+<li><strong>轉錄爆發 (transcriptional bursting)</strong>：每個基因以隨機的開/關週期表達，由 enhancer-promoter 接觸機率決定</li>
+<li><strong>轉錄凝聚物</strong>：Mediator + BRD4 + Pol II 在 super-enhancer 上形成 LLPS droplets</li>
+<li><strong>TF clustering</strong>：TF 的 IDR-AD 透過 multivalent 弱交互作用聚集 (Chong et al. 2018)</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Classical textbooks describe transcription as "TF → recruit Pol II → initiate → elongate → terminate" — a linear cascade. Today we know this is too simple. Modern transcription involves:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Pol II CTD PTM cycle</strong>: the 52× YSPTSPS repeat cycles between Ser5P→Ser2P, coordinating capping, splicing, 3′-end processing</li>
+<li><strong>Promoter-proximal pausing</strong>: ~80% of mammalian Pol II pauses 30-60 bp downstream of TSS, awaiting release</li>
+<li><strong>Transcriptional bursting</strong>: stochastic on/off cycles set by enhancer-promoter contact probability</li>
+<li><strong>Transcription condensates</strong>: Mediator + BRD4 + Pol II form LLPS droplets at super-enhancers</li>
+<li><strong>TF clustering</strong>: TF IDR-ADs cluster via multivalent weak interactions (Chong et al. 2018)</li>
+</ul>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>核心反思：</strong>Young &amp; Sharp 等 2017-2024 工作確立「轉錄即凝聚物」典範——enhancer-promoter loop 帶來物理接近，凝聚物提供高局部濃度的 Pol II 與輔活化子，這比單純的「招募」概念更貼近實況。</span>
+<span data-lang="en"><strong>Core reframe:</strong> Young &amp; Sharp 2017-2024 established the "transcription-as-condensate" paradigm. E-P loops bring physical proximity; condensates supply high local concentrations of Pol II and coactivators — beyond the simple "recruitment" model.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="CTD 循環" data-en="CTD CYCLE">CTD 循環</div>
+<h2 data-zh="一、Pol II CTD 修飾循環" data-en="I. Pol II CTD Modification Cycle">一、Pol II CTD 循環</h2>
+<div data-lang="zh"><p>人類 Pol II RPB1 的 C-terminal domain (CTD) 含 52 個 YSPTSPS 重複。每個位置都可被磷酸化、糖基化或順反異構化——形成「<strong>CTD code</strong>」。最關鍵為 Ser5 與 Ser2 的時序性磷酸化：</p></div>
+<div data-lang="en"><p>Human Pol II RPB1 CTD: 52 × YSPTSPS repeats. Each position can be phosphorylated, glycosylated, or cis-trans isomerized — forming the "<strong>CTD code</strong>". Key: temporal Ser5/Ser2 phosphorylation:</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="階段" data-en="Stage">階段</th><th data-zh="CTD 修飾" data-en="CTD mark">CTD 修飾</th><th data-zh="激酶" data-en="Kinase">激酶</th><th data-zh="耦合事件" data-en="Coupled event">耦合事件</th></tr></thead>
+<tbody>
+<tr><td data-zh="起始" data-en="Initiation">起始</td><td>Ser5P</td><td>CDK7 (TFIIH)</td><td data-zh="5′ capping (CE 招募)" data-en="5′ capping (recruits CE)">5′ capping</td></tr>
+<tr><td data-zh="停頓" data-en="Pausing">停頓</td><td>Ser5P + Ser7P</td><td>CDK7</td><td>NELF + DSIF stabilize pause</td></tr>
+<tr><td data-zh="釋放" data-en="Release">釋放</td><td>Ser2P 開始</td><td>CDK9 (P-TEFb)</td><td data-zh="NELF 解離；DSIF→正向延伸因子" data-en="NELF release; DSIF→positive elongation factor">釋放停頓</td></tr>
+<tr><td data-zh="延伸" data-en="Elongation">延伸</td><td>Ser2P 為主</td><td>CDK9, CDK12</td><td data-zh="co-transcriptional splicing；H3K36me3 沉積" data-en="Co-transcriptional splicing; H3K36me3 deposition">剪接 / SETD2</td></tr>
+<tr><td data-zh="終止" data-en="Termination">終止</td><td>Tyr1P, Ser2P</td><td>CDK12, BRD4</td><td>3′ end / CPSF / Xrn2 torpedo</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>凝聚物切換：</strong>2018 Boehning et al. 發現 Ser5P CTD 偏好進入 Mediator/BRD4 凝聚物（起始）；Ser2P CTD 則偏好進入 splicing condensates（延伸）。CTD 磷酸化等同於改變 Pol II 在凝聚物間的「<strong>partition coefficient</strong>」。</span>
+<span data-lang="en"><strong>Condensate switching:</strong> Boehning et al. 2018 — Ser5P CTD preferentially enters Mediator/BRD4 condensates (initiation); Ser2P CTD enters splicing condensates (elongation). CTD phosphorylation effectively changes Pol II's <strong>partition coefficient</strong> between condensates.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Pause Release" data-en="PAUSE RELEASE">停頓釋放</div>
+<h2 data-zh="二、Promoter-Proximal Pausing 與 P-TEFb 釋放" data-en="II. Promoter-Proximal Pausing &amp; P-TEFb Release">二、停頓與釋放</h2>
+<div data-lang="zh"><p>Pol II 啟動轉錄後僅延伸 30-60 nt 即被「<strong>停頓 (pausing)</strong>」，由兩個複合體穩定：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>NELF (Negative Elongation Factor)</strong>：NELF-A/B/C/D/E 抑制 Pol II 移動</li>
+<li><strong>DSIF (DRB-Sensitivity-Inducing Factor)</strong>：Spt4-Spt5，在停頓時為負調節，釋放後改為正調節</li>
+</ul>
+<p><strong>P-TEFb (CDK9-Cyclin T1)</strong> 是釋放的核心：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>P-TEFb 平常被 <strong>7SK snRNP</strong>（7SK RNA + HEXIM1 + LARP7 + MEPCE）封存（>80% 處於失活）</li>
+<li>受訊號（如 BRD4 結合 H3K27ac, JMJD6, 或熱休克）招募，從 7SK snRNP 釋出</li>
+<li>P-TEFb 磷酸化 NELF（解離）、DSIF Spt5（變正向）、Pol II CTD Ser2</li>
+<li>Pol II 進入有效延伸</li>
+</ol>
+</div>
+<div data-lang="en"><p>After ~30-60 nt of transcription, Pol II is <strong>paused</strong>, stabilized by two complexes:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>NELF</strong>: NELF-A/B/C/D/E inhibits Pol II movement</li>
+<li><strong>DSIF</strong>: Spt4-Spt5 — negative during pause, positive after release</li>
+</ul>
+<p><strong>P-TEFb (CDK9-Cyclin T1)</strong> drives release:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>P-TEFb is normally sequestered (&gt;80%) by <strong>7SK snRNP</strong> (7SK RNA + HEXIM1 + LARP7 + MEPCE)</li>
+<li>Released on signal (BRD4 binding H3K27ac, JMJD6, heat shock)</li>
+<li>P-TEFb phosphorylates NELF (dissociation), DSIF Spt5 (→ positive), Pol II CTD Ser2</li>
+<li>Pol II enters productive elongation</li>
+</ol>
+</div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🛑</div><h4 data-zh="停頓功能" data-en="Why pause?">停頓功能</h4>
+<div data-lang="zh"><p>① 允許 5′ capping 確認 ② 快速應答訊號 (HSF1, ER) ③ 防止 cryptic 起始 ④ 維持 chromatin 開放</p></div>
+<div data-lang="en"><p>① Ensures 5′ capping ② Rapid signal response ③ Prevents cryptic initiation ④ Maintains open chromatin</p></div></div>
+<div class="card"><div class="card-icon">💊</div><h4 data-zh="藥物標的" data-en="Drug targets">藥物標的</h4>
+<div data-lang="zh"><p>BRD4 inhibitor (JQ1, OTX015)、CDK9i (NVP-2, AZD-4573) — MYC dependence、AML、SCLC</p></div>
+<div data-lang="en"><p>BRD4 inhibitors (JQ1, OTX015), CDK9i (NVP-2, AZD-4573) — MYC-dependent tumors, AML, SCLC</p></div></div>
+<div class="card"><div class="card-icon">⚡</div><h4 data-zh="Heat shock" data-en="Heat shock">熱休克</h4>
+<div data-lang="zh"><p>HSP70 promoter Pol II 恆久停頓；熱休克時 HSF1 三聚 + JMJD6 釋放 P-TEFb → 秒級基因爆發</p></div>
+<div data-lang="en"><p>HSP70 promoter Pol II is constitutively paused; heat shock → HSF1 trimer + JMJD6 release P-TEFb → second-scale gene burst</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Super-Enhancer" data-en="SUPER-ENHANCER">超級增強子</div>
+<h2 data-zh="三、Super-Enhancer 與轉錄凝聚物" data-en="III. Super-Enhancers and Transcription Condensates">三、SE 與凝聚物</h2>
+<div data-lang="zh">
+<p><strong>Super-enhancer (SE)</strong>（Whyte &amp; Young 2013）是 H3K27ac、Mediator、BRD4 顯著富集的延伸基因組區段（>8-20 kb），常與細胞身分基因 (lineage TFs) 關聯。SE 的關鍵特性：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>協同效應</strong>：多個 enhancer cluster 之間出現非線性轉錄輸出（"transcription condensate" 解釋此現象）</li>
+<li><strong>對劑量敏感</strong>：BRD4i (JQ1) 對 SE 比 typical enhancer 敏感 10-100×，是抗 MYC AML 治療基礎</li>
+<li><strong>細胞身分定義</strong>：每種細胞約有 ~500 個 SE，唯一定義其身分（pluripotency: OCT4/SOX2/NANOG SEs）</li>
+</ul>
+<p><strong>Sabari et al. 2018 (Young lab)</strong>: BRD4 與 MED1 含長 IDR，在 SE 上形成 1-2 µm 的 LLPS droplets，FRAP 顯示動態交換。Pol II Ser5P CTD 被招募進入此凝聚物。</p>
+</div>
+<div data-lang="en">
+<p><strong>Super-enhancer (SE)</strong> (Whyte &amp; Young 2013): extended genomic regions (&gt;8-20 kb) heavily decorated with H3K27ac, Mediator, BRD4, typically linked to lineage TFs. Key features:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Cooperativity</strong>: nonlinear output from clustered enhancers (explained by transcription condensates)</li>
+<li><strong>Dose sensitivity</strong>: BRD4i (JQ1) hits SEs 10-100× more than typical enhancers — basis of anti-MYC AML therapy</li>
+<li><strong>Identity definition</strong>: each cell type has ~500 SEs uniquely defining identity (pluripotency: OCT4/SOX2/NANOG SEs)</li>
+</ul>
+<p><strong>Sabari et al. 2018 (Young lab)</strong>: BRD4 and MED1 contain long IDRs, forming 1-2 µm LLPS droplets at SEs with FRAP-confirmed dynamic exchange. Pol II Ser5P CTD partitions into these condensates.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、ChIP-seq / PRO-seq / TT-seq 分析" data-en="IV. ChIP-seq / PRO-seq / TT-seq Analysis">四、轉錄調控資料分析</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · ChIPseeker</button>
+    <button class="code-tab-btn" data-tab="py">Python · pyDESeq2 / pyranges</button>
+    <button class="code-tab-btn" data-tab="cli">CLI · ROSE SE caller</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># ChIPseeker + DiffBind: SE 與 differential ChIP</span>
+<span class="kw">library</span>(ChIPseeker); <span class="kw">library</span>(DiffBind)
+peaks &lt;- readPeakFile(<span class="str">"h3k27ac.narrowPeak"</span>)
+<span class="comment"># 1) 註釋 peak 至最近基因</span>
+anno &lt;- annotatePeak(peaks, tssRegion=<span class="func">c</span>(-<span class="num">3000</span>,<span class="num">3000</span>),
+                     TxDb=TxDb.Hsapiens.UCSC.hg38.knownGene)
+<span class="comment"># 2) Pol II pausing index = TSS 訊號 / gene body 訊號</span>
+pi &lt;- calc_pause_index(bw_polII=<span class="str">"polII.bw"</span>,
+                       tss_bed=<span class="str">"tss.bed"</span>, body_bed=<span class="str">"genebody.bed"</span>)
+<span class="comment"># Index &gt; 4 = 強停頓基因 (典型 80% 哺乳基因)</span>
+<span class="comment"># 3) Differential binding (DiffBind)</span>
+dba &lt;- dba(sampleSheet=<span class="str">"samples.csv"</span>)
+dba &lt;- dba.count(dba); dba &lt;- dba.contrast(dba)
+res &lt;- dba.analyze(dba, method=DBA_DESEQ2)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># PRO-seq / GRO-seq nascent transcription analysis</span>
+<span class="kw">import</span> pyranges <span class="kw">as</span> pr
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="comment"># 1) 載入 PRO-seq bigwig，計算 pause index</span>
+<span class="kw">from</span> pyBigWig <span class="kw">import</span> open <span class="kw">as</span> bw_open
+bw = bw_open(<span class="str">"proseq.bw"</span>)
+<span class="kw">def</span> <span class="func">pause_index</span>(gene, w_tss=<span class="num">250</span>, w_body=<span class="num">2000</span>):
+    tss_sig = bw.stats(gene.Chr, gene.Start, gene.Start+w_tss, type=<span class="str">"mean"</span>)[<span class="num">0</span>]
+    body_sig = bw.stats(gene.Chr, gene.Start+w_tss, min(gene.End, gene.Start+w_tss+w_body),
+                        type=<span class="str">"mean"</span>)[<span class="num">0</span>]
+    <span class="kw">return</span> tss_sig / (body_sig + <span class="num">1e-9</span>)
+
+<span class="comment"># 2) BRD4i (JQ1) 治療下 SE-associated MYC, BCL2 等典型下降</span>
+<span class="comment"># 3) TT-seq (transient transcriptome) 解析 nascent + half-life</span>
+<span class="kw">from</span> pydeseq2 <span class="kw">import</span> dds
+deseq = dds.DeseqDataSet(counts=tt_counts, metadata=meta, design=<span class="str">"~treatment"</span>)
+deseq.deseq2()</pre></div>
+  <div class="code-tab-content" data-tab="cli"><pre><span class="comment"># ROSE: Super-Enhancer caller (Whyte/Young 2013)</span>
+
+<span class="comment"># 1) MACS2 call H3K27ac peaks</span>
+macs2 callpeak -t H3K27ac.bam -c IgG.bam -g hs \
+  -n h3k27ac -f BAMPE -q 0.01 --broad --broad-cutoff 0.1
+
+<span class="comment"># 2) Stitch 鄰近 peaks (≤12.5 kb), 排除 TSS ±2 kb 區域</span>
+python ROSE_main.py -g hg38 -i h3k27ac.gff \
+  -r H3K27ac.bam -c IgG.bam -o rose_out -s 12500 -t 2000
+
+<span class="comment"># 3) 依 signal 排序，取「hockey stick」斜率拐點上方為 SE</span>
+<span class="comment">#    輸出: *_SuperEnhancers.table.txt</span>
+<span class="comment">#    通常 500-1000 個 SE</span>
+
+<span class="comment"># 4) 連結 SE 至基因 (最近 TSS 或 Hi-C 接觸)</span>
+bedtools closest -a SE.bed -b gene_tss.bed -d &gt; SE_to_gene.tsv
+
+<span class="comment"># JQ1 治療下 SE-target log2FC 通常 &lt; -1.5</span></pre></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Pioneer / Mediator" data-en="PIONEER / MEDIATOR">Pioneer 因子</div>
+<h2 data-zh="五、Pioneer TFs 與 Mediator complex" data-en="V. Pioneer TFs &amp; Mediator Complex">五、先導因子與 Mediator</h2>
+<div data-lang="zh">
+<p><strong>Pioneer TFs</strong>（如 FOXA1, OCT4, KLF4, GATA1）能在封閉染色質上識別其結合位點——多數 TF 只能結合已開放的位點，但 pioneer 因子能<strong>穿透核小體</strong>，作為染色質開放的第一步。它們的特徵：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>DBD 形似 linker histone (FOXA1 形如 H1)，能接觸纏繞於核小體的 DNA</li>
+<li>結合後招募 BAF (SWI/SNF)、p300/CBP，將 H3K27ac 加上</li>
+<li>細胞重編程關鍵：山中因子 OCT4/SOX2/KLF4/MYC 中 OCT4 與 KLF4 為 pioneer</li>
+</ul>
+<p><strong>Mediator complex</strong>（~30 個亞基，1.5 MDa）是 TF 與 Pol II 之間的「橋樑」：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Head + Middle</strong>：核心轉錄輸出</li>
+<li><strong>Tail</strong>：MED1, MED15 等含長 IDR，直接接觸 TF AD；MED1 IDR 是 SE 凝聚物的關鍵 scaffold</li>
+<li><strong>Kinase module (CDK8/CDK19)</strong>：可逆性結合，調控啟動效率</li>
+</ul>
+</div>
+<div data-lang="en">
+<p><strong>Pioneer TFs</strong> (FOXA1, OCT4, KLF4, GATA1) bind closed chromatin — most TFs require open sites, but pioneers <strong>penetrate nucleosomes</strong> as the first step in opening chromatin. Features:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>DBD resembles linker histone (FOXA1 ≈ H1); contacts nucleosomal DNA</li>
+<li>Recruits BAF (SWI/SNF), p300/CBP → H3K27ac</li>
+<li>Reprogramming: among Yamanaka factors OCT4 &amp; KLF4 are pioneers</li>
+</ul>
+<p><strong>Mediator complex</strong> (~30 subunits, 1.5 MDa): bridge between TF and Pol II:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Head + Middle</strong>: core transcription output</li>
+<li><strong>Tail</strong>: MED1, MED15 with long IDRs contact TF ADs; MED1 IDR is the key SE-condensate scaffold</li>
+<li><strong>Kinase module (CDK8/CDK19)</strong>: reversibly associated; regulates initiation efficiency</li>
+</ul>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 一個基因的 pause index (TSS 訊號 / gene body 訊號) 在 BRD4i (JQ1) 處理後顯著上升，最合理解釋為何？</p>
+<p data-lang="en">1. A gene's pause index (TSS signal / body signal) rises significantly after BRD4i (JQ1). Best explanation?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 轉錄起始增加</span><span data-lang="en">A. Increased initiation</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. P-TEFb 招募增加</span><span data-lang="en">B. More P-TEFb recruitment</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. BRD4 釋放 P-TEFb 被阻斷 → Pol II 停在 TSS，無法進入 productive elongation</span><span data-lang="en">C. BRD4-mediated P-TEFb release blocked → Pol II stuck at TSS, no productive elongation</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 與 BRD4 無關</span><span data-lang="en">D. Unrelated to BRD4</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：JQ1 阻斷 BRD4 識別 H3K27ac → P-TEFb 不被招募 → CDK9 無法磷酸化 NELF/DSIF/Ser2 → Pol II 停在 TSS，pause index 升高。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: JQ1 blocks BRD4 binding to H3K27ac → P-TEFb is not recruited → CDK9 fails to phosphorylate NELF/DSIF/Ser2 → Pol II remains paused, raising pause index.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. 山中因子重編程 (OCT4/SOX2/KLF4/MYC) 中，哪個性質讓 OCT4 與 KLF4 能在分化細胞的封閉染色質上「開門」？</p>
+<p data-lang="en">2. Among Yamanaka factors, which property lets OCT4 &amp; KLF4 "open the door" on closed chromatin in differentiated cells?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 都含有 IDR</span><span data-lang="en">A. They all contain IDRs</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 為 pioneer 因子，DBD 可接觸核小體 DNA</span><span data-lang="en">B. Pioneer factors with DBDs that contact nucleosomal DNA</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 直接催化 H3K27ac</span><span data-lang="en">C. Directly catalyze H3K27ac</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 直接乙醯化組蛋白</span><span data-lang="en">D. Acetylate histones directly</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：OCT4 與 KLF4 是 pioneer TF，可在 nucleosomal DNA 上找到結合位點，後續再招募 BAF complex 與 p300。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: OCT4 &amp; KLF4 are pioneer TFs that locate sites on nucleosomal DNA, then recruit BAF and p300.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Pol II CTD 在 Ser5P 階段偏好分佈到 Mediator/BRD4 凝聚物，在 Ser2P 階段轉移到 splicing 凝聚物——CTD 磷酸化改變 Pol II 的「partition coefficient」。</p>
+<p data-lang="en">3. (T/F) Pol II CTD partitions into Mediator/BRD4 condensates when Ser5P, and into splicing condensates when Ser2P — phosphorylation changes its partition coefficient.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：Boehning et al. 2018 證實磷酸化改寫 CTD-IDR 與不同凝聚物 IDR 的化學親和力。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Boehning et al. 2018 demonstrated phosphorylation rewires CTD-IDR's affinity for different condensate scaffolds.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="chromatin-3d-genome.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 5 · 染色質與 3D 基因組" data-en="Ch 5 · Chromatin &amp;amp; the 3D Genome">Ch 5 · 染色質與 3D 基因組</span></a>
+<a href="mrna-life-cycle.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 7 · mRNA 生命週期與表觀轉錄體" data-en="Ch 7 · mRNA Life Cycle &amp;amp; the Epitranscriptome">Ch 7 · mRNA 生命週期與表觀轉錄體</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

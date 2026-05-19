@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 1: 蛋白質結構與動態 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html" class="active">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 1 / 20 · BLOCK A</div>
+<h1 data-zh="蛋白質結構與動態" data-en="Protein Structure &amp; Dynamics">蛋白質結構與動態</h1>
+<p class="subtitle" data-lang="zh">從折疊景觀到 AlphaFold3——理解蛋白質的能量地景、內在無序區與分子動力學如何在原子尺度推動細胞功能。</p>
+<p class="subtitle" data-lang="en">From folding landscapes to AlphaFold3 — how energy surfaces, intrinsically disordered regions, and molecular dynamics drive cell function at atomic scale.</p>
+</header>
+<main class="content-wrap">
+
+<!-- Section 1 -->
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="為什麼「動態」比「結構」更關鍵？" data-en="Why dynamics matter more than static structure">為什麼「動態」比「結構」更關鍵？</h2>
+<div data-lang="zh">
+<p>傳統 X-ray 結構給我們的是「一張靜照」，但<strong>蛋白質的功能來自於其能量地景上的構象集合 (conformational ensemble)</strong>。每個折疊好的蛋白質在生理溫度下會在多個低能態間漲落 (fluctuate)，這些動態（從 ps 級的鍵振動到 ms 級的構象切換）才是酵素催化、訊號傳導、變構調節的真正基礎。</p>
+<p>2024 年的 <strong>AlphaFold3</strong> 與 <strong>RoseTTAFold All-Atom</strong> 不僅能預測單體結構，還能預測蛋白-核酸-小分子-離子的<strong>複合體結構與動態構象</strong>。配合 CryoEM 與 CryoET 的原位結構解析，今日的分子細胞生物學已進入「<term>原子尺度活體成像<span class="term-tip">visual proteomics — 在細胞內以 nm 級解析觀察蛋白質複合體的時間動態</span></term>」時代。</p>
+</div>
+<div data-lang="en">
+<p>X-ray crystallography gives "a single snapshot", but <strong>protein function arises from a conformational ensemble on its energy landscape</strong>. At physiological temperature, every folded protein fluctuates among multiple low-energy states. These dynamics — from ps-scale bond vibrations to ms-scale conformational switching — underlie enzyme catalysis, signal transduction, and allosteric regulation.</p>
+<p>The 2024 release of <strong>AlphaFold3</strong> and <strong>RoseTTAFold All-Atom</strong> can now predict protein-nucleic acid-ligand-ion complexes and dynamic conformations. Combined with CryoEM and CryoET in-situ imaging, molecular cell biology has entered the era of <term>atomic-scale live imaging<span class="term-tip">visual proteomics — nm-resolution observation of protein complex dynamics inside intact cells</span></term>.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>核心原則：</strong>結構 → 動態 → 功能。任何只看靜態結構的解釋都是不完整的；要解釋酵素變構、訊號開關、藥物選擇性，必須考慮構象漲落 (conformational fluctuation)。</span>
+<span data-lang="en"><strong>Core principle:</strong> Structure → Dynamics → Function. Static structure alone is insufficient. Explaining allostery, signaling switches, and drug selectivity requires considering conformational fluctuations.</span>
+</div></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section">
+<div class="section-label" data-zh="折疊景觀" data-en="FOLDING LANDSCAPE">折疊景觀</div>
+<h2 data-zh="一、能量漏斗與分子動力學" data-en="I. Energy Funnel &amp; Molecular Dynamics">一、能量漏斗與分子動力學</h2>
+<div data-lang="zh"><p>Levinthal 悖論指出：若蛋白以隨機方式搜索構象空間，所需時間將超過宇宙年齡。實際上，蛋白質的折疊路徑由<strong>能量漏斗 (energy funnel)</strong>引導——序列同時編碼了路徑與終點。</p></div>
+<div data-lang="en"><p>Levinthal's paradox: random search through conformation space would exceed the age of the universe. In reality, folding is guided by an <strong>energy funnel</strong> — sequence encodes both the path and the destination.</p></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🔻</div><h4 data-zh="折疊漏斗" data-en="Folding Funnel">折疊漏斗</h4>
+<div data-lang="zh"><p>多條路徑、單一原生態。Chevron 圖反映折疊/解折疊速率對變性劑的依賴。</p></div>
+<div data-lang="en"><p>Many paths, one native state. Chevron plots show folding/unfolding rate dependence on denaturant.</p></div></div>
+<div class="card"><div class="card-icon">🌊</div><h4 data-zh="局部極小" data-en="Local Minima">局部極小</h4>
+<div data-lang="zh"><p>動力學陷阱 (kinetic trap) 形成<strong>錯誤折疊</strong>，與 prion、Alzheimer Aβ 等聚集疾病相關。</p></div>
+<div data-lang="en"><p>Kinetic traps cause <strong>misfolding</strong>, linked to prion disease, Alzheimer's Aβ, and other aggregation disorders.</p></div></div>
+<div class="card"><div class="card-icon">🎲</div><h4 data-zh="構象漲落" data-en="Conformational Fluctuation">構象漲落</h4>
+<div data-lang="zh"><p>在原生態盆地內振盪，週期 ps → ms。NMR relaxation 與 single-molecule FRET 可量化。</p></div>
+<div data-lang="en"><p>Oscillation within the native basin, ps → ms timescales. Quantified by NMR relaxation and smFRET.</p></div></div>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>變構 (allostery) 的當代觀點：</strong>不再是「兩態切換」，而是「構象集合的<strong>分佈重組</strong>」。受體被配體佔據後，原本的構象比例被重新調整——這對藥物設計（偏選性 agonism）至關重要。</span>
+<span data-lang="en"><strong>Modern view of allostery:</strong> Not "two-state switching" but <strong>reweighting of the conformational ensemble</strong>. Ligand binding shifts the population of pre-existing states — critical for drug design (biased agonism).</span>
+</div></div>
+</section>
+
+<!-- Section 3 -->
+<section class="section">
+<div class="section-label" data-zh="IDR / IDP" data-en="IDR / IDP">內在無序區</div>
+<h2 data-zh="二、內在無序蛋白 (IDP) 與 IDR" data-en="II. Intrinsically Disordered Proteins (IDPs) and IDRs">二、內在無序蛋白 (IDP) 與 IDR</h2>
+<div data-lang="zh"><p>真核蛋白約 30% 含<strong>內在無序區 (Intrinsically Disordered Region, IDR)</strong>，無固定結構卻具特定功能：作為訊號通路的中樞、相分離的驅動者、轉錄因子的活化域。它們富含 Pro、Gly、Ser、Glu、Lys 等極性/帶電殘基，缺乏疏水核心。</p>
+<p><strong>2024 後新焦點：</strong>AlphaFold 對 IDR 預測信心 (pLDDT) 偏低不是缺陷，反而是發現 IDR 的線索。結合 IDRome 與 NARDINI+ 工具能識別 IDR 的<strong>序列文法 (sequence grammar)</strong>，預測其是否傾向相分離。</p></div>
+<div data-lang="en"><p>~30% of eukaryotic proteins contain <strong>Intrinsically Disordered Regions (IDRs)</strong> — no fixed structure but specific functions: signaling hubs, phase separation drivers, transcription factor activation domains. They are rich in Pro, Gly, Ser, Glu, Lys and lack a hydrophobic core.</p>
+<p><strong>Post-2024 focus:</strong> Low AlphaFold confidence (pLDDT) over IDRs is a feature, not a bug — it flags candidate IDRs. IDRome and NARDINI+ identify the <strong>sequence grammar</strong> of IDRs and predict phase-separation propensity.</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="特性" data-en="Property">特性</th><th data-zh="結構化蛋白" data-en="Folded Protein">結構化蛋白</th><th data-zh="IDR / IDP" data-en="IDR / IDP">IDR / IDP</th></tr></thead>
+<tbody>
+<tr><td data-zh="序列組成" data-en="Sequence">序列組成</td><td data-zh="疏水核心 + 極性表面" data-en="Hydrophobic core + polar surface">疏水核心 + 極性表面</td><td data-zh="高極性/帶電；低疏水" data-en="High polar/charged; low hydrophobic">高極性/帶電；低疏水</td></tr>
+<tr><td data-zh="結構" data-en="Structure">結構</td><td data-zh="單一原生態" data-en="Single native state">單一原生態</td><td data-zh="構象集合 (ensemble)" data-en="Conformational ensemble">構象集合 (ensemble)</td></tr>
+<tr><td data-zh="演化保守性" data-en="Evolution">演化保守性</td><td data-zh="殘基層級保守" data-en="Residue-level conservation">殘基層級保守</td><td data-zh="文法層級保守 (組成、charge patterning)" data-en="Grammar-level (composition, charge patterning)">文法層級保守</td></tr>
+<tr><td data-zh="主要功能" data-en="Function">主要功能</td><td data-zh="酵素、結構、運輸" data-en="Enzymes, structure, transport">酵素、結構、運輸</td><td data-zh="訊號 hub、轉錄活化、LLPS" data-en="Signaling hubs, transcription activation, LLPS">訊號 hub、轉錄活化、LLPS</td></tr>
+<tr><td data-zh="動態時間尺度" data-en="Dynamics">動態時間尺度</td><td data-zh="ps – ms 漲落" data-en="ps – ms fluctuations">ps – ms 漲落</td><td data-zh="ns – μs 構象切換 (極快)" data-en="ns – μs conformational switching">ns – μs 構象切換</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- Section 4 Interactive -->
+<section class="section">
+<div class="section-label" data-zh="互動模擬" data-en="INTERACTIVE">互動模擬</div>
+<h2 data-zh="折疊能量地景模擬器" data-en="Folding Energy Landscape Simulator">折疊能量地景模擬器</h2>
+<div data-lang="zh"><p>拖動滑桿改變變性劑濃度，觀察蛋白質在「折疊」與「未折疊」狀態間的平衡如何變化。曲線為 chevron plot：折疊速率與解折疊速率對變性劑的依賴。</p></div>
+<div data-lang="en"><p>Adjust denaturant concentration to see how the folding/unfolding equilibrium shifts. The curve is a chevron plot: folding and unfolding rates as functions of denaturant.</p></div>
+<div class="interactive-panel">
+  <div class="slider-group"><label><span data-zh="變性劑濃度 [denaturant] (M)" data-en="Denaturant concentration (M)">變性劑濃度</span> <span id="valDen">2.0</span></label><input type="range" id="sliderDen" min="0" max="6" value="2" step="0.1"></div>
+  <div class="sim-stats"><span class="sim-stat pass" id="statFolded">—</span><span class="sim-stat fail" id="statUnfolded">—</span></div>
+  <div class="chart-container"><canvas id="chevronChart"></canvas></div>
+  <p style="font-size:.82rem;color:var(--c-ink-muted);text-align:center;" data-zh="X: 變性劑 [M] | Y: ln(k) | 紫線=折疊速率，粉線=解折疊速率" data-en="X: denaturant [M] | Y: ln(k) | violet=folding rate, pink=unfolding rate">X: 變性劑 [M] | Y: ln(k) | 紫線=折疊速率，粉線=解折疊速率</p>
+</div>
+</section>
+
+<!-- Section 5 Code -->
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="三、結構動態的計算工作流" data-en="III. Computational Workflow for Structure &amp; Dynamics">三、結構動態的計算工作流</h2>
+<div data-lang="zh"><p>從 AlphaFold3 預測到 MD 動力學模擬的完整工作流。R 端以 <code>bio3d</code> 處理結構分析；Python 端以 <code>biotite</code> + <code>OpenMM</code> 進行模擬。</p></div>
+<div data-lang="en"><p>From AlphaFold3 prediction to MD simulation. R workflow uses <code>bio3d</code>; Python uses <code>biotite</code> + <code>OpenMM</code>.</p></div>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · bio3d</button>
+    <button class="code-tab-btn" data-tab="py">Python · OpenMM</button>
+    <button class="code-tab-btn" data-tab="af">AlphaFold3 (ColabFold)</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># 載入 PDB 與結構動態分析</span>
+<span class="kw">library</span>(bio3d)
+pdb &lt;- read.pdb(<span class="str">"1AKE"</span>)             <span class="comment"># adenylate kinase open form</span>
+<span class="comment"># 1) PCA on ensemble (NMA 簡正模態分析)</span>
+modes &lt;- nma(pdb)
+plot(modes, sse=pdb)
+<span class="comment"># 2) RMSF profile — 識別柔性區域</span>
+rmsf_val &lt;- rmsf(modes$U.subspace)
+<span class="comment"># 3) 比對 open vs closed conformations</span>
+pdbs &lt;- pdbaln(c(<span class="str">"1AKE"</span>,<span class="str">"4AKE"</span>), fit=<span class="kw">TRUE</span>)
+pc &lt;- pca(pdbs$xyz, rm.gaps=<span class="kw">TRUE</span>)
+plot(pc, col=<span class="func">c</span>(<span class="str">"open"</span>,<span class="str">"closed"</span>))</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># OpenMM MD 模擬 (隱式溶劑, 100 ns)</span>
+<span class="kw">from</span> openmm.app <span class="kw">import</span> *
+<span class="kw">from</span> openmm <span class="kw">import</span> *
+<span class="kw">from</span> openmm.unit <span class="kw">import</span> *
+
+pdb = PDBFile(<span class="str">'protein.pdb'</span>)
+ff  = ForceField(<span class="str">'amber14-all.xml'</span>, <span class="str">'amber14/tip3pfb.xml'</span>)
+system = ff.createSystem(pdb.topology, nonbondedMethod=PME,
+                         nonbondedCutoff=<span class="num">1.0</span>*nanometer, constraints=HBonds)
+integrator = LangevinMiddleIntegrator(<span class="num">310</span>*kelvin, <span class="num">1</span>/picosecond, <span class="num">2</span>*femtoseconds)
+sim = Simulation(pdb.topology, system, integrator)
+sim.context.setPositions(pdb.positions)
+sim.minimizeEnergy()
+sim.reporters.append(DCDReporter(<span class="str">'traj.dcd'</span>, <span class="num">5000</span>))
+sim.step(<span class="num">50_000_000</span>)   <span class="comment"># 100 ns @ 2 fs/step</span></pre></div>
+  <div class="code-tab-content" data-tab="af"><pre><span class="comment"># AlphaFold3 / ColabFold via local Docker (2024+)</span>
+<span class="comment"># 1) 製備輸入 (FASTA 或 mmCIF)</span>
+<span class="func">cat</span> &gt; input.json &lt;&lt;EOF
+{
+  <span class="str">"name"</span>: <span class="str">"my_complex"</span>,
+  <span class="str">"sequences"</span>: [
+    {<span class="str">"proteinChain"</span>: {<span class="str">"sequence"</span>: <span class="str">"MKT..."</span>, <span class="str">"count"</span>: 2}},
+    {<span class="str">"ligand"</span>: {<span class="str">"ligand"</span>: <span class="str">"ATP"</span>, <span class="str">"count"</span>: 1}}
+  ]
+}
+EOF
+<span class="comment"># 2) 跑 AlphaFold3</span>
+docker run --gpus all -v $(pwd):/data alphafold3:latest \
+  --json_path=/data/input.json --output_dir=/data/out
+<span class="comment"># 3) 評估指標</span>
+<span class="comment">#   - pTM &gt; 0.5: 整體結構可信</span>
+<span class="comment">#   - ipTM &gt; 0.6: 介面預測可信</span>
+<span class="comment">#   - pLDDT &lt; 50: 可能為 IDR/柔性區</span></pre></div>
+</div>
+<div class="callout danger"><span class="callout-icon">⛔</span><div>
+<span data-lang="zh"><strong>AF3 限制：</strong>① 對於 obligate complexes 表現好，但 transient/weak interactions 仍易失誤。② 對於蛋白-RNA 介面預測仍有限。③ pLDDT 高 ≠ 真實結構；需 CryoEM/SAXS 實驗驗證。</span>
+<span data-lang="en"><strong>AF3 limitations:</strong> ① Good on obligate complexes, but transient/weak interactions remain unreliable. ② Protein-RNA interface prediction is still limited. ③ High pLDDT ≠ true structure; experimental validation via CryoEM/SAXS is needed.</span>
+</div></div>
+</section>
+
+<!-- Section 6 Decision tree -->
+<section class="section">
+<div class="section-label" data-zh="選擇樹" data-en="DECISION TREE">選擇樹</div>
+<h2 data-zh="四、實驗 vs 計算技術選擇" data-en="IV. Experimental vs Computational Method Selection">四、實驗 vs 計算技術選擇</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 我該用哪種方法解析我的蛋白？" data-en="🌳 Which method should I use?">🌳 我該用哪種方法解析我的蛋白？</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">想要單一原生狀態的<strong>原子解析</strong>結構？→ X-ray (結晶) 或 CryoEM (&gt;50 kDa, single particle)</span><span data-lang="en">Need <strong>atomic-resolution</strong> static structure? → X-ray (crystallizable) or CryoEM (&gt;50 kDa, single particle)</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>在細胞內</strong>的原位結構與排列？→ CryoET + subtomogram averaging</span><span data-lang="en">Need <strong>in-situ</strong> structure inside cells? → CryoET + subtomogram averaging</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">想知道 <strong>ps–ms 動態</strong>與構象漲落？→ NMR (&lt;30 kDa) 或 HDX-MS</span><span data-lang="en">Want <strong>ps–ms dynamics</strong>? → NMR (&lt;30 kDa) or HDX-MS</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>單分子尺度</strong>構象轉換？→ smFRET / optical tweezers / AFM</span><span data-lang="en"><strong>Single-molecule</strong> conformational transitions? → smFRET / optical tweezers / AFM</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">沒有實驗資源、想要快速初步預測？→ AlphaFold3 + ESMFold（注意 IDR 區段 pLDDT &lt; 50 的訊號）</span><span data-lang="en">No experimental access, want fast initial prediction? → AlphaFold3 + ESMFold (note pLDDT &lt; 50 over IDRs)</span></div>
+<div class="dt-node"><span class="dt-q">Q6</span><span class="dt-arrow">→</span><span data-lang="zh">有結構但想模擬<strong>原子層級動力學</strong>？→ Classical MD (OpenMM / GROMACS) 或 enhanced sampling (REMD, metadynamics)</span><span data-lang="en">Have structure, want <strong>atomistic dynamics</strong>? → Classical MD (OpenMM/GROMACS) or enhanced sampling (REMD, metadynamics)</span></div>
+</div>
+</section>
+
+<!-- Quiz -->
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 一段蛋白序列在 AlphaFold3 預測中 pLDDT 持續低於 50，最可能的解釋為何？</p>
+<p data-lang="en">1. A protein region has AlphaFold3 pLDDT consistently below 50. What is the most likely explanation?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 序列搜尋失敗，模型缺乏訓練資料</span><span data-lang="en">A. Sequence search failed; model lacked training data</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 蛋白絕對折疊失敗，無法表達</span><span data-lang="en">B. Protein cannot fold at all; will not express</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 該區段為內在無序區 (IDR)，無單一原生態</span><span data-lang="en">C. The region is intrinsically disordered (IDR), with no single native state</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 蛋白已突變為非功能性</span><span data-lang="en">D. Protein has mutated to non-functional state</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：低 pLDDT 是 IDR 的指標，配合 NARDINI+ 等工具可進一步分析其序列文法。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: Low pLDDT flags candidate IDRs. Tools like NARDINI+ can further analyze sequence grammar.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. 關於變構 (allostery) 的「構象集合」觀點，下列何者最正確？</p>
+<p data-lang="en">2. Regarding the "conformational ensemble" view of allostery, which is most correct?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 配體誘導蛋白由 A 構象切換到 B 構象</span><span data-lang="en">A. Ligand induces switching from conformation A to B</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 配體未結合前蛋白已具多種構象，結合後僅是重新分布各構象比例</span><span data-lang="en">B. Multiple conformations pre-exist; ligand binding reweights their populations</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 變構僅發生在二聚體蛋白</span><span data-lang="en">C. Allostery only occurs in dimeric proteins</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 變構效應在生理溫度下不存在</span><span data-lang="en">D. Allosteric effects do not exist at physiological temperature</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：當代觀點認為構象先存在，配體只是 reweight 集合分佈——這對偏選性 agonism 設計至關重要。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Modern view — conformations pre-exist; ligands reweight the ensemble. Crucial for biased agonist design.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）AlphaFold3 雖能預測蛋白-小分子複合體，但對 transient/weak protein-protein 介面與 protein-RNA 介面預測仍有限，需 CryoEM/SAXS 驗證。</p>
+<p data-lang="en">3. (T/F) Although AlphaFold3 can predict protein-ligand complexes, its accuracy for transient/weak protein-protein interfaces and protein-RNA interfaces is still limited and requires CryoEM/SAXS validation.</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="T">T</div>
+<div class="quiz-opt" data-k="F">F</div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：AF3 在 obligate complexes 表現好，但 weak/transient interactions 仍不可靠。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: AF3 excels at obligate complexes but remains unreliable for weak/transient interactions.</div>
+</div>
+</div>
+
+<!-- Page nav -->
+<nav class="page-nav">
+<div class="placeholder"></div>
+<a href="nucleic-acid-architecture.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 2 · 核酸高階結構" data-en="Ch 2 · Nucleic Acid Architecture">Ch 2 · 核酸高階結構</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+// Code tabs
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+// Quiz
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+// Chevron plot
+let chev;
+function drawChevron(){
+  const ctx=document.getElementById('chevronChart');if(!ctx)return;
+  const xs=Array.from({length:61},(_,i)=>i/10);
+  // ln(kf) = ln(kf0) - mf*D ;  ln(ku) = ln(ku0) + mu*D
+  const kf=xs.map(d=>2 - 0.6*d);
+  const ku=xs.map(d=>-5 + 0.9*d);
+  if(chev) chev.destroy();
+  chev=new Chart(ctx,{type:'line',data:{labels:xs,datasets:[
+    {label:'ln(kf) folding',data:kf,borderColor:'#6d28d9',backgroundColor:'#6d28d9',tension:0.1,pointRadius:0},
+    {label:'ln(ku) unfolding',data:ku,borderColor:'#ec4899',backgroundColor:'#ec4899',tension:0.1,pointRadius:0}
+  ]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'denaturant [M]'}},y:{title:{display:true,text:'ln(k)'}}}}});
+}
+function updateStats(){
+  const d=parseFloat(document.getElementById('sliderDen').value);
+  document.getElementById('valDen').textContent=d.toFixed(1);
+  const kf=2 - 0.6*d, ku=-5 + 0.9*d;
+  const ef=Math.exp(kf), eu=Math.exp(ku);
+  const fFold=ef/(ef+eu)*100;
+  const z=I18n.get()==='zh';
+  document.getElementById('statFolded').textContent=(z?'折疊比例 ':'Folded ')+fFold.toFixed(1)+'%';
+  document.getElementById('statUnfolded').textContent=(z?'未折疊比例 ':'Unfolded ')+(100-fFold).toFixed(1)+'%';
+}
+document.getElementById('sliderDen').addEventListener('input',updateStats);
+document.addEventListener('langchange',updateStats);
+window.addEventListener('load',()=>{drawChevron();updateStats();});
+</script>
+</body></html>

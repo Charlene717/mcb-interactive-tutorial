@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 19: 細胞衰老與幹性 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html" class="active">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 19 / 20 · BLOCK E</div>
+<h1 data-zh="細胞衰老與幹性" data-en="Cellular Senescence &amp; Stemness">細胞衰老與幹性</h1>
+<p class="subtitle" data-lang="zh">從 SASP 與 SAHF 到 iPSC 與部分重編程——衰老/幹性軸如何決定組織老化、修復與再生。</p>
+<p class="subtitle" data-lang="en">From SASP and SAHF to iPSC and partial reprogramming — how the senescence-stemness axis dictates tissue aging, repair and regeneration.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="衰老與幹性是同一張時空地圖的兩端" data-en="Senescence &amp; Stemness — Two Poles of One Map">同一張地圖的兩端</h2>
+<div data-lang="zh">
+<p>細胞衰老 (cellular senescence) 不是「老化的細胞學定義」那麼簡單——它是一種<strong>穩定的不可逆細胞週期停滯 + SASP 分泌 + 抗凋亡</strong>的三聯特徵。生理上有益（傷口修復、抑癌、胚胎發育），長期累積則有害（組織衰退、慢性發炎、惡性轉化促進）。</p>
+<p>另一端的幹性 (stemness)：可<strong>自我更新</strong>且<strong>分化潛能</strong>。2006 Yamanaka 證明 OCT4/SOX2/KLF4/MYC 可將體細胞重編程為 iPSC，開啟了「細胞身分可塑」時代。當代核心問題：能否<strong>部分重編程</strong>逆轉衰老指標而不失去細胞身分？</p>
+</div>
+<div data-lang="en">
+<p>Cellular senescence is not simply "aged cells" — it is a triad of <strong>stable irreversible cell-cycle arrest + SASP secretion + apoptosis resistance</strong>. Beneficial physiologically (wound healing, tumor suppression, embryogenesis); chronic accumulation drives tissue decline, inflammation, malignancy.</p>
+<p>Stemness, the opposite pole: <strong>self-renewal</strong> + <strong>differentiation potential</strong>. In 2006 Yamanaka showed OCT4/SOX2/KLF4/MYC reprogram somatic cells to iPSC, launching the "cell identity is plastic" era. The current question: can <strong>partial reprogramming</strong> reverse aging markers without losing cell identity?</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>SenNet & 老化十二大特徵 (López-Otín 2023)：</strong>NIH SenNet 聯盟正繪製「衰老圖譜」於多組織單細胞解析度（2024-2026）。López-Otín 2023 Cell 文擴展為 12 個 hallmarks of aging（見 Ch20）。</span>
+<span data-lang="en"><strong>SenNet & 12 hallmarks of aging (López-Otín 2023):</strong> NIH SenNet consortium is mapping senescence at single-cell resolution across tissues (2024-2026). López-Otín's 2023 Cell paper expanded to 12 hallmarks of aging (see Ch20).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="衰老觸發" data-en="TRIGGERS">衰老觸發</div>
+<h2 data-zh="一、衰老的觸發、執行、標記" data-en="I. Senescence Triggers, Executors &amp; Markers">一、衰老觸發/執行/標記</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="類型" data-en="Type">類型</th><th data-zh="觸發" data-en="Trigger">觸發</th><th data-zh="核心軸" data-en="Core axis">核心軸</th><th data-zh="特徵" data-en="Marker">特徵</th></tr></thead>
+<tbody>
+<tr><td><strong>Replicative</strong></td><td data-zh="端粒縮短 (Hayflick limit)" data-en="Telomere attrition (Hayflick)">端粒縮短</td><td>ATM → p53 → p21^CIP1</td><td>TIF, short telomere, p21+</td></tr>
+<tr><td><strong>Oncogene-induced (OIS)</strong></td><td data-zh="HRAS-V12, BRAF-V600E 持續訊號" data-en="HRAS-V12, BRAF-V600E">HRAS/BRAF</td><td>p16^INK4a → Rb 過磷酸化 (低)</td><td>p16+, SAHF, SA-β-Gal</td></tr>
+<tr><td><strong>Stress-induced (SIPS)</strong></td><td data-zh="ROS, UV, 化療 (Doxo, Etoposide)" data-en="ROS, UV, chemo">壓力</td><td>p53 + p16 雙軸</td><td>γH2AX, SA-β-Gal</td></tr>
+<tr><td><strong>Developmental</strong></td><td data-zh="胚胎組織塑形" data-en="Embryonic tissue patterning">發育性</td><td>p21 (p53 獨立)</td><td data-zh="瞬時, 巨噬細胞清除" data-en="Transient, macrophage clears">瞬時</td></tr>
+</tbody>
+</table>
+<div data-lang="zh"><p style="margin-top:1em;"><strong>關鍵特徵組合（無單一 marker 充足）：</strong>① SA-β-Gal⁺；② p16/p21 升高；③ Lamin B1 喪失；④ 增殖標記 (Ki67) 喪失；⑤ <strong>SAHF</strong>（senescence-associated heterochromatin foci，富含 H3K9me3、HP1）；⑥ <strong>CCFs</strong>（cytoplasmic chromatin fragments，從核擠出 → cGAS-STING 活化 → 加劇 SASP）。</p></div>
+<div data-lang="en"><p style="margin-top:1em;"><strong>Marker combination (no single marker suffices):</strong> ① SA-β-Gal⁺; ② p16/p21 ↑; ③ lamin B1 loss; ④ Ki67 loss; ⑤ <strong>SAHF</strong> (H3K9me3/HP1-rich heterochromatin foci); ⑥ <strong>CCFs</strong> (cytoplasmic chromatin fragments) → cGAS-STING activation → amplify SASP.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="SASP" data-en="SASP">SASP 與療法</div>
+<h2 data-zh="二、SASP 組成與其矛盾的生理意義" data-en="II. SASP Composition &amp; Paradoxical Roles">二、SASP 的矛盾性</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🔥</div><h4 data-zh="SASP 組成" data-en="SASP Composition">SASP 組成</h4>
+<div data-lang="zh"><p><strong>細胞激素</strong>：IL-6, IL-8, IL-1α/β；<strong>趨化因子</strong>：CXCL1, CCL2；<strong>MMPs</strong>：MMP3, MMP9；<strong>生長因子</strong>：IGFBP3, GDF15；<strong>外泌體</strong>：含 miRNA。受 <strong>NF-κB、C/EBPβ、p38-MAPK、mTOR、cGAS-STING</strong> 共調。</p></div>
+<div data-lang="en"><p><strong>Cytokines</strong>: IL-6, IL-8, IL-1α/β; <strong>chemokines</strong>: CXCL1, CCL2; <strong>MMPs</strong>: MMP3/9; <strong>growth factors</strong>: IGFBP3, GDF15; <strong>EVs</strong> with miRNAs. Regulated by <strong>NF-κB, C/EBPβ, p38-MAPK, mTOR, cGAS-STING</strong>.</p></div></div>
+<div class="card"><div class="card-icon">⚖️</div><h4 data-zh="生理 vs 病理" data-en="Beneficial vs Detrimental">利與弊</h4>
+<div data-lang="zh"><p><strong>有益</strong>：傷口收口、清除前癌細胞、胚胎塑形、纖維化解析。<strong>有害</strong>：慢性發炎（inflammaging）、組織纖維化、促進附近細胞 senescence/transformation（旁分泌）、CAF-like 促進腫瘤。</p></div>
+<div data-lang="en"><p><strong>Beneficial</strong>: wound closure, pre-malignant clearance, embryonic patterning, fibrosis resolution. <strong>Detrimental</strong>: inflammaging, tissue fibrosis, paracrine senescence/transformation of neighbors, CAF-like tumor promotion.</p></div></div>
+<div class="card"><div class="card-icon">💊</div><h4 data-zh="Senolytics / Senomorphics" data-en="Senolytics / Senomorphics">療法</h4>
+<div data-lang="zh"><p><strong>Senolytics</strong> 殺死衰老細胞：Dasatinib+Quercetin (D+Q)、Fisetin、Navitoclax (BCL-2/W/XL i)、UBX-1325（眼科 phase 2）。<strong>Senomorphics</strong> 壓制 SASP：Rapamycin (mTORi)、Metformin、JAK inhibitors。臨床試驗 IPF/糖尿病腎病/AD 進行中。</p></div>
+<div data-lang="en"><p><strong>Senolytics</strong> kill senescent cells: Dasatinib+Quercetin (D+Q), Fisetin, Navitoclax (BCL-2/W/XLi), UBX-1325 (ophthalmology phase 2). <strong>Senomorphics</strong> suppress SASP: Rapamycin (mTORi), Metformin, JAK inhibitors. IPF / diabetic kidney / AD trials ongoing.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="幹性" data-en="STEMNESS">幹性與重編程</div>
+<h2 data-zh="三、幹性核心網絡與部分重編程" data-en="III. Core Stemness Network &amp; Partial Reprogramming">三、幹性核心 + 部分重編程</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 細胞身分可塑性層級" data-en="🌳 Hierarchy of cell-identity plasticity">🌳 細胞身分可塑性</h4>
+<div class="dt-node"><span class="dt-q">基準</span><span class="dt-arrow">→</span><span data-lang="zh"><strong>多能性核心</strong>：OCT4-SOX2-NANOG triumvirate + KLF4, MYC, ESRRB, TBX3——維持 ES/iPSC 自更新與分化潛能</span><span data-lang="en"><strong>Pluripotency core</strong>: OCT4-SOX2-NANOG triumvirate + KLF4, MYC, ESRRB, TBX3 — maintain ES/iPSC self-renewal and differentiation potential</span></div>
+<div class="dt-node"><span class="dt-q">完全重編程</span><span class="dt-arrow">→</span><span data-lang="zh">體細胞 + OSKM (Yamanaka 因子) → iPSC（30-60 天，過程混亂、效率低；含 epigenetic memory）</span><span data-lang="en">Somatic + OSKM (Yamanaka) → iPSC (30-60 days, inefficient; retains epigenetic memory)</span></div>
+<div class="dt-node"><span class="dt-q">部分重編程</span><span class="dt-arrow">→</span><span data-lang="zh">短期 OSK 表達（去除 MYC）→ 抹除部分 epigenetic age（Horvath clock 倒退）卻不去身分。Belmonte 2016/2020、Sinclair 2020 視神經、Altos Labs/Retro Bio 試驗</span><span data-lang="en">Brief OSK pulse (no MYC) → erases part of epigenetic age (Horvath clock reversal) without losing identity. Belmonte 2016/2020, Sinclair 2020 (optic nerve), Altos Labs/Retro Bio trials</span></div>
+<div class="dt-node"><span class="dt-q">直接重編程</span><span class="dt-arrow">→</span><span data-lang="zh">轉錄因子直接轉換身分：Sox2/Pax6/Brn2/Mash1 → 神經元；GATA4/Mef2c/Tbx5 → 心肌；不經 pluripotent 中介</span><span data-lang="en">TFs directly switch identity: Sox2/Pax6/Brn2/Mash1 → neurons; GATA4/Mef2c/Tbx5 → cardiomyocytes; no pluripotent intermediate</span></div>
+<div class="dt-node"><span class="dt-q">類器官 (Organoid)</span><span class="dt-arrow">→</span><span data-lang="zh">Sasai/Clevers/Lancaster：iPSC/成體幹細胞 + 3D matrix + morphogen → 自組織腸 / 腦 / 腎 / 肝 / 視網膜類器官；Assembloids 整合多胞層</span><span data-lang="en">Sasai/Clevers/Lancaster: iPSC or adult SC + 3D matrix + morphogens → self-organized intestinal/brain/kidney/liver/retinal organoids; assembloids integrate multi-lineage</span></div>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>表觀遺傳時鐘 (Horvath clock)：</strong>基於 ~353 CpG 甲基化的迴歸模型，可預測<strong>實際生物年齡</strong>，相關於壽命/死亡率。部分重編程的關鍵驗證指標即「epigenetic age reversal」——但「epigenetic age = biological age」仍有爭議。</span>
+<span data-lang="en"><strong>Horvath clock:</strong> regression on ~353 CpG methylations predicts <strong>actual biological age</strong>, correlating with lifespan/mortality. Key validation for partial reprogramming is "epigenetic age reversal" — but "epigenetic age = biological age" remains debated.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、衰老與重編程的計算工作流" data-en="IV. Computational Workflow for Senescence &amp; Reprogramming">四、計算工作流</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · SenMayo signature</button>
+    <button class="code-tab-btn" data-tab="py">Python · Horvath clock</button>
+    <button class="code-tab-btn" data-tab="sc">scRNA-seq · CytoTRACE</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># R: 用 SenMayo 衰老基因組評分 (Saul et al., Nat Commun 2022)</span>
+<span class="kw">library</span>(Seurat); <span class="kw">library</span>(UCell)
+seu &lt;- readRDS(<span class="str">"tissue_atlas.rds"</span>)
+senmayo &lt;- readLines(<span class="str">"SenMayo_125genes.txt"</span>)
+seu &lt;- AddModuleScore_UCell(seu, features=<span class="func">list</span>(SenMayo=senmayo))
+<span class="comment"># 配合 hallmark CDKN2A (p16) / CDKN1A (p21)</span>
+<span class="kw">for</span> (g <span class="kw">in</span> <span class="func">c</span>(<span class="str">"CDKN2A"</span>,<span class="str">"CDKN1A"</span>,<span class="str">"LMNB1"</span>)) {
+   FeaturePlot(seu, g) |&gt; ggsave(<span class="func">paste0</span>(g,<span class="str">".png"</span>))
+}
+<span class="comment"># 衰老細胞富集分析 (老 vs 年輕)</span>
+DESeq2::DESeq(dds) -&gt; res
+plotMA(res, ylim=<span class="func">c</span>(-<span class="num">3</span>,<span class="num">3</span>))</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># Python: Horvath 表觀遺傳時鐘預測</span>
+<span class="kw">import</span> pandas <span class="kw">as</span> pd, numpy <span class="kw">as</span> np
+<span class="comment"># 1) 載入 450K/EPIC β-values 與 Horvath 353 CpG coefficients</span>
+beta = pd.read_csv(<span class="str">"betas.csv"</span>, index_col=<span class="num">0</span>)        <span class="comment"># probes × samples</span>
+coef = pd.read_csv(<span class="str">"horvath2013_coef.csv"</span>, index_col=<span class="num">0</span>)
+common = coef.index.<span class="func">intersection</span>(beta.index)
+<span class="comment"># 2) 線性組合 + Horvath 變換</span>
+score = (beta.<span class="func">loc</span>[common].T @ coef.<span class="func">loc</span>[common,<span class="str">"coef"</span>]) + coef.<span class="func">loc</span>[<span class="str">"intercept"</span>,<span class="str">"coef"</span>]
+<span class="kw">def</span> <span class="func">anti_trans</span>(x): <span class="kw">return</span> np.<span class="func">where</span>(x&lt;<span class="num">0</span>, (<span class="num">1</span>+<span class="num">21</span>)*np.<span class="func">exp</span>(x)-<span class="num">1</span>, (<span class="num">1</span>+<span class="num">21</span>)*x+<span class="num">21</span>)
+DNAmAge = anti_trans(score)
+<span class="comment"># 3) 對比 chronological age → AgeAccel (residual)</span>
+chrono = pd.read_csv(<span class="str">"meta.csv"</span>).<span class="func">set_index</span>(<span class="str">"sample"</span>).age
+DNAmAge.<span class="func">to_frame</span>(<span class="str">"DNAmAge"</span>).<span class="func">join</span>(chrono).<span class="func">assign</span>(
+   AgeAccel=<span class="kw">lambda</span> d: d.DNAmAge - d.age)</pre></div>
+  <div class="code-tab-content" data-tab="sc"><pre><span class="comment"># scRNA-seq: CytoTRACE2 推斷分化潛能</span>
+<span class="kw">library</span>(CytoTRACE2); <span class="kw">library</span>(Seurat)
+seu &lt;- readRDS(<span class="str">"iPSC_diff_d0_d3_d7_d14.rds"</span>)
+res &lt;- cytotrace2(seu, species=<span class="str">"human"</span>, is_seurat=<span class="kw">TRUE</span>)
+seu$CytoTRACE2 &lt;- res$CytoTRACE2_Score
+<span class="comment"># Score 越高越接近多能性</span>
+FeaturePlot(seu, <span class="str">"CytoTRACE2"</span>, split.by=<span class="str">"day"</span>)
+<span class="comment"># 配合 RNA velocity (scVelo) 推導分化軌跡</span>
+<span class="comment"># 部分重編程實驗：OSK pulse 後 CytoTRACE2 應暫時上升再回降</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 為什麼僅以 SA-β-Gal 單一染色判定細胞衰老並不嚴謹？</p>
+<p data-lang="en">1. Why is SA-β-Gal alone insufficient to call a cell senescent?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. SA-β-Gal 只在分裂中細胞表現</span><span data-lang="en">A. SA-β-Gal is only in dividing cells</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. SA-β-Gal 對 p21 不敏感</span><span data-lang="en">B. SA-β-Gal is p21-insensitive</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. SA-β-Gal 可被高融合度或溶酶體擴大造成假陽性；需多 marker (p16/p21/Lamin B1↓/SAHF) 共同判定</span><span data-lang="en">C. SA-β-Gal yields false positives with high confluence or enlarged lysosomes; combined markers (p16/p21/Lamin B1↓/SAHF) required</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. SA-β-Gal 僅可在組織切片使用</span><span data-lang="en">D. SA-β-Gal only works in tissue sections</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：SA-β-Gal 為 pH6 的酸性 β-Gal 活性，因溶酶體擴大可在非衰老細胞陽性；當代研究要求多 marker 共驗。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: SA-β-Gal reflects pH6 β-Gal activity from enlarged lysosomes, positive in non-senescent cells. Modern studies require multi-marker validation.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. 部分重編程 (OSK pulse) 為何優於完全 OSKM 重編程作為「逆轉衰老」策略？</p>
+<p data-lang="en">2. Why is partial reprogramming (OSK pulse) preferred over full OSKM reprogramming as a "senescence reversal" strategy?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. OSK 更便宜</span><span data-lang="en">A. OSK is cheaper</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 短暫表達抹除部分 epigenetic age 又不喪失細胞身分；去除 MYC 降低致瘤性</span><span data-lang="en">B. Transient expression erases epigenetic age without losing identity; removing MYC reduces tumorigenicity</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 完全重編程已被證明不可能</span><span data-lang="en">C. Full reprogramming has been shown impossible</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. OSK 只活化 senolytic 基因</span><span data-lang="en">D. OSK only activates senolytic genes</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：完整 iPSC 化會喪失組織身分且過程致瘤；OSK 短脈衝倒退 Horvath 鐘卻保留細胞分化狀態。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Full iPSC reprogramming erases tissue identity and is tumorigenic; OSK pulse rewinds the Horvath clock while preserving lineage.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Dasatinib + Quercetin (D+Q) 屬於 senolytics——透過誘導衰老細胞凋亡來改善老化表型；而 rapamycin 屬於 senomorphics——主要壓制 SASP 而不殺死細胞。</p>
+<p data-lang="en">3. (T/F) Dasatinib + Quercetin (D+Q) is a senolytic — inducing apoptosis in senescent cells; rapamycin is a senomorphic — suppressing SASP without killing senescent cells.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：兩類介入機制不同——senolytics 標靶 SCAP（survival pathway，如 BCL-2/W）；senomorphics 抑 mTOR/NF-κB 等 SASP 上游。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Different mechanisms — senolytics target SCAPs (survival pathways like BCL-2/W); senomorphics suppress mTOR/NF-κB upstream of SASP.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="autophagy-quality-control.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 18 · 自噬與細胞品質管控" data-en="Ch 18 · Autophagy &amp;amp; Quality Control">Ch 18 · 自噬與細胞品質管控</span></a>
+<a href="cell-biology-in-disease.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 20 · 細胞生物學與疾病前沿" data-en="Ch 20 · Cell Biology in Disease — Frontier">Ch 20 · 細胞生物學與疾病前沿</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

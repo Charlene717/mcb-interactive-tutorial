@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 9: 訊號傳導網路 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html" class="active">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 9 / 20 · BLOCK C</div>
+<h1 data-zh="訊號傳導網路" data-en="Signal Transduction Networks">訊號傳導網路</h1>
+<p class="subtitle" data-lang="zh">GPCR-G protein-arrestin、RTK-MAPK-PI3K、Wnt、Notch、Hippo、JAK-STAT、TGF-β——交織成的訊號網絡與 biased agonism 治療典範。</p>
+<p class="subtitle" data-lang="en">GPCR-G protein-arrestin, RTK-MAPK-PI3K, Wnt, Notch, Hippo, JAK-STAT, TGF-β — an interwoven network and the biased-agonism therapeutic paradigm.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="訊號的七大主軸與 cross-talk" data-en="Seven Major Axes and Cross-Talk">七大訊號軸</h2>
+<div data-lang="zh">
+<p>細胞訊號可粗分為 7 條主軸，每條既獨立、又與其他通路交織：</p>
+<table class="comp-table">
+<thead><tr><th data-zh="通路" data-en="Pathway">通路</th><th data-zh="受體" data-en="Receptor">受體</th><th data-zh="核心輸出" data-en="Core output">輸出</th><th data-zh="主要功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td>GPCR</td><td data-zh="7-TM；最大藥靶家族 (~34% FDA drugs)" data-en="7-TM; largest drug target family (~34% FDA drugs)">7-TM</td><td>Gαs/i/q/12-13, β-arrestin</td><td data-zh="代謝、神經、免疫" data-en="Metabolism, neuro, immune">代謝/神經</td></tr>
+<tr><td>RTK</td><td>EGFR, HER2, FGFR, IGFR, MET</td><td>Ras-MAPK + PI3K-AKT-mTOR</td><td data-zh="增殖、生存、代謝" data-en="Proliferation, survival, metabolism">增殖</td></tr>
+<tr><td>Wnt</td><td>Frizzled + LRP5/6</td><td data-zh="β-catenin / planar polarity" data-en="β-catenin / planar polarity">β-catenin</td><td data-zh="幹細胞、發育" data-en="Stem cells, development">幹性</td></tr>
+<tr><td>Notch</td><td>Notch1-4</td><td>NICD (γ-secretase 切割)</td><td data-zh="lateral inhibition, fate" data-en="Lateral inhibition, cell fate">分化</td></tr>
+<tr><td>Hippo</td><td data-zh="多種上游 (FAT4, AMOT)" data-en="Multiple upstream (FAT4, AMOT)">多種</td><td>LATS → YAP/TAZ</td><td data-zh="器官大小、機械感應" data-en="Organ size, mechanosensing">size / Ch10</td></tr>
+<tr><td>JAK-STAT</td><td data-zh="細胞激素受體 (IL, IFN)" data-en="Cytokine receptors (IL, IFN)">細胞激素</td><td>STAT 二聚轉錄</td><td data-zh="免疫、造血" data-en="Immunity, hematopoiesis">免疫</td></tr>
+<tr><td>TGF-β / SMAD</td><td>TβRI / TβRII</td><td>SMAD2/3 + SMAD4</td><td data-zh="EMT, 纖維化, 免疫抑制" data-en="EMT, fibrosis, immune suppression">EMT</td></tr>
+</tbody>
+</table>
+</div>
+<div data-lang="en">
+<p>Cell signaling can be grouped into 7 major axes — each independent yet interwoven:</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>關鍵反思：</strong>20 世紀觀念是「<em>一個訊號→一條通路→一個結果</em>」，但今日網路生物學已揭示<strong>每個結果是多通路加權整合</strong>。EGF 在乳腺上皮促增殖、在肝促分化、在腫瘤促 EMT——同樣的受體，網路 context 決定結果。</span>
+<span data-lang="en"><strong>Key reframe:</strong> 20th-century view: "<em>one signal → one pathway → one outcome</em>". Modern network biology: <strong>every outcome is a weighted integration of multiple pathways</strong>. EGF promotes proliferation in mammary epithelium, differentiation in liver, EMT in tumors — same receptor, network context determines outcome.</p></span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="GPCR" data-en="GPCR">GPCR</div>
+<h2 data-zh="一、GPCR、G-protein cycle 與 β-arrestin" data-en="I. GPCR, G-Protein Cycle &amp; β-Arrestin">一、GPCR 與 biased agonism</h2>
+<div data-lang="zh"><p>GPCR 為人類最大膜蛋白家族（~800 個），分為：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Class A (Rhodopsin-like)</strong>：~700 個；β2AR, μ-opioid, 5-HT 等</li>
+<li><strong>Class B (Secretin-like)</strong>：GLP1R (糖尿病、肥胖)、GCGR</li>
+<li><strong>Class C</strong>：mGluR、GABA<sub>B</sub>、CaSR（含 VFT large ECD）</li>
+<li><strong>Class F (Frizzled)</strong>：與 Wnt 連結；FZD1-10, SMO</li>
+</ul>
+<p><strong>G-protein cycle</strong>：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>配體結合 → 7-TM 構象改變 → GαGDP → GαGTP（GDP/GTP exchange）</li>
+<li>GαGTP 與 Gβγ 分離，活化 effector：Gαs→AC↑→cAMP↑；Gαi→AC↓；Gαq→PLCβ→IP3+DAG；Gα12/13→RhoGEF</li>
+<li>RGS proteins 加速 GαGTP 水解 → 回到 GDP 狀態</li>
+<li>GRK 磷酸化 GPCR C-末端 → 招募 β-arrestin → 內吞與 desensitization</li>
+</ol>
+<p><strong>Biased agonism / functional selectivity</strong>：不同配體偏好穩定不同的 GPCR 構象，使 G-protein arm 與 β-arrestin arm 出現<strong>不對等</strong>活化。經典案例：<strong>TRV130 (oliceridine)</strong> 是 μ-opioid 的 G-protein-biased agonist，2020 年 FDA 核准——目標是保留鎮痛（Gi 介導）但減少 β-arrestin 介導的呼吸抑制與便秘。</p></div>
+<div data-lang="en"><p>GPCRs are the largest human membrane protein family (~800):</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>Class A (Rhodopsin-like)</strong>: ~700; β2AR, μ-opioid, 5-HT etc.</li>
+<li><strong>Class B (Secretin-like)</strong>: GLP1R (diabetes, obesity), GCGR</li>
+<li><strong>Class C</strong>: mGluR, GABA<sub>B</sub>, CaSR (large VFT ECD)</li>
+<li><strong>Class F (Frizzled)</strong>: linked to Wnt; FZD1-10, SMO</li>
+</ul>
+<p><strong>G-protein cycle</strong>:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Ligand binding → 7-TM rearrangement → GαGDP → GαGTP (exchange)</li>
+<li>GαGTP separates from Gβγ, activates effectors: Gαs→AC↑→cAMP↑; Gαi→AC↓; Gαq→PLCβ→IP3+DAG; Gα12/13→RhoGEF</li>
+<li>RGS proteins accelerate GαGTP hydrolysis → back to GDP</li>
+<li>GRK phosphorylates GPCR C-tail → recruits β-arrestin → internalization &amp; desensitization</li>
+</ol>
+<p><strong>Biased agonism / functional selectivity</strong>: different ligands stabilize different GPCR conformations, producing <strong>unequal</strong> activation of G-protein vs β-arrestin arms. Classic case: <strong>TRV130 (oliceridine)</strong>, a G-protein-biased μ-opioid agonist, FDA-approved 2020 — retains analgesia (Gi) but reduces β-arrestin-mediated respiratory depression and constipation.</p></div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>2024 質疑：</strong>oliceridine 的「bias」在臨床上的優勢仍有限——部分研究顯示其呼吸抑制與嗎啡相比並非顯著減少。biased agonism 的概念正確，但臨床轉譯比想像複雜（多項通路同時被調控、不同組織反應不同）。</span>
+<span data-lang="en"><strong>2024 caveat:</strong> Clinical advantage of oliceridine's bias is debated — some studies show only modest reduction in respiratory depression vs morphine. The concept is sound, but clinical translation is harder than expected (multiple parallel pathways, tissue-dependent responses).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="RTK" data-en="RTK">RTK</div>
+<h2 data-zh="二、RTK：MAPK 與 PI3K-AKT-mTOR" data-en="II. RTK: MAPK and PI3K-AKT-mTOR">二、RTK 雙臂</h2>
+<div data-lang="zh"><p>RTK（如 EGFR、FGFR、IGFR、MET、PDGFR）為單次跨膜，配體誘導二聚 → trans-autophosphorylation 於細胞質尾端 Tyr 位點 → 招募 SH2/PTB-domain adaptor (Grb2, Shc, PLCγ, p85) → 啟動下游兩條主軸：</p></div>
+<div data-lang="en"><p>RTKs (EGFR, FGFR, IGFR, MET, PDGFR) are single-pass; ligand binding induces dimerization → trans-autophosphorylation of cytoplasmic Tyr → recruits SH2/PTB adaptors (Grb2, Shc, PLCγ, p85) → activates two main axes:</p></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🌿</div><h4 data-zh="Ras-MAPK 軸" data-en="Ras-MAPK arm">Ras-MAPK</h4>
+<div data-lang="zh"><p>Grb2-SOS → Ras-GTP → Raf → MEK → ERK1/2 → 核轉位 → ELK1, MYC, FOS。促增殖與分化決定。BRAF V600E 為 melanoma 主要驅動（vemurafenib, dabrafenib）。</p></div>
+<div data-lang="en"><p>Grb2-SOS → Ras-GTP → Raf → MEK → ERK1/2 → nuclear → ELK1, MYC, FOS. Proliferation/fate. BRAF V600E drives melanoma (vemurafenib, dabrafenib).</p></div></div>
+<div class="card"><div class="card-icon">🧪</div><h4>PI3K-AKT-mTOR</h4>
+<div data-lang="zh"><p>p85 + p110 → PIP2→PIP3 → AKT (PDK1 + mTORC2 雙磷酸化 T308/S473)。mTORC1 (Raptor)：S6K/4E-BP1 → 合成；mTORC2 (Rictor)：AKT/SGK → 生存。PIK3CA 突變在乳癌約 30-40%。</p></div>
+<div data-lang="en"><p>p85 + p110 → PIP2→PIP3 → AKT (PDK1 + mTORC2 phosphorylate T308/S473). mTORC1 (Raptor): S6K/4E-BP1 → biosynthesis; mTORC2 (Rictor): AKT/SGK → survival. PIK3CA mutated in 30-40% of breast cancer.</p></div></div>
+<div class="card"><div class="card-icon">⛔</div><h4 data-zh="負調控" data-en="Negative regulators">負調控</h4>
+<div data-lang="zh"><p>PTEN 去 PIP3；GAP (NF1) 加速 Ras-GTP→GDP；DUSP 去磷酸化 ERK。PTEN/NF1 為腫瘤抑制基因。</p></div>
+<div data-lang="en"><p>PTEN dephosphorylates PIP3; GAP (NF1) accelerates Ras-GTP→GDP; DUSP dephospho ERK. PTEN/NF1 are tumor suppressors.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Wnt / Notch / Hippo" data-en="Wnt / Notch / Hippo">發育訊號</div>
+<h2 data-zh="三、Wnt、Notch、Hippo" data-en="III. Wnt, Notch, Hippo">三、發育與身分訊號</h2>
+<div data-lang="zh">
+<p><strong>Wnt canonical (β-catenin)</strong>：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>OFF</strong>：β-catenin 被「<strong>destruction complex</strong> (APC + Axin + GSK3β + CK1)」磷酸化 → β-TrCP 招募 → K48-Ub → proteasome 降解</li>
+<li><strong>ON</strong>：Wnt 結合 Frizzled + LRP5/6 → LRP6 PPPSP motif 磷酸化 (CK1, GSK3 paradoxical) → Axin 被招募到膜上 → destruction complex 解體 → β-catenin 積累、核轉位、與 TCF/LEF 結合啟動 c-MYC, CCND1, AXIN2 (負回饋)</li>
+<li><strong>APC 突變</strong>是 colorectal cancer 早期 hit（FAP 與 80% sporadic CRC）</li>
+</ul>
+<p><strong>Notch</strong>：相鄰細胞間訊號（「lateral inhibition」）：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Delta/Jagged ligand 結合相鄰細胞 Notch 受體</li>
+<li>ADAM10/17 切 S2 site；γ-secretase (PS1/2, NCT, APH1, PEN2) 切 S3 site → 釋出 NICD</li>
+<li>NICD 進核 + CSL (RBPJ) + Mastermind → 轉錄 HES, HEY 等 bHLH 抑制因子</li>
+<li>T-ALL: NOTCH1 突變率 &gt;50%；GSI (γ-secretase inhibitor) 臨床但腸道副作用顯著</li>
+</ol>
+<p><strong>Hippo 通路</strong>：MST1/2 + SAV1 → LATS1/2 + MOB1 → 磷酸化 YAP/TAZ → 14-3-3 細胞質扣留 / 降解。LATS 失活 → YAP/TAZ 進核 + TEAD → CTGF, CYR61 → 增殖。Hippo 整合<strong>細胞密度、機械應力、極性、能量</strong>訊號——是 Ch10 機械轉導的核心終點。</p>
+</div>
+<div data-lang="en">
+<p><strong>Wnt canonical (β-catenin)</strong>:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+<li><strong>OFF</strong>: β-catenin phosphorylated by the <strong>destruction complex</strong> (APC + Axin + GSK3β + CK1) → β-TrCP → K48-Ub → proteasome</li>
+<li><strong>ON</strong>: Wnt binds Frizzled + LRP5/6 → LRP6 PPPSP motif phosphorylation (CK1, GSK3 paradoxical) → Axin pulled to membrane → destruction complex dissolves → β-catenin accumulates, nucleus → TCF/LEF → c-MYC, CCND1, AXIN2 (neg feedback)</li>
+<li><strong>APC mutation</strong> is the early hit in CRC (FAP and 80% sporadic CRC)</li>
+</ul>
+<p><strong>Notch</strong>: neighbor-to-neighbor signaling ("lateral inhibition"):</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>Delta/Jagged on neighboring cell binds Notch</li>
+<li>ADAM10/17 cleaves S2; γ-secretase (PS1/2, NCT, APH1, PEN2) cleaves S3 → releases NICD</li>
+<li>NICD enters nucleus + CSL (RBPJ) + Mastermind → HES/HEY bHLH repressors</li>
+<li>T-ALL: NOTCH1 mutated &gt;50%; GSIs limited by gut side effects</li>
+</ol>
+<p><strong>Hippo</strong>: MST1/2 + SAV1 → LATS1/2 + MOB1 → phospho YAP/TAZ → 14-3-3 sequestration / degradation. LATS off → YAP/TAZ nuclear + TEAD → CTGF, CYR61 → proliferation. Hippo integrates <strong>cell density, mechanical stress, polarity, energy</strong> — the core endpoint of mechanotransduction (Ch10).</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="JAK-STAT / TGF-β" data-en="JAK-STAT / TGF-β">細胞激素</div>
+<h2 data-zh="四、JAK-STAT 與 TGF-β/SMAD" data-en="IV. JAK-STAT and TGF-β/SMAD">四、細胞激素與 TGF-β</h2>
+<div data-lang="zh">
+<p><strong>JAK-STAT</strong>：細胞激素 (IFN, IL-2, IL-6, GM-CSF) 結合 → 受體二聚 → JAK1-3, TYK2 trans-phosphorylation → STAT1-6 被招募並磷酸化 → STAT 二聚（pSTAT-pSTAT 與 SH2-domain pTyr 互換）→ 核轉位 → GAS / ISRE 元件。<strong>JAK 抑制劑</strong> (ruxolitinib, tofacitinib, baricitinib) 廣泛用於 MPN、RA、AA、COVID-19 ARDS、atopic dermatitis。</p>
+<p><strong>TGF-β/SMAD</strong>：</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>TGF-β 結合 TβRII → 招募並磷酸化 TβRI（GS domain）</li>
+<li>TβRI 磷酸化 SMAD2/3 (C-tail SSXS)</li>
+<li>pSMAD2/3 + SMAD4 → 核轉位 → SBE</li>
+<li>主要輸出：EMT（Snail, Slug, ZEB↑, E-cadherin↓）、纖維化（collagen, αSMA↑）、免疫抑制（Foxp3 Treg）</li>
+<li>I-SMAD (SMAD6/7) 為負回饋</li>
+</ol>
+<p>TGF-β 在<strong>晚期癌症</strong>由抑制者變為促進者（雙面角色），是 immune-cold tumor 的關鍵 → anti-TGF-β + anti-PD-L1 bispecific (bintrafusp) 為治療嘗試。</p>
+</div>
+<div data-lang="en">
+<p><strong>JAK-STAT</strong>: cytokines (IFN, IL-2, IL-6, GM-CSF) → receptor dimerization → JAK1-3, TYK2 trans-phosphorylation → STAT1-6 recruited and phosphorylated → STAT dimers (pSTAT-pSTAT, SH2-pTyr swap) → nucleus → GAS / ISRE. <strong>JAK inhibitors</strong> (ruxolitinib, tofacitinib, baricitinib) widely used in MPN, RA, AA, COVID-19 ARDS, atopic dermatitis.</p>
+<p><strong>TGF-β/SMAD</strong>:</p>
+<ol style="margin-left:1.5em;color:var(--c-ink-light);">
+<li>TGF-β binds TβRII → recruits and phosphorylates TβRI (GS domain)</li>
+<li>TβRI phospho SMAD2/3 (C-tail SSXS)</li>
+<li>pSMAD2/3 + SMAD4 → nucleus → SBE</li>
+<li>Outputs: EMT (Snail, Slug, ZEB↑, E-cadherin↓), fibrosis (collagen, αSMA↑), Treg immune suppression</li>
+<li>I-SMADs (SMAD6/7) provide negative feedback</li>
+</ol>
+<p>TGF-β switches from tumor suppressor (early) to promoter (late) — driving immune-cold tumors. Anti-TGF-β + anti-PD-L1 bispecific (bintrafusp) is being trialed.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、訊號通路富集與單細胞訊號學" data-en="V. Pathway Enrichment &amp; Single-Cell Signaling">五、實作工作流</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · PROGENy / decoupleR</button>
+    <button class="code-tab-btn" data-tab="py">Python · scFates / CellChat</button>
+    <button class="code-tab-btn" data-tab="bind">In silico GPCR drug design</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># PROGENy: 14 個 pathway 活性分數（基於 perturbation footprint）</span>
+<span class="kw">library</span>(progeny); <span class="kw">library</span>(decoupleR); <span class="kw">library</span>(OmnipathR)
+expr &lt;- readRDS(<span class="str">"normalized_counts.rds"</span>)
+prog_scores &lt;- progeny(expr, scale=<span class="kw">TRUE</span>, organism=<span class="str">"Human"</span>, top=<span class="num">500</span>)
+<span class="comment"># 出 14 行: EGFR, MAPK, PI3K, Wnt, Notch, Hippo, JAK-STAT, TGFb, p53, ...</span>
+<span class="comment"># 對 scRNA-seq 也可：decoupleR + Seurat AddModuleScore</span>
+
+<span class="comment"># DoRothEA: TF 活性 (regulon-based)</span>
+<span class="kw">library</span>(dorothea)
+regulons &lt;- get_collectri(organism=<span class="str">"human"</span>)
+tf_act &lt;- run_ulm(mat=as.matrix(expr), network=regulons)
+
+<span class="comment"># 整合：cytoscape 視覺化 cross-talk</span></pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># CellChat / CellPhoneDB: 配-受體互動推斷 (single-cell)</span>
+<span class="kw">import</span> liana <span class="kw">as</span> li  <span class="comment"># LIANA+ Python 版整合多 method</span>
+<span class="kw">import</span> scanpy <span class="kw">as</span> sc
+adata = sc.read_h5ad(<span class="str">"tumor.h5ad"</span>)
+
+li.mt.rank_aggregate(adata, groupby=<span class="str">"celltype"</span>,
+                     resource_name=<span class="str">"consensus"</span>, expr_prop=<span class="num">0.1</span>)
+<span class="comment"># 輸出：每個 cell type 對如 EGF→EGFR, WNT5A→FZD7 強度</span>
+li.pl.dotplot(adata, colour=<span class="str">"magnitude_rank"</span>, size=<span class="str">"specificity_rank"</span>,
+              source_labels=[<span class="str">"Fibroblast"</span>], target_labels=[<span class="str">"Tumor"</span>])
+
+<span class="comment"># decoupler-py: 在每個細胞估算 pathway 活性</span>
+<span class="kw">import</span> decoupler <span class="kw">as</span> dc
+prog = dc.get_progeny(organism=<span class="str">"human"</span>, top=<span class="num">500</span>)
+dc.run_mlm(mat=adata, net=prog, source=<span class="str">"source"</span>, target=<span class="str">"target"</span>, weight=<span class="str">"weight"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="bind"><pre><span class="comment"># In silico GPCR ligand discovery (biased agonist)</span>
+
+<span class="comment"># 1) 從 PDB 拉 GPCR 活性態 + Gs / β-arrestin 複合體結構</span>
+<span class="comment"># 例 μ-OR-Gi: 6DDF; μ-OR-β-arrestin: 8EF5</span>
+
+<span class="comment"># 2) 對接候選分子 (AutoDock Vina / DiffDock)</span>
+vina --receptor mu_OR.pdbqt --ligand candidates.pdbqt \
+     --center_x 8 --center_y 12 --center_z -5 \
+     --size_x 20 --size_y 20 --size_z 20
+
+<span class="comment"># 3) MD 模擬 (OpenMM 100 ns)，量測「TM6 outward movement」</span>
+<span class="comment">#   - 與 Gs 結合：TM6 大幅外移 (~14 Å)</span>
+<span class="comment">#   - 與 β-arrestin：TM6 中等外移</span>
+<span class="comment">#   - biased agonist 設計：誘導某一構象優先</span>
+
+<span class="comment"># 4) 預測 bias factor</span>
+<span class="comment">#   ΔΔG (G-protein arm) - ΔΔG (arrestin arm) → bias score</span>
+
+<span class="comment"># 5) 細胞驗證：BRET2-based G-protein / β-arrestin recruitment assay</span>
+<span class="comment">#   比較 G-protein EC50 / β-arrestin EC50 ratio vs morphine baseline</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. Wnt 訊號 "OFF" 狀態時，β-catenin 為何穩定地維持低濃度？</p>
+<p data-lang="en">1. In "Wnt OFF" state, why is β-catenin kept at a low level?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 不被轉錄</span><span data-lang="en">A. Not transcribed</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 被 Frizzled 隔離於膜上</span><span data-lang="en">B. Sequestered at the membrane by Frizzled</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 被 destruction complex (APC + Axin + GSK3β + CK1) 磷酸化、β-TrCP 泛素化、蛋白酶體降解</span><span data-lang="en">C. Phosphorylated by destruction complex (APC + Axin + GSK3β + CK1), β-TrCP-ubiquitinated, proteasome-degraded</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 直接在核中被 TCF/LEF 抑制</span><span data-lang="en">D. Repressed in the nucleus by TCF/LEF</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：APC 突變（CRC 最常見 driver）使 destruction complex 失效 → β-catenin 持續核轉位 → 持續啟動 MYC、CCND1 → 增殖失控。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: APC mutation (the commonest CRC driver) cripples the destruction complex → constitutive β-catenin nuclear activity → MYC/CCND1 → uncontrolled proliferation.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. TRV130 (oliceridine) 作為 G-protein-biased μ-opioid agonist，其目標治療優勢為何？</p>
+<p data-lang="en">2. TRV130 (oliceridine) is a G-protein-biased μ-opioid agonist. What is its intended therapeutic advantage?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 更強的鎮痛</span><span data-lang="en">A. Stronger analgesia</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 保留 Gi 介導的鎮痛，減少 β-arrestin 介導的呼吸抑制與便秘</span><span data-lang="en">B. Retains Gi-mediated analgesia while reducing β-arrestin-mediated respiratory depression and constipation</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 完全避開 μ-opioid 受體</span><span data-lang="en">C. Bypasses the μ-opioid receptor</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 增加 β-arrestin 招募以增強鎮痛</span><span data-lang="en">D. Enhances β-arrestin recruitment for analgesia</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：biased agonism 假說預期 G-protein arm 主導鎮痛，β-arrestin arm 主導副作用。臨床獲益的真實程度仍有爭議。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Biased agonism predicts G-protein arm drives analgesia while β-arrestin drives adverse effects. The real-world magnitude of clinical benefit is still debated.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Hippo 通路（LATS → YAP/TAZ → TEAD）整合細胞密度、機械應力與極性訊號，並在 Ch10 的機械轉導中佔核心地位。</p>
+<p data-lang="en">3. (T/F) The Hippo pathway (LATS → YAP/TAZ → TEAD) integrates cell density, mechanical stress, and polarity signals — and is central to mechanotransduction (Ch10).</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：YAP/TAZ 是機械訊號的主要核轉錄輸出，與 ECM 剛度、cytoskeleton tension 直接耦合（下章詳述）。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: YAP/TAZ are the master nuclear outputs of mechanical signaling, directly coupled to ECM stiffness and cytoskeletal tension (next chapter).</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="translation-proteostasis.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 8 · 轉譯調控與蛋白穩態" data-en="Ch 8 · Translation Regulation &amp;amp; Proteostasis">Ch 8 · 轉譯調控與蛋白穩態</span></a>
+<a href="mechanotransduction.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 10 · 機械轉導：細胞如何「感覺」力" data-en="Ch 10 · Mechanotransduction: How Cells Feel Force">Ch 10 · 機械轉導：細胞如何「感覺」力</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

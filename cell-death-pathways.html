@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 17: 細胞死亡途徑 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html" class="active">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 17 / 20 · BLOCK E</div>
+<h1 data-zh="調節型細胞死亡途徑" data-en="Regulated Cell Death Pathways">調節型細胞死亡途徑</h1>
+<p class="subtitle" data-lang="zh">從凋亡到 ferroptosis、cuproptosis 與 PANoptosis——當代細胞死亡網絡的機制圖譜與療法。</p>
+<p class="subtitle" data-lang="en">From apoptosis to ferroptosis, cuproptosis and PANoptosis — the mechanistic map of modern cell death and therapeutics.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="細胞死亡的分子多元宇宙" data-en="The Molecular Multiverse of Cell Death">細胞死亡分子多元宇宙</h2>
+<div data-lang="zh">
+<p>細胞死亡命名委員會 (NCCD 2024) 已認可超過 <strong>20 種調節型細胞死亡 (RCD)</strong>。它們在<strong>形態、致死訊號、執行者、免疫後果</strong>都不同。理解這些途徑對腫瘤治療、神經退化、感染與發炎疾病的開發至為關鍵。</p>
+<p>核心對比：<strong>apoptosis 為「無聲」死亡</strong>（不破膜、免疫沉默）；<strong>necroptosis/pyroptosis/ferroptosis 為「發炎」死亡</strong>（釋放 DAMPs，啟動免疫）。腫瘤學近期策略：誘導發炎性死亡以「加熱」冷腫瘤、激發 T 細胞反應。</p>
+</div>
+<div data-lang="en">
+<p>NCCD 2024 recognizes &gt; <strong>20 regulated cell death (RCD) modalities</strong>, distinct in <strong>morphology, trigger, executioner, and immunogenicity</strong>. Understanding them is critical for oncology, neurodegeneration, infection and inflammation therapeutics.</p>
+<p>Core contrast: <strong>apoptosis is "silent"</strong> (membrane intact, immune silent); <strong>necroptosis/pyroptosis/ferroptosis are "inflammatory"</strong> (release DAMPs, prime immunity). Current oncology aims to induce inflammatory death to "heat up" cold tumors and prime T cell responses.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>2023 PANoptosis：</strong>新證據顯示 pyroptosis、apoptosis、necroptosis 並非相互排斥，而是透過 <strong>PANoptosome</strong>（ZBP1-NLRP3-RIPK3-Caspase8 巨型複合體）整合的共通網絡——一個複合體同時驅動三種死亡。</span>
+<span data-lang="en"><strong>2023 PANoptosis:</strong> emerging evidence — pyroptosis, apoptosis and necroptosis are not mutually exclusive but integrated via the <strong>PANoptosome</strong> (ZBP1-NLRP3-RIPK3-Caspase8 supramolecular complex) — one complex driving all three.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="凋亡" data-en="APOPTOSIS">凋亡內外途徑</div>
+<h2 data-zh="一、Apoptosis：BCL-2 蹺蹺板與兩條主軸" data-en="I. Apoptosis: BCL-2 Rheostat &amp; Two Axes">一、Apoptosis 兩條主軸</h2>
+<div class="card-grid cols-2">
+<div class="card"><div class="card-icon">🧬</div><h4 data-zh="內在途徑（粒線體）" data-en="Intrinsic (Mitochondrial)">內在途徑（粒線體）</h4>
+<div data-lang="zh"><p><strong>BH3-only 感應器</strong> (BID, BIM, PUMA, NOXA, BAD, BMF) 偵測 DNA 損傷、ER 壓力、生長因子缺乏 → 拮抗 <strong>BCL-2/MCL-1/BCL-XL</strong> → 釋放 <strong>BAX/BAK</strong> 寡聚化於 OMM → <strong>MOMP</strong> (mitochondrial outer-membrane permeabilization) → 釋出 cytochrome c + SMAC/Diablo + Omi/HtrA2 → 與 APAF-1 + Caspase-9 組裝<strong>Apoptosome</strong> → 切割 caspase-3/7。</p></div>
+<div data-lang="en"><p><strong>BH3-only sensors</strong> (BID, BIM, PUMA, NOXA, BAD, BMF) detect DNA damage, ER stress, growth-factor loss → antagonize <strong>BCL-2/MCL-1/BCL-XL</strong> → release <strong>BAX/BAK</strong> oligomerization at OMM → <strong>MOMP</strong> → cytochrome c + SMAC + Omi → assemble <strong>Apoptosome</strong> with APAF-1 + Caspase-9 → cleave caspase-3/7.</p></div></div>
+<div class="card"><div class="card-icon">🪝</div><h4 data-zh="外在途徑（死亡受體）" data-en="Extrinsic (Death Receptors)">外在途徑（死亡受體）</h4>
+<div data-lang="zh"><p>Fas / TRAILR1/2 / TNFR1 → DISC (FADD + procaspase-8/10) → caspase-8 活化 →（Type I）直接切 caspase-3；（Type II）切 BID → tBID → 觸發內在途徑放大訊號。<strong>cFLIP</strong> 競爭性抑制 caspase-8；<strong>cIAP/XIAP</strong> 抑制 caspase-3/7/9 (被 SMAC 拮抗)。</p></div>
+<div data-lang="en"><p>Fas / TRAILR / TNFR1 → DISC (FADD + procaspase-8/10) → caspase-8 active → (Type I) cleave caspase-3 directly; (Type II) cleave BID → tBID → amplify via intrinsic pathway. <strong>cFLIP</strong> competitively inhibits caspase-8; <strong>cIAP/XIAP</strong> inhibit caspase-3/7/9 (antagonized by SMAC).</p></div></div>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>Venetoclax (ABT-199)：</strong>選擇性 BCL-2 抑制劑（BH3-mimetic）——2016 FDA 核准用於 CLL/AML。其作用機制即模擬 BH3-only 蛋白，釋放 BAX/BAK。Navitoclax (ABT-263) 同時抑 BCL-2/W/XL，但因 BCL-XL 抑制導致血小板減少。</span>
+<span data-lang="en"><strong>Venetoclax (ABT-199):</strong> selective BCL-2 inhibitor (BH3-mimetic) — FDA approved 2016 for CLL/AML. Mechanism: mimics BH3-only proteins to release BAX/BAK. Navitoclax (ABT-263) targets BCL-2/W/XL but causes thrombocytopenia (BCL-XL inhibition).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="發炎性死亡" data-en="LYTIC DEATH">溶解性死亡</div>
+<h2 data-zh="二、Necroptosis 與 Pyroptosis：成孔蛋白執行" data-en="II. Necroptosis &amp; Pyroptosis: Pore-Forming Executioners">二、Necroptosis / Pyroptosis</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="特性" data-en="Feature">特性</th><th>Necroptosis</th><th>Pyroptosis</th></tr></thead>
+<tbody>
+<tr><td data-zh="觸發" data-en="Trigger">觸發</td><td data-zh="TNFR1 + caspase-8 抑制 (zVAD/cIAP loss)" data-en="TNFR1 + caspase-8 inhibition">TNFR1, ZBP1-Z-RNA, TLR3/4</td><td data-zh="細胞質 PAMP/DAMP (LPS, dsDNA, ATP)" data-en="Cytosolic PAMP/DAMP">PAMP/DAMP（inflammasome）</td></tr>
+<tr><td data-zh="訊號核心" data-en="Core">訊號核心</td><td>RIPK1 / RIPK3 necrosome → RIPK3 磷酸化 MLKL</td><td>Inflammasome (NLRP3/AIM2/NAIP-NLRC4/Pyrin) + ASC → caspase-1</td></tr>
+<tr><td data-zh="執行者 / 成孔" data-en="Executioner / pore">執行者</td><td><strong>MLKL</strong> N-端 4HB domain → 4-mer 寡聚 → PI(4,5)P₂ 結合 → 細胞膜孔</td><td><strong>Gasdermin D</strong> N-端 → 16-mer → 21 nm 孔</td></tr>
+<tr><td data-zh="釋放" data-en="Release">釋放</td><td>HMGB1, S100, 細胞質 (DAMPs)</td><td>IL-1β, IL-18 (caspase-1 切熟), HMGB1</td></tr>
+<tr><td data-zh="抑制劑" data-en="Inhibitor">抑制劑</td><td>Necrostatin-1 (RIPK1), GSK′872 (RIPK3)</td><td>MCC950 (NLRP3), disulfiram (GSDMD)</td></tr>
+</tbody>
+</table>
+<div data-lang="zh"><p style="margin-top:1em;"><strong>Apoptosis-to-Pyroptosis 切換：</strong>Caspase-3 可切 <strong>Gasdermin E (GSDME)</strong>，將「沉默」凋亡轉為「發炎」pyroptosis——這在化療誘導死亡的免疫原性極為關鍵（2020 Wang et al., Nature）。ZBP1 感應內源 Z-RNA (見 Ch2 Z-DNA) → 招募 RIPK3 → necroptosis 是另一受關注的「核酸→死亡」軸。</p></div>
+<div data-lang="en"><p style="margin-top:1em;"><strong>Apoptosis-to-Pyroptosis switch:</strong> Caspase-3 cleaves <strong>Gasdermin E (GSDME)</strong>, converting "silent" apoptosis to "inflammatory" pyroptosis — pivotal for chemo-induced immunogenicity (Wang et al., Nature 2020). ZBP1 senses endogenous Z-RNA (see Ch2 Z-DNA) → recruits RIPK3 → necroptosis is another spotlighted "nucleic-acid → death" axis.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="金屬與脂質死亡" data-en="METAL/LIPID DEATH">金屬與脂質死亡</div>
+<h2 data-zh="三、Ferroptosis 與 Cuproptosis 等新興途徑" data-en="III. Ferroptosis, Cuproptosis &amp; Emerging Modes">三、Ferroptosis & Cuproptosis</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🩸</div><h4>Ferroptosis</h4>
+<div data-lang="zh"><p><strong>鐵依賴脂質過氧化</strong>。<strong>GPX4</strong>（含硒半胱胺酸）為主要防禦——還原 PL-OOH → PL-OH。失效時 PUFA 在 ACSL4-LPCAT3-LOX 軸被氧化 → 膜爆裂。Backup：<strong>FSP1-CoQ10/BH4</strong>（Bersuker/Doll 2019）、<strong>GCH1-BH4</strong>。誘導劑：RSL3 (GPX4i)、erastin (xCT-system Xc⁻)。</p></div>
+<div data-lang="en"><p><strong>Iron-dependent lipid peroxidation</strong>. <strong>GPX4</strong> (selenocysteine) reduces PL-OOH → PL-OH. When it fails, PUFAs are oxidized by ACSL4-LPCAT3-LOX → membrane rupture. Backups: <strong>FSP1-CoQ10/BH4</strong> (Bersuker/Doll 2019), <strong>GCH1-BH4</strong>. Inducers: RSL3 (GPX4i), erastin (xCT-system Xc⁻).</p></div></div>
+<div class="card"><div class="card-icon">🟠</div><h4>Cuproptosis (2022)</h4>
+<div data-lang="zh"><p>Tsvetkov et al., Science 2022。<strong>Cu²⁺</strong> 經 <strong>FDX1</strong> 還原為 Cu⁺ → 結合 TCA 循環的 <strong>lipoylated DLAT/DLST</strong> → 蛋白寡聚與毒性聚集 + Fe-S cluster 失常 → 蛋白毒性死亡。誘導劑 elesclomol-Cu。對線粒體呼吸依賴細胞特別敏感。</p></div>
+<div data-lang="en"><p>Tsvetkov et al., Science 2022. <strong>Cu²⁺</strong> reduced to Cu⁺ by <strong>FDX1</strong> → binds <strong>lipoylated DLAT/DLST</strong> of TCA → toxic oligomerization + Fe-S cluster loss → proteotoxic death. Inducer: elesclomol-Cu. Especially deadly to OXPHOS-dependent cells.</p></div></div>
+<div class="card"><div class="card-icon">⚡</div><h4>Parthanatos / Other</h4>
+<div data-lang="zh"><p><strong>Parthanatos</strong>：PARP1 過度活化 → PAR polymer → AIF 釋放 → 核斷裂。<strong>Entosis</strong>：cell-in-cell；<strong>NETosis</strong>：嗜中性球 DNA 網；<strong>Lysosomal cell death</strong>：cathepsin 釋放 → MOMP。</p></div>
+<div data-lang="en"><p><strong>Parthanatos</strong>: PARP1 hyperactivation → PAR polymer → AIF release → nuclear fragmentation. <strong>Entosis</strong>: cell-in-cell; <strong>NETosis</strong>: neutrophil DNA traps; <strong>Lysosomal cell death</strong>: cathepsin release → MOMP.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="選擇樹" data-en="DECISION TREE">選擇樹</div>
+<h2 data-zh="四、實驗判別 RCD 類型" data-en="IV. Experimentally Distinguishing RCD Types">四、判別 RCD 的決策樹</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 我看到細胞死亡，這是哪一種？" data-en="🌳 I see dying cells — which death is it?">🌳 RCD 鑑別流程</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">細胞膜<strong>完整</strong>、PS 外翻、核濃縮 → Apoptosis（Annexin V⁺/PI⁻；Caspase-3 切 PARP）</span><span data-lang="en">Membrane <strong>intact</strong>, PS externalized, nuclear condensation → Apoptosis (Annexin V⁺/PI⁻; cleaved PARP)</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">細胞膜<strong>破裂</strong>、LDH 釋放、IL-1β 分泌 → Pyroptosis（GSDMD-N 西方點墨；caspase-1 切割）</span><span data-lang="en">Membrane <strong>ruptured</strong>, LDH released, IL-1β secreted → Pyroptosis (GSDMD-N blot; caspase-1 cleavage)</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">膜破裂但 zVAD 不能阻止；Nec-1s 可阻止 → Necroptosis（pMLKL 染色、RIPK3 oligomer）</span><span data-lang="en">Membrane ruptured but zVAD fails; Nec-1s blocks → Necroptosis (pMLKL staining, RIPK3 oligomers)</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">Ferrostatin-1 / liproxstatin / vitamin E 救援；C11-BODIPY 偵測脂質 ROS → Ferroptosis</span><span data-lang="en">Rescued by Ferrostatin-1 / liproxstatin / vitamin E; C11-BODIPY⁺ → Ferroptosis</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">TTM (銅螯合劑) 救援；FDX1/DLAT 寡聚 → Cuproptosis</span><span data-lang="en">Rescued by TTM (Cu chelator); FDX1/DLAT oligomerization → Cuproptosis</span></div>
+<div class="dt-node"><span class="dt-q">Q6</span><span class="dt-arrow">→</span><span data-lang="zh">多重 inhibitor 才救援 + ZBP1/Caspase-8 共活化 → PANoptosis</span><span data-lang="en">Multiple inhibitors needed + ZBP1/Caspase-8 co-activated → PANoptosis</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、量化細胞死亡的計算工作流" data-en="V. Computational Workflow for Cell Death Quantitation">五、死亡定量工作流</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · flow cytometry</button>
+    <button class="code-tab-btn" data-tab="py">Python · live-cell tracking</button>
+    <button class="code-tab-btn" data-tab="dr">藥物篩選 (CTG/RSL3)</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># Annexin V / PI 雙染分群（R flowCore）</span>
+<span class="kw">library</span>(flowCore); <span class="kw">library</span>(flowWorkspace)
+fs &lt;- read.flowSet(path=<span class="str">"./fcs"</span>, pattern=<span class="str">".fcs$"</span>)
+trans &lt;- transformList(<span class="func">c</span>(<span class="str">"FL1-A"</span>,<span class="str">"FL3-A"</span>), logicleTransform())
+fs &lt;- transform(fs, trans)
+<span class="comment"># 自動 quadrant gating</span>
+gs &lt;- GatingSet(fs)
+add(gs, rectangleGate(<span class="str">"FL1-A"</span>=<span class="func">c</span>(<span class="num">2</span>,<span class="num">5</span>), <span class="str">"FL3-A"</span>=<span class="func">c</span>(-<span class="num">1</span>,<span class="num">1</span>)), name=<span class="str">"early_apop"</span>)
+add(gs, rectangleGate(<span class="str">"FL1-A"</span>=<span class="func">c</span>(<span class="num">2</span>,<span class="num">5</span>), <span class="str">"FL3-A"</span>=<span class="func">c</span>(<span class="num">1</span>,<span class="num">5</span>)), name=<span class="str">"late_apop"</span>)
+recompute(gs)
+getPopStats(gs)[,<span class="func">c</span>(<span class="str">"Population"</span>,<span class="str">"Count"</span>,<span class="str">"Percent"</span>)]</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># Incucyte / live-cell death kinetics 分析</span>
+<span class="kw">import</span> pandas <span class="kw">as</span> pd; <span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">from</span> scipy.optimize <span class="kw">import</span> curve_fit
+df = pd.read_csv(<span class="str">"propidium_iodide_kinetics.csv"</span>)  <span class="comment"># time, PI+ count</span>
+<span class="comment"># Sigmoid 擬合：half-killing time (T50)</span>
+<span class="kw">def</span> <span class="func">sig</span>(t, Vmax, T50, k):
+    <span class="kw">return</span> Vmax / (<span class="num">1</span> + np.<span class="func">exp</span>(-k*(t-T50)))
+<span class="kw">for</span> g, sub <span class="kw">in</span> df.<span class="func">groupby</span>(<span class="str">"treatment"</span>):
+    popt,_ = curve_fit(sig, sub.t, sub.PI, p0=[<span class="num">100</span>, <span class="num">12</span>, <span class="num">0.3</span>])
+    <span class="func">print</span>(<span class="str">f"{g}: T50 = {popt[1]:.1f}h, max = {popt[0]:.1f}%"</span>)
+<span class="comment"># 比較各 inhibitor 救援 (Nec-1s, Fer-1, MCC950, zVAD)</span></pre></div>
+  <div class="code-tab-content" data-tab="dr"><pre><span class="comment"># 高通量 ferroptosis 篩選範例（CTG luminescence）</span>
+<span class="comment"># 96-well plate: cell line × [RSL3] dose curve × ± Fer-1</span>
+<span class="kw">library</span>(drc)
+dat &lt;- read.csv(<span class="str">"ctg_screen.csv"</span>)
+model &lt;- drm(viability ~ conc, fct=LL.4(), curveid=condition, data=dat)
+ED(model, <span class="num">50</span>)  <span class="comment"># EC50 表</span>
+<span class="comment"># Ferroptosis-sensitive 細胞：</span>
+<span class="comment">#   EC50_RSL3 &lt; 1 µM AND Fer-1 rescue &gt; 10-fold</span>
+<span class="comment"># 結合 ssGSEA：GPX4-low、ACSL4-high、SLC7A11-low 標記</span>
+hits &lt;- dat[dat$EC50 &lt; <span class="num">1</span> &amp; dat$rescue_fold &gt; <span class="num">10</span>, ]</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. 一個白血病細胞株對 venetoclax (ABT-199) 高度敏感，最可能的機制是什麼？</p>
+<p data-lang="en">1. A leukemia line is highly sensitive to venetoclax (ABT-199). The most likely mechanism is:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 高表達 BAK，凋亡門檻低</span><span data-lang="en">A. High BAK expression lowers apoptosis threshold</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 高度依賴 BCL-2 隔離已活化的 BIM；BCL-2 抑制即釋放 BIM 觸發 MOMP</span><span data-lang="en">B. Heavily depends on BCL-2 sequestering primed BIM; inhibiting BCL-2 releases BIM and triggers MOMP</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. p53 突變導致內在途徑封閉</span><span data-lang="en">C. p53 mutation blocks intrinsic pathway</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. cFLIP 高表達</span><span data-lang="en">D. cFLIP overexpression</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：被「primed for death」的細胞 BIM 已活化但被 BCL-2 隔離；venetoclax 釋放 BIM 即啟動 BAX/BAK MOMP。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: "Primed-for-death" cells have BIM activated but sequestered by BCL-2; venetoclax releases BIM, triggering BAX/BAK MOMP.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. 用 zVAD-fmk 處理後，TNF 仍能殺死細胞，且 Nec-1s 可救援。最可能的死亡型態為何？</p>
+<p data-lang="en">2. With zVAD-fmk treatment, TNF still kills cells, and Nec-1s rescues. Most likely death type:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 凋亡 (Apoptosis)</span><span data-lang="en">A. Apoptosis</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. Pyroptosis</span><span data-lang="en">B. Pyroptosis</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Necroptosis</span><span data-lang="en">C. Necroptosis</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. Ferroptosis</span><span data-lang="en">D. Ferroptosis</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：caspase-8 被 zVAD 抑制時，RIPK1/3 不受 caspase-8 切割，得以形成 necrosome 並磷酸化 MLKL。Nec-1s 阻 RIPK1 即救援。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: When zVAD blocks caspase-8, RIPK1/3 escape cleavage, form necrosome, phosphorylate MLKL. Nec-1s blocking RIPK1 rescues.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Caspase-3 切割 GSDME 可將「沉默」的凋亡轉為「發炎」的 pyroptosis——這在化療誘導免疫原性死亡 (ICD) 中具治療意義。</p>
+<p data-lang="en">3. (T/F) Caspase-3 cleavage of GSDME can convert "silent" apoptosis into "inflammatory" pyroptosis — therapeutically relevant for chemo-induced immunogenic cell death (ICD).</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：GSDME 高表達的腫瘤對化療反應更具免疫原性，提示「pyroptosis induction」可加熱冷腫瘤。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: GSDME-high tumors mount more immunogenic chemotherapy responses, suggesting pyroptosis induction can "heat" cold tumors.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="organelle-contacts-trafficking.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 16 · 胞器接觸位點與膜運輸" data-en="Ch 16 · Membrane Contact Sites &amp;amp; Trafficking">Ch 16 · 胞器接觸位點與膜運輸</span></a>
+<a href="autophagy-quality-control.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 18 · 自噬與細胞品質管控" data-en="Ch 18 · Autophagy &amp;amp; Quality Control">Ch 18 · 自噬與細胞品質管控</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

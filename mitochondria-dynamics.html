@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 15: 粒線體動態 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html" class="active">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 15 / 20 · BLOCK D</div>
+<h1 data-zh="粒線體動態與生質能" data-en="Mitochondrial Dynamics &amp; Bioenergetics">粒線體動態與生質能</h1>
+<p class="subtitle" data-lang="zh">mtDNA、cristae 架構、fission/fusion、mitophagy、supercomplexes、mtDNA 疾病——細胞的「動態能量網路」。</p>
+<p class="subtitle" data-lang="en">mtDNA, cristae architecture, fission/fusion, mitophagy, supercomplexes, mtDNA diseases — the cell's dynamic energy grid.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="粒線體 ≠ 「能量工廠」單一身份" data-en="Mitochondria ≠ A Single 'Powerhouse' Identity">遠不只能量工廠</h2>
+<div data-lang="zh">
+<p>粒線體是<strong>動態網路</strong>——持續 fission/fusion，移動於 MT 軌道上，與 ER、lysosome、LD 形成接觸位點 (Ch16)。其功能遠超 ATP 製造：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>OXPHOS</strong> — ATP 合成 (~90% 細胞能量)；複合體 I-V + cyt c + 泛醌 (CoQ)</li>
+  <li><strong>TCA cycle</strong> — 不只代謝樞紐，更是生物合成 hub (citrate → FA、αKG → aa、succinate → epigenetic 信號)</li>
+  <li><strong>Ca²⁺ buffering</strong> — MCU 經 ER MAMs 攝取 Ca²⁺，調控細胞訊號</li>
+  <li><strong>ROS signaling</strong> — 複合體 I/III 漏電子產 superoxide，低劑量為信號分子</li>
+  <li><strong>Apoptosis</strong> — MOMP/cyt c 釋放 (Ch17)</li>
+  <li><strong>免疫</strong> — mtDNA 進入細胞質 → cGAS-STING；MAVS 抗病毒平台</li>
+  <li><strong>內分泌</strong> — 分泌 mitokines (FGF21, GDF15)、mitochondrial-derived peptides (humanin, MOTS-c)</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Mitochondria are <strong>dynamic networks</strong> — continually undergoing fission/fusion, trafficking along MTs, contacting ER, lysosomes, and LDs (Ch16). Functions far exceed ATP production:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>OXPHOS</strong> — ATP synthesis (~90% of cell energy); complexes I-V + cyt c + ubiquinone (CoQ)</li>
+  <li><strong>TCA cycle</strong> — biosynthetic hub (citrate → FA, αKG → aa, succinate → epigenetic signaling)</li>
+  <li><strong>Ca²⁺ buffering</strong> — MCU at ER MAMs, signal modulation</li>
+  <li><strong>ROS signaling</strong> — complex I/III electron leak → superoxide; low doses = signals</li>
+  <li><strong>Apoptosis</strong> — MOMP, cyt c release (Ch17)</li>
+  <li><strong>Immunity</strong> — cytosolic mtDNA → cGAS-STING; MAVS antiviral platform</li>
+  <li><strong>Endocrine</strong> — mitokines (FGF21, GDF15), mitochondrial-derived peptides (humanin, MOTS-c)</li>
+</ul>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="mtDNA" data-en="mtDNA">mtDNA</div>
+<h2 data-zh="一、mtDNA、heteroplasmy 與母系遺傳" data-en="I. mtDNA, Heteroplasmy &amp; Maternal Inheritance">一、mtDNA 與 heteroplasmy</h2>
+<div data-lang="zh">
+<p><strong>人類 mtDNA：</strong>16,569 bp 環狀，含 H 重股 + L 輕股，編碼 13 條 OXPHOS 蛋白（CI: 7 ND、CIII: cyt b、CIV: 3 COX、CV: ATP6/8）+ 22 tRNA + 2 rRNA (12S/16S)。<strong>D-loop 控制區</strong> (~1.1 kb) 含轉錄起始與 OriH 複製起點；POLG 是唯一 mtDNA 聚合酶。</p>
+<p>每個細胞含 100-10,000 個 mtDNA copy。<strong>Heteroplasmy</strong> = 同細胞含突變與野生型 mtDNA 共存；<strong>突變比例 (mutation load)</strong> 超過閾值才出現臨床症狀 (typically &gt; 60-80%, 因組織而異)。卵母細胞發育時的 <strong>bottleneck</strong> 將 mtDNA 數量縮減至 ~10-200 copy 再重新擴增，使子代 mtDNA 多樣性快速漂變——這是<strong>母系遺傳</strong>與重組瘢痕的基礎。</p>
+<p><strong>2024 治療：</strong>① Mitochondrial Replacement Therapy (MRT)、英國已合法、首例兒已誕生；② <strong>DddA-derived Cytidine Base Editor (DdCBE)</strong> (Mougous &amp; Liu 2020) 可在 mtDNA 進行 C→T 編輯，無需切斷雙鏈（與 CRISPR 不同；mtDNA 內 dsDNA cut 會被 degraded）；③ TALEN-mtDNA 切割可選擇性消除高比例突變 mtDNA。</p>
+</div>
+<div data-lang="en">
+<p><strong>Human mtDNA:</strong> 16,569 bp circular, H/L strands, encoding 13 OXPHOS proteins (CI: 7 ND, CIII: cyt b, CIV: 3 COX, CV: ATP6/8) + 22 tRNAs + 2 rRNAs (12S/16S). <strong>D-loop control region</strong> (~1.1 kb) holds transcription start and OriH replication origin; POLG is the sole mtDNA polymerase.</p>
+<p>Each cell holds 100-10,000 mtDNA copies. <strong>Heteroplasmy</strong> = mutant and wild-type mtDNA coexist; clinical symptoms emerge once the <strong>mutation load</strong> exceeds a threshold (typically &gt;60-80%, tissue-dependent). The oocyte <strong>bottleneck</strong> shrinks mtDNA to ~10-200 copies before re-expansion, driving rapid drift across generations — the basis of <strong>maternal inheritance</strong>.</p>
+<p><strong>2024 therapies:</strong> (1) Mitochondrial Replacement Therapy (MRT) — legal in UK, first babies born; (2) <strong>DddA-derived Cytidine Base Editor (DdCBE)</strong> (Mougous &amp; Liu 2020) enables C→T editing in mtDNA without dsDNA breaks (unlike CRISPR; mtDNA dsBreaks are degraded); (3) TALEN-mtDNA cleavage can selectively eliminate high-load mutant mtDNA.</p>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>經典 mtDNA 疾病：</strong> <strong>Leigh syndrome</strong> (multiple CI/CIV defects)；<strong>LHON</strong> (ND4 m.11778G&gt;A，視神經病變)；<strong>MELAS</strong> (tRNA-Leu m.3243A&gt;G，腦病變/中風發作)；<strong>MERRF</strong> (tRNA-Lys m.8344A&gt;G)。常見 m.3243A&gt;G 在普通人群 ~1/400，但多數為低 heteroplasmy。</span>
+<span data-lang="en"><strong>Classic mtDNA diseases:</strong> <strong>Leigh syndrome</strong> (multi CI/CIV defects); <strong>LHON</strong> (ND4 m.11778G&gt;A, optic neuropathy); <strong>MELAS</strong> (tRNA-Leu m.3243A&gt;G, encephalopathy + stroke-like episodes); <strong>MERRF</strong> (tRNA-Lys m.8344A&gt;G). m.3243A&gt;G frequency ~1/400 in general population, mostly low heteroplasmy.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="動態" data-en="DYNAMICS">Fission / fusion</div>
+<h2 data-zh="二、Fission / Fusion / Mitophagy 三角" data-en="II. Fission / Fusion / Mitophagy Triad">二、Fission / Fusion / Mitophagy</h2>
+<div data-lang="zh">
+<p><strong>Fusion (融合)：</strong>外膜由 <strong>MFN1 / MFN2</strong> 同源 GTPase 配對；內膜由 <strong>OPA1</strong>（多種剪接型）介導。L-OPA1 (long) 必須維持以保持 cristae；OMA1 與 YME1L 在膜電位下降時切割 OPA1 → S-OPA1 → 觸發 fission。</p>
+<p><strong>Fission (分裂)：</strong>由 cytosolic <strong>DRP1 (dynamin-related)</strong> 由 receptors (Fis1, Mff, MiD49, MiD51) 招募至 OMM constriction site → DRP1 形成螺旋 → GTP 水解切斷膜。<strong>2023:</strong> Friedman 確認 ER tubule 預先「箝制」mitochondrion 為 fission 預備位點 (ER-mito contact)；INF2 + actin 提供初步收縮力。</p>
+<p><strong>Mitophagy (粒線體自噬)：</strong>選擇性清除損傷粒線體。</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>PINK1-Parkin pathway</strong>：膜電位 ΔΨ↓ → PINK1 累積於 OMM → 磷酸化 ubiquitin S65 與 Parkin → Parkin 活化 → 多泛素化 OMM 蛋白 → autophagy receptor (OPTN, NDP52) 招募 LC3 → 自噬</li>
+  <li><strong>Receptor-mediated</strong>：BNIP3、NIX (BNIP3L)、FUNDC1 直接含 LIR motif，依組織與壓力類型啟動 (e.g., 缺氧)</li>
+  <li><strong>Cardiolipin externalization</strong>：cardiolipin 由 IMM 翻到 OMM 後被 LC3 直接識別</li>
+</ul>
+<p><strong>Parkinson's disease:</strong> PINK1 或 Parkin loss-of-function 突變導致家族性 PD——dopaminergic 神經元粒線體質量管控失敗。</p>
+</div>
+<div data-lang="en">
+<p><strong>Fusion:</strong> OMM by <strong>MFN1/MFN2</strong> homologous GTPase pairs; IMM by <strong>OPA1</strong> (multiple isoforms). L-OPA1 must be maintained for cristae integrity; OMA1 and YME1L cleave OPA1 → S-OPA1 → triggers fission when ΔΨm drops.</p>
+<p><strong>Fission:</strong> cytosolic <strong>DRP1</strong> recruited by OMM receptors (Fis1, Mff, MiD49, MiD51) → spiral assembly → GTP hydrolysis cuts. <strong>2023:</strong> Friedman confirmed ER tubules pre-mark fission sites; INF2 + actin generates initial constriction.</p>
+<p><strong>Mitophagy:</strong> selective clearance of damaged mitochondria.</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>PINK1-Parkin</strong>: ΔΨm drop → PINK1 accumulates on OMM → phosphorylates ubiquitin S65 + Parkin → Parkin active → polyubiquitinates OMM proteins → receptors (OPTN, NDP52) recruit LC3 → autophagy</li>
+  <li><strong>Receptor-mediated</strong>: BNIP3, NIX (BNIP3L), FUNDC1 carry LIR motifs; tissue/stress-specific (e.g., hypoxia)</li>
+  <li><strong>Cardiolipin externalization</strong>: cardiolipin flips to OMM, directly recognized by LC3</li>
+</ul>
+<p><strong>Parkinson's disease:</strong> PINK1 or Parkin LoF → familial PD — dopaminergic neurons fail mitochondrial QC.</p>
+</div>
+<div class="decision-tree">
+<h4 data-zh="🌳 粒線體該融合還是分裂？" data-en="🌳 Should mitochondria fuse or divide?">🌳 該融合還是分裂？</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">健康、營養充足 → 融合 → 網狀化 (MFN1/2, L-OPA1 ↑)</span><span data-lang="en">Healthy, nutrient-rich → fuse → networked (MFN1/2, L-OPA1 high)</span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">飢餓 / 短期 stress → 「stress-induced hyperfusion (SIMH)」保護 OXPHOS</span><span data-lang="en">Starvation / short stress → "stress-induced hyperfusion" (SIMH) protects OXPHOS</span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">細胞分裂、突觸生長 → 分裂讓粒線體平均分配 (DRP1↑)</span><span data-lang="en">Cell division, synapse outgrowth → fission distributes evenly (DRP1 up)</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">嚴重損傷、ΔΨ 持續↓ → OMA1 切 OPA1 + DRP1 → 分裂 → mitophagy</span><span data-lang="en">Severe damage, sustained ΔΨ drop → OMA1 cleaves OPA1 + DRP1 → fission → mitophagy</span></div>
+<div class="dt-node"><span class="dt-q">Q5</span><span class="dt-arrow">→</span><span data-lang="zh">凋亡訊號 (cBID) → BAX/BAK 寡聚於 OMM → MOMP → cyt c 釋放 → caspase 9</span><span data-lang="en">Apoptotic signal (cBID) → BAX/BAK oligomerizes on OMM → MOMP → cyt c → caspase 9</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="OXPHOS" data-en="OXPHOS">超複合體</div>
+<h2 data-zh="三、Cristae、Supercomplex 與 ATP 合成酶旋轉" data-en="III. Cristae, Supercomplexes &amp; ATP Synthase Rotor">三、Cristae 與 supercomplex</h2>
+<div data-lang="zh">
+<p>Cristae 為 IMM 凹陷的「能量隔室」，由 <strong>MICOS 複合體 (Mic60, Mic19, Mic10, Mic26, Mic27)</strong> 於 cristae junction 維持，並透過 OPA1 oligomer 鎖緊頸部，避免 cyt c 隨意逸出。Cristae 內 ΔpH 大、proton motive force (Δp) 高，是 ATP synthase 高效運作的關鍵。</p>
+<p><strong>OXPHOS supercomplexes (respirasome)：</strong>傳統「液態鑲嵌」模型認為複合體獨立漂浮——但 2016 後 CryoEM 確證形成<strong>有序 supercomplex</strong>：<strong>I+III₂+IV₁/₂</strong>。<strong>2024 Hirst 解析 mammalian respirasome 2.0 Å</strong>，揭示 CoQ 與 cyt c 移動的<strong>「locked channel」</strong>——這解釋 electron substrate channeling 與 ROS 減少。</p>
+<p><strong>ATP synthase (CV)：</strong>分子旋轉馬達。F₀ 質子流動驅動 c-ring (8-10 subunits in mammals) 旋轉 → 通過中心 γ-shaft 傳遞至 F₁ → 三個 β subunit 構象循環 (open/loose/tight) → 每轉合成 3 個 ATP。Boyer 1997 Nobel "binding change mechanism"。<strong>ATP synthase 二聚體在 cristae 尖端</strong>，使 IMM 彎曲形成 cristae 形狀本身。</p>
+</div>
+<div data-lang="en">
+<p>Cristae are IMM invaginations — "energy compartments" maintained by the <strong>MICOS complex (Mic60, Mic19, Mic10, Mic26, Mic27)</strong> at cristae junctions, with OPA1 oligomers tightening the neck to prevent cyt c leakage. High ΔpH and proton motive force (Δp) inside cristae enable efficient ATP synthesis.</p>
+<p><strong>OXPHOS supercomplexes (respirasome):</strong> the old "fluid mosaic" view (independent complexes) is replaced; CryoEM since 2016 shows ordered <strong>supercomplexes I+III₂+IV₁/₂</strong>. <strong>Hirst (2024) solved mammalian respirasome at 2.0 Å</strong>, revealing a <strong>"locked channel"</strong> for CoQ/cyt c — explaining substrate channeling and lower ROS.</p>
+<p><strong>ATP synthase (CV):</strong> a molecular rotor. F₀ proton flow rotates the c-ring (8-10 subunits in mammals) → via the central γ-shaft → F₁ has three β subunits cycling (open/loose/tight) → 3 ATP per full turn. Boyer's 1997 Nobel "binding change". <strong>Dimerized ATP synthase at cristae ridges</strong> bends the IMM, sculpting cristae shape.</p>
+</div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🔬</div><h4>Complex I</h4>
+<div data-lang="zh"><p>~45 subunits, L-shape。NADH → CoQ；最大 ROS 來源（forward + reverse electron flow）。Rotenone 抑制。</p></div>
+<div data-lang="en"><p>~45 subunits, L-shape. NADH → CoQ; major ROS source (forward + reverse). Inhibited by rotenone.</p></div></div>
+<div class="card"><div class="card-icon">🌀</div><h4>Complex III</h4>
+<div data-lang="zh"><p>Q-cycle: bifurcates electrons; ROS via semiquinone at Qo site. Antimycin A 抑制 Qi。</p></div>
+<div data-lang="en"><p>Q-cycle: bifurcates electrons; ROS via semiquinone at Qo. Inhibited by antimycin A at Qi.</p></div></div>
+<div class="card"><div class="card-icon">⚙️</div><h4>ATP synthase</h4>
+<div data-lang="zh"><p>F₁F₀ 旋轉馬達；c-ring 化學計量決定 H⁺/ATP；mammal c8 → ~2.7 H⁺/ATP。</p></div>
+<div data-lang="en"><p>F₁F₀ rotary motor; c-ring stoichiometry sets H⁺/ATP; mammal c8 → ~2.7 H⁺/ATP.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、mt 形態量化 + heteroplasmy 估計" data-en="IV. Morphology Quantification + Heteroplasmy Estimation">四、形態與 heteroplasmy</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="py">Python · MitoNetwork</button>
+    <button class="code-tab-btn" data-tab="r">R · mtDNA-Server</button>
+    <button class="code-tab-btn" data-tab="seahorse">Seahorse XF</button>
+  </div>
+  <div class="code-tab-content active" data-tab="py"><pre><span class="comment"># Mitochondrial network skeleton — MitoGraph (Viana 2015) + Python</span>
+<span class="kw">import</span> skimage.io <span class="kw">as</span> io
+<span class="kw">from</span> skimage <span class="kw">import</span> filters, morphology
+<span class="kw">import</span> networkx <span class="kw">as</span> nx, numpy <span class="kw">as</span> np
+
+img = io.imread(<span class="str">"tom20_zstack.tif"</span>)
+<span class="comment"># 1) 3D Frangi vesselness filter</span>
+v = filters.frangi(img, sigmas=<span class="func">range</span>(<span class="num">1</span>,<span class="num">4</span>))
+<span class="comment"># 2) 二值化 + skeletonization</span>
+binary = v &gt; filters.threshold_otsu(v)
+skel = morphology.skeletonize_3d(binary)
+<span class="comment"># 3) 圖論度量</span>
+<span class="kw">from</span> skan <span class="kw">import</span> Skeleton, summarize
+sk = Skeleton(skel)
+df = summarize(sk)
+<span class="func">print</span>(<span class="str">"Mean branch length (μm):"</span>, df.branch_distance.mean()*<span class="num">0.108</span>)
+<span class="func">print</span>(<span class="str">"# branches:"</span>, <span class="func">len</span>(df))
+<span class="func">print</span>(<span class="str">"Mitochondrial volume fraction:"</span>, binary.sum()/binary.size)
+<span class="comment"># Fragmentation index: # connected components / total volume</span></pre></div>
+  <div class="code-tab-content" data-tab="r"><pre><span class="comment"># mtDNA heteroplasmy quantification (R + variant pipeline)</span>
+<span class="kw">library</span>(VariantAnnotation); <span class="kw">library</span>(tidyverse)
+<span class="comment"># 假設已用 mtDNA-Server / Mutect2 (mitochondria-mode) 產生 VCF</span>
+vcf &lt;- readVcf(<span class="str">"mt.vcf.gz"</span>, <span class="str">"chrM"</span>)
+gt &lt;- geno(vcf)$AD  <span class="comment"># allelic depth</span>
+<span class="comment"># 計算 heteroplasmy = ALT / (REF + ALT)</span>
+hp &lt;- <span class="func">sapply</span>(gt, function(x) x[[<span class="num">2</span>]] / <span class="func">sum</span>(x))
+df &lt;- <span class="func">data.frame</span>(pos = <span class="func">start</span>(rowRanges(vcf)), heteroplasmy = hp)
+<span class="comment"># 過濾 &gt; 1% 變異 (避免測序錯誤)</span>
+df &lt;- df %&gt;% <span class="func">filter</span>(heteroplasmy &gt; <span class="num">0.01</span>)
+<span class="comment"># 標註 MitoMap 已知致病位點</span>
+known &lt;- read_tsv(<span class="str">"mitomap_disease.tsv"</span>)
+df &lt;- df %&gt;% <span class="func">left_join</span>(known, by=<span class="str">"pos"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="seahorse"><pre><span class="comment"># Seahorse XF Mito Stress Test — OCR 解析</span>
+<span class="comment"># 加藥順序: Oligomycin (CV inhib) → FCCP (uncoupler) → Rot/AA (CI+CIII)</span>
+<span class="comment"># 1) Basal OCR = baseline 平均</span>
+<span class="comment"># 2) ATP-linked = Basal − post-Oligomycin</span>
+<span class="comment"># 3) Maximal = post-FCCP</span>
+<span class="comment"># 4) Spare capacity = Maximal − Basal</span>
+<span class="comment"># 5) Non-mito = post-Rot/AA</span>
+<span class="comment"># 6) Proton leak = post-Oligo − Non-mito</span>
+<span class="kw">library</span>(tidyverse)
+df &lt;- read_csv(<span class="str">"seahorse.csv"</span>)
+df &lt;- df %&gt;% <span class="func">mutate</span>(
+  basal = <span class="func">mean</span>(OCR[phase==<span class="str">"basal"</span>]),
+  atp = basal - <span class="func">mean</span>(OCR[phase==<span class="str">"oligo"</span>]),
+  max = <span class="func">mean</span>(OCR[phase==<span class="str">"fccp"</span>]),
+  spare = max - basal
+)
+<span class="comment"># Healthy cells: spare capacity / basal ~ 1.5-2.5</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 為何 CRISPR-Cas9 不適合 mtDNA 編輯，但 DdCBE 可行？</p>
+<p data-lang="en">1. Why is CRISPR-Cas9 unsuitable for mtDNA editing, while DdCBE works?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. mtDNA 為環狀無法切割</span><span data-lang="en">A. mtDNA is circular and cannot be cleaved</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. Cas9 無法進入 mitochondria</span><span data-lang="en">B. Cas9 cannot enter mitochondria</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. mtDNA 雙股切斷後被快速降解；DdCBE 透過 TALE + DddA cytidine deaminase 進行 C→T 編輯而不產生 dsBreak</span><span data-lang="en">C. mtDNA dsBreaks are rapidly degraded; DdCBE uses TALE + DddA cytidine deaminase for C→T editing without dsBreaks</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 線粒體缺乏 ATP 支持 Cas9</span><span data-lang="en">D. Mitochondria lack ATP for Cas9</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：mtDNA 雙鏈斷裂幾乎都被分解；DdCBE (Mougous &amp; Liu 2020) 直接做鹼基編輯，繞開此問題。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: mtDNA dsBreaks are almost always degraded; DdCBE (Mougous &amp; Liu 2020) does base editing directly, bypassing this.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. PINK1-Parkin mitophagy 啟動的最初訊號為何？</p>
+<p data-lang="en">2. What is the initiating signal of PINK1-Parkin mitophagy?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. cardiolipin 外翻至 OMM</span><span data-lang="en">A. Cardiolipin externalization to OMM</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. ΔΨm 下降使 PINK1 無法被 MPP 切斷而累積於 OMM</span><span data-lang="en">B. ΔΨm drop prevents MPP-mediated PINK1 cleavage, allowing OMM accumulation</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Parkin 自發 dimerization</span><span data-lang="en">C. Spontaneous Parkin dimerization</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. mtDNA 進入細胞質啟動 cGAS</span><span data-lang="en">D. mtDNA cytosolic entry activates cGAS</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：正常 PINK1 持續被 IMM 切斷降解；ΔΨm 下降後它停留 OMM，磷酸化 ubiquitin 與 Parkin 啟動級聯。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Normally PINK1 is continuously cleaved on the IMM; ΔΨm drop traps it on the OMM, where it phosphorylates ubiquitin and Parkin.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）OXPHOS 複合體並非自由漂浮，而是形成有序的 supercomplex (respirasome, I+III₂+IV)，這提供 substrate channeling 並降低 ROS 產生。</p>
+<p data-lang="en">3. (T/F) OXPHOS complexes are not freely floating but form ordered supercomplexes (respirasome, I+III₂+IV), providing substrate channeling and reducing ROS production.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：2024 Hirst 2.0 Å respirasome 揭示 locked channel，substrate channeling 大幅降低半泛醌中間態漏電子。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Hirst 2024 2.0 Å respirasome reveals a locked channel; substrate channeling minimizes semiquinone intermediate leakage.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="er-golgi-secretion.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 14 · ER-Golgi 與分泌途徑" data-en="Ch 14 · ER-Golgi &amp;amp; Secretory Pathway">Ch 14 · ER-Golgi 與分泌途徑</span></a>
+<a href="organelle-contacts-trafficking.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 16 · 胞器接觸位點與膜運輸" data-en="Ch 16 · Membrane Contact Sites &amp;amp; Trafficking">Ch 16 · 胞器接觸位點與膜運輸</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

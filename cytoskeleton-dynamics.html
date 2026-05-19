@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 11: 細胞骨架動力學 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html" class="active">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 11 / 20 · BLOCK C</div>
+<h1 data-zh="細胞骨架動力學" data-en="Cytoskeleton Dynamics">細胞骨架動力學</h1>
+<p class="subtitle" data-lang="zh">Actin 跑步機、微管動態不穩、中間絲韌性——三大細胞骨架如何協同編排細胞的形狀、運動與分裂。</p>
+<p class="subtitle" data-lang="en">Actin treadmilling, microtubule instability, intermediate filament resilience — how three cytoskeletons choreograph shape, motility, and division.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="三大骨架：物理性質決定生物角色" data-en="Three Cytoskeletons: Physics Dictates Biology">三大骨架</h2>
+<div data-lang="zh">
+<p>細胞骨架不是死板的「骨架」，而是<strong>持續組裝/解構</strong>的動態網路。每種骨架由其單體幾何與聚合熱力學決定了功能：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Actin (~7 nm)</strong>：細、柔、極性、ATP 水解驅動 treadmilling。負責 lamellipodia、filopodia、cytokinesis、cortical tension。Persistence length 17 μm。</li>
+  <li><strong>Microtubules (~25 nm)</strong>：粗、剛、極性、GTP 水解驅動 dynamic instability。負責有絲分裂紡錘體、長距離運輸、initial polarity。Persistence length 5 mm。</li>
+  <li><strong>Intermediate filaments (~10 nm)</strong>：無極性、無 ATP/GTP、極強拉伸韌性。負責機械整合 (lamins, vimentin, keratin, GFAP)。Persistence length 1 μm，可拉伸至 3.5×。</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>Not rigid scaffolds but <strong>continuously assembling/disassembling</strong> networks. Subunit geometry and polymerization thermodynamics dictate function:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Actin (~7 nm)</strong>: thin, flexible, polar, ATP-driven treadmilling. Lamellipodia, filopodia, cytokinesis, cortical tension. Persistence length 17 μm.</li>
+  <li><strong>Microtubules (~25 nm)</strong>: thick, rigid, polar, GTP-driven dynamic instability. Mitotic spindle, long-distance transport. Persistence length 5 mm.</li>
+  <li><strong>Intermediate filaments (~10 nm)</strong>: apolar, no nucleotide, extreme tensile resilience. Mechanical integration (lamins, vimentin, keratin, GFAP). Persistence length 1 μm; stretches 3.5×.</li>
+</ul>
+</div>
+<table class="comp-table">
+<thead><tr><th data-zh="性質" data-en="Property">性質</th><th>Actin</th><th>Microtubule</th><th data-zh="中間絲" data-en="IF">中間絲</th></tr></thead>
+<tbody>
+<tr><td data-zh="單體" data-en="Subunit">單體</td><td>G-actin (42 kDa)</td><td>αβ-tubulin dimer</td><td data-zh="多家族 coiled-coil" data-en="Family of coiled-coils">多家族</td></tr>
+<tr><td data-zh="極性" data-en="Polarity">極性</td><td data-zh="有 (+ barbed / − pointed)" data-en="Yes (+ barbed / − pointed)">有</td><td data-zh="有 (+ / − end)" data-en="Yes (+ / − end)">有</td><td data-zh="無" data-en="No">無</td></tr>
+<tr><td data-zh="核苷酸" data-en="Nucleotide">核苷酸</td><td>ATP → ADP</td><td>GTP → GDP</td><td data-zh="無" data-en="None">無</td></tr>
+<tr><td data-zh="動力學模式" data-en="Dynamics">動力學</td><td>Treadmilling</td><td data-zh="動態不穩 (catastrophe/rescue)" data-en="Dynamic instability">動態不穩</td><td data-zh="慢交換 (subunit swap)" data-en="Slow subunit exchange">慢交換</td></tr>
+<tr><td data-zh="主要 motor" data-en="Motors">Motor</td><td>Myosin I/II/V/VI...</td><td data-zh="Kinesin (+) / Dynein (−)" data-en="Kinesin (+) / Dynein (−)">Kinesin/Dynein</td><td data-zh="無 motor" data-en="None">無</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Actin" data-en="ACTIN">Actin 動力學</div>
+<h2 data-zh="一、Actin treadmilling 與分支網路" data-en="I. Actin Treadmilling &amp; Branched Networks">一、Actin treadmilling</h2>
+<div data-lang="zh">
+<p><strong>Treadmilling</strong>：G-actin-ATP 在 + 端 (barbed) 聚合 (K_d ≈ 0.1 μM)，水解 ATP→ADP，從 − 端 (pointed) 解離 (K_d ≈ 0.6 μM)。當胞漿 G-actin 濃度介於兩 K_d 之間 (約 0.2 μM)，纖維淨向 + 端「跑」——這是 lamellipodia 前緣推進的物理基礎。</p>
+<p><strong>關鍵調控者：</strong></p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Profilin</strong>：螯合 G-actin-ATP，催化 ADP→ATP 交換，並將 actin 送至 formin / WASP</li>
+  <li><strong>Arp2/3 複合體</strong>：在母絲側面 70° 分支成核——形成 lamellipodia 的<strong>樹枝狀網路</strong> (Mullins/Pollard)</li>
+  <li><strong>Formins (mDia1, FMNL2)</strong>：FH2 環抱 + 端，FH1 招募 profilin-actin → 形成<strong>無分支的長纖維</strong> (filopodia, contractile ring)</li>
+  <li><strong>Capping protein (CapZ)</strong>：+ 端封端、防止過長</li>
+  <li><strong>ADF/Cofilin</strong>：偏愛 ADP-actin，加速 − 端解離；高濃度可<strong>切斷</strong>纖維</li>
+  <li><strong>WAVE / WASP / N-WASP</strong>：將 Rac1/Cdc42 訊號轉為 Arp2/3 活化</li>
+</ul>
+</div>
+<div data-lang="en">
+<p><strong>Treadmilling:</strong> G-actin-ATP polymerizes at the (+) barbed end (K_d ≈ 0.1 μM), hydrolyzes ATP→ADP, and dissociates from the (−) pointed end (K_d ≈ 0.6 μM). When cytosolic G-actin sits between the two K_d (~0.2 μM), the filament net-translocates toward (+) — the physical basis of lamellipodial protrusion.</p>
+<p><strong>Key regulators:</strong></p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Profilin</strong>: sequesters G-actin-ATP, catalyzes ADP→ATP exchange, delivers actin to formin/WASP</li>
+  <li><strong>Arp2/3</strong>: 70° side-branch nucleation — <strong>dendritic network</strong> (Mullins/Pollard)</li>
+  <li><strong>Formins (mDia1, FMNL2)</strong>: FH2 wraps the (+) end; FH1 recruits profilin-actin → <strong>unbranched long filaments</strong></li>
+  <li><strong>Capping protein (CapZ)</strong>: caps (+) end, limits length</li>
+  <li><strong>ADF/Cofilin</strong>: prefers ADP-actin, accelerates (−)-end loss; at high density, <strong>severs</strong> filaments</li>
+  <li><strong>WAVE / WASP / N-WASP</strong>: translate Rac1/Cdc42 signals into Arp2/3 activation</li>
+</ul>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>2024 CryoEM：</strong>Sept-Mullins 解析 actin-Arp2/3 分支介面 (3.4 Å)，揭示 Arp2 與母絲第 12-13 subunit 的特定接觸——這是設計 branch-disrupting 化合物 (CK-666 改良) 的結構基礎。</span>
+<span data-lang="en"><strong>2024 CryoEM:</strong> Sept-Mullins solved the actin-Arp2/3 branch interface (3.4 Å), revealing specific Arp2 contacts with mother filament subunits 12-13 — a structural basis for next-gen CK-666 analogs.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="微管" data-en="MICROTUBULES">微管動態</div>
+<h2 data-zh="二、微管動態不穩與 tubulin code" data-en="II. MT Dynamic Instability &amp; the Tubulin Code">二、微管動態不穩</h2>
+<div data-lang="zh">
+<p>微管由 αβ-tubulin 異二聚體頭尾聚合成 protofilament，13 條 protofilament 圍成中空管。<strong>GTP-cap 模型</strong>：+ 端富 GTP-tubulin 時穩定生長；GTP 水解後 GDP-tubulin 易解離——若 cap 失守，發生 <strong>catastrophe</strong> 快速縮短 (~20 μm/min)；GTP-tubulin 重新吸附則 <strong>rescue</strong>。這種「不穩」是探索空間的策略 (search &amp; capture)。</p>
+<p><strong>+TIPs (Plus-end tracking proteins)</strong>：EB1/EB3 是核心——它們偏好 GTP-cap，再招募 CLIP-170、CLASP、p150-glued、APC、ch-TOG。EB1 在活細胞下呈彗星狀 (comet)，是觀察 MT 動態的金標準。</p>
+<p><strong>Tubulin code (2024 更新)：</strong>tubulin 經歷多種 PTM——acetylation (αK40, 由 αTAT1)、detyrosination (CCP enzymes 切 αE439)、polyglutamylation (TTLL 家族於 E 側鏈加 5-15 個 Glu)、polyglycylation。這些 PTM 重塑 motor 行為：detyrosination 使 kinesin-1 偏好特定 MT、polyglutamylation 抑制 spastin/katanin 切割（過量則促進切割——「dosage code」）。</p>
+</div>
+<div data-lang="en">
+<p>MTs are head-to-tail αβ-tubulin polymers; 13 protofilaments form a hollow tube. <strong>GTP-cap model:</strong> (+) end with GTP-tubulin grows stably; after GTP→GDP hydrolysis, GDP-tubulin readily dissociates. Losing the cap triggers <strong>catastrophe</strong> (rapid shrinkage ~20 μm/min); GTP-tubulin re-addition triggers <strong>rescue</strong>. This instability is a spatial-search strategy (search &amp; capture).</p>
+<p><strong>+TIPs:</strong> EB1/EB3 prefer the GTP-cap and recruit CLIP-170, CLASP, p150-glued, APC, ch-TOG. In live cells, EB1 appears as comets — gold standard for MT dynamics imaging.</p>
+<p><strong>Tubulin code (2024 update):</strong> tubulin undergoes acetylation (αK40, αTAT1), detyrosination (CCPs cleave αE439), polyglutamylation (TTLLs add 5-15 Glu to side chains), polyglycylation. PTMs reshape motor behavior: detyrosination biases kinesin-1; moderate polyglutamylation inhibits spastin/katanin (high amounts promote severing — "dosage code").</p>
+</div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🪓</div><h4>Katanin / Spastin</h4>
+<div data-lang="zh"><p>AAA+ ATPase，在 polyglu PTM 處切斷 MT，產生新 + 端與短片段——神經元軸突 MT 多樣性關鍵。</p></div>
+<div data-lang="en"><p>AAA+ ATPases sever MTs at polyglu PTM sites — generate new (+) ends, drive axonal MT diversity.</p></div></div>
+<div class="card"><div class="card-icon">🚂</div><h4>Kinesin</h4>
+<div data-lang="zh"><p>45+ 種；多數朝 + 端 (kinesin-1, -3, -5)；kinesin-14 (Ncd) 朝 − 端。Step 8 nm 每 ATP。</p></div>
+<div data-lang="en"><p>45+ types; most (+)-directed (kinesin-1, -3, -5); kinesin-14 (Ncd) is (−)-directed. 8 nm step per ATP.</p></div></div>
+<div class="card"><div class="card-icon">🦠</div><h4>Cytoplasmic dynein</h4>
+<div data-lang="zh"><p>朝 − 端；與 dynactin + adaptor (BicD, Hook3, Spindly) 形成活化複合體；2024 CryoEM 解析啟動機制。</p></div>
+<div data-lang="en"><p>(−)-directed; activated by dynactin + adaptors (BicD, Hook3, Spindly). 2024 CryoEM solved activation mechanism.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="IF 與 septins" data-en="IFs &amp; SEPTINS">中間絲</div>
+<h2 data-zh="三、中間絲、septins 與纖毛" data-en="III. Intermediate Filaments, Septins &amp; Cilia">三、中間絲、septins、纖毛</h2>
+<div data-lang="zh">
+<p><strong>中間絲 (IF)</strong> 由 ~70 種基因編碼，依組織分類：keratin (上皮)、vimentin (間質)、desmin (肌肉)、neurofilament (神經元 NF-L/M/H)、GFAP (星狀膠細胞)、lamin A/B/C (核纖層)。每單體含 α-helix rod (含 4 個 coil) + 頭尾無序區，<strong>antiparallel 二聚體 → 反向四聚體 → 32-mer ULF → 成熟絲</strong>。IF 不耗能、不極性，但可拉伸至 3.5× 原長——是<strong>力學緩衝</strong>角色。Vimentin 在 EMT 與癌轉移大量上調。</p>
+<p><strong>Septins</strong>：第四種細胞骨架成員（GTP-binding 多聚體）。SEPT2-6-7-9 等以六/八聚體環狀組裝，在細胞質分裂環、樹突棘、ciliary base 形成 <strong>diffusion barrier</strong>。Mostowy 2024：septin 也在 actin-membrane 介面充當壓力感應器。</p>
+<p><strong>Cilia (primary cilium):</strong> 由 9+0 或 9+2 axoneme 組成，依賴 <strong>IFT (intraflagellar transport)</strong> — kinesin-2 (KIF3A/B/KAP3) 將 IFT-B 顆粒運向 + 端 tip; dynein-2 將 IFT-A 帶回 base。Hedgehog 訊號通路 (Smo, Gli) 在 primary cilium 內運作——ciliopathies 包含 BBS、Joubert、Meckel。</p>
+</div>
+<div data-lang="en">
+<p><strong>IFs</strong>: ~70 genes, tissue-specific — keratin (epithelial), vimentin (mesenchymal), desmin (muscle), neurofilament NF-L/M/H, GFAP (astrocyte), lamins A/B/C (nuclear). Monomer = α-helix rod (4 coils) + disordered head/tail. <strong>Antiparallel dimer → tetramer → 32-mer ULF → mature filament.</strong> Energy-independent, apolar, but stretchable to 3.5× original length — <strong>mechanical buffering</strong>. Vimentin is markedly upregulated in EMT and metastasis.</p>
+<p><strong>Septins:</strong> the fourth cytoskeleton (GTP-binding polymers). SEPT2-6-7-9 form hexameric/octameric rings at cytokinetic furrows, dendritic spines, and the ciliary base — <strong>diffusion barriers</strong>. Mostowy (2024): septins also act as pressure sensors at the actin-membrane interface.</p>
+<p><strong>Primary cilium:</strong> 9+0 or 9+2 axoneme, powered by <strong>IFT</strong> — kinesin-2 (KIF3A/B/KAP3) carries IFT-B to the tip; dynein-2 returns IFT-A. Hedgehog signaling (Smo, Gli) runs through the primary cilium — ciliopathies include BBS, Joubert, Meckel syndromes.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、活細胞動態 + CryoEM filament 重建" data-en="IV. Live-Cell Dynamics + CryoEM Filament Reconstruction">四、活細胞與 CryoEM</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="py">Python · trackpy</button>
+    <button class="code-tab-btn" data-tab="r">R · plusTipTracker → R</button>
+    <button class="code-tab-btn" data-tab="cryo">CryoEM · RELION helix</button>
+  </div>
+  <div class="code-tab-content active" data-tab="py"><pre><span class="comment"># EB1 comet 追蹤 — trackpy + matplotlib</span>
+<span class="kw">import</span> trackpy <span class="kw">as</span> tp
+<span class="kw">import</span> pims, numpy <span class="kw">as</span> np
+frames = pims.open(<span class="str">"eb1_gfp.tif"</span>)
+<span class="comment"># 1) per-frame feature detection (size = comet 直徑 px)</span>
+f = tp.batch(frames, diameter=<span class="num">5</span>, minmass=<span class="num">300</span>, percentile=<span class="num">90</span>)
+<span class="comment"># 2) 鏈接 trajectories</span>
+t = tp.link(f, search_range=<span class="num">3</span>, memory=<span class="num">2</span>)
+t = tp.filter_stubs(t, threshold=<span class="num">5</span>)
+<span class="comment"># 3) 計算 + 端生長速率 (μm/min)</span>
+t[<span class="str">"vx"</span>] = t.groupby(<span class="str">"particle"</span>)[<span class="str">"x"</span>].diff()
+t[<span class="str">"vy"</span>] = t.groupby(<span class="str">"particle"</span>)[<span class="str">"y"</span>].diff()
+v = np.sqrt(t.vx**<span class="num">2</span> + t.vy**<span class="num">2</span>) * <span class="num">0.108</span> * <span class="num">60</span> / dt_sec  <span class="comment"># μm/min</span>
+<span class="func">print</span>(<span class="str">f"Mean MT growth: </span>{v.mean():.<span class="num">2</span>f}<span class="str"> μm/min"</span>)
+<span class="comment"># Healthy mammalian cell: 10-25 μm/min</span></pre></div>
+  <div class="code-tab-content" data-tab="r"><pre><span class="comment"># Actin / MT 動力學摘要分析 (R)</span>
+<span class="kw">library</span>(tidyverse); <span class="kw">library</span>(survival)
+df &lt;- read_csv(<span class="str">"mt_tracks.csv"</span>)
+<span class="comment"># Catastrophe 頻率 = 1 / mean lifetime in growth phase</span>
+df &lt;- df %&gt;% group_by(track_id) %&gt;%
+  mutate(state = <span class="func">case_when</span>(speed &gt; <span class="num">0.5</span> ~ <span class="str">"growth"</span>,
+                          speed &lt; -<span class="num">1</span> ~ <span class="str">"shrink"</span>,
+                          TRUE ~ <span class="str">"pause"</span>))
+<span class="comment"># Survival analysis on growth-phase lifetimes</span>
+growth &lt;- df %&gt;% <span class="func">filter</span>(state == <span class="str">"growth"</span>) %&gt;%
+  group_by(track_id) %&gt;% <span class="func">summarise</span>(t = <span class="func">max</span>(time) - <span class="func">min</span>(time), event=<span class="num">1</span>)
+fit &lt;- <span class="func">survfit</span>(Surv(t, event) ~ <span class="num">1</span>, data=growth)
+<span class="func">print</span>(fit)  <span class="comment"># median growth time → catastrophe frequency</span></pre></div>
+  <div class="code-tab-content" data-tab="cryo"><pre><span class="comment"># RELION-4.0 helical reconstruction for actin / MT</span>
+<span class="comment"># 1) Motion correction (RELION's own MotionCor2 or implementation)</span>
+relion_run_motioncorr --i Movies/*.mrc --o MotionCorr/ \
+   --use_own --bin_factor 1 --gpu 0
+<span class="comment"># 2) CTF (CTFFIND-4)</span>
+relion_run_ctffind --i MotionCorr/corrected_micrographs.star \
+   --o CtfFind/ --ctffind_exe ctffind.exe
+<span class="comment"># 3) Helical auto-pick (cross-correlation against 2D class avg)</span>
+relion_helix_inimodel2d --i CtfFind/...star
+<span class="comment"># 4) 3D refine with helical symmetry</span>
+<span class="comment">#    F-actin: helical rise 27.5 Å, twist -166.6°</span>
+<span class="comment">#    MT (13-pf): rise 8.2 Å, twist 27.7° (pseudo)</span>
+relion_refine --auto_refine --helix --helical_rise_initial <span class="num">27.5</span> \
+   --helical_twist_initial -<span class="num">166.6</span> --helical_outer_diameter <span class="num">100</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. Lamellipodia 中 actin 形成 70° 分支網路，主要由哪個複合體成核？</p>
+<p data-lang="en">1. In lamellipodia, actin forms 70° branched networks. Which complex nucleates these branches?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A">A. Formin (mDia1)</div>
+<div class="quiz-opt" data-k="B">B. Arp2/3</div>
+<div class="quiz-opt" data-k="C">C. Profilin</div>
+<div class="quiz-opt" data-k="D">D. Capping protein (CapZ)</div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：Arp2/3 由 WASP/WAVE 活化，在母絲側面 70° 成核新分支。Formin 則為無分支線性纖維。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Arp2/3 (activated by WASP/WAVE) nucleates 70° branches off mother filaments. Formins make unbranched linear filaments.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. EB1 在活細胞中呈現「彗星」狀，原因為何？</p>
+<p data-lang="en">2. EB1 appears as a "comet" in live cells. Why?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. EB1 是 minus-end binding protein</span><span data-lang="en">A. EB1 is a minus-end binder</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. EB1 結合於 αTAT1 乙醯化位點</span><span data-lang="en">B. EB1 binds αTAT1 acetylation sites</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. EB1 偏好 GTP-cap，僅停留於生長中的 + 端</span><span data-lang="en">C. EB1 prefers the GTP-cap and resides only at the growing (+) end</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. EB1 切斷 MT 產生新片段</span><span data-lang="en">D. EB1 severs MTs to produce new fragments</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：EB1 結合 GTP-tubulin 富集區，隨 + 端推進形成 comet——是觀察 MT 動態的金標準。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: EB1 binds the GTP-tubulin-rich cap, tracking with the growing (+) end as a comet — the gold standard for MT dynamics.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）中間絲不消耗 ATP/GTP、無極性，但具極高拉伸彈性 (可達 3.5×)，是細胞抵抗大應變的關鍵骨架。</p>
+<p data-lang="en">3. (T/F) Intermediate filaments are ATP/GTP-independent, apolar, but extremely extensible (up to 3.5×), key for cellular resilience under large strain.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：IF 的 coiled-coil 漸進展開使其耐拉，正是它與 actin/MT 互補的關鍵。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Progressive coiled-coil unraveling gives IFs their tensile resilience — complementary to actin/MT.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="mechanotransduction.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 10 · 機械轉導：細胞如何「感覺」力" data-en="Ch 10 · Mechanotransduction: How Cells Feel Force">Ch 10 · 機械轉導：細胞如何「感覺」力</span></a>
+<a href="cell-cycle-checkpoints.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 12 · 細胞週期與檢查點" data-en="Ch 12 · Cell Cycle &amp;amp; Checkpoints">Ch 12 · 細胞週期與檢查點</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

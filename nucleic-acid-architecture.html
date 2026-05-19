@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 2: 核酸高階結構 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html" class="active">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 2 / 20 · BLOCK A</div>
+<h1 data-zh="核酸高階結構" data-en="Nucleic Acid Architecture">核酸高階結構</h1>
+<p class="subtitle" data-lang="zh">不只是雙螺旋——G-quadruplex、R-loop、RNA 三級結構與核酸開關如何在基因調控中扮演關鍵角色。</p>
+<p class="subtitle" data-lang="en">Beyond the double helix — G-quadruplexes, R-loops, RNA tertiary structure, and riboswitches as key regulators of gene expression.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="DNA / RNA 的多型性" data-en="Polymorphism of DNA &amp; RNA">DNA / RNA 的多型性</h2>
+<div data-lang="zh"><p>標準教科書呈現的 <strong>B-DNA</strong> 雙螺旋只是核酸構象的<strong>一個成員</strong>。基因組中還充滿了 A-DNA、Z-DNA、G-quadruplex (G4)、i-motif、R-loop、cruciform 與三鏈結構。這些「非 B」結構在 DNA 複製、轉錄、染色質開合、端粒維持與染色體穩定性中具有關鍵調控功能。</p>
+<p>RNA 則因單股的特性，能折疊成複雜的三級結構：tRNA cloverleaf、ribozyme、riboswitch、長非編碼 RNA scaffolds。<strong>SHAPE-MaP、icSHAPE、PARS</strong> 等高通量 RNA 結構探測技術已能在全基因組尺度繪製 RNA 結構地圖。</p></div>
+<div data-lang="en"><p>The textbook <strong>B-DNA</strong> double helix is just one of many nucleic acid conformations. Genomes contain A-DNA, Z-DNA, G-quadruplexes (G4), i-motifs, R-loops, cruciform, and triplex structures — each with regulatory roles in replication, transcription, chromatin, telomeres, and chromosome stability.</p>
+<p>RNA, being single-stranded, folds into complex tertiary structures: tRNA cloverleaf, ribozymes, riboswitches, lncRNA scaffolds. High-throughput probing (<strong>SHAPE-MaP, icSHAPE, PARS</strong>) now maps RNA structure transcriptome-wide.</p></div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>核心原則：</strong>核酸不是被動的訊息載體——序列同時編碼了<strong>結構與調控</strong>。同一段 DNA 在不同 superhelical 或轉錄狀態下，可形成不同的二級結構。</span>
+<span data-lang="en"><strong>Core principle:</strong> Nucleic acids are not passive carriers — sequence encodes <strong>structure and regulation</strong>. The same DNA can adopt different secondary structures depending on supercoiling and transcription state.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="非 B 結構" data-en="NON-B STRUCTURES">非 B 結構</div>
+<h2 data-zh="一、G-quadruplex、R-loop 與 Z-DNA" data-en="I. G-quadruplexes, R-loops, and Z-DNA">一、G-quadruplex、R-loop 與 Z-DNA</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">⚛️</div><h4>G-quadruplex (G4)</h4>
+<div data-lang="zh"><p>四股 G:G:G:G 平面堆疊。<strong>富集於</strong>啟動子（c-MYC、KRAS）、5′ UTR、端粒。穩定化可抑制轉錄；G4 結合配體（CX-5461 等）為癌症療法新方向。BG4 抗體可全基因組標定 G4 位置。</p></div>
+<div data-lang="en"><p>Four-stranded G:G:G:G planar stacking. Enriched at promoters (c-MYC, KRAS), 5′ UTRs, telomeres. Stabilization represses transcription; G4 ligands (CX-5461) are emerging cancer therapeutics. BG4 antibody maps G4s genome-wide.</p></div></div>
+<div class="card"><div class="card-icon">🪢</div><h4>R-loop</h4>
+<div data-lang="zh"><p>RNA-DNA 雜合 + 置換出的單股 DNA。<strong>佔 5-8%</strong> 基因組，CpG 島富集。生理功能：免疫重組、轉錄終止、CRISPR-Cas9 切割。<strong>病理</strong>：複製-轉錄衝突、基因體不穩定（ALS/FTD、AGS）。</p></div>
+<div data-lang="en"><p>RNA-DNA hybrid + displaced ssDNA. 5–8% of genome, enriched at CpG islands. Physiological: immunoglobulin class switching, transcription termination, CRISPR cleavage. Pathological: replication-transcription conflicts (ALS/FTD, AGS).</p></div></div>
+<div class="card"><div class="card-icon">↩️</div><h4>Z-DNA</h4>
+<div data-lang="zh"><p>左旋雙螺旋；GC 重複序列 + 負 supercoiling 誘導。ADAR1 與 ZBP1 是 Z-DNA/Z-RNA 感應器，連結至 innate immunity 與 necroptosis（Ch17）。</p></div>
+<div data-lang="en"><p>Left-handed helix; induced by GC repeats + negative supercoiling. ADAR1 and ZBP1 are Z-DNA/Z-RNA sensors linking to innate immunity and necroptosis (Ch17).</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="RNA 結構" data-en="RNA STRUCTURE">RNA 結構</div>
+<h2 data-zh="二、RNA 二級/三級結構與 Riboswitch" data-en="II. RNA Secondary/Tertiary Structure &amp; Riboswitches">二、RNA 二級/三級結構與 Riboswitch</h2>
+<div data-lang="zh">
+<p>RNA 折疊遵循「結構決定功能」的核心原則：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>二級結構元件</strong>：hairpin、bulge、internal loop、multi-branch loop、pseudoknot</li>
+  <li><strong>三級交互</strong>：kissing loops、coaxial stacking、A-minor motif、tetraloop-tetraloop receptor</li>
+  <li><strong>Riboswitch</strong>：5′ UTR 上的代謝物感應器（如 TPP、purine、SAM riboswitch），不依賴蛋白即可調控轉錄終止或轉譯起始</li>
+  <li><strong>催化 RNA (ribozyme)</strong>：自剪接 group I/II introns、ribosomal peptidyl transferase、CRISPR Cas9 sgRNA scaffold</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>RNA folding follows "structure determines function":</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>2° elements</strong>: hairpin, bulge, internal loop, multi-branch loop, pseudoknot</li>
+  <li><strong>3° interactions</strong>: kissing loops, coaxial stacking, A-minor motif, tetraloop-receptor</li>
+  <li><strong>Riboswitch</strong>: 5′ UTR metabolite sensors (TPP, purine, SAM) regulating transcription termination or translation initiation without protein</li>
+  <li><strong>Ribozyme</strong>: self-splicing group I/II introns, ribosomal peptidyl transferase, CRISPR Cas9 sgRNA scaffold</li>
+</ul>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>SARS-CoV-2 frameshift pseudoknot：</strong>位於 ORF1a/b 重疊區，誘導 -1 ribosomal frameshift 以表達 RdRp。已成為 paxlovid 之外的潛在抗病毒標的。</span>
+<span data-lang="en"><strong>SARS-CoV-2 frameshift pseudoknot:</strong> in the ORF1a/b overlap, drives -1 ribosomal frameshift to express RdRp. A potential antiviral target beyond paxlovid.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="互動模擬" data-en="INTERACTIVE">互動模擬</div>
+<h2 data-zh="RNA 折疊穩定性模擬器" data-en="RNA Folding Stability Simulator">RNA 折疊穩定性模擬器</h2>
+<div data-lang="zh"><p>拖動溫度滑桿，觀察 RNA hairpin 的折疊機率。RNA 折疊由 stacking energy（GC vs AU pairs）主導。</p></div>
+<div data-lang="en"><p>Adjust temperature and GC content; observe the folded fraction of an RNA hairpin. Folding is dominated by stacking energy (GC vs AU).</p></div>
+<div class="interactive-panel">
+  <div class="slider-group"><label><span data-zh="溫度 (°C)" data-en="Temperature (°C)">溫度</span> <span id="valTemp">37</span></label><input type="range" id="sliderTemp" min="20" max="95" value="37" step="1"></div>
+  <div class="slider-group"><label><span data-zh="GC 含量 (%)" data-en="GC content (%)">GC 含量</span> <span id="valGC">50</span></label><input type="range" id="sliderGC" min="20" max="80" value="50" step="5"></div>
+  <div class="sim-stats"><span class="sim-stat pass" id="statFold">—</span><span class="sim-stat fail" id="statTm">—</span></div>
+  <div class="chart-container"><canvas id="meltChart"></canvas></div>
+  <p style="font-size:.82rem;color:var(--c-ink-muted);text-align:center;" data-zh="X: 溫度 (°C) | Y: 折疊比例" data-en="X: Temperature (°C) | Y: Folded fraction">X: 溫度 | Y: 折疊比例</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="三、結構預測與探測流程" data-en="III. Structure Prediction &amp; Probing Workflow">三、結構預測與探測流程</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · QuadronR / R4RNA</button>
+    <button class="code-tab-btn" data-tab="py">Python · RNAfold / ViennaRNA</button>
+    <button class="code-tab-btn" data-tab="cli">CLI · ShapeMapper2</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># G-quadruplex 預測 + RNA 二級結構視覺化</span>
+<span class="kw">library</span>(pqsfinder)
+<span class="kw">library</span>(Biostrings)
+seq &lt;- readDNAStringSet(<span class="str">"promoter.fa"</span>)
+pqs &lt;- pqsfinder(seq[[<span class="num">1</span>]], min_score=<span class="num">40</span>)
+<span class="comment"># 取出 G4 位置與分數</span>
+head(as.data.frame(pqs))
+<span class="comment"># RNA 二級結構視覺化</span>
+<span class="kw">library</span>(R4RNA)
+helix &lt;- readHelix(<span class="str">"rna.helix"</span>)
+plotHelix(helix, line=<span class="kw">TRUE</span>, arrow=<span class="kw">TRUE</span>)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># 使用 ViennaRNA Python API (RNAfold)</span>
+<span class="kw">import</span> RNA
+seq = <span class="str">"GGGAAUCCGGGAAACCCGGAAUUCC"</span>
+fc  = RNA.fold_compound(seq)
+(ss, mfe) = fc.mfe()
+<span class="func">print</span>(<span class="str">f"MFE structure: {ss}"</span>)
+<span class="func">print</span>(<span class="str">f"MFE energy:    {mfe:.2f} kcal/mol"</span>)
+
+<span class="comment"># Partition function + base-pair probabilities</span>
+fc.pf()
+bpp = fc.bpp()
+<span class="comment"># bpp[i][j] = P(i pairs with j)</span>
+
+<span class="comment"># 對 SHAPE 數據進行約束折疊</span>
+fc.sc_add_SHAPE_deigan(shape_react, m=<span class="num">1.8</span>, b=-<span class="num">0.6</span>)
+(ss2, mfe2) = fc.mfe()</pre></div>
+  <div class="code-tab-content" data-tab="cli"><pre><span class="comment"># ShapeMapper2 — SHAPE-MaP 數據處理</span>
+shapemapper \
+  --target rna_target.fa \
+  --name MY_RNA \
+  --modified --R1 mod_R1.fq.gz --R2 mod_R2.fq.gz \
+  --untreated --R1 un_R1.fq.gz --R2 un_R2.fq.gz \
+  --denatured --R1 dn_R1.fq.gz --R2 dn_R2.fq.gz \
+  --out shapemap_out --overwrite
+
+<span class="comment"># 用 SHAPE 反應度引導 RNAfold</span>
+RNAfold --shape=shapemap_out/MY_RNA_profile.txt \
+        --shapeMethod=D -p &lt; rna_target.fa</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. G-quadruplex 在 c-MYC、KRAS 啟動子上的功能是？</p>
+<p data-lang="en">1. What is the function of G-quadruplexes at c-MYC, KRAS promoters?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 完全活化轉錄</span><span data-lang="en">A. Strongly activate transcription</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 為轉錄因子的結合位點</span><span data-lang="en">B. Transcription factor binding sites</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 穩定化通常抑制轉錄，是潛在抗癌標的</span><span data-lang="en">C. Stabilization typically represses transcription; therapeutic target</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 增強剪接效率</span><span data-lang="en">D. Enhance splicing efficiency</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：G4 阻擋 Pol II 進行，G4 stabilizer（CX-5461）為抗癌策略。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: G4s block Pol II elongation; G4 stabilizers (CX-5461) are anticancer strategies.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. R-loop 的「正面」生理功能不包含下列何者？</p>
+<p data-lang="en">2. Which of the following is NOT a physiological R-loop function?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 免疫球蛋白類別轉換 (CSR)</span><span data-lang="en">A. Immunoglobulin class switch recombination</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 持續性引發複製-轉錄衝突</span><span data-lang="en">B. Sustained replication-transcription conflicts</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 轉錄終止訊號</span><span data-lang="en">C. Transcription termination signaling</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. CRISPR-Cas9 切割機制</span><span data-lang="en">D. CRISPR-Cas9 cleavage mechanism</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：複製-轉錄衝突是病理性結果（基因組不穩定），不是生理功能。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Replication-transcription conflicts are pathological (genome instability), not physiological.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）Riboswitch 可在不需任何蛋白協助的情況下，由 5′ UTR 直接感應代謝物濃度，從而調控基因表達。</p>
+<p data-lang="en">3. (T/F) Riboswitches can sense metabolite concentrations directly from 5′ UTRs and regulate gene expression without protein cofactors.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：riboswitch 完全由 RNA 結構驅動，是 RNA World 殘留的精彩案例。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Riboswitches are entirely RNA-driven — striking remnants of the RNA World.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="protein-structure-dynamics.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 1 · 蛋白質結構與動態" data-en="Ch 1 · Protein Structure &amp; Dynamics">Ch 1 · 蛋白質結構與動態</span></a>
+<a href="membrane-biophysics.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 3 · 膜生物物理" data-en="Ch 3 · Membrane Biophysics">Ch 3 · 膜生物物理</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+let mc;
+function drawMelt(){
+  const ctx=document.getElementById('meltChart');if(!ctx)return;
+  const gc=parseFloat(document.getElementById('sliderGC').value)/100;
+  // simple two-state melting: Tm = 20 + 70*gc °C, width=15
+  const Tm=20+70*gc;
+  const xs=Array.from({length:76},(_,i)=>20+i);
+  const ys=xs.map(t=>1/(1+Math.exp((t-Tm)/8)));
+  if(mc) mc.destroy();
+  mc=new Chart(ctx,{type:'line',data:{labels:xs,datasets:[{label:'Folded fraction',data:ys,borderColor:'#6d28d9',backgroundColor:'#ede9fe',tension:0.2,fill:true,pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'T (°C)'}},y:{min:0,max:1,title:{display:true,text:'Folded'}}}}});
+  return Tm;
+}
+function update(){
+  const t=parseFloat(document.getElementById('sliderTemp').value);
+  const gc=parseFloat(document.getElementById('sliderGC').value);
+  document.getElementById('valTemp').textContent=t;
+  document.getElementById('valGC').textContent=gc;
+  const Tm=drawMelt();
+  const folded=1/(1+Math.exp((t-Tm)/8))*100;
+  const z=I18n.get()==='zh';
+  document.getElementById('statFold').textContent=(z?'折疊比例 ':'Folded ')+folded.toFixed(1)+'%';
+  document.getElementById('statTm').textContent=(z?'Tm ≈ ':'Tm ≈ ')+Tm.toFixed(1)+'°C';
+}
+document.getElementById('sliderTemp').addEventListener('input',update);
+document.getElementById('sliderGC').addEventListener('input',update);
+document.addEventListener('langchange',update);
+window.addEventListener('load',update);
+</script>
+</body></html>

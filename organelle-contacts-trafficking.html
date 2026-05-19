@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 16: 胞器接觸與膜運輸 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html" class="active">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 16 / 20 · BLOCK D</div>
+<h1 data-zh="胞器接觸位點與膜運輸" data-en="Membrane Contact Sites &amp; Trafficking">胞器接觸位點與膜運輸</h1>
+<p class="subtitle" data-lang="zh">從 MAMs 到 ER-PM——脂質傳遞、鈣訊號與 ESCRT 機械如何重塑當代胞器觀。</p>
+<p class="subtitle" data-lang="en">From MAMs to ER-PM — lipid transfer, calcium signaling, and ESCRT machinery reshape the modern organelle landscape.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="從「孤立胞器」到「接觸網絡」" data-en="From Isolated Organelles to Contact Networks">從孤立胞器到接觸網絡</h2>
+<div data-lang="zh">
+<p>過去十年，細胞生物學最重大的觀念革命是：胞器不是孤立工作的——它們透過<strong>膜接觸位點 (Membrane Contact Sites, MCS)</strong>形成奈米尺度的物理橋接 (10-30 nm)，在此<strong>傳遞脂質、Ca²⁺、ATP</strong>並協調命運決定。</p>
+<p>2023-2025 年透過 CryoET 與 contact-site proteomics (Contactomics) 已揭示<strong>每個胞器都有 ≥3 種接觸夥伴</strong>，且接觸面積佔 ER 表面 5-20%。</p>
+</div>
+<div data-lang="en">
+<p>The biggest conceptual shift in modern cell biology: organelles are <strong>not isolated</strong> — they form nanoscale physical bridges (10-30 nm) called <strong>Membrane Contact Sites (MCS)</strong> for <strong>lipid, Ca²⁺, ATP transfer</strong> and fate coordination.</p>
+<p>2023-2025 CryoET and Contactomics studies show <strong>every organelle has ≥3 contact partners</strong>, with contacts covering 5-20% of ER surface.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>MCS 定義要素：</strong>① 兩膜間距 &lt; 30 nm；② 不融合（與運輸囊泡區別）；③ 由 <strong>tethering proteins</strong> 維持；④ 富集<strong>脂質轉運蛋白 (LTPs)</strong> 與訊號分子。</span>
+<span data-lang="en"><strong>MCS criteria:</strong> ① Inter-membrane gap &lt; 30 nm; ② non-fusing (unlike trafficking vesicles); ③ maintained by <strong>tethering proteins</strong>; ④ enriched in <strong>lipid transfer proteins (LTPs)</strong> and signaling molecules.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="MCS 圖譜" data-en="MCS ATLAS">MCS 圖譜</div>
+<h2 data-zh="一、主要接觸位點與 tethering proteins" data-en="I. Major Contact Sites &amp; Tethering Proteins">一、主要接觸位點圖譜</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="接觸位點" data-en="Contact site">接觸位點</th><th data-zh="Tethers" data-en="Tethers">Tethers</th><th data-zh="主要傳遞" data-en="Transfer">傳遞物</th><th data-zh="功能" data-en="Function">功能</th></tr></thead>
+<tbody>
+<tr><td><strong>ER-Mito (MAMs)</strong></td><td>VAPA/B-PTPIP51, MFN2 同型互作, PDZD8</td><td>Ca²⁺ (IP3R-VDAC-MCU), PS, ceramide</td><td data-zh="Ca²⁺ 訊號、脂質合成、mitophagy、apoptosis 起始" data-en="Ca²⁺ signaling, lipid synthesis, mitophagy, apoptosis initiation">Ca²⁺、脂質、apoptosis</td></tr>
+<tr><td><strong>ER-PM</strong></td><td>E-Syt1/2/3, STIM1-Orai1, Anoctamin8</td><td>PI4P/PS (ORP5/8), Ca²⁺ (SOCE)</td><td data-zh="store-operated Ca²⁺ entry、PIP2 補充" data-en="SOCE, PIP2 replenishment">SOCE、PIP2 維持</td></tr>
+<tr><td><strong>ER-Endosome</strong></td><td>VAP-ORP1L, Protrudin-RAB7</td><td>Cholesterol, PI4P</td><td data-zh="endosome 位置與成熟、神經突生長" data-en="Endosome positioning &amp; maturation, neurite outgrowth">運輸定位</td></tr>
+<tr><td><strong>ER-LD</strong></td><td>Seipin, FIT2, DGAT2-ACSL3</td><td>TAG, sterol esters, FAs</td><td data-zh="脂滴生合成、bud excretion" data-en="LD biogenesis, bud excretion">脂滴生合成</td></tr>
+<tr><td><strong>Mito-Lysosome</strong></td><td>RAB7-TBC1D15 (untethering), GDAP1</td><td>Ca²⁺, Fe²⁺, cholesterol</td><td data-zh="鐵恆定、mitophagy" data-en="Iron homeostasis, mitophagy">鐵與 mitophagy</td></tr>
+<tr><td><strong>ER-Autophagosome</strong></td><td>ATG2A-WIPI4, VPS13D</td><td>Bulk lipid (ATG2 lipid bridge)</td><td data-zh="phagophore 擴展供脂" data-en="Phagophore expansion lipid supply">自噬供脂</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>2024 新發現：</strong>VPS13 家族（A/B/C/D）與 ATG2 是<strong>「rod-like」橋式 LTP</strong>——可一次傳遞數百個脂質分子（非「shuttle」單分子模型）。VPS13A 突變導致 Chorea-acanthocytosis；VPS13C 為 PD 風險基因。</span>
+<span data-lang="en"><strong>2024 finding:</strong> VPS13 family (A/B/C/D) and ATG2 are <strong>"rod-like" bridge LTPs</strong> — transferring hundreds of lipids in bulk (not single-molecule shuttle). VPS13A mutation causes Chorea-acanthocytosis; VPS13C is a PD risk gene.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="脂質傳遞" data-en="LIPID TRANSFER">脂質傳遞</div>
+<h2 data-zh="二、Lipid Transfer Proteins (LTPs) 機制" data-en="II. Lipid Transfer Protein Mechanisms">二、LTP 三大機制</h2>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🚐</div><h4 data-zh="Shuttle 模式" data-en="Shuttle Mode">Shuttle 模式</h4>
+<div data-lang="zh"><p><strong>ORP/OSBP</strong>：單分子穿梭。PI4P 反向梯度 (Golgi 高 → ER 低) 驅動 cholesterol 正向運輸 (ER → Golgi)。需 Sac1 磷酸酶在 ER 端消耗 PI4P。</p></div>
+<div data-lang="en"><p><strong>ORP/OSBP</strong>: single-molecule shuttle. Reverse PI4P gradient (high Golgi → low ER) drives forward cholesterol transfer. Sac1 phosphatase consumes PI4P at ER.</p></div></div>
+<div class="card"><div class="card-icon">🌉</div><h4 data-zh="Bridge 模式" data-en="Bridge Mode">Bridge 模式</h4>
+<div data-lang="zh"><p><strong>ATG2 / VPS13</strong>：細長疏水溝槽 (~20 nm) 跨接兩膜，脂質如<strong>流水般滑過</strong>。對 phagophore 快速擴展關鍵。CryoEM 2023 解析 VPS13A 結構。</p></div>
+<div data-lang="en"><p><strong>ATG2 / VPS13</strong>: elongated hydrophobic groove (~20 nm) bridges two membranes, lipids <strong>flow through</strong>. Critical for phagophore expansion. VPS13A CryoEM solved 2023.</p></div></div>
+<div class="card"><div class="card-icon">🪝</div><h4 data-zh="Tether-only / Tunnel" data-en="Tether-only / Tunnel">Tether / Tunnel</h4>
+<div data-lang="zh"><p><strong>E-Syt, PDZD8</strong>：兼具 tether 與 LTP；SMP domain 含脂質結合槽。<strong>CERT</strong> 由 ER → Golgi 傳遞 ceramide (PH-FFAT 結構)。</p></div>
+<div data-lang="en"><p><strong>E-Syt, PDZD8</strong>: dual tether+LTP via SMP domain. <strong>CERT</strong> transfers ceramide ER → Golgi (PH-FFAT architecture).</p></div></div>
+</div>
+<div data-lang="zh"><p style="margin-top:1em;"><strong>FFAT motif：</strong>LTPs 中常見的「<code>EFFDAxE</code>」短序列，與 ER 駐留蛋白 VAPA/B 的 MSP domain 結合——是<strong>所有 ER 接觸位點的通用招募碼</strong>。Phospho-FFAT 變體（含磷酸化 Ser/Thr）2020 後發現可受訊號調控。</p></div>
+<div data-lang="en"><p style="margin-top:1em;"><strong>FFAT motif:</strong> the "<code>EFFDAxE</code>" short sequence common in LTPs binds the MSP domain of ER-resident VAPA/B — a <strong>universal recruitment code for ER contacts</strong>. Phospho-FFAT variants (post-2020) allow signal-regulated tethering.</p></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="內吞與運輸" data-en="ENDOCYTOSIS">內吞與 ESCRT</div>
+<h2 data-zh="三、內吞系統與 Rab 身分碼" data-en="III. Endocytic System &amp; Rab Identity Code">三、內吞系統與 Rab 身分</h2>
+<div data-lang="zh"><p>內吞物質沿 Rab GTPase 主導的身分階序遞進：每個成熟階段切換 Rab，並透過 <strong>Rab cascade</strong>（前一 Rab 招募下一 Rab 的 GEF）保證單向性。</p></div>
+<div data-lang="en"><p>Endocytic cargo progresses through a Rab GTPase identity hierarchy: each maturation step switches Rab via <strong>Rab cascades</strong> (one Rab recruits the next Rab's GEF), ensuring directionality.</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="階段" data-en="Stage">階段</th><th data-zh="Rab 標記" data-en="Rab">Rab</th><th data-zh="效應子" data-en="Effectors">效應子</th><th data-zh="關鍵脂質" data-en="Key lipid">脂質</th></tr></thead>
+<tbody>
+<tr><td data-zh="Early endosome" data-en="Early endosome">Early endosome</td><td>Rab5</td><td>EEA1, Rabaptin5, VPS34 (PI3K-III)</td><td>PI3P</td></tr>
+<tr><td data-zh="Late endosome / MVB" data-en="Late / MVB">Late / MVB</td><td>Rab7</td><td>RILP, HOPS, ORP1L, FYCO1</td><td>PI(3,5)P₂</td></tr>
+<tr><td data-zh="Recycling" data-en="Recycling">Recycling</td><td>Rab11</td><td>FIP3, Sec15, Myosin Vb</td><td>PI(4)P</td></tr>
+<tr><td data-zh="Lysosome" data-en="Lysosome">Lysosome</td><td>Rab7 + Arl8b</td><td>SKIP, PLEKHM1, HOPS</td><td>PI(3,5)P₂, BMP</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>ESCRT 機械（-0/-I/-II/-III）：</strong>負責「向內出芽」的反向膜變形——產生 MVB 內<strong>腔內囊泡 (ILVs)</strong>、HIV 出芽、細胞分裂 abscission、核膜重組。ESCRT-III (CHMP4) 聚合成螺旋撕拉膜。<strong>VPS4</strong> AAA-ATPase 解離 ESCRT-III 完成切割。</span>
+<span data-lang="en"><strong>ESCRT machinery (-0/-I/-II/-III):</strong> reverse-topology membrane bending — generates MVB <strong>intralumenal vesicles (ILVs)</strong>, HIV budding, cytokinetic abscission, nuclear envelope reformation. ESCRT-III (CHMP4) polymerizes into spirals to constrict. <strong>VPS4</strong> AAA-ATPase disassembles ESCRT-III.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="溶酶體" data-en="LYSOSOME">溶酶體生合成</div>
+<h2 data-zh="四、TFEB-mTORC1 主軸與溶酶體生合成" data-en="IV. TFEB-mTORC1 Axis &amp; Lysosome Biogenesis">四、TFEB-mTORC1 主軸</h2>
+<div class="decision-tree">
+<h4 data-zh="🌳 營養訊號如何控制溶酶體與自噬？" data-en="🌳 How do nutrient signals control lysosomes &amp; autophagy?">🌳 營養 → 溶酶體決策</h4>
+<div class="dt-node"><span class="dt-q">營養充足</span><span class="dt-arrow">→</span><span data-lang="zh">胺基酸 → Rag GTPase (GTP 形式) → 招募 mTORC1 至溶酶體膜 → 活化 → <strong>磷酸化 TFEB</strong> (S211) → 14-3-3 隔離於細胞質 → 自噬/溶酶體基因沉默</span><span data-lang="en">Amino acids → Rag-GTP → recruit mTORC1 to lysosome → active → <strong>phosphorylate TFEB</strong> (S211) → 14-3-3 sequesters in cytoplasm → autophagy/lysosome genes silent</span></div>
+<div class="dt-node"><span class="dt-q">飢餓</span><span class="dt-arrow">→</span><span data-lang="zh">胺基酸耗盡 → Rag GTPase (GDP) → mTORC1 解離 → calcineurin 去磷酸化 TFEB → <strong>TFEB 入核</strong> → 啟動 CLEAR network（溶酶體 + 自噬基因約 500 個）</span><span data-lang="en">AA depletion → Rag-GDP → mTORC1 dissociates → calcineurin dephosphorylates TFEB → <strong>TFEB nuclear translocation</strong> → activates CLEAR network (~500 lysosome + autophagy genes)</span></div>
+<div class="dt-node"><span class="dt-q">壓力</span><span class="dt-arrow">→</span><span data-lang="zh">溶酶體損傷 (LMP) → galectin-3/8/9 偵測糖暴露 → 招募 ESCRT 修補 → 修不好 → lysophagy (NDP52/TAX1BP1)</span><span data-lang="en">Lysosomal damage (LMP) → galectin-3/8/9 detect exposed glycans → recruit ESCRT for repair → if fails → lysophagy (NDP52/TAX1BP1)</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、接觸位點分析工作流" data-en="V. Contact Site Analysis Workflow">五、接觸位點分析</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · imageJ pipeline</button>
+    <button class="code-tab-btn" data-tab="py">Python · contactomics</button>
+    <button class="code-tab-btn" data-tab="cet">CryoET workflow</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># R: 從共焦影像量化 ER-Mito 接觸 (Manders 共定位)</span>
+<span class="kw">library</span>(EBImage); <span class="kw">library</span>(coloc)
+er  &lt;- readImage(<span class="str">"ER_Sec61b.tif"</span>)
+mit &lt;- readImage(<span class="str">"Mito_Tom20.tif"</span>)
+<span class="comment"># Otsu thresholding</span>
+er_mask  &lt;- er  &gt; otsu(er)
+mit_mask &lt;- mit &gt; otsu(mit)
+<span class="comment"># 接觸 = 兩 mask 距離 &lt; 2 px (約 100 nm)</span>
+contact &lt;- (er_mask &amp; (distmap(!mit_mask) &lt; <span class="num">2</span>))
+M1 &lt;- <span class="func">sum</span>(contact)/<span class="func">sum</span>(er_mask)   <span class="comment"># ER 上的接觸比例</span>
+<span class="func">cat</span>(<span class="str">"ER coverage by Mito contact:"</span>, <span class="func">round</span>(M1*<span class="num">100</span>,<span class="num">1</span>), <span class="str">"%\n"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># Python: APEX2-proximity proteomics 分析 (MAM proteome)</span>
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> scipy.stats <span class="kw">import</span> ttest_ind
+df = pd.read_csv(<span class="str">"apex_mam_vs_cyto.csv"</span>)  <span class="comment"># LFQ intensities</span>
+df[<span class="str">"log2FC"</span>] = <span class="func">np.log2</span>(df.MAM_mean / df.CYTO_mean)
+df[<span class="str">"p"</span>]      = df.<span class="func">apply</span>(<span class="kw">lambda</span> r: ttest_ind(
+    r[[<span class="str">"MAM1"</span>,<span class="str">"MAM2"</span>,<span class="str">"MAM3"</span>]], r[[<span class="str">"CYTO1"</span>,<span class="str">"CYTO2"</span>,<span class="str">"CYTO3"</span>]]).pvalue, axis=<span class="num">1</span>)
+<span class="comment"># MAM enrichment hits</span>
+hits = df[(df.log2FC &gt; <span class="num">1.5</span>) &amp; (df.p &lt; <span class="num">0.01</span>)]
+<span class="comment"># 與已知 MAM proteome (Wang 2024) 比對</span>
+known = <span class="func">set</span>(pd.read_csv(<span class="str">"Wang2024_MAM_list.csv"</span>).gene)
+hits[<span class="str">"is_known_MAM"</span>] = hits.gene.<span class="func">isin</span>(known)</pre></div>
+  <div class="code-tab-content" data-tab="cet"><pre><span class="comment"># CryoET: 量化原位 MCS 距離分佈</span>
+<span class="comment"># 1) FIB-milling lamella → Krios CryoET (Volta phase plate, dose-symmetric tilt)</span>
+<span class="comment"># 2) Tomogram reconstruction (IMOD / AreTomo)</span>
+AreTomo -InMrc tilt.mrc -OutMrc tomo.mrc -AlignZ <span class="num">800</span> -VolZ <span class="num">1200</span> -AngFile tilt.tlt
+<span class="comment"># 3) 膜分割 (membrain-seg, U-Net deep learning, 2023)</span>
+membrain segment --model membrain_seg_v10 --in tomo.mrc --out memb.mrc
+<span class="comment"># 4) 量化兩膜最短距離分佈 → MCS 距離直方圖 (10-30 nm)</span>
+<span class="kw">import</span> mrcfile; <span class="kw">from</span> scipy.ndimage <span class="kw">import</span> distance_transform_edt
+er = mrcfile.<span class="func">open</span>(<span class="str">"er_mask.mrc"</span>).data; mt = mrcfile.<span class="func">open</span>(<span class="str">"mt_mask.mrc"</span>).data
+d = distance_transform_edt(~mt.astype(<span class="kw">bool</span>))[er.astype(<span class="kw">bool</span>)]
+<span class="comment"># d * pixel_size 即接觸距離分佈</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 一個新發現的 LTP 含長疏水溝槽 (~20 nm)、能在<strong>數秒內</strong>傳遞數百個磷脂分子，最可能屬於哪一類？</p>
+<p data-lang="en">1. A newly identified LTP contains a long hydrophobic groove (~20 nm) and transfers hundreds of phospholipids within seconds. Which class is it most likely?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. Shuttle 型 (OSBP/ORP)</span><span data-lang="en">A. Shuttle (OSBP/ORP)</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. SMP-domain 型 (E-Syt)</span><span data-lang="en">B. SMP-domain (E-Syt)</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Bridge / tube 型 (ATG2 / VPS13)</span><span data-lang="en">C. Bridge/tube (ATG2/VPS13)</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. START domain 單分子型</span><span data-lang="en">D. START single-molecule</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：bridge LTP 為 rod-like 結構，脂質沿溝槽連續滑動，每秒可傳遞數百分子。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: Bridge LTPs are rod-like; lipids slide continuously through the groove, hundreds per second.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. 飢餓條件下 TFEB 入核啟動 CLEAR network，主要原因為何？</p>
+<p data-lang="en">2. Under starvation, TFEB enters the nucleus to activate the CLEAR network. The main reason is:</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. AMPK 直接磷酸化 TFEB 的 NLS</span><span data-lang="en">A. AMPK directly phosphorylates TFEB's NLS</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. mTORC1 解離溶酶體 → TFEB S211 去磷酸化 → 脫離 14-3-3 → 入核</span><span data-lang="en">B. mTORC1 dissociates from lysosome → TFEB S211 dephosphorylated → released from 14-3-3 → nuclear entry</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. ATP 缺乏直接使 TFEB 構象改變</span><span data-lang="en">C. ATP shortage directly alters TFEB conformation</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 溶酶體破裂釋放 TFEB</span><span data-lang="en">D. Lysosomal rupture releases TFEB</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：Rag-GDP 釋放 mTORC1，calcineurin 去磷酸化 TFEB S211，14-3-3 不再隔離。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Rag-GDP releases mTORC1; calcineurin dephosphorylates TFEB S211; 14-3-3 no longer sequesters.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）ESCRT-III 螺旋構形可介導「反向拓撲」膜變形，從而支援 MVB ILV 形成、HIV 出芽、與 cytokinetic abscission。</p>
+<p data-lang="en">3. (T/F) ESCRT-III helical assemblies mediate "reverse-topology" membrane deformation, supporting MVB ILV formation, HIV budding, and cytokinetic abscission.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：ESCRT-III 的特點正是反向拓撲（曲率背離細胞質），通用於所有 outward-budding 場景。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: ESCRT-III's hallmark is reverse-topology curvature (away from cytosol), shared by all outward-budding events.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="mitochondria-dynamics.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 15 · 粒線體動態與生質能" data-en="Ch 15 · Mitochondrial Dynamics &amp;amp; Bioenergetics">Ch 15 · 粒線體動態與生質能</span></a>
+<a href="cell-death-pathways.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 17 · 調節型細胞死亡途徑" data-en="Ch 17 · Regulated Cell Death Pathways">Ch 17 · 調節型細胞死亡途徑</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

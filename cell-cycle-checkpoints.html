@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 12: 細胞週期與檢查點 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html" class="active">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 12 / 20 · BLOCK C</div>
+<h1 data-zh="細胞週期與檢查點" data-en="Cell Cycle &amp; Checkpoints">細胞週期與檢查點</h1>
+<p class="subtitle" data-lang="zh">CDK-cyclin 振盪器、Rb-E2F 開關、SAC 警報——細胞如何確保「一次只複製一次、分裂無錯」？</p>
+<p class="subtitle" data-lang="en">CDK-cyclin oscillator, Rb-E2F switch, SAC alarms — how cells ensure "once and only once" replication and error-free division.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="細胞週期 = 振盪器 + 雙穩切換 + 多重檢查點" data-en="Cell Cycle = Oscillator + Bistable Switches + Multiple Checkpoints">振盪器 + 切換 + 檢查</h2>
+<div data-lang="zh">
+<p>細胞週期的核心是 <strong>CDK (Cyclin-Dependent Kinase) 與 Cyclin</strong> 形成的振盪器。CDK 蛋白量穩定，但 cyclin 在每個階段由轉錄合成、由 APC/C 泛素降解，使 CDK 活性呈週期性<strong>振盪</strong>。不同時期的 CDK-cyclin 組合磷酸化不同基質，推動 G1→S→G2→M。</p>
+<p><strong>三大不可逆切換 (bistable switches)：</strong> ① <strong>Restriction point (R)</strong>—Rb 過磷酸化釋放 E2F → S phase commitment；② <strong>G2/M trigger</strong>—CDK1-cyclin B 自我活化迴路 (Wee1↓ + CDC25↑)；③ <strong>Metaphase-Anaphase</strong>—APC/C 突然降解 securin/cyclin B → cohesin 切斷。</p>
+<p><strong>檢查點 (checkpoints)：</strong>① DNA damage (ATM/ATR-CHK)；② Replication stress (ATR-CHK1)；③ Spindle Assembly Checkpoint (SAC)。</p>
+</div>
+<div data-lang="en">
+<p>The core is an oscillator built from <strong>CDK and Cyclin</strong>. CDK levels are stable, but cyclins are synthesized each phase and ubiquitinated by APC/C, giving CDK activity a periodic <strong>oscillation</strong>. Different CDK-cyclin combinations phosphorylate distinct substrates, driving G1→S→G2→M.</p>
+<p><strong>Three irreversible bistable switches:</strong> (1) <strong>Restriction point (R)</strong> — hyper-phosphorylated Rb releases E2F → S-phase commitment; (2) <strong>G2/M trigger</strong> — CDK1-cyclin B autoactivation loop (Wee1 down + CDC25 up); (3) <strong>Metaphase-Anaphase</strong> — APC/C abruptly degrades securin/cyclin B → cohesin cleavage.</p>
+<p><strong>Checkpoints:</strong> (1) DNA damage (ATM/ATR-CHK); (2) replication stress (ATR-CHK1); (3) Spindle Assembly Checkpoint (SAC).</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="CDK-Cyclin" data-en="CDK-CYCLIN">CDK 對應表</div>
+<h2 data-zh="一、CDK-Cyclin 階段配對與 Rb-E2F 開關" data-en="I. CDK-Cyclin Stage Pairing &amp; Rb-E2F Switch">一、CDK-Cyclin 與 Rb-E2F</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="階段" data-en="Phase">階段</th><th>Cyclin · CDK</th><th data-zh="主要受質" data-en="Substrates">主要受質</th><th data-zh="抑制因子 (CKI)" data-en="Inhibitors (CKI)">CKI</th></tr></thead>
+<tbody>
+<tr><td>G1 early</td><td>Cyclin D · CDK4/6</td><td>Rb (mono-P)、SMAD3</td><td>p15/p16/p18/p19 (INK4)</td></tr>
+<tr><td>G1 late / S entry</td><td>Cyclin E · CDK2</td><td>Rb (hyper-P)、CDC6、p27</td><td>p21/p27 (CIP/KIP)</td></tr>
+<tr><td>S</td><td>Cyclin A · CDK2</td><td>CDC6、E2F1、CDT1 (licensing)</td><td>p21/p27</td></tr>
+<tr><td>G2 / early M</td><td>Cyclin A/B · CDK1</td><td>Lamin、Condensin、Nesprin、APC/C</td><td>—</td></tr>
+<tr><td>M</td><td>Cyclin B · CDK1</td><td>Histone H1、MCM、Vimentin、Securin (via APC)</td><td>—</td></tr>
+</tbody>
+</table>
+<div data-lang="zh"><p><strong>Rb-E2F「sigmoidal」開關 (Yao 2008)：</strong>低細胞分裂訊號時 Rb 緊抓 E2F，S phase 基因沉默。Mitogen → cyclin D-CDK4/6 「monoP-Rb」（解除部分抑制）→ cyclin E-CDK2「hyperP-Rb」→ E2F 釋放 → 轉錄 cyclin E、CDC6、Cdt1、CDK2——形成<strong>正回饋環</strong>，使開關呈雙穩態（無中間狀態）。</p>
+<p><strong>2024 修正：</strong>Sage 與 Spencer 實驗室發現 Rb 並非「全有/全無」，而是<strong>多位點漸進磷酸化 (multi-site progressive)</strong>——12+ 磷酸化位點不同組合對應不同細胞行為，這解釋了某些癌細胞在 Rb 部分磷酸化下持續循環。</p></div>
+<div data-lang="en"><p><strong>Sigmoidal Rb-E2F switch (Yao 2008):</strong> low mitogen → Rb grips E2F; S-phase genes silent. Mitogen → cyclin D-CDK4/6 mono-P Rb (partial release) → cyclin E-CDK2 hyper-P Rb → E2F released → transcribes cyclin E, CDC6, Cdt1, CDK2 — a <strong>positive feedback loop</strong> yielding bistability (no intermediate state).</p>
+<p><strong>2024 update:</strong> Sage and Spencer labs show Rb is not "all-or-none" but <strong>multi-site progressive phosphorylation</strong> — different combinations of 12+ sites map to distinct behaviors, explaining how some cancer cells cycle with partial Rb phosphorylation.</p></div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>臨床突破：</strong>CDK4/6 抑制劑 <strong>palbociclib, ribociclib, abemaciclib</strong> 用於 ER+/HER2− 乳癌——透過抑制 Rb 磷酸化使腫瘤細胞 G1 阻滯。代表性 PALOMA-3 試驗顯示 mPFS 由 4.6 → 9.2 個月。Resistance 機制：Rb 缺失、cyclin E 擴增、CDK6 過表達。</span>
+<span data-lang="en"><strong>Clinical breakthrough:</strong> CDK4/6 inhibitors <strong>palbociclib, ribociclib, abemaciclib</strong> for ER+/HER2− breast cancer — block Rb phosphorylation, G1 arrest. PALOMA-3: mPFS 4.6 → 9.2 months. Resistance: Rb loss, cyclin E amplification, CDK6 overexpression.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="檢查點" data-en="CHECKPOINTS">DNA 損傷</div>
+<h2 data-zh="二、DNA 損傷與複製壓力檢查點" data-en="II. DNA Damage &amp; Replication Stress Checkpoints">二、DNA 檢查點</h2>
+<div data-lang="zh">
+<p><strong>ATM 路徑 (DSB)：</strong>DNA 雙股斷裂 (DSB) 被 <strong>MRN 複合體 (MRE11-RAD50-NBN)</strong> 感應 → 招募並活化 <strong>ATM</strong> 激酶 → 磷酸化 H2AX-S139 (γH2AX) 與下游 <strong>CHK2-T68</strong>。CHK2 磷酸化 CDC25A 引發其降解，同時穩定 <strong>p53 (S15-P)</strong>，p53 誘導 p21 → 抑制 CDK2 → G1 停滯或 G2 停滯。</p>
+<p><strong>ATR 路徑 (ssDNA / 複製壓力)：</strong>單股 DNA 被 <strong>RPA</strong> 包覆，招募 <strong>ATRIP-ATR</strong>，與 <strong>9-1-1 (RAD9-HUS1-RAD1)</strong>、TOPBP1/ETAA1 形成活化平台。ATR 磷酸化 <strong>CHK1-S345</strong>，CHK1 磷酸化 CDC25 (S76)、Wee1，並抑制 origin firing——這是<strong>複製叉穩定</strong>的關鍵。</p>
+<p><strong>2024 進展：</strong>ATR 抑制劑 (ceralasertib, elimusertib) 在 BRCA-deficient 或 ATM-loss 腫瘤中合成致死；CHK1 inhibitors (prexasertib) 於 PARP 抑制劑抗性腫瘤再敏感化。</p>
+</div>
+<div data-lang="en">
+<p><strong>ATM pathway (DSB):</strong> double-strand breaks sensed by <strong>MRN (MRE11-RAD50-NBN)</strong> → recruit and activate <strong>ATM</strong> → phosphorylates H2AX-S139 (γH2AX) and downstream <strong>CHK2-T68</strong>. CHK2 phosphorylates CDC25A for degradation, stabilizes <strong>p53 (S15-P)</strong>, p53 induces p21 → inhibits CDK2 → G1 or G2 arrest.</p>
+<p><strong>ATR pathway (ssDNA / replication stress):</strong> ssDNA coated by <strong>RPA</strong> recruits <strong>ATRIP-ATR</strong>; with 9-1-1 (RAD9-HUS1-RAD1) and TOPBP1/ETAA1 forms an activation platform. ATR phosphorylates <strong>CHK1-S345</strong>; CHK1 phosphorylates CDC25 (S76), Wee1, and suppresses origin firing — key for <strong>replication fork stabilization</strong>.</p>
+<p><strong>2024 progress:</strong> ATR inhibitors (ceralasertib, elimusertib) are synthetically lethal in BRCA-deficient or ATM-loss tumors; CHK1 inhibitors (prexasertib) re-sensitize PARP-inhibitor-resistant tumors.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="SAC" data-en="SAC">紡錘體檢查點</div>
+<h2 data-zh="三、紡錘體組裝檢查點 (SAC)" data-en="III. Spindle Assembly Checkpoint (SAC)">三、紡錘體組裝檢查點</h2>
+<div data-lang="zh"><p>SAC 確保<strong>每對姊妹染色體都已雙極性 (amphitelic) 附著</strong>才允許 APC/C-CDC20 活化、cohesin 切斷、anaphase 開始。任何未連接 (unattached) 或<strong>單極連接 (monotelic)</strong>、<strong>同極連接 (syntelic)</strong>、<strong>合併連接 (merotelic)</strong> 的 kinetochore 都會發出「等！」訊號。</p>
+<p><strong>核心機制：</strong>未附著 kinetochore 招募 Mad1-Mad2 模板，催化遊離 Mad2 從 open conformation 轉為 closed C-Mad2 ↔ CDC20 → 與 BubR1-Bub3 形成 <strong>MCC (Mitotic Checkpoint Complex)</strong>，MCC 鎖住 APC/C-CDC20。</p>
+<p><strong>附著錯誤校正 (error correction)：</strong>當 kinetochore 連接錯誤時張力不足，<strong>Aurora B</strong> 激酶 (CPC: Aurora B-INCENP-Survivin-Borealin) 磷酸化 Ndc80 介面減弱微管附著，給予新嘗試機會。Haspin 磷酸化 H3-T3 招募 Survivin 至 centromere，這是 CPC 定位的關鍵。<strong>2024:</strong> Aurora B 抑制劑 (BAY-1816032) 在臨床試驗中觀察到 mitotic catastrophe 驅動的細胞死亡。</p></div>
+<div data-lang="en"><p>SAC ensures <strong>every sister kinetochore is amphitelically attached</strong> before APC/C-CDC20 activation, cohesin cleavage, and anaphase. Any unattached, monotelic, syntelic, or merotelic kinetochore raises a "wait!" signal.</p>
+<p><strong>Core mechanism:</strong> unattached kinetochores recruit Mad1-Mad2 templates that catalyze open→closed Mad2 + CDC20, joining BubR1-Bub3 to form <strong>MCC (Mitotic Checkpoint Complex)</strong>, which locks APC/C-CDC20.</p>
+<p><strong>Error correction:</strong> wrong attachments lack tension; <strong>Aurora B</strong> kinase (CPC: Aurora B-INCENP-Survivin-Borealin) phosphorylates Ndc80 to weaken MT binding, allowing retry. Haspin phosphorylates H3-T3 to recruit Survivin to centromeres — key for CPC localization. <strong>2024:</strong> Aurora B inhibitors (BAY-1816032) show mitotic-catastrophe-driven cell death in trials.</p></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">⏸️</div><h4>MCC</h4>
+<div data-lang="zh"><p>Mad2-BubR1-Bub3-CDC20。隔離 CDC20，使 APC/C 無法多泛素化 securin/cyclin B。</p></div>
+<div data-lang="en"><p>Mad2-BubR1-Bub3-CDC20. Sequesters CDC20, prevents APC/C polyubiquitination of securin/cyclin B.</p></div></div>
+<div class="card"><div class="card-icon">🧲</div><h4>Aurora B (CPC)</h4>
+<div data-lang="zh"><p>感應「張力」——錯誤連接無張力 → 鄰近 Ndc80 → 磷酸化解除附著。</p></div>
+<div data-lang="en"><p>Tension sensor — wrong attachments lack tension → Ndc80 nearby → phosphorylation detaches.</p></div></div>
+<div class="card"><div class="card-icon">✂️</div><h4>Separase</h4>
+<div data-lang="zh"><p>SAC 滿足 → APC/C 降解 securin → separase 活化 → 切斷 cohesin SCC1/Rad21 → anaphase。</p></div>
+<div data-lang="en"><p>SAC satisfied → APC/C degrades securin → separase active → cleaves cohesin Rad21 → anaphase.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="四、FUCCI 活細胞週期追蹤 + 流式" data-en="IV. FUCCI Live-Cell Tracking + Cytometry">四、FUCCI 與流式</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="py">Python · FUCCI quant</button>
+    <button class="code-tab-btn" data-tab="r">R · flowCore</button>
+    <button class="code-tab-btn" data-tab="model">ODE Model</button>
+  </div>
+  <div class="code-tab-content active" data-tab="py"><pre><span class="comment"># FUCCI: mCherry-Cdt1 (G1) / mVenus-Geminin (S/G2/M)</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">from</span> skimage <span class="kw">import</span> io, measure, segmentation
+<span class="kw">from</span> cellpose <span class="kw">import</span> models
+
+red   = io.imread(<span class="str">"cdt1_mcherry.tif"</span>)
+green = io.imread(<span class="str">"gem_mvenus.tif"</span>)
+nuc   = io.imread(<span class="str">"h2b_bfp.tif"</span>)
+<span class="comment"># 1) Segment with Cellpose (cyto2 or nuclei)</span>
+mdl = models.Cellpose(gpu=<span class="kw">True</span>, model_type=<span class="str">"nuclei"</span>)
+masks,_,_,_ = mdl.eval(nuc, diameter=<span class="num">30</span>, channels=[<span class="num">0</span>,<span class="num">0</span>])
+<span class="comment"># 2) Quantify per-cell intensities</span>
+props = measure.regionprops_table(masks, intensity_image=red,
+        properties=(<span class="str">"label"</span>,<span class="str">"mean_intensity"</span>))
+<span class="comment"># 3) 分期：G1 = red+ green-; S/G2/M = green+; G1/S = both+</span>
+<span class="kw">def</span> classify(r,g,thr=<span class="num">200</span>):
+    <span class="kw">if</span> r&gt;thr <span class="kw">and</span> g&lt;thr: <span class="kw">return</span> <span class="str">"G1"</span>
+    <span class="kw">elif</span> g&gt;thr <span class="kw">and</span> r&lt;thr: <span class="kw">return</span> <span class="str">"S/G2/M"</span>
+    <span class="kw">elif</span> r&gt;thr <span class="kw">and</span> g&gt;thr: <span class="kw">return</span> <span class="str">"G1/S"</span>
+    <span class="kw">else</span>: <span class="kw">return</span> <span class="str">"early G1"</span></pre></div>
+  <div class="code-tab-content" data-tab="r"><pre><span class="comment"># Flow cytometry — PI staining 細胞週期分析</span>
+<span class="kw">library</span>(flowCore); <span class="kw">library</span>(flowWorkspace)
+fs &lt;- read.flowSet(<span class="str">"plates/*.fcs"</span>)
+<span class="comment"># 1) Compensation + transformation</span>
+fs &lt;- compensate(fs, spillover(fs[[<span class="num">1</span>]])$SPILL)
+<span class="comment"># 2) 取 singlet (FSC-A vs FSC-H)</span>
+fs &lt;- Subset(fs, rectangleGate(<span class="str">"FSC-A"</span>=<span class="func">c</span>(<span class="num">50e3</span>,<span class="num">250e3</span>)))
+<span class="comment"># 3) PI 直方圖 Dean-Jett-Fox 模型</span>
+<span class="kw">library</span>(flowFP); <span class="kw">library</span>(MASS)
+hist_pi &lt;- exprs(fs[[<span class="num">1</span>]])[,<span class="str">"PI-A"</span>]
+fit &lt;- fitdistr(hist_pi, <span class="str">"normal"</span>)  <span class="comment"># 簡化：2N + 4N + S phase</span>
+<span class="comment"># 比例: G1 ~ 60-70%; S ~ 10-20%; G2/M ~ 10-15% (asynchronous HeLa)</span></pre></div>
+  <div class="code-tab-content" data-tab="model"><pre><span class="comment"># Goldbeter 1991 minimal cell cycle oscillator (Python)</span>
+<span class="kw">from</span> scipy.integrate <span class="kw">import</span> odeint
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="kw">def</span> cycle(y, t, vi=<span class="num">0.025</span>, vd=<span class="num">0.25</span>, kd=<span class="num">0.01</span>):
+    C, M, X = y  <span class="comment"># cyclin, CDC2-active, cyclin protease</span>
+    dC = vi - vd*X*C/(<span class="num">0.02</span>+C) - kd*C
+    V1 = C/(<span class="num">0.5</span>+C) * <span class="num">3</span>
+    dM = V1*(<span class="num">1</span>-M)/(<span class="num">0.005</span>+(<span class="num">1</span>-M)) - <span class="num">1.5</span>*M/(<span class="num">0.005</span>+M)
+    dX = M*(<span class="num">1</span>-X)/(<span class="num">0.005</span>+(<span class="num">1</span>-X)) - <span class="num">0.5</span>*X/(<span class="num">0.005</span>+X)
+    <span class="kw">return</span> [dC, dM, dX]
+
+t = np.linspace(<span class="num">0</span>,<span class="num">200</span>,<span class="num">2000</span>)
+sol = odeint(cycle, [<span class="num">0.01</span>,<span class="num">0.01</span>,<span class="num">0.01</span>], t)
+<span class="comment"># 期: ~30-50 min 振盪，類似早期 Xenopus 胚胎</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="D">
+<p data-lang="zh">1. 為什麼 CDK4/6 抑制劑 (palbociclib) 對 Rb 缺失的腫瘤無效？</p>
+<p data-lang="en">1. Why are CDK4/6 inhibitors (palbociclib) ineffective in Rb-null tumors?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 缺乏 Cyclin D</span><span data-lang="en">A. They lack cyclin D</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. CDK4/6 在 Rb-null 細胞中變異增強</span><span data-lang="en">B. CDK4/6 is hyper-activated in Rb-null cells</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. ATR 路徑代償</span><span data-lang="en">C. ATR pathway compensates</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 無 Rb 可磷酸化，E2F 已恆活化，抑制 CDK4/6 不影響 G1/S</span><span data-lang="en">D. No Rb to phosphorylate; E2F is constitutively active so CDK4/6 inhibition is moot</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>D</strong>：CDK4/6 抑制劑透過<strong>阻斷 Rb 磷酸化</strong>使 E2F 持續被抑制；若 Rb 缺失，此通路被繞過。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>D</strong>: CDK4/6 inhibitors work by <strong>preventing Rb phosphorylation</strong>; without Rb, E2F is already free and the pathway is bypassed.</div>
+</div>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. SAC 的核心抑制目標是？</p>
+<p data-lang="en">2. What is the core inhibitory target of the SAC?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A">A. CDK1-cyclin B kinase</div>
+<div class="quiz-opt" data-k="B">B. APC/C-CDC20</div>
+<div class="quiz-opt" data-k="C">C. Aurora B kinase</div>
+<div class="quiz-opt" data-k="D">D. p53 transcription factor</div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：MCC 鎖住 APC/C-CDC20，使其無法多泛素化 securin 與 cyclin B。Aurora B 則負責 error correction。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: MCC sequesters APC/C-CDC20, blocking securin and cyclin B polyubiquitination. Aurora B handles error correction.</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）ATR 抑制劑 (ceralasertib) 在 BRCA-deficient 或 ATM-loss 腫瘤呈現合成致死，因這些細胞高度仰賴 ATR 路徑處理複製壓力。</p>
+<p data-lang="en">3. (T/F) ATR inhibitors (ceralasertib) are synthetically lethal in BRCA-deficient or ATM-loss tumors because these cells rely heavily on ATR to manage replication stress.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：HR 修復缺陷或 ATM 缺失的腫瘤 fork instability 高，ATR/CHK1 為最後防線——阻斷導致 mitotic catastrophe。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: HR-deficient or ATM-null tumors have high fork instability; ATR/CHK1 is the last line of defense — blockade triggers mitotic catastrophe.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="cytoskeleton-dynamics.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 11 · 細胞骨架動力學" data-en="Ch 11 · Cytoskeleton Dynamics">Ch 11 · 細胞骨架動力學</span></a>
+<a href="nuclear-organization.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 13 · 核組織、核孔與核纖層" data-en="Ch 13 · Nuclear Organization, NPC &amp;amp; Lamina">Ch 13 · 核組織、核孔與核纖層</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

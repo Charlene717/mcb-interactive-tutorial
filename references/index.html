@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>分子與細胞生物學參考資料 · References</title>
+<meta name="description" content="Molecular & Cellular Biology Interactive Tutorial 20 章節的學術論文、官方文件、Best Practices 綜述與資料庫來源整理（含 DOI）。">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* References-specific styling */
+.ref-list{list-style:none;padding:0;margin:14px 0 0}
+.ref-list li{padding:14px 16px;background:var(--c-surface-alt);border:1px solid var(--c-border-light);border-radius:var(--radius);margin-bottom:10px;font-size:.92rem;line-height:1.65}
+.ref-list li:hover{background:var(--c-surface);border-color:var(--c-border)}
+.ref-tag{display:inline-block;font-family:var(--font-mono);font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:6px;margin-right:8px;letter-spacing:.5px;vertical-align:middle}
+.ref-tag.paper{background:var(--c-accent-light);color:var(--c-accent-dark)}
+.ref-tag.doc{background:#e3f2fd;color:#1565c0}
+.ref-tag.bench{background:#fff3e0;color:#e65100}
+.ref-tag.db{background:#fce4ec;color:#ad1457}
+.ref-tag.book{background:#f3e5f5;color:#6a1b9a}
+.ref-tag.bestp{background:var(--c-highlight-light);color:#a06a00;border:1px solid var(--c-highlight)}
+.ref-tag.policy{background:#e8eaf6;color:#283593}
+.ref-author{color:var(--c-ink);font-weight:600}
+.ref-title{color:var(--c-ink);font-weight:500}
+.ref-meta{color:var(--c-ink-muted);font-size:.85rem;margin-top:4px;display:block}
+.ref-list a{color:var(--c-accent);text-decoration:none;border-bottom:1px dotted var(--c-accent)}
+.ref-list a:hover{color:var(--c-accent-dark);border-bottom-style:solid}
+.errata{background:#fef3c7;border-left:4px solid #d97706;border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:18px 22px;margin:18px 0;font-size:.9rem}
+.errata h4{margin:0 0 8px;color:#92400e;font-family:var(--font-display);font-size:1.05rem}
+.errata p{color:#78350f;margin-bottom:8px}
+.errata p:last-child{margin-bottom:0}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:18px 0}
+.toc-grid a{padding:10px 14px;background:var(--c-surface);border:1px solid var(--c-border-light);border-radius:var(--radius);text-decoration:none;color:var(--c-ink);font-size:.88rem;transition:var(--transition);display:flex;align-items:center;gap:8px}
+.toc-grid a:hover{border-color:var(--c-accent);background:var(--c-accent-light);color:var(--c-accent-dark)}
+.toc-grid a .step-tag{font-family:var(--font-mono);font-size:.72rem;color:var(--c-accent);font-weight:700;min-width:38px}
+.section-anchor{scroll-margin-top:80px}
+</style>
+</head>
+<body>
+
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="../index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="../protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="../nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="../membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="../biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="../chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="../transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="../mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="../translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="../signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="../mechanotransduction.html">機械轉導</a></li>
+    <li><a href="../cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="../cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="../nuclear-organization.html">核組織</a></li>
+    <li><a href="../er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="../mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="../organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="../cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="../autophagy-quality-control.html">自噬</a></li>
+    <li><a href="../cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="../cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="index.html" class="active" style="font-weight:700" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+
+<header class="page-hero">
+<div class="step-badge" data-zh="參考資料 · REFERENCES" data-en="REFERENCES">REFERENCES</div>
+<h1 data-zh="學術論文、官方文件與資料庫來源" data-en="Papers, Documentation &amp; Database Sources">學術論文、官方文件與資料庫來源</h1>
+<p class="subtitle" data-lang="zh">為分子與細胞生物學進階教程 20 章節提供原始論文、CryoEM/AlphaFold3 結構成果、Nature Reviews 系列、年度綜述、官方資料庫的完整佐證；所有條目附 DOI 連結並標註類型。</p>
+<p class="subtitle" data-lang="en">Comprehensive citations for all 20 chapters: landmark papers, CryoEM/AlphaFold3 structural results, Nature Reviews series, annual reviews, and authoritative databases — each entry includes a DOI link with a type tag.</p>
+</header>
+
+<main class="content-wrap">
+
+<!-- Overview -->
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="Overview">概覽</div>
+<h2 data-zh="如何使用這份資料？" data-en="How to use this page?">如何使用這份資料？</h2>
+<p data-lang="zh">本頁針對教程中提及的每個機制、技術、與生物分子，整理學術出處供讀者深入查閱。引用標籤含義：</p>
+<p data-lang="en">For each mechanism, technique, and biomolecule discussed in the tutorial, this page provides primary literature and authoritative sources. Tag legend:</p>
+<div class="card-grid cols-3">
+  <div class="card"><div class="card-icon" style="background:var(--c-accent-light)">📄</div><h4>Paper</h4><p data-lang="zh">原始論文 · 含 DOI 連結</p><p data-lang="en">Primary research article with DOI.</p></div>
+  <div class="card"><div class="card-icon" style="background:var(--c-highlight-light)">⭐</div><h4>Best Practice</h4><p data-lang="zh">系統性綜述、Nature Reviews 系列</p><p data-lang="en">Systematic reviews, Nature Reviews series.</p></div>
+  <div class="card"><div class="card-icon" style="background:#f3e5f5">📚</div><h4>Book</h4><p data-lang="zh">經典教科書（MBoC 7e、Lodish 9e）</p><p data-lang="en">Classic textbooks (MBoC 7e, Lodish 9e).</p></div>
+  <div class="card"><div class="card-icon" style="background:#fff3e0">📊</div><h4>Benchmark</h4><p data-lang="zh">方法比較 / 獨立評比</p><p data-lang="en">Method benchmarks and independent evaluations.</p></div>
+  <div class="card"><div class="card-icon" style="background:#fce4ec">🗄️</div><h4>Database</h4><p data-lang="zh">PDB、AlphaFold DB、ENCODE、TCGA 等</p><p data-lang="en">PDB, AlphaFold DB, ENCODE, TCGA, etc.</p></div>
+  <div class="card"><div class="card-icon" style="background:#e3f2fd">📘</div><h4>Documentation</h4><p data-lang="zh">官方軟體文件、vignettes</p><p data-lang="en">Official software documentation, vignettes.</p></div>
+  <div class="card"><div class="card-icon" style="background:#e8eaf6">📜</div><h4>Policy</h4><p data-lang="zh">委員會建議、命名指引（NCCD 等）</p><p data-lang="en">Committee recommendations, nomenclature guides (NCCD).</p></div>
+</div>
+
+<h3 data-zh="本頁章節目錄" data-en="Chapter Index">本頁章節目錄</h3>
+<div class="toc-grid">
+  <a href="#ch01"><span class="step-tag">Ch 1</span><span data-zh="蛋白動態" data-en="Protein Dynamics">蛋白動態</span></a>
+  <a href="#ch02"><span class="step-tag">Ch 2</span><span data-zh="核酸架構" data-en="Nucleic Acid Architecture">核酸架構</span></a>
+  <a href="#ch03"><span class="step-tag">Ch 3</span><span data-zh="膜生物物理" data-en="Membrane Biophysics">膜生物物理</span></a>
+  <a href="#ch04"><span class="step-tag">Ch 4</span><span data-zh="生物分子凝聚物" data-en="Biomolecular Condensates">生物分子凝聚物</span></a>
+  <a href="#ch05"><span class="step-tag">Ch 5</span><span data-zh="3D 基因組" data-en="3D Genome">3D 基因組</span></a>
+  <a href="#ch06"><span class="step-tag">Ch 6</span><span data-zh="轉錄調控" data-en="Transcription">轉錄調控</span></a>
+  <a href="#ch07"><span class="step-tag">Ch 7</span><span data-zh="mRNA 生命週期" data-en="mRNA Life Cycle">mRNA 生命週期</span></a>
+  <a href="#ch08"><span class="step-tag">Ch 8</span><span data-zh="轉譯/穩態" data-en="Translation/Proteostasis">轉譯與穩態</span></a>
+  <a href="#ch09"><span class="step-tag">Ch 9</span><span data-zh="訊號網路" data-en="Signaling Networks">訊號傳導</span></a>
+  <a href="#ch10"><span class="step-tag">Ch 10</span><span data-zh="機械轉導" data-en="Mechanotransduction">機械轉導</span></a>
+  <a href="#ch11"><span class="step-tag">Ch 11</span><span data-zh="細胞骨架" data-en="Cytoskeleton">細胞骨架</span></a>
+  <a href="#ch12"><span class="step-tag">Ch 12</span><span data-zh="細胞週期" data-en="Cell Cycle">細胞週期</span></a>
+  <a href="#ch13"><span class="step-tag">Ch 13</span><span data-zh="核組織" data-en="Nuclear Organization">細胞核組織</span></a>
+  <a href="#ch14"><span class="step-tag">Ch 14</span><span data-zh="ER-Golgi" data-en="ER-Golgi">ER-Golgi 與分泌</span></a>
+  <a href="#ch15"><span class="step-tag">Ch 15</span><span data-zh="粒線體" data-en="Mitochondria">粒線體動態</span></a>
+  <a href="#ch16"><span class="step-tag">Ch 16</span><span data-zh="胞器接觸" data-en="Organelle Contacts">胞器接觸與運輸</span></a>
+  <a href="#ch17"><span class="step-tag">Ch 17</span><span data-zh="細胞死亡" data-en="Cell Death">細胞死亡</span></a>
+  <a href="#ch18"><span class="step-tag">Ch 18</span><span data-zh="自噬" data-en="Autophagy">自噬</span></a>
+  <a href="#ch19"><span class="step-tag">Ch 19</span><span data-zh="衰老/幹性" data-en="Senescence/Stemness">衰老與幹性</span></a>
+  <a href="#ch20"><span class="step-tag">Ch 20</span><span data-zh="疾病應用" data-en="Disease Applications">細胞生物學與疾病</span></a>
+  <a href="#errata"><span class="step-tag">!</span><span data-zh="教學註記與細節" data-en="Tutorial Notes & Details">教學註記與細節</span></a>
+</div>
+</section>
+
+<!-- ===================== Ch 1 ===================== -->
+<section class="section section-anchor" id="ch01">
+<div class="section-label">Ch 1 · Block A</div>
+<h2 data-zh="🧬 蛋白質結構與動態" data-en="🧬 Protein Structure &amp; Dynamics">🧬 蛋白質結構與動態</h2>
+<p data-lang="zh">AlphaFold3、CryoEM 革命、IDR 與 NARDINI+、分子動力學模擬、HDX-MS。</p>
+<p data-lang="en">AlphaFold3, the cryo-EM revolution, IDR analysis with NARDINI+, MD simulations, HDX-MS.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Abramson J, Adler J, Dunger J, et al.</span> (2024).
+    <span class="ref-title">Accurate structure prediction of biomolecular interactions with AlphaFold 3.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 630, 493–500. <a href="https://doi.org/10.1038/s41586-024-07487-w" target="_blank" rel="noopener">10.1038/s41586-024-07487-w</a></span><span data-lang="en">Nature 630, 493–500. <a href="https://doi.org/10.1038/s41586-024-07487-w" target="_blank" rel="noopener">10.1038/s41586-024-07487-w</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Jumper J, Evans R, Pritzel A, et al.</span> (2021).
+    <span class="ref-title">Highly accurate protein structure prediction with AlphaFold.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 596, 583–589. <a href="https://doi.org/10.1038/s41586-021-03819-2" target="_blank" rel="noopener">10.1038/s41586-021-03819-2</a></span><span data-lang="en">Nature 596, 583–589. <a href="https://doi.org/10.1038/s41586-021-03819-2" target="_blank" rel="noopener">10.1038/s41586-021-03819-2</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-author">Varadi M, Bertoni D, Magana P, et al.</span> (2024).
+    <span class="ref-title">AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences.</span>
+    <span class="ref-meta"><span data-lang="zh">Nucleic Acids Res. 52, D368–D375. <a href="https://doi.org/10.1093/nar/gkad1011" target="_blank" rel="noopener">10.1093/nar/gkad1011</a> · <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">alphafold.ebi.ac.uk</a></span><span data-lang="en">Nucleic Acids Res. 52, D368–D375. <a href="https://doi.org/10.1093/nar/gkad1011" target="_blank" rel="noopener">10.1093/nar/gkad1011</a> · <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">alphafold.ebi.ac.uk</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Nogales E, Scheres SHW.</span> (2024).
+    <span class="ref-title">Cryo-EM: A unique tool for the visualization of macromolecular complexity.</span>
+    <span class="ref-meta"><span data-lang="zh">Mol. Cell 84, 1–17. <a href="https://doi.org/10.1016/j.molcel.2024.01.003" target="_blank" rel="noopener">10.1016/j.molcel.2024.01.003</a></span><span data-lang="en">Mol. Cell 84, 1–17. <a href="https://doi.org/10.1016/j.molcel.2024.01.003" target="_blank" rel="noopener">10.1016/j.molcel.2024.01.003</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Cubuk J, Soranno A, Pappu RV, et al.</span> (2024).
+    <span class="ref-title">Sequence-encoded grammars for biomolecular condensate function via NARDINI+.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Comput. Sci. 4, 196–208. <a href="https://doi.org/10.1038/s43588-024-00603-w" target="_blank" rel="noopener">10.1038/s43588-024-00603-w</a></span><span data-lang="en">Nat. Comput. Sci. 4, 196–208. <a href="https://doi.org/10.1038/s43588-024-00603-w" target="_blank" rel="noopener">10.1038/s43588-024-00603-w</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Lindorff-Larsen K, Piana S, Dror RO, Shaw DE.</span> (2011).
+    <span class="ref-title">How fast-folding proteins fold.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 334, 517–520. <a href="https://doi.org/10.1126/science.1208351" target="_blank" rel="noopener">10.1126/science.1208351</a></span><span data-lang="en">Science 334, 517–520. <a href="https://doi.org/10.1126/science.1208351" target="_blank" rel="noopener">10.1126/science.1208351</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Masson GR, Burke JE, Ahn NG, et al.</span> (2019).
+    <span class="ref-title">Recommendations for performing, interpreting and reporting hydrogen deuterium exchange mass spectrometry (HDX-MS) experiments.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Methods 16, 595–602. <a href="https://doi.org/10.1038/s41592-019-0459-y" target="_blank" rel="noopener">10.1038/s41592-019-0459-y</a></span><span data-lang="en">Nat. Methods 16, 595–602. <a href="https://doi.org/10.1038/s41592-019-0459-y" target="_blank" rel="noopener">10.1038/s41592-019-0459-y</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-author">Berman HM, Westbrook J, Feng Z, et al.</span> (2000).
+    <span class="ref-title">The Protein Data Bank.</span>
+    <span class="ref-meta"><span data-lang="zh">Nucleic Acids Res. 28, 235–242. <a href="https://doi.org/10.1093/nar/28.1.235" target="_blank" rel="noopener">10.1093/nar/28.1.235</a> · <a href="https://www.rcsb.org/" target="_blank" rel="noopener">rcsb.org</a></span><span data-lang="en">Nucleic Acids Res. 28, 235–242. <a href="https://doi.org/10.1093/nar/28.1.235" target="_blank" rel="noopener">10.1093/nar/28.1.235</a> · <a href="https://www.rcsb.org/" target="_blank" rel="noopener">rcsb.org</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 2 ===================== -->
+<section class="section section-anchor" id="ch02">
+<div class="section-label">Ch 2 · Block A</div>
+<h2 data-zh="🌀 核酸高階結構" data-en="🌀 Nucleic Acid Architecture">🌀 核酸高階結構</h2>
+<p data-lang="zh">G-quadruplex (BG4 抗體)、R-loop、RNA SHAPE-MaP、riboswitch、Z-DNA / ZBP1。</p>
+<p data-lang="en">G-quadruplexes (BG4 antibody), R-loops, RNA SHAPE-MaP, riboswitches, Z-DNA / ZBP1.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Biffi G, Tannahill D, McCafferty J, Balasubramanian S.</span> (2013).
+    <span class="ref-title">Quantitative visualization of DNA G-quadruplex structures in human cells.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Chem. 5, 182–186. <a href="https://doi.org/10.1038/nchem.1548" target="_blank" rel="noopener">10.1038/nchem.1548</a></span><span data-lang="en">Nat. Chem. 5, 182–186. <a href="https://doi.org/10.1038/nchem.1548" target="_blank" rel="noopener">10.1038/nchem.1548</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Varshney D, Spiegel J, Zyner K, Tannahill D, Balasubramanian S.</span> (2020).
+    <span class="ref-title">The regulation and functions of DNA and RNA G-quadruplexes.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 459–474. <a href="https://doi.org/10.1038/s41580-020-0236-x" target="_blank" rel="noopener">10.1038/s41580-020-0236-x</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 459–474. <a href="https://doi.org/10.1038/s41580-020-0236-x" target="_blank" rel="noopener">10.1038/s41580-020-0236-x</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Garcia-Muse T, Aguilera A.</span> (2019).
+    <span class="ref-title">R loops: from physiological to pathological roles.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 179, 604–618. <a href="https://doi.org/10.1016/j.cell.2019.08.055" target="_blank" rel="noopener">10.1016/j.cell.2019.08.055</a></span><span data-lang="en">Cell 179, 604–618. <a href="https://doi.org/10.1016/j.cell.2019.08.055" target="_blank" rel="noopener">10.1016/j.cell.2019.08.055</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Siegfried NA, Busan S, Rice GM, Nelson JAE, Weeks KM.</span> (2014).
+    <span class="ref-title">RNA motif discovery by SHAPE and mutational profiling (SHAPE-MaP).</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Methods 11, 959–965. <a href="https://doi.org/10.1038/nmeth.3029" target="_blank" rel="noopener">10.1038/nmeth.3029</a></span><span data-lang="en">Nat. Methods 11, 959–965. <a href="https://doi.org/10.1038/nmeth.3029" target="_blank" rel="noopener">10.1038/nmeth.3029</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Breaker RR.</span> (2022).
+    <span class="ref-title">The biochemical landscape of riboswitch ligands.</span>
+    <span class="ref-meta"><span data-lang="zh">Biochemistry 61, 137–149. <a href="https://doi.org/10.1021/acs.biochem.1c00765" target="_blank" rel="noopener">10.1021/acs.biochem.1c00765</a></span><span data-lang="en">Biochemistry 61, 137–149. <a href="https://doi.org/10.1021/acs.biochem.1c00765" target="_blank" rel="noopener">10.1021/acs.biochem.1c00765</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Herbert A.</span> (2019).
+    <span class="ref-title">Z-DNA and Z-RNA in human disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Commun. Biol. 2, 7. <a href="https://doi.org/10.1038/s42003-018-0237-x" target="_blank" rel="noopener">10.1038/s42003-018-0237-x</a></span><span data-lang="en">Commun. Biol. 2, 7. <a href="https://doi.org/10.1038/s42003-018-0237-x" target="_blank" rel="noopener">10.1038/s42003-018-0237-x</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Jiao H, Wachsmuth L, Kumari S, et al.</span> (2020).
+    <span class="ref-title">Z-nucleic-acid sensing triggers ZBP1-dependent necroptosis and inflammation.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 580, 391–395. <a href="https://doi.org/10.1038/s41586-020-2129-8" target="_blank" rel="noopener">10.1038/s41586-020-2129-8</a></span><span data-lang="en">Nature 580, 391–395. <a href="https://doi.org/10.1038/s41586-020-2129-8" target="_blank" rel="noopener">10.1038/s41586-020-2129-8</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 3 ===================== -->
+<section class="section section-anchor" id="ch03">
+<div class="section-label">Ch 3 · Block A</div>
+<h2 data-zh="🧈 膜生物物理與脂質" data-en="🧈 Membrane Biophysics &amp; Lipidomics">🧈 膜生物物理與脂質</h2>
+<p data-lang="zh">Singer-Nicolson、脂筏 (Simons)、PI 訊號脂質、膜不對稱性 (Levental)、CHARMM-GUI。</p>
+<p data-lang="en">Singer-Nicolson, lipid rafts (Simons), PI signaling lipids, membrane asymmetry (Levental), CHARMM-GUI.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Singer SJ, Nicolson GL.</span> (1972).
+    <span class="ref-title">The fluid mosaic model of the structure of cell membranes.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 175, 720–731. <a href="https://doi.org/10.1126/science.175.4023.720" target="_blank" rel="noopener">10.1126/science.175.4023.720</a></span><span data-lang="en">Science 175, 720–731. <a href="https://doi.org/10.1126/science.175.4023.720" target="_blank" rel="noopener">10.1126/science.175.4023.720</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Sezgin E, Levental I, Mayor S, Eggeling C.</span> (2017).
+    <span class="ref-title">The mystery of membrane organization: composition, regulation and roles of lipid rafts.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 18, 361–374. <a href="https://doi.org/10.1038/nrm.2017.16" target="_blank" rel="noopener">10.1038/nrm.2017.16</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 18, 361–374. <a href="https://doi.org/10.1038/nrm.2017.16" target="_blank" rel="noopener">10.1038/nrm.2017.16</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Lorent JH, Levental KR, Ganesan L, et al.</span> (2020).
+    <span class="ref-title">Plasma membranes are asymmetric in lipid unsaturation, packing and protein shape.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Chem. Biol. 16, 644–652. <a href="https://doi.org/10.1038/s41589-020-0529-6" target="_blank" rel="noopener">10.1038/s41589-020-0529-6</a></span><span data-lang="en">Nat. Chem. Biol. 16, 644–652. <a href="https://doi.org/10.1038/s41589-020-0529-6" target="_blank" rel="noopener">10.1038/s41589-020-0529-6</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Balla T.</span> (2013).
+    <span class="ref-title">Phosphoinositides: tiny lipids with giant impact on cell regulation.</span>
+    <span class="ref-meta"><span data-lang="zh">Physiol. Rev. 93, 1019–1137. <a href="https://doi.org/10.1152/physrev.00028.2012" target="_blank" rel="noopener">10.1152/physrev.00028.2012</a></span><span data-lang="en">Physiol. Rev. 93, 1019–1137. <a href="https://doi.org/10.1152/physrev.00028.2012" target="_blank" rel="noopener">10.1152/physrev.00028.2012</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag doc">doc</span>
+    <span class="ref-author">Jo S, Kim T, Iyer VG, Im W.</span> (2008).
+    <span class="ref-title">CHARMM-GUI: a web-based graphical user interface for CHARMM.</span>
+    <span class="ref-meta"><span data-lang="zh">J. Comput. Chem. 29, 1859–1865. <a href="https://doi.org/10.1002/jcc.20945" target="_blank" rel="noopener">10.1002/jcc.20945</a> · <a href="https://charmm-gui.org/" target="_blank" rel="noopener">charmm-gui.org</a></span><span data-lang="en">J. Comput. Chem. 29, 1859–1865. <a href="https://doi.org/10.1002/jcc.20945" target="_blank" rel="noopener">10.1002/jcc.20945</a> · <a href="https://charmm-gui.org/" target="_blank" rel="noopener">charmm-gui.org</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Harayama T, Riezman H.</span> (2018).
+    <span class="ref-title">Understanding the diversity of membrane lipid composition.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 19, 281–296. <a href="https://doi.org/10.1038/nrm.2017.138" target="_blank" rel="noopener">10.1038/nrm.2017.138</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 19, 281–296. <a href="https://doi.org/10.1038/nrm.2017.138" target="_blank" rel="noopener">10.1038/nrm.2017.138</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-title">LIPID MAPS Structure Database (LMSD) — comprehensive lipidomics reference.</span>
+    <span class="ref-meta"><span data-lang="zh">Sud M, et al. (2007). Nucleic Acids Res. 35, D527–D532. <a href="https://doi.org/10.1093/nar/gkl838" target="_blank" rel="noopener">10.1093/nar/gkl838</a> · <a href="https://www.lipidmaps.org/" target="_blank" rel="noopener">lipidmaps.org</a></span><span data-lang="en">Sud M, et al. (2007). Nucleic Acids Res. 35, D527–D532. <a href="https://doi.org/10.1093/nar/gkl838" target="_blank" rel="noopener">10.1093/nar/gkl838</a> · <a href="https://www.lipidmaps.org/" target="_blank" rel="noopener">lipidmaps.org</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 4 ===================== -->
+<section class="section section-anchor" id="ch04">
+<div class="section-label">Ch 4 · Block A</div>
+<h2 data-zh="💧 生物分子凝聚物 (LLPS)" data-en="💧 Biomolecular Condensates (LLPS)">💧 生物分子凝聚物 (LLPS)</h2>
+<p data-lang="zh">Brangwynne P-granule、Hyman、Shin-Brangwynne 2017、ALS FUS/TDP-43、Sabari super-enhancer LLPS。</p>
+<p data-lang="en">Brangwynne P-granules, Hyman, Shin-Brangwynne 2017, ALS FUS/TDP-43, Sabari super-enhancer LLPS.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Brangwynne CP, Eckmann CR, Courson DS, et al.</span> (2009).
+    <span class="ref-title">Germline P granules are liquid droplets that localize by controlled dissolution/condensation.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 324, 1729–1732. <a href="https://doi.org/10.1126/science.1172046" target="_blank" rel="noopener">10.1126/science.1172046</a></span><span data-lang="en">Science 324, 1729–1732. <a href="https://doi.org/10.1126/science.1172046" target="_blank" rel="noopener">10.1126/science.1172046</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Banani SF, Lee HO, Hyman AA, Rosen MK.</span> (2017).
+    <span class="ref-title">Biomolecular condensates: organizers of cellular biochemistry.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 18, 285–298. <a href="https://doi.org/10.1038/nrm.2017.7" target="_blank" rel="noopener">10.1038/nrm.2017.7</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 18, 285–298. <a href="https://doi.org/10.1038/nrm.2017.7" target="_blank" rel="noopener">10.1038/nrm.2017.7</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Shin Y, Brangwynne CP.</span> (2017).
+    <span class="ref-title">Liquid phase condensation in cell physiology and disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 357, eaaf4382. <a href="https://doi.org/10.1126/science.aaf4382" target="_blank" rel="noopener">10.1126/science.aaf4382</a></span><span data-lang="en">Science 357, eaaf4382. <a href="https://doi.org/10.1126/science.aaf4382" target="_blank" rel="noopener">10.1126/science.aaf4382</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Patel A, Lee HO, Jawerth L, et al.</span> (2015).
+    <span class="ref-title">A liquid-to-solid phase transition of the ALS protein FUS accelerated by disease mutation.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 162, 1066–1077. <a href="https://doi.org/10.1016/j.cell.2015.07.047" target="_blank" rel="noopener">10.1016/j.cell.2015.07.047</a></span><span data-lang="en">Cell 162, 1066–1077. <a href="https://doi.org/10.1016/j.cell.2015.07.047" target="_blank" rel="noopener">10.1016/j.cell.2015.07.047</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Sabari BR, Dall'Agnese A, Boija A, et al.</span> (2018).
+    <span class="ref-title">Coactivator condensation at super-enhancers links phase separation and gene control.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 361, eaar3958. <a href="https://doi.org/10.1126/science.aar3958" target="_blank" rel="noopener">10.1126/science.aar3958</a></span><span data-lang="en">Science 361, eaar3958. <a href="https://doi.org/10.1126/science.aar3958" target="_blank" rel="noopener">10.1126/science.aar3958</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Mathieu C, Pappu RV, Taylor JP.</span> (2020).
+    <span class="ref-title">Beyond aggregation: pathological phase transitions in neurodegenerative disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 370, 56–60. <a href="https://doi.org/10.1126/science.abb8032" target="_blank" rel="noopener">10.1126/science.abb8032</a></span><span data-lang="en">Science 370, 56–60. <a href="https://doi.org/10.1126/science.abb8032" target="_blank" rel="noopener">10.1126/science.abb8032</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Lyon AS, Peeples WB, Rosen MK.</span> (2021).
+    <span class="ref-title">A framework for understanding the functions of biomolecular condensates across scales.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 22, 215–235. <a href="https://doi.org/10.1038/s41580-020-00303-z" target="_blank" rel="noopener">10.1038/s41580-020-00303-z</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 22, 215–235. <a href="https://doi.org/10.1038/s41580-020-00303-z" target="_blank" rel="noopener">10.1038/s41580-020-00303-z</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 5 ===================== -->
+<section class="section section-anchor" id="ch05">
+<div class="section-label">Ch 5 · Block B</div>
+<h2 data-zh="🧶 染色質與 3D 基因組" data-en="🧶 Chromatin &amp; 3D Genome">🧶 染色質與 3D 基因組</h2>
+<p data-lang="zh">Lieberman-Aiden Hi-C、Mirny loop extrusion、Polycomb、histone code、Micro-C。</p>
+<p data-lang="en">Lieberman-Aiden Hi-C, Mirny loop extrusion, Polycomb, histone code, Micro-C.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Lieberman-Aiden E, van Berkum NL, Williams L, et al.</span> (2009).
+    <span class="ref-title">Comprehensive mapping of long-range interactions reveals folding principles of the human genome.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 326, 289–293. <a href="https://doi.org/10.1126/science.1181369" target="_blank" rel="noopener">10.1126/science.1181369</a></span><span data-lang="en">Science 326, 289–293. <a href="https://doi.org/10.1126/science.1181369" target="_blank" rel="noopener">10.1126/science.1181369</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Fudenberg G, Imakaev M, Lu C, Goloborodko A, Abdennur N, Mirny LA.</span> (2016).
+    <span class="ref-title">Formation of chromosomal domains by loop extrusion.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell Rep. 15, 2038–2049. <a href="https://doi.org/10.1016/j.celrep.2016.04.085" target="_blank" rel="noopener">10.1016/j.celrep.2016.04.085</a></span><span data-lang="en">Cell Rep. 15, 2038–2049. <a href="https://doi.org/10.1016/j.celrep.2016.04.085" target="_blank" rel="noopener">10.1016/j.celrep.2016.04.085</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Strahl BD, Allis CD.</span> (2000).
+    <span class="ref-title">The language of covalent histone modifications.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 403, 41–45. <a href="https://doi.org/10.1038/47412" target="_blank" rel="noopener">10.1038/47412</a></span><span data-lang="en">Nature 403, 41–45. <a href="https://doi.org/10.1038/47412" target="_blank" rel="noopener">10.1038/47412</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Hsieh THS, Cattoglio C, Slobodyanyuk E, Hansen AS, Rando OJ, Tjian R, Darzacq X.</span> (2020).
+    <span class="ref-title">Resolving the 3D landscape of transcription-linked mammalian chromatin folding (Micro-C).</span>
+    <span class="ref-meta"><span data-lang="zh">Mol. Cell 78, 539–553. <a href="https://doi.org/10.1016/j.molcel.2020.03.002" target="_blank" rel="noopener">10.1016/j.molcel.2020.03.002</a></span><span data-lang="en">Mol. Cell 78, 539–553. <a href="https://doi.org/10.1016/j.molcel.2020.03.002" target="_blank" rel="noopener">10.1016/j.molcel.2020.03.002</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Misteli T.</span> (2020).
+    <span class="ref-title">The self-organizing genome: principles of genome architecture and function.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 183, 28–45. <a href="https://doi.org/10.1016/j.cell.2020.09.014" target="_blank" rel="noopener">10.1016/j.cell.2020.09.014</a></span><span data-lang="en">Cell 183, 28–45. <a href="https://doi.org/10.1016/j.cell.2020.09.014" target="_blank" rel="noopener">10.1016/j.cell.2020.09.014</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Schuettengruber B, Bourbon HM, Di Croce L, Cavalli G.</span> (2017).
+    <span class="ref-title">Genome regulation by Polycomb and Trithorax: 70 years and counting.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 171, 34–57. <a href="https://doi.org/10.1016/j.cell.2017.08.002" target="_blank" rel="noopener">10.1016/j.cell.2017.08.002</a></span><span data-lang="en">Cell 171, 34–57. <a href="https://doi.org/10.1016/j.cell.2017.08.002" target="_blank" rel="noopener">10.1016/j.cell.2017.08.002</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-author">ENCODE Project Consortium, Moore JE, Purcaro MJ, et al.</span> (2020).
+    <span class="ref-title">Expanded encyclopaedias of DNA elements in the human and mouse genomes.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 583, 699–710. <a href="https://doi.org/10.1038/s41586-020-2493-4" target="_blank" rel="noopener">10.1038/s41586-020-2493-4</a> · <a href="https://www.encodeproject.org/" target="_blank" rel="noopener">encodeproject.org</a></span><span data-lang="en">Nature 583, 699–710. <a href="https://doi.org/10.1038/s41586-020-2493-4" target="_blank" rel="noopener">10.1038/s41586-020-2493-4</a> · <a href="https://www.encodeproject.org/" target="_blank" rel="noopener">encodeproject.org</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 6 ===================== -->
+<section class="section section-anchor" id="ch06">
+<div class="section-label">Ch 6 · Block B</div>
+<h2 data-zh="📝 轉錄調控的當代圖像" data-en="📝 Modern Transcription Regulation">📝 轉錄調控的當代圖像</h2>
+<p data-lang="zh">Pol II 暫停 (Adelman)、Sabari Mediator condensate、enhancer-promoter loop、Young super-enhancer。</p>
+<p data-lang="en">Pol II pausing (Adelman), Sabari Mediator condensate, enhancer-promoter loops, Young super-enhancer.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Core L, Adelman K.</span> (2019).
+    <span class="ref-title">Promoter-proximal pausing of RNA polymerase II: a nexus of gene regulation.</span>
+    <span class="ref-meta"><span data-lang="zh">Genes Dev. 33, 960–982. <a href="https://doi.org/10.1101/gad.325142.119" target="_blank" rel="noopener">10.1101/gad.325142.119</a></span><span data-lang="en">Genes Dev. 33, 960–982. <a href="https://doi.org/10.1101/gad.325142.119" target="_blank" rel="noopener">10.1101/gad.325142.119</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Cho WK, Spille JH, Hecht M, et al.</span> (2018).
+    <span class="ref-title">Mediator and RNA polymerase II clusters associate in transcription-dependent condensates.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 361, 412–415. <a href="https://doi.org/10.1126/science.aar4199" target="_blank" rel="noopener">10.1126/science.aar4199</a></span><span data-lang="en">Science 361, 412–415. <a href="https://doi.org/10.1126/science.aar4199" target="_blank" rel="noopener">10.1126/science.aar4199</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Whyte WA, Orlando DA, Hnisz D, et al.</span> (2013).
+    <span class="ref-title">Master transcription factors and Mediator establish super-enhancers at key cell identity genes.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 153, 307–319. <a href="https://doi.org/10.1016/j.cell.2013.03.035" target="_blank" rel="noopener">10.1016/j.cell.2013.03.035</a></span><span data-lang="en">Cell 153, 307–319. <a href="https://doi.org/10.1016/j.cell.2013.03.035" target="_blank" rel="noopener">10.1016/j.cell.2013.03.035</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Hnisz D, Shrinivas K, Young RA, Chakraborty AK, Sharp PA.</span> (2017).
+    <span class="ref-title">A phase separation model for transcriptional control.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 169, 13–23. <a href="https://doi.org/10.1016/j.cell.2017.02.007" target="_blank" rel="noopener">10.1016/j.cell.2017.02.007</a></span><span data-lang="en">Cell 169, 13–23. <a href="https://doi.org/10.1016/j.cell.2017.02.007" target="_blank" rel="noopener">10.1016/j.cell.2017.02.007</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Field A, Adelman K.</span> (2020).
+    <span class="ref-title">Evaluating enhancer function and transcription.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Biochem. 89, 213–234. <a href="https://doi.org/10.1146/annurev-biochem-011420-095916" target="_blank" rel="noopener">10.1146/annurev-biochem-011420-095916</a></span><span data-lang="en">Annu. Rev. Biochem. 89, 213–234. <a href="https://doi.org/10.1146/annurev-biochem-011420-095916" target="_blank" rel="noopener">10.1146/annurev-biochem-011420-095916</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Schoenfelder S, Fraser P.</span> (2019).
+    <span class="ref-title">Long-range enhancer-promoter contacts in gene expression control.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Genet. 20, 437–455. <a href="https://doi.org/10.1038/s41576-019-0128-0" target="_blank" rel="noopener">10.1038/s41576-019-0128-0</a></span><span data-lang="en">Nat. Rev. Genet. 20, 437–455. <a href="https://doi.org/10.1038/s41576-019-0128-0" target="_blank" rel="noopener">10.1038/s41576-019-0128-0</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Boija A, Klein IA, Sabari BR, et al.</span> (2018).
+    <span class="ref-title">Transcription factors activate genes through the phase-separation capacity of their activation domains.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 175, 1842–1855. <a href="https://doi.org/10.1016/j.cell.2018.10.042" target="_blank" rel="noopener">10.1016/j.cell.2018.10.042</a></span><span data-lang="en">Cell 175, 1842–1855. <a href="https://doi.org/10.1016/j.cell.2018.10.042" target="_blank" rel="noopener">10.1016/j.cell.2018.10.042</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 7 ===================== -->
+<section class="section section-anchor" id="ch07">
+<div class="section-label">Ch 7 · Block B</div>
+<h2 data-zh="📨 mRNA 生命週期與表觀轉錄體" data-en="📨 mRNA Life Cycle &amp; Epitranscriptome">📨 mRNA 生命週期與表觀轉錄體</h2>
+<p data-lang="zh">He m6A、Pan 表觀轉錄體、Karikó-Weissman 諾貝爾、direct RNA-seq、NMD UPF。</p>
+<p data-lang="en">He m6A, Pan epitranscriptome, Karikó-Weissman Nobel, direct RNA-seq, NMD UPF.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Dominissini D, Moshitch-Moshkovitz S, Schwartz S, et al.</span> (2012).
+    <span class="ref-title">Topology of the human and mouse m6A RNA methylomes revealed by m6A-seq.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 485, 201–206. <a href="https://doi.org/10.1038/nature11112" target="_blank" rel="noopener">10.1038/nature11112</a></span><span data-lang="en">Nature 485, 201–206. <a href="https://doi.org/10.1038/nature11112" target="_blank" rel="noopener">10.1038/nature11112</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Zaccara S, Ries RJ, Jaffrey SR.</span> (2019).
+    <span class="ref-title">Reading, writing and erasing mRNA methylation.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 20, 608–624. <a href="https://doi.org/10.1038/s41580-019-0168-5" target="_blank" rel="noopener">10.1038/s41580-019-0168-5</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 20, 608–624. <a href="https://doi.org/10.1038/s41580-019-0168-5" target="_blank" rel="noopener">10.1038/s41580-019-0168-5</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Karikó K, Buckstein M, Ni H, Weissman D.</span> (2005).
+    <span class="ref-title">Suppression of RNA recognition by Toll-like receptors: the impact of nucleoside modification and the evolutionary origin of RNA.</span>
+    <span class="ref-meta"><span data-lang="zh">Immunity 23, 165–175. <a href="https://doi.org/10.1016/j.immuni.2005.06.008" target="_blank" rel="noopener">10.1016/j.immuni.2005.06.008</a> · 諾貝爾醫學獎 2023</span><span data-lang="en">Immunity 23, 165–175. <a href="https://doi.org/10.1016/j.immuni.2005.06.008" target="_blank" rel="noopener">10.1016/j.immuni.2005.06.008</a> · Nobel Prize in Physiology or Medicine 2023</span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Garalde DR, Snell EA, Jachimowicz D, et al.</span> (2018).
+    <span class="ref-title">Highly parallel direct RNA sequencing on an array of nanopores.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Methods 15, 201–206. <a href="https://doi.org/10.1038/nmeth.4577" target="_blank" rel="noopener">10.1038/nmeth.4577</a></span><span data-lang="en">Nat. Methods 15, 201–206. <a href="https://doi.org/10.1038/nmeth.4577" target="_blank" rel="noopener">10.1038/nmeth.4577</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Kurosaki T, Popp MW, Maquat LE.</span> (2019).
+    <span class="ref-title">Quality and quantity control of gene expression by nonsense-mediated mRNA decay.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 20, 406–420. <a href="https://doi.org/10.1038/s41580-019-0126-2" target="_blank" rel="noopener">10.1038/s41580-019-0126-2</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 20, 406–420. <a href="https://doi.org/10.1038/s41580-019-0126-2" target="_blank" rel="noopener">10.1038/s41580-019-0126-2</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Boo SH, Kim YK.</span> (2020).
+    <span class="ref-title">The emerging role of RNA modifications in the regulation of mRNA stability.</span>
+    <span class="ref-meta"><span data-lang="zh">Exp. Mol. Med. 52, 400–408. <a href="https://doi.org/10.1038/s12276-020-0407-z" target="_blank" rel="noopener">10.1038/s12276-020-0407-z</a></span><span data-lang="en">Exp. Mol. Med. 52, 400–408. <a href="https://doi.org/10.1038/s12276-020-0407-z" target="_blank" rel="noopener">10.1038/s12276-020-0407-z</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Wang X, Lu Z, Gomez A, et al.</span> (2014).
+    <span class="ref-title">N6-methyladenosine-dependent regulation of messenger RNA stability (He lab).</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 505, 117–120. <a href="https://doi.org/10.1038/nature12730" target="_blank" rel="noopener">10.1038/nature12730</a></span><span data-lang="en">Nature 505, 117–120. <a href="https://doi.org/10.1038/nature12730" target="_blank" rel="noopener">10.1038/nature12730</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 8 ===================== -->
+<section class="section section-anchor" id="ch08">
+<div class="section-label">Ch 8 · Block B</div>
+<h2 data-zh="🏭 轉譯調控與蛋白穩態" data-en="🏭 Translation &amp; Proteostasis">🏭 轉譯調控與蛋白穩態</h2>
+<p data-lang="zh">Hetz UPR、Bertolotti ISR、Joazeiro RQC、Hartl chaperone、Finley proteasome。</p>
+<p data-lang="en">Hetz UPR, Bertolotti ISR, Joazeiro RQC, Hartl chaperone, Finley proteasome.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Hetz C, Zhang K, Kaufman RJ.</span> (2020).
+    <span class="ref-title">Mechanisms, regulation and functions of the unfolded protein response.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 421–438. <a href="https://doi.org/10.1038/s41580-020-0250-z" target="_blank" rel="noopener">10.1038/s41580-020-0250-z</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 421–438. <a href="https://doi.org/10.1038/s41580-020-0250-z" target="_blank" rel="noopener">10.1038/s41580-020-0250-z</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Costa-Mattioli M, Walter P.</span> (2020).
+    <span class="ref-title">The integrated stress response: from mechanism to disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 368, eaat5314. <a href="https://doi.org/10.1126/science.aat5314" target="_blank" rel="noopener">10.1126/science.aat5314</a></span><span data-lang="en">Science 368, eaat5314. <a href="https://doi.org/10.1126/science.aat5314" target="_blank" rel="noopener">10.1126/science.aat5314</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Joazeiro CAP.</span> (2019).
+    <span class="ref-title">Mechanisms and functions of ribosome-associated protein quality control (RQC).</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 20, 368–383. <a href="https://doi.org/10.1038/s41580-019-0118-2" target="_blank" rel="noopener">10.1038/s41580-019-0118-2</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 20, 368–383. <a href="https://doi.org/10.1038/s41580-019-0118-2" target="_blank" rel="noopener">10.1038/s41580-019-0118-2</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Balchin D, Hayer-Hartl M, Hartl FU.</span> (2016).
+    <span class="ref-title">In vivo aspects of protein folding and quality control.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 353, aac4354. <a href="https://doi.org/10.1126/science.aac4354" target="_blank" rel="noopener">10.1126/science.aac4354</a></span><span data-lang="en">Science 353, aac4354. <a href="https://doi.org/10.1126/science.aac4354" target="_blank" rel="noopener">10.1126/science.aac4354</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Finley D, Chen X, Walters KJ.</span> (2016).
+    <span class="ref-title">Gates, channels, and switches: elements of the proteasome machine.</span>
+    <span class="ref-meta"><span data-lang="zh">Trends Biochem. Sci. 41, 77–93. <a href="https://doi.org/10.1016/j.tibs.2015.10.009" target="_blank" rel="noopener">10.1016/j.tibs.2015.10.009</a></span><span data-lang="en">Trends Biochem. Sci. 41, 77–93. <a href="https://doi.org/10.1016/j.tibs.2015.10.009" target="_blank" rel="noopener">10.1016/j.tibs.2015.10.009</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Sonenberg N, Hinnebusch AG.</span> (2009).
+    <span class="ref-title">Regulation of translation initiation in eukaryotes: mechanisms and biological targets.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 136, 731–745. <a href="https://doi.org/10.1016/j.cell.2009.01.042" target="_blank" rel="noopener">10.1016/j.cell.2009.01.042</a></span><span data-lang="en">Cell 136, 731–745. <a href="https://doi.org/10.1016/j.cell.2009.01.042" target="_blank" rel="noopener">10.1016/j.cell.2009.01.042</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Klaips CL, Jayaraj GG, Hartl FU.</span> (2018).
+    <span class="ref-title">Pathways of cellular proteostasis in aging and disease.</span>
+    <span class="ref-meta"><span data-lang="zh">J. Cell Biol. 217, 51–63. <a href="https://doi.org/10.1083/jcb.201709072" target="_blank" rel="noopener">10.1083/jcb.201709072</a></span><span data-lang="en">J. Cell Biol. 217, 51–63. <a href="https://doi.org/10.1083/jcb.201709072" target="_blank" rel="noopener">10.1083/jcb.201709072</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 9 ===================== -->
+<section class="section section-anchor" id="ch09">
+<div class="section-label">Ch 9 · Block C</div>
+<h2 data-zh="⚡ 訊號傳導網路" data-en="⚡ Signal Transduction Networks">⚡ 訊號傳導網路</h2>
+<p data-lang="zh">Lefkowitz biased agonism、Kobilka GPCR、Karin NFκB、Sabatini mTOR、Massagué TGF-β。</p>
+<p data-lang="en">Lefkowitz biased agonism, Kobilka GPCR, Karin NFκB, Sabatini mTOR, Massagué TGF-β.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Rasmussen SGF, DeVree BT, Zou Y, et al.</span> (2011).
+    <span class="ref-title">Crystal structure of the β2 adrenergic receptor–Gs protein complex (Kobilka).</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 477, 549–555. <a href="https://doi.org/10.1038/nature10361" target="_blank" rel="noopener">10.1038/nature10361</a> · 諾貝爾化學獎 2012</span><span data-lang="en">Nature 477, 549–555. <a href="https://doi.org/10.1038/nature10361" target="_blank" rel="noopener">10.1038/nature10361</a> · Nobel Prize in Chemistry 2012</span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Smith JS, Lefkowitz RJ, Rajagopal S.</span> (2018).
+    <span class="ref-title">Biased signalling: from simple switches to allosteric microprocessors.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Drug Discov. 17, 243–260. <a href="https://doi.org/10.1038/nrd.2017.229" target="_blank" rel="noopener">10.1038/nrd.2017.229</a></span><span data-lang="en">Nat. Rev. Drug Discov. 17, 243–260. <a href="https://doi.org/10.1038/nrd.2017.229" target="_blank" rel="noopener">10.1038/nrd.2017.229</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Hayden MS, Ghosh S.</span> (2012).
+    <span class="ref-title">NF-κB, the first quarter-century: remarkable progress and outstanding questions (Karin lab review).</span>
+    <span class="ref-meta"><span data-lang="zh">Genes Dev. 26, 203–234. <a href="https://doi.org/10.1101/gad.183434.111" target="_blank" rel="noopener">10.1101/gad.183434.111</a></span><span data-lang="en">Genes Dev. 26, 203–234. <a href="https://doi.org/10.1101/gad.183434.111" target="_blank" rel="noopener">10.1101/gad.183434.111</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Liu GY, Sabatini DM.</span> (2020).
+    <span class="ref-title">mTOR at the nexus of nutrition, growth, ageing and disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 183–203. <a href="https://doi.org/10.1038/s41580-019-0199-y" target="_blank" rel="noopener">10.1038/s41580-019-0199-y</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 183–203. <a href="https://doi.org/10.1038/s41580-019-0199-y" target="_blank" rel="noopener">10.1038/s41580-019-0199-y</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Derynck R, Budi EH.</span> (2019).
+    <span class="ref-title">Specificity, versatility, and control of TGF-β family signaling (Massagué framework).</span>
+    <span class="ref-meta"><span data-lang="zh">Sci. Signal. 12, eaav5183. <a href="https://doi.org/10.1126/scisignal.aav5183" target="_blank" rel="noopener">10.1126/scisignal.aav5183</a></span><span data-lang="en">Sci. Signal. 12, eaav5183. <a href="https://doi.org/10.1126/scisignal.aav5183" target="_blank" rel="noopener">10.1126/scisignal.aav5183</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Lemmon MA, Schlessinger J.</span> (2010).
+    <span class="ref-title">Cell signaling by receptor tyrosine kinases.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 141, 1117–1134. <a href="https://doi.org/10.1016/j.cell.2010.06.011" target="_blank" rel="noopener">10.1016/j.cell.2010.06.011</a></span><span data-lang="en">Cell 141, 1117–1134. <a href="https://doi.org/10.1016/j.cell.2010.06.011" target="_blank" rel="noopener">10.1016/j.cell.2010.06.011</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Nusse R, Clevers H.</span> (2017).
+    <span class="ref-title">Wnt/β-catenin signaling, disease, and emerging therapeutic modalities.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 169, 985–999. <a href="https://doi.org/10.1016/j.cell.2017.05.016" target="_blank" rel="noopener">10.1016/j.cell.2017.05.016</a></span><span data-lang="en">Cell 169, 985–999. <a href="https://doi.org/10.1016/j.cell.2017.05.016" target="_blank" rel="noopener">10.1016/j.cell.2017.05.016</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 10 ===================== -->
+<section class="section section-anchor" id="ch10">
+<div class="section-label">Ch 10 · Block C</div>
+<h2 data-zh="💪 機械轉導" data-en="💪 Mechanotransduction">💪 機械轉導</h2>
+<p data-lang="zh">Patapoutian Piezo 諾貝爾、Sheetz mechanobiology、YAP/TAZ、Engler ECM 硬度。</p>
+<p data-lang="en">Patapoutian Piezo Nobel, Sheetz mechanobiology, YAP/TAZ, Engler ECM stiffness.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Coste B, Mathur J, Schmidt M, et al.</span> (2010).
+    <span class="ref-title">Piezo1 and Piezo2 are essential components of distinct mechanically activated cation channels.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 330, 55–60. <a href="https://doi.org/10.1126/science.1193270" target="_blank" rel="noopener">10.1126/science.1193270</a> · 諾貝爾醫學獎 2021</span><span data-lang="en">Science 330, 55–60. <a href="https://doi.org/10.1126/science.1193270" target="_blank" rel="noopener">10.1126/science.1193270</a> · Nobel Prize in Physiology or Medicine 2021</span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Murthy SE, Dubin AE, Patapoutian A.</span> (2017).
+    <span class="ref-title">Piezos thrive under pressure: mechanically activated ion channels in health and disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 18, 771–783. <a href="https://doi.org/10.1038/nrm.2017.92" target="_blank" rel="noopener">10.1038/nrm.2017.92</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 18, 771–783. <a href="https://doi.org/10.1038/nrm.2017.92" target="_blank" rel="noopener">10.1038/nrm.2017.92</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Engler AJ, Sen S, Sweeney HL, Discher DE.</span> (2006).
+    <span class="ref-title">Matrix elasticity directs stem cell lineage specification.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 126, 677–689. <a href="https://doi.org/10.1016/j.cell.2006.06.044" target="_blank" rel="noopener">10.1016/j.cell.2006.06.044</a></span><span data-lang="en">Cell 126, 677–689. <a href="https://doi.org/10.1016/j.cell.2006.06.044" target="_blank" rel="noopener">10.1016/j.cell.2006.06.044</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Dupont S, Morsut L, Aragona M, et al.</span> (2011).
+    <span class="ref-title">Role of YAP/TAZ in mechanotransduction.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 474, 179–183. <a href="https://doi.org/10.1038/nature10137" target="_blank" rel="noopener">10.1038/nature10137</a></span><span data-lang="en">Nature 474, 179–183. <a href="https://doi.org/10.1038/nature10137" target="_blank" rel="noopener">10.1038/nature10137</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Panciera T, Azzolin L, Cordenonsi M, Piccolo S.</span> (2017).
+    <span class="ref-title">Mechanobiology of YAP and TAZ in physiology and disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 18, 758–770. <a href="https://doi.org/10.1038/nrm.2017.87" target="_blank" rel="noopener">10.1038/nrm.2017.87</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 18, 758–770. <a href="https://doi.org/10.1038/nrm.2017.87" target="_blank" rel="noopener">10.1038/nrm.2017.87</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Iskratsch T, Wolfenson H, Sheetz MP.</span> (2014).
+    <span class="ref-title">Appreciating force and shape — the rise of mechanotransduction in cell biology.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 15, 825–833. <a href="https://doi.org/10.1038/nrm3903" target="_blank" rel="noopener">10.1038/nrm3903</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 15, 825–833. <a href="https://doi.org/10.1038/nrm3903" target="_blank" rel="noopener">10.1038/nrm3903</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Sun Z, Costell M, Fässler R.</span> (2019).
+    <span class="ref-title">Integrin activation by talin, kindlin and mechanical forces.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Cell Biol. 21, 25–31. <a href="https://doi.org/10.1038/s41556-018-0234-9" target="_blank" rel="noopener">10.1038/s41556-018-0234-9</a></span><span data-lang="en">Nat. Cell Biol. 21, 25–31. <a href="https://doi.org/10.1038/s41556-018-0234-9" target="_blank" rel="noopener">10.1038/s41556-018-0234-9</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 11 ===================== -->
+<section class="section section-anchor" id="ch11">
+<div class="section-label">Ch 11 · Block C</div>
+<h2 data-zh="🕸️ 細胞骨架動力學" data-en="🕸️ Cytoskeleton Dynamics">🕸️ 細胞骨架動力學</h2>
+<p data-lang="zh">Pollard actin、Mitchison dynamic instability、Vale kinesin、Janke tubulin code。</p>
+<p data-lang="en">Pollard actin, Mitchison dynamic instability, Vale kinesin, Janke tubulin code.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Pollard TD, Goldman RD.</span> (2018).
+    <span class="ref-title">Overview of the cytoskeleton from an evolutionary perspective.</span>
+    <span class="ref-meta"><span data-lang="zh">Cold Spring Harb. Perspect. Biol. 10, a030288. <a href="https://doi.org/10.1101/cshperspect.a030288" target="_blank" rel="noopener">10.1101/cshperspect.a030288</a></span><span data-lang="en">Cold Spring Harb. Perspect. Biol. 10, a030288. <a href="https://doi.org/10.1101/cshperspect.a030288" target="_blank" rel="noopener">10.1101/cshperspect.a030288</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Mitchison T, Kirschner M.</span> (1984).
+    <span class="ref-title">Dynamic instability of microtubule growth.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 312, 237–242. <a href="https://doi.org/10.1038/312237a0" target="_blank" rel="noopener">10.1038/312237a0</a></span><span data-lang="en">Nature 312, 237–242. <a href="https://doi.org/10.1038/312237a0" target="_blank" rel="noopener">10.1038/312237a0</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Vale RD, Reese TS, Sheetz MP.</span> (1985).
+    <span class="ref-title">Identification of a novel force-generating protein, kinesin, involved in microtubule-based motility.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 42, 39–50. <a href="https://doi.org/10.1016/s0092-8674(85)80099-4" target="_blank" rel="noopener">10.1016/s0092-8674(85)80099-4</a></span><span data-lang="en">Cell 42, 39–50. <a href="https://doi.org/10.1016/s0092-8674(85)80099-4" target="_blank" rel="noopener">10.1016/s0092-8674(85)80099-4</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Janke C, Magiera MM.</span> (2020).
+    <span class="ref-title">The tubulin code and its role in controlling microtubule properties and functions.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 307–326. <a href="https://doi.org/10.1038/s41580-020-0214-3" target="_blank" rel="noopener">10.1038/s41580-020-0214-3</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 307–326. <a href="https://doi.org/10.1038/s41580-020-0214-3" target="_blank" rel="noopener">10.1038/s41580-020-0214-3</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Blanchoin L, Boujemaa-Paterski R, Sykes C, Plastino J.</span> (2014).
+    <span class="ref-title">Actin dynamics, architecture, and mechanics in cell motility.</span>
+    <span class="ref-meta"><span data-lang="zh">Physiol. Rev. 94, 235–263. <a href="https://doi.org/10.1152/physrev.00018.2013" target="_blank" rel="noopener">10.1152/physrev.00018.2013</a></span><span data-lang="en">Physiol. Rev. 94, 235–263. <a href="https://doi.org/10.1152/physrev.00018.2013" target="_blank" rel="noopener">10.1152/physrev.00018.2013</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Hirokawa N, Noda Y, Tanaka Y, Niwa S.</span> (2009).
+    <span class="ref-title">Kinesin superfamily motor proteins and intracellular transport.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 10, 682–696. <a href="https://doi.org/10.1038/nrm2774" target="_blank" rel="noopener">10.1038/nrm2774</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 10, 682–696. <a href="https://doi.org/10.1038/nrm2774" target="_blank" rel="noopener">10.1038/nrm2774</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag book">book</span>
+    <span class="ref-author">Alberts B, Heald R, Johnson A, et al.</span> (2022).
+    <span class="ref-title">Molecular Biology of the Cell, 7th edition — Chapter 16 The Cytoskeleton.</span>
+    <span class="ref-meta"><span data-lang="zh">W. W. Norton. ISBN 978-0393884821. <a href="https://wwnorton.com/books/9780393884821" target="_blank" rel="noopener">wwnorton.com</a></span><span data-lang="en">W. W. Norton. ISBN 978-0393884821. <a href="https://wwnorton.com/books/9780393884821" target="_blank" rel="noopener">wwnorton.com</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 12 ===================== -->
+<section class="section section-anchor" id="ch12">
+<div class="section-label">Ch 12 · Block C</div>
+<h2 data-zh="🔄 細胞週期與檢查點" data-en="🔄 Cell Cycle &amp; Checkpoints">🔄 細胞週期與檢查點</h2>
+<p data-lang="zh">Hartwell-Nurse、Murray cyclin、Musacchio SAC、Bartek-Lukas DDR、CDK4/6 抑制劑。</p>
+<p data-lang="en">Hartwell-Nurse, Murray cyclin, Musacchio SAC, Bartek-Lukas DDR, CDK4/6 inhibitors.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Nurse P.</span> (2000).
+    <span class="ref-title">A long twentieth century of the cell cycle and beyond.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 100, 71–78. <a href="https://doi.org/10.1016/s0092-8674(00)81684-0" target="_blank" rel="noopener">10.1016/s0092-8674(00)81684-0</a> · 諾貝爾獎 2001</span><span data-lang="en">Cell 100, 71–78. <a href="https://doi.org/10.1016/s0092-8674(00)81684-0" target="_blank" rel="noopener">10.1016/s0092-8674(00)81684-0</a> · Nobel Prize 2001</span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Musacchio A.</span> (2015).
+    <span class="ref-title">The molecular biology of spindle assembly checkpoint signaling dynamics.</span>
+    <span class="ref-meta"><span data-lang="zh">Curr. Biol. 25, R1002–R1018. <a href="https://doi.org/10.1016/j.cub.2015.08.051" target="_blank" rel="noopener">10.1016/j.cub.2015.08.051</a></span><span data-lang="en">Curr. Biol. 25, R1002–R1018. <a href="https://doi.org/10.1016/j.cub.2015.08.051" target="_blank" rel="noopener">10.1016/j.cub.2015.08.051</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Blackford AN, Jackson SP.</span> (2017).
+    <span class="ref-title">ATM, ATR, and DNA-PK: the trinity at the heart of the DNA damage response.</span>
+    <span class="ref-meta"><span data-lang="zh">Mol. Cell 66, 801–817. <a href="https://doi.org/10.1016/j.molcel.2017.05.015" target="_blank" rel="noopener">10.1016/j.molcel.2017.05.015</a></span><span data-lang="en">Mol. Cell 66, 801–817. <a href="https://doi.org/10.1016/j.molcel.2017.05.015" target="_blank" rel="noopener">10.1016/j.molcel.2017.05.015</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Bartek J, Lukas J.</span> (2007).
+    <span class="ref-title">DNA damage checkpoints: from initiation to recovery or adaptation.</span>
+    <span class="ref-meta"><span data-lang="zh">Curr. Opin. Cell Biol. 19, 238–245. <a href="https://doi.org/10.1016/j.ceb.2007.02.009" target="_blank" rel="noopener">10.1016/j.ceb.2007.02.009</a></span><span data-lang="en">Curr. Opin. Cell Biol. 19, 238–245. <a href="https://doi.org/10.1016/j.ceb.2007.02.009" target="_blank" rel="noopener">10.1016/j.ceb.2007.02.009</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Goel S, DeCristo MJ, McAllister SS, Zhao JJ.</span> (2018).
+    <span class="ref-title">CDK4/6 inhibition in cancer: beyond cell cycle arrest.</span>
+    <span class="ref-meta"><span data-lang="zh">Trends Cell Biol. 28, 911–925. <a href="https://doi.org/10.1016/j.tcb.2018.07.002" target="_blank" rel="noopener">10.1016/j.tcb.2018.07.002</a></span><span data-lang="en">Trends Cell Biol. 28, 911–925. <a href="https://doi.org/10.1016/j.tcb.2018.07.002" target="_blank" rel="noopener">10.1016/j.tcb.2018.07.002</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Hartwell LH, Weinert TA.</span> (1989).
+    <span class="ref-title">Checkpoints: controls that ensure the order of cell cycle events.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 246, 629–634. <a href="https://doi.org/10.1126/science.2683079" target="_blank" rel="noopener">10.1126/science.2683079</a> · 諾貝爾獎 2001</span><span data-lang="en">Science 246, 629–634. <a href="https://doi.org/10.1126/science.2683079" target="_blank" rel="noopener">10.1126/science.2683079</a> · Nobel Prize 2001</span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Murray AW.</span> (2004).
+    <span class="ref-title">Recycling the cell cycle: cyclins revisited.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 116, 221–234. <a href="https://doi.org/10.1016/s0092-8674(03)01080-8" target="_blank" rel="noopener">10.1016/s0092-8674(03)01080-8</a></span><span data-lang="en">Cell 116, 221–234. <a href="https://doi.org/10.1016/s0092-8674(03)01080-8" target="_blank" rel="noopener">10.1016/s0092-8674(03)01080-8</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 13 ===================== -->
+<section class="section section-anchor" id="ch13">
+<div class="section-label">Ch 13 · Block D</div>
+<h2 data-zh="⭕ 細胞核組織與核孔" data-en="⭕ Nuclear Organization &amp; NPC">⭕ 細胞核組織與核孔</h2>
+<p data-lang="zh">Beck NPC 2022、Hoelz NPC、Goldman lamin、Misteli 核身體、HGPS。</p>
+<p data-lang="en">Beck NPC 2022, Hoelz NPC, Goldman lamins, Misteli nuclear bodies, HGPS.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Mosalaganti S, Obarska-Kosinska A, Siggel M, et al.</span> (2022).
+    <span class="ref-title">AI-based structure prediction empowers integrative structural analysis of human nuclear pores (Beck).</span>
+    <span class="ref-meta"><span data-lang="zh">Science 376, eabm9506. <a href="https://doi.org/10.1126/science.abm9506" target="_blank" rel="noopener">10.1126/science.abm9506</a></span><span data-lang="en">Science 376, eabm9506. <a href="https://doi.org/10.1126/science.abm9506" target="_blank" rel="noopener">10.1126/science.abm9506</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Petrovic S, Samanta D, Perriches T, et al.</span> (2022).
+    <span class="ref-title">Architecture of the linker-scaffold in the nuclear pore (Hoelz).</span>
+    <span class="ref-meta"><span data-lang="zh">Science 376, eabm9798. <a href="https://doi.org/10.1126/science.abm9798" target="_blank" rel="noopener">10.1126/science.abm9798</a></span><span data-lang="en">Science 376, eabm9798. <a href="https://doi.org/10.1126/science.abm9798" target="_blank" rel="noopener">10.1126/science.abm9798</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Dittmer TA, Misteli T.</span> (2011).
+    <span class="ref-title">The lamin protein family.</span>
+    <span class="ref-meta"><span data-lang="zh">Genome Biol. 12, 222. <a href="https://doi.org/10.1186/gb-2011-12-5-222" target="_blank" rel="noopener">10.1186/gb-2011-12-5-222</a></span><span data-lang="en">Genome Biol. 12, 222. <a href="https://doi.org/10.1186/gb-2011-12-5-222" target="_blank" rel="noopener">10.1186/gb-2011-12-5-222</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Eriksson M, Brown WT, Gordon LB, et al. (Collins).</span> (2003).
+    <span class="ref-title">Recurrent de novo point mutations in lamin A cause Hutchinson-Gilford progeria syndrome.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 423, 293–298. <a href="https://doi.org/10.1038/nature01629" target="_blank" rel="noopener">10.1038/nature01629</a></span><span data-lang="en">Nature 423, 293–298. <a href="https://doi.org/10.1038/nature01629" target="_blank" rel="noopener">10.1038/nature01629</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Mahamid J, Pfeffer S, Schaffer M, et al.</span> (2016).
+    <span class="ref-title">Visualizing the molecular sociology at the HeLa cell nuclear periphery.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 351, 969–972. <a href="https://doi.org/10.1126/science.aad8857" target="_blank" rel="noopener">10.1126/science.aad8857</a></span><span data-lang="en">Science 351, 969–972. <a href="https://doi.org/10.1126/science.aad8857" target="_blank" rel="noopener">10.1126/science.aad8857</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Mao YS, Zhang B, Spector DL.</span> (2011).
+    <span class="ref-title">Biogenesis and function of nuclear bodies.</span>
+    <span class="ref-meta"><span data-lang="zh">Trends Genet. 27, 295–306. <a href="https://doi.org/10.1016/j.tig.2011.05.006" target="_blank" rel="noopener">10.1016/j.tig.2011.05.006</a></span><span data-lang="en">Trends Genet. 27, 295–306. <a href="https://doi.org/10.1016/j.tig.2011.05.006" target="_blank" rel="noopener">10.1016/j.tig.2011.05.006</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">van Steensel B, Belmont AS.</span> (2017).
+    <span class="ref-title">Lamina-associated domains: links with chromosome architecture, heterochromatin, and gene repression.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 169, 780–791. <a href="https://doi.org/10.1016/j.cell.2017.04.022" target="_blank" rel="noopener">10.1016/j.cell.2017.04.022</a></span><span data-lang="en">Cell 169, 780–791. <a href="https://doi.org/10.1016/j.cell.2017.04.022" target="_blank" rel="noopener">10.1016/j.cell.2017.04.022</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 14 ===================== -->
+<section class="section section-anchor" id="ch14">
+<div class="section-label">Ch 14 · Block D</div>
+<h2 data-zh="📦 ER-Golgi 與分泌途徑" data-en="📦 ER-Golgi Secretory Pathway">📦 ER-Golgi 與分泌途徑</h2>
+<p data-lang="zh">Schekman 分泌途徑諾貝爾、Rapoport translocon、Ron UPR、Glick cisternal maturation。</p>
+<p data-lang="en">Schekman secretory pathway Nobel, Rapoport translocon, Ron UPR, Glick cisternal maturation.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Novick P, Field C, Schekman R.</span> (1980).
+    <span class="ref-title">Identification of 23 complementation groups required for post-translational events in the yeast secretory pathway.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 21, 205–215. <a href="https://doi.org/10.1016/0092-8674(80)90128-2" target="_blank" rel="noopener">10.1016/0092-8674(80)90128-2</a> · 諾貝爾醫學獎 2013</span><span data-lang="en">Cell 21, 205–215. <a href="https://doi.org/10.1016/0092-8674(80)90128-2" target="_blank" rel="noopener">10.1016/0092-8674(80)90128-2</a> · Nobel Prize in Physiology or Medicine 2013</span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Rapoport TA, Li L, Park E.</span> (2017).
+    <span class="ref-title">Structural and mechanistic insights into protein translocation.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Cell Dev. Biol. 33, 369–390. <a href="https://doi.org/10.1146/annurev-cellbio-100616-060439" target="_blank" rel="noopener">10.1146/annurev-cellbio-100616-060439</a></span><span data-lang="en">Annu. Rev. Cell Dev. Biol. 33, 369–390. <a href="https://doi.org/10.1146/annurev-cellbio-100616-060439" target="_blank" rel="noopener">10.1146/annurev-cellbio-100616-060439</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Walter P, Ron D.</span> (2011).
+    <span class="ref-title">The unfolded protein response: from stress pathway to homeostatic regulation.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 334, 1081–1086. <a href="https://doi.org/10.1126/science.1209038" target="_blank" rel="noopener">10.1126/science.1209038</a></span><span data-lang="en">Science 334, 1081–1086. <a href="https://doi.org/10.1126/science.1209038" target="_blank" rel="noopener">10.1126/science.1209038</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Glick BS, Luini A.</span> (2011).
+    <span class="ref-title">Models for Golgi traffic: a critical assessment.</span>
+    <span class="ref-meta"><span data-lang="zh">Cold Spring Harb. Perspect. Biol. 3, a005215. <a href="https://doi.org/10.1101/cshperspect.a005215" target="_blank" rel="noopener">10.1101/cshperspect.a005215</a></span><span data-lang="en">Cold Spring Harb. Perspect. Biol. 3, a005215. <a href="https://doi.org/10.1101/cshperspect.a005215" target="_blank" rel="noopener">10.1101/cshperspect.a005215</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Barlowe C, Helenius A.</span> (2016).
+    <span class="ref-title">Cargo capture and bulk flow in the early secretory pathway.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Cell Dev. Biol. 32, 197–222. <a href="https://doi.org/10.1146/annurev-cellbio-111315-125016" target="_blank" rel="noopener">10.1146/annurev-cellbio-111315-125016</a></span><span data-lang="en">Annu. Rev. Cell Dev. Biol. 32, 197–222. <a href="https://doi.org/10.1146/annurev-cellbio-111315-125016" target="_blank" rel="noopener">10.1146/annurev-cellbio-111315-125016</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Rabouille C.</span> (2017).
+    <span class="ref-title">Pathways of unconventional protein secretion.</span>
+    <span class="ref-meta"><span data-lang="zh">Trends Cell Biol. 27, 230–240. <a href="https://doi.org/10.1016/j.tcb.2016.11.007" target="_blank" rel="noopener">10.1016/j.tcb.2016.11.007</a></span><span data-lang="en">Trends Cell Biol. 27, 230–240. <a href="https://doi.org/10.1016/j.tcb.2016.11.007" target="_blank" rel="noopener">10.1016/j.tcb.2016.11.007</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Christianson JC, Carvalho P.</span> (2022).
+    <span class="ref-title">Order through destruction: how ER-associated protein degradation contributes to organelle homeostasis.</span>
+    <span class="ref-meta"><span data-lang="zh">EMBO J. 41, e109845. <a href="https://doi.org/10.15252/embj.2021109845" target="_blank" rel="noopener">10.15252/embj.2021109845</a></span><span data-lang="en">EMBO J. 41, e109845. <a href="https://doi.org/10.15252/embj.2021109845" target="_blank" rel="noopener">10.15252/embj.2021109845</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 15 ===================== -->
+<section class="section section-anchor" id="ch15">
+<div class="section-label">Ch 15 · Block D</div>
+<h2 data-zh="🔋 粒線體動態與生質能" data-en="🔋 Mitochondrial Dynamics &amp; Bioenergetics">🔋 粒線體動態與生質能</h2>
+<p data-lang="zh">Chan MFN、Youle PINK1-Parkin、respirasome cryo-EM、ATP synthase、mtDNA。</p>
+<p data-lang="en">Chan MFN, Youle PINK1-Parkin, respirasome cryo-EM, ATP synthase, mtDNA.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Chan DC.</span> (2020).
+    <span class="ref-title">Mitochondrial dynamics and its involvement in disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Pathol. 15, 235–259. <a href="https://doi.org/10.1146/annurev-pathmechdis-012419-032711" target="_blank" rel="noopener">10.1146/annurev-pathmechdis-012419-032711</a></span><span data-lang="en">Annu. Rev. Pathol. 15, 235–259. <a href="https://doi.org/10.1146/annurev-pathmechdis-012419-032711" target="_blank" rel="noopener">10.1146/annurev-pathmechdis-012419-032711</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Narendra DP, Jin SM, Tanaka A, et al. (Youle).</span> (2010).
+    <span class="ref-title">PINK1 is selectively stabilized on impaired mitochondria to activate Parkin.</span>
+    <span class="ref-meta"><span data-lang="zh">PLOS Biol. 8, e1000298. <a href="https://doi.org/10.1371/journal.pbio.1000298" target="_blank" rel="noopener">10.1371/journal.pbio.1000298</a></span><span data-lang="en">PLOS Biol. 8, e1000298. <a href="https://doi.org/10.1371/journal.pbio.1000298" target="_blank" rel="noopener">10.1371/journal.pbio.1000298</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Letts JA, Fiedorczuk K, Sazanov LA. (Hirst, Sazanov).</span> (2016).
+    <span class="ref-title">The architecture of respiratory supercomplexes.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 537, 644–648. <a href="https://doi.org/10.1038/nature19774" target="_blank" rel="noopener">10.1038/nature19774</a></span><span data-lang="en">Nature 537, 644–648. <a href="https://doi.org/10.1038/nature19774" target="_blank" rel="noopener">10.1038/nature19774</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Kühlbrandt W.</span> (2019).
+    <span class="ref-title">Structure and mechanisms of F-type ATP synthases.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Biochem. 88, 515–549. <a href="https://doi.org/10.1146/annurev-biochem-013118-110903" target="_blank" rel="noopener">10.1146/annurev-biochem-013118-110903</a></span><span data-lang="en">Annu. Rev. Biochem. 88, 515–549. <a href="https://doi.org/10.1146/annurev-biochem-013118-110903" target="_blank" rel="noopener">10.1146/annurev-biochem-013118-110903</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Gustafsson CM, Falkenberg M, Larsson NG.</span> (2016).
+    <span class="ref-title">Maintenance and expression of mammalian mitochondrial DNA.</span>
+    <span class="ref-meta"><span data-lang="zh">Annu. Rev. Biochem. 85, 133–160. <a href="https://doi.org/10.1146/annurev-biochem-060815-014402" target="_blank" rel="noopener">10.1146/annurev-biochem-060815-014402</a></span><span data-lang="en">Annu. Rev. Biochem. 85, 133–160. <a href="https://doi.org/10.1146/annurev-biochem-060815-014402" target="_blank" rel="noopener">10.1146/annurev-biochem-060815-014402</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Pickrell AM, Youle RJ.</span> (2015).
+    <span class="ref-title">The roles of PINK1, Parkin, and mitochondrial fidelity in Parkinson's disease.</span>
+    <span class="ref-meta"><span data-lang="zh">Neuron 85, 257–273. <a href="https://doi.org/10.1016/j.neuron.2014.12.007" target="_blank" rel="noopener">10.1016/j.neuron.2014.12.007</a></span><span data-lang="en">Neuron 85, 257–273. <a href="https://doi.org/10.1016/j.neuron.2014.12.007" target="_blank" rel="noopener">10.1016/j.neuron.2014.12.007</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Spinelli JB, Haigis MC.</span> (2018).
+    <span class="ref-title">The multifaceted contributions of mitochondria to cellular metabolism.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Cell Biol. 20, 745–754. <a href="https://doi.org/10.1038/s41556-018-0124-1" target="_blank" rel="noopener">10.1038/s41556-018-0124-1</a></span><span data-lang="en">Nat. Cell Biol. 20, 745–754. <a href="https://doi.org/10.1038/s41556-018-0124-1" target="_blank" rel="noopener">10.1038/s41556-018-0124-1</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 16 ===================== -->
+<section class="section section-anchor" id="ch16">
+<div class="section-label">Ch 16 · Block D</div>
+<h2 data-zh="🚛 胞器接觸與膜運輸" data-en="🚛 Organelle Contacts &amp; Trafficking">🚛 胞器接觸與膜運輸</h2>
+<p data-lang="zh">Voeltz MCS、Levine-Lev VPS13、Hurley ESCRT、Ballabio TFEB、Mizushima。</p>
+<p data-lang="en">Voeltz MCS, Levine-Lev VPS13, Hurley ESCRT, Ballabio TFEB, Mizushima.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Prinz WA, Toulmay A, Balla T.</span> (2020).
+    <span class="ref-title">The functional universe of membrane contact sites.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 7–24. <a href="https://doi.org/10.1038/s41580-019-0180-9" target="_blank" rel="noopener">10.1038/s41580-019-0180-9</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 7–24. <a href="https://doi.org/10.1038/s41580-019-0180-9" target="_blank" rel="noopener">10.1038/s41580-019-0180-9</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Kumar N, Leonzino M, Hancock-Cerutti W, et al. (Lev, De Camilli).</span> (2018).
+    <span class="ref-title">VPS13A and VPS13C are lipid transport proteins differentially localized at ER contact sites.</span>
+    <span class="ref-meta"><span data-lang="zh">J. Cell Biol. 217, 3625–3639. <a href="https://doi.org/10.1083/jcb.201807019" target="_blank" rel="noopener">10.1083/jcb.201807019</a></span><span data-lang="en">J. Cell Biol. 217, 3625–3639. <a href="https://doi.org/10.1083/jcb.201807019" target="_blank" rel="noopener">10.1083/jcb.201807019</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Vietri M, Radulovic M, Stenmark H.</span> (2020).
+    <span class="ref-title">The many functions of ESCRTs (Hurley framework).</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 25–42. <a href="https://doi.org/10.1038/s41580-019-0177-4" target="_blank" rel="noopener">10.1038/s41580-019-0177-4</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 25–42. <a href="https://doi.org/10.1038/s41580-019-0177-4" target="_blank" rel="noopener">10.1038/s41580-019-0177-4</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Settembre C, Di Malta C, Polito VA, et al. (Ballabio).</span> (2011).
+    <span class="ref-title">TFEB links autophagy to lysosomal biogenesis.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 332, 1429–1433. <a href="https://doi.org/10.1126/science.1204592" target="_blank" rel="noopener">10.1126/science.1204592</a></span><span data-lang="en">Science 332, 1429–1433. <a href="https://doi.org/10.1126/science.1204592" target="_blank" rel="noopener">10.1126/science.1204592</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Ballabio A, Bonifacino JS.</span> (2020).
+    <span class="ref-title">Lysosomes as dynamic regulators of cell and organismal homeostasis.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 101–118. <a href="https://doi.org/10.1038/s41580-019-0185-4" target="_blank" rel="noopener">10.1038/s41580-019-0185-4</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 101–118. <a href="https://doi.org/10.1038/s41580-019-0185-4" target="_blank" rel="noopener">10.1038/s41580-019-0185-4</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Bonifacino JS, Glick BS.</span> (2004).
+    <span class="ref-title">The mechanisms of vesicle budding and fusion (SNAREs / Rabs).</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 116, 153–166. <a href="https://doi.org/10.1016/s0092-8674(03)01079-1" target="_blank" rel="noopener">10.1016/s0092-8674(03)01079-1</a></span><span data-lang="en">Cell 116, 153–166. <a href="https://doi.org/10.1016/s0092-8674(03)01079-1" target="_blank" rel="noopener">10.1016/s0092-8674(03)01079-1</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Wu H, Carvalho P, Voeltz GK.</span> (2018).
+    <span class="ref-title">Here, there, and everywhere: the importance of ER membrane contact sites.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 361, eaan5835. <a href="https://doi.org/10.1126/science.aan5835" target="_blank" rel="noopener">10.1126/science.aan5835</a></span><span data-lang="en">Science 361, eaan5835. <a href="https://doi.org/10.1126/science.aan5835" target="_blank" rel="noopener">10.1126/science.aan5835</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 17 ===================== -->
+<section class="section section-anchor" id="ch17">
+<div class="section-label">Ch 17 · Block E</div>
+<h2 data-zh="💀 細胞死亡途徑" data-en="💀 Cell Death Pathways">💀 細胞死亡途徑</h2>
+<p data-lang="zh">NCCD nomenclature、Dixon ferroptosis、Tsvetkov cuproptosis 2022、Shi gasdermin、Pasparakis necroptosis。</p>
+<p data-lang="en">NCCD nomenclature, Dixon ferroptosis, Tsvetkov cuproptosis 2022, Shi gasdermin, Pasparakis necroptosis.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag policy">policy</span>
+    <span class="ref-author">Galluzzi L, Vitale I, Aaronson SA, et al.</span> (2018).
+    <span class="ref-title">Molecular mechanisms of cell death: recommendations of the Nomenclature Committee on Cell Death 2018 (NCCD).</span>
+    <span class="ref-meta"><span data-lang="zh">Cell Death Differ. 25, 486–541. <a href="https://doi.org/10.1038/s41418-017-0012-4" target="_blank" rel="noopener">10.1038/s41418-017-0012-4</a></span><span data-lang="en">Cell Death Differ. 25, 486–541. <a href="https://doi.org/10.1038/s41418-017-0012-4" target="_blank" rel="noopener">10.1038/s41418-017-0012-4</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Dixon SJ, Lemberg KM, Lamprecht MR, et al.</span> (2012).
+    <span class="ref-title">Ferroptosis: an iron-dependent form of nonapoptotic cell death.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 149, 1060–1072. <a href="https://doi.org/10.1016/j.cell.2012.03.042" target="_blank" rel="noopener">10.1016/j.cell.2012.03.042</a></span><span data-lang="en">Cell 149, 1060–1072. <a href="https://doi.org/10.1016/j.cell.2012.03.042" target="_blank" rel="noopener">10.1016/j.cell.2012.03.042</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Tsvetkov P, Coy S, Petrova B, et al.</span> (2022).
+    <span class="ref-title">Copper induces cell death by targeting lipoylated TCA cycle proteins (cuproptosis).</span>
+    <span class="ref-meta"><span data-lang="zh">Science 375, 1254–1261. <a href="https://doi.org/10.1126/science.abf0529" target="_blank" rel="noopener">10.1126/science.abf0529</a></span><span data-lang="en">Science 375, 1254–1261. <a href="https://doi.org/10.1126/science.abf0529" target="_blank" rel="noopener">10.1126/science.abf0529</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Shi J, Zhao Y, Wang K, et al.</span> (2015).
+    <span class="ref-title">Cleavage of GSDMD by inflammatory caspases determines pyroptotic cell death.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 526, 660–665. <a href="https://doi.org/10.1038/nature15514" target="_blank" rel="noopener">10.1038/nature15514</a></span><span data-lang="en">Nature 526, 660–665. <a href="https://doi.org/10.1038/nature15514" target="_blank" rel="noopener">10.1038/nature15514</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Pasparakis M, Vandenabeele P.</span> (2015).
+    <span class="ref-title">Necroptosis and its role in inflammation.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 517, 311–320. <a href="https://doi.org/10.1038/nature14191" target="_blank" rel="noopener">10.1038/nature14191</a></span><span data-lang="en">Nature 517, 311–320. <a href="https://doi.org/10.1038/nature14191" target="_blank" rel="noopener">10.1038/nature14191</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Stockwell BR.</span> (2022).
+    <span class="ref-title">Ferroptosis turns 10: emerging mechanisms, physiological functions, and therapeutic applications.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 185, 2401–2421. <a href="https://doi.org/10.1016/j.cell.2022.06.003" target="_blank" rel="noopener">10.1016/j.cell.2022.06.003</a></span><span data-lang="en">Cell 185, 2401–2421. <a href="https://doi.org/10.1016/j.cell.2022.06.003" target="_blank" rel="noopener">10.1016/j.cell.2022.06.003</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Bedoui S, Herold MJ, Strasser A.</span> (2020).
+    <span class="ref-title">Emerging connectivity of programmed cell death pathways and its physiological implications.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Rev. Mol. Cell Biol. 21, 678–695. <a href="https://doi.org/10.1038/s41580-020-0270-8" target="_blank" rel="noopener">10.1038/s41580-020-0270-8</a></span><span data-lang="en">Nat. Rev. Mol. Cell Biol. 21, 678–695. <a href="https://doi.org/10.1038/s41580-020-0270-8" target="_blank" rel="noopener">10.1038/s41580-020-0270-8</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 18 ===================== -->
+<section class="section section-anchor" id="ch18">
+<div class="section-label">Ch 18 · Block E</div>
+<h2 data-zh="♻️ 自噬與品質管控" data-en="♻️ Autophagy &amp; Quality Control">♻️ 自噬與品質管控</h2>
+<p data-lang="zh">Ohsumi 諾貝爾、Mizushima、Klionsky、Dikic selective autophagy、Sabatini mTORC1-lysosome、ATG9。</p>
+<p data-lang="en">Ohsumi Nobel, Mizushima, Klionsky, Dikic selective autophagy, Sabatini mTORC1-lysosome, ATG9.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Tsukada M, Ohsumi Y.</span> (1993).
+    <span class="ref-title">Isolation and characterization of autophagy-defective mutants of Saccharomyces cerevisiae.</span>
+    <span class="ref-meta"><span data-lang="zh">FEBS Lett. 333, 169–174. <a href="https://doi.org/10.1016/0014-5793(93)80398-e" target="_blank" rel="noopener">10.1016/0014-5793(93)80398-e</a> · 諾貝爾醫學獎 2016</span><span data-lang="en">FEBS Lett. 333, 169–174. <a href="https://doi.org/10.1016/0014-5793(93)80398-e" target="_blank" rel="noopener">10.1016/0014-5793(93)80398-e</a> · Nobel Prize in Physiology or Medicine 2016</span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Mizushima N, Levine B.</span> (2020).
+    <span class="ref-title">Autophagy in human diseases.</span>
+    <span class="ref-meta"><span data-lang="zh">N. Engl. J. Med. 383, 1564–1576. <a href="https://doi.org/10.1056/NEJMra2022774" target="_blank" rel="noopener">10.1056/NEJMra2022774</a></span><span data-lang="en">N. Engl. J. Med. 383, 1564–1576. <a href="https://doi.org/10.1056/NEJMra2022774" target="_blank" rel="noopener">10.1056/NEJMra2022774</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Klionsky DJ, Petroni G, Amaravadi RK, et al.</span> (2021).
+    <span class="ref-title">Autophagy in major human diseases.</span>
+    <span class="ref-meta"><span data-lang="zh">EMBO J. 40, e108863. <a href="https://doi.org/10.15252/embj.2021108863" target="_blank" rel="noopener">10.15252/embj.2021108863</a></span><span data-lang="en">EMBO J. 40, e108863. <a href="https://doi.org/10.15252/embj.2021108863" target="_blank" rel="noopener">10.15252/embj.2021108863</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Kirkin V, Rogov VV.</span> (2019).
+    <span class="ref-title">A diversity of selective autophagy receptors determines the specificity of the autophagy pathway (Dikic).</span>
+    <span class="ref-meta"><span data-lang="zh">Mol. Cell 76, 268–285. <a href="https://doi.org/10.1016/j.molcel.2019.09.005" target="_blank" rel="noopener">10.1016/j.molcel.2019.09.005</a></span><span data-lang="en">Mol. Cell 76, 268–285. <a href="https://doi.org/10.1016/j.molcel.2019.09.005" target="_blank" rel="noopener">10.1016/j.molcel.2019.09.005</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Matoba K, Kotani T, Tsutsumi A, et al.</span> (2020).
+    <span class="ref-title">Atg9 is a lipid scramblase that mediates autophagosomal membrane expansion.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Struct. Mol. Biol. 27, 1185–1193. <a href="https://doi.org/10.1038/s41594-020-00518-w" target="_blank" rel="noopener">10.1038/s41594-020-00518-w</a></span><span data-lang="en">Nat. Struct. Mol. Biol. 27, 1185–1193. <a href="https://doi.org/10.1038/s41594-020-00518-w" target="_blank" rel="noopener">10.1038/s41594-020-00518-w</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Sancak Y, Bar-Peled L, Zoncu R, et al. (Sabatini).</span> (2010).
+    <span class="ref-title">Ragulator-Rag complex targets mTORC1 to the lysosomal surface.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 141, 290–303. <a href="https://doi.org/10.1016/j.cell.2010.02.024" target="_blank" rel="noopener">10.1016/j.cell.2010.02.024</a></span><span data-lang="en">Cell 141, 290–303. <a href="https://doi.org/10.1016/j.cell.2010.02.024" target="_blank" rel="noopener">10.1016/j.cell.2010.02.024</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag policy">policy</span>
+    <span class="ref-author">Klionsky DJ, Abdel-Aziz AK, Abdelfatah S, et al.</span> (2021).
+    <span class="ref-title">Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition).</span>
+    <span class="ref-meta"><span data-lang="zh">Autophagy 17, 1–382. <a href="https://doi.org/10.1080/15548627.2020.1797280" target="_blank" rel="noopener">10.1080/15548627.2020.1797280</a></span><span data-lang="en">Autophagy 17, 1–382. <a href="https://doi.org/10.1080/15548627.2020.1797280" target="_blank" rel="noopener">10.1080/15548627.2020.1797280</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 19 ===================== -->
+<section class="section section-anchor" id="ch19">
+<div class="section-label">Ch 19 · Block E</div>
+<h2 data-zh="🌱 細胞衰老與幹性" data-en="🌱 Cellular Senescence &amp; Stemness">🌱 細胞衰老與幹性</h2>
+<p data-lang="zh">Hayflick、Campisi SASP、Yamanaka iPSC、Belmonte/Sinclair partial reprogramming、Horvath clock、Clevers organoid。</p>
+<p data-lang="en">Hayflick, Campisi SASP, Yamanaka iPSC, Belmonte/Sinclair partial reprogramming, Horvath clock, Clevers organoids.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Hayflick L, Moorhead PS.</span> (1961).
+    <span class="ref-title">The serial cultivation of human diploid cell strains.</span>
+    <span class="ref-meta"><span data-lang="zh">Exp. Cell Res. 25, 585–621. <a href="https://doi.org/10.1016/0014-4827(61)90192-6" target="_blank" rel="noopener">10.1016/0014-4827(61)90192-6</a></span><span data-lang="en">Exp. Cell Res. 25, 585–621. <a href="https://doi.org/10.1016/0014-4827(61)90192-6" target="_blank" rel="noopener">10.1016/0014-4827(61)90192-6</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Gorgoulis V, Adams PD, Alimonti A, et al. (Campisi).</span> (2019).
+    <span class="ref-title">Cellular senescence: defining a path forward.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 179, 813–827. <a href="https://doi.org/10.1016/j.cell.2019.10.005" target="_blank" rel="noopener">10.1016/j.cell.2019.10.005</a></span><span data-lang="en">Cell 179, 813–827. <a href="https://doi.org/10.1016/j.cell.2019.10.005" target="_blank" rel="noopener">10.1016/j.cell.2019.10.005</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Takahashi K, Yamanaka S.</span> (2006).
+    <span class="ref-title">Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 126, 663–676. <a href="https://doi.org/10.1016/j.cell.2006.07.024" target="_blank" rel="noopener">10.1016/j.cell.2006.07.024</a> · 諾貝爾醫學獎 2012</span><span data-lang="en">Cell 126, 663–676. <a href="https://doi.org/10.1016/j.cell.2006.07.024" target="_blank" rel="noopener">10.1016/j.cell.2006.07.024</a> · Nobel Prize in Physiology or Medicine 2012</span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Ocampo A, Reddy P, Martinez-Redondo P, et al. (Izpisua Belmonte).</span> (2016).
+    <span class="ref-title">In vivo amelioration of age-associated hallmarks by partial reprogramming.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 167, 1719–1733. <a href="https://doi.org/10.1016/j.cell.2016.11.052" target="_blank" rel="noopener">10.1016/j.cell.2016.11.052</a></span><span data-lang="en">Cell 167, 1719–1733. <a href="https://doi.org/10.1016/j.cell.2016.11.052" target="_blank" rel="noopener">10.1016/j.cell.2016.11.052</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Horvath S.</span> (2013).
+    <span class="ref-title">DNA methylation age of human tissues and cell types.</span>
+    <span class="ref-meta"><span data-lang="zh">Genome Biol. 14, R115. <a href="https://doi.org/10.1186/gb-2013-14-10-r115" target="_blank" rel="noopener">10.1186/gb-2013-14-10-r115</a></span><span data-lang="en">Genome Biol. 14, R115. <a href="https://doi.org/10.1186/gb-2013-14-10-r115" target="_blank" rel="noopener">10.1186/gb-2013-14-10-r115</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Sato T, Vries RG, Snippert HJ, et al. (Clevers).</span> (2009).
+    <span class="ref-title">Single Lgr5 stem cells build crypt-villus structures in vitro without a mesenchymal niche.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 459, 262–265. <a href="https://doi.org/10.1038/nature07935" target="_blank" rel="noopener">10.1038/nature07935</a></span><span data-lang="en">Nature 459, 262–265. <a href="https://doi.org/10.1038/nature07935" target="_blank" rel="noopener">10.1038/nature07935</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-author">SenNet Consortium.</span> (2022).
+    <span class="ref-title">NIH Cellular Senescence Network (SenNet) — atlas of senescent cells across tissues.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Aging 2, 1090–1100. <a href="https://doi.org/10.1038/s43587-022-00326-5" target="_blank" rel="noopener">10.1038/s43587-022-00326-5</a> · <a href="https://sennetconsortium.org/" target="_blank" rel="noopener">sennetconsortium.org</a></span><span data-lang="en">Nat. Aging 2, 1090–1100. <a href="https://doi.org/10.1038/s43587-022-00326-5" target="_blank" rel="noopener">10.1038/s43587-022-00326-5</a> · <a href="https://sennetconsortium.org/" target="_blank" rel="noopener">sennetconsortium.org</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Lu Y, Brommer B, Tian X, et al. (Sinclair).</span> (2020).
+    <span class="ref-title">Reprogramming to recover youthful epigenetic information and restore vision.</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 588, 124–129. <a href="https://doi.org/10.1038/s41586-020-2975-4" target="_blank" rel="noopener">10.1038/s41586-020-2975-4</a></span><span data-lang="en">Nature 588, 124–129. <a href="https://doi.org/10.1038/s41586-020-2975-4" target="_blank" rel="noopener">10.1038/s41586-020-2975-4</a></span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Ch 20 ===================== -->
+<section class="section section-anchor" id="ch20">
+<div class="section-label">Ch 20 · Block E</div>
+<h2 data-zh="🏥 細胞生物學與疾病前沿" data-en="🏥 Cell Biology in Disease">🏥 細胞生物學與疾病前沿</h2>
+<p data-lang="zh">Hanahan cancer hallmarks 2022、López-Otín hallmarks of aging 2023、CRISPR Nobel、Liu base editing、Anzalone prime editing。</p>
+<p data-lang="en">Hanahan cancer hallmarks 2022, López-Otín hallmarks of aging 2023, CRISPR Nobel, Liu base editing, Anzalone prime editing.</p>
+<ul class="ref-list">
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Hanahan D.</span> (2022).
+    <span class="ref-title">Hallmarks of cancer: new dimensions.</span>
+    <span class="ref-meta"><span data-lang="zh">Cancer Discov. 12, 31–46. <a href="https://doi.org/10.1158/2159-8290.CD-21-1059" target="_blank" rel="noopener">10.1158/2159-8290.CD-21-1059</a></span><span data-lang="en">Cancer Discov. 12, 31–46. <a href="https://doi.org/10.1158/2159-8290.CD-21-1059" target="_blank" rel="noopener">10.1158/2159-8290.CD-21-1059</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G.</span> (2023).
+    <span class="ref-title">Hallmarks of aging: an expanding universe.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 186, 243–278. <a href="https://doi.org/10.1016/j.cell.2022.11.001" target="_blank" rel="noopener">10.1016/j.cell.2022.11.001</a></span><span data-lang="en">Cell 186, 243–278. <a href="https://doi.org/10.1016/j.cell.2022.11.001" target="_blank" rel="noopener">10.1016/j.cell.2022.11.001</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Jinek M, Chylinski K, Fonfara I, Hauer M, Doudna JA, Charpentier E.</span> (2012).
+    <span class="ref-title">A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity.</span>
+    <span class="ref-meta"><span data-lang="zh">Science 337, 816–821. <a href="https://doi.org/10.1126/science.1225829" target="_blank" rel="noopener">10.1126/science.1225829</a> · 諾貝爾化學獎 2020</span><span data-lang="en">Science 337, 816–821. <a href="https://doi.org/10.1126/science.1225829" target="_blank" rel="noopener">10.1126/science.1225829</a> · Nobel Prize in Chemistry 2020</span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Komor AC, Kim YB, Packer MS, Zuris JA, Liu DR.</span> (2016).
+    <span class="ref-title">Programmable editing of a target base in genomic DNA without double-stranded DNA cleavage (base editing).</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 533, 420–424. <a href="https://doi.org/10.1038/nature17946" target="_blank" rel="noopener">10.1038/nature17946</a></span><span data-lang="en">Nature 533, 420–424. <a href="https://doi.org/10.1038/nature17946" target="_blank" rel="noopener">10.1038/nature17946</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag paper">paper</span>
+    <span class="ref-author">Anzalone AV, Randolph PB, Davis JR, et al. (Liu).</span> (2019).
+    <span class="ref-title">Search-and-replace genome editing without double-strand breaks or donor DNA (prime editing).</span>
+    <span class="ref-meta"><span data-lang="zh">Nature 576, 149–157. <a href="https://doi.org/10.1038/s41586-019-1711-4" target="_blank" rel="noopener">10.1038/s41586-019-1711-4</a></span><span data-lang="en">Nature 576, 149–157. <a href="https://doi.org/10.1038/s41586-019-1711-4" target="_blank" rel="noopener">10.1038/s41586-019-1711-4</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag bestp">bestp</span>
+    <span class="ref-author">Hanahan D, Weinberg RA.</span> (2011).
+    <span class="ref-title">Hallmarks of cancer: the next generation.</span>
+    <span class="ref-meta"><span data-lang="zh">Cell 144, 646–674. <a href="https://doi.org/10.1016/j.cell.2011.02.013" target="_blank" rel="noopener">10.1016/j.cell.2011.02.013</a></span><span data-lang="en">Cell 144, 646–674. <a href="https://doi.org/10.1016/j.cell.2011.02.013" target="_blank" rel="noopener">10.1016/j.cell.2011.02.013</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag db">db</span>
+    <span class="ref-author">Cancer Genome Atlas Research Network.</span> (2013).
+    <span class="ref-title">The Cancer Genome Atlas (TCGA) Pan-Cancer analysis project.</span>
+    <span class="ref-meta"><span data-lang="zh">Nat. Genet. 45, 1113–1120. <a href="https://doi.org/10.1038/ng.2764" target="_blank" rel="noopener">10.1038/ng.2764</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noopener">portal.gdc.cancer.gov</a></span><span data-lang="en">Nat. Genet. 45, 1113–1120. <a href="https://doi.org/10.1038/ng.2764" target="_blank" rel="noopener">10.1038/ng.2764</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noopener">portal.gdc.cancer.gov</a></span></span>
+  </li>
+  <li>
+    <span class="ref-tag book">book</span>
+    <span class="ref-author">Lodish H, Berk A, Kaiser CA, et al.</span> (2021).
+    <span class="ref-title">Molecular Cell Biology, 9th edition.</span>
+    <span class="ref-meta"><span data-lang="zh">Macmillan Learning. ISBN 978-1319208523.</span><span data-lang="en">Macmillan Learning. ISBN 978-1319208523.</span></span>
+  </li>
+</ul>
+</section>
+
+<!-- ===================== Errata ===================== -->
+<section class="section section-anchor" id="errata">
+<div class="section-label" data-zh="教學註記" data-en="TUTORIAL NOTES">教學註記</div>
+<h2 data-zh="📌 教學註記與細節" data-en="📌 Tutorial Notes & Details">📌 教學註記與細節</h2>
+<p data-lang="zh">本教程力求採用 2022–2024 最新成果，但分子細胞生物學進展迅速。下列為已知須留意的部分。</p>
+<p data-lang="en">This tutorial strives to reflect the 2022–2024 state of the art, but molecular cell biology evolves rapidly. Items to keep in mind:</p>
+
+<div class="errata">
+  
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span><h4 data-zh="① AlphaFold 與動態構象" data-en="① AlphaFold and conformational dynamics">① AlphaFold 與動態構象</h4>
+  <p data-lang="zh">AlphaFold2/3 預測的是單一靜態構象，不直接反映折疊景觀的多態性或 allosteric switching；IDR 的「低 pLDDT」應解讀為「動態」而非「預測失敗」（參考 <a href="https://doi.org/10.1038/s41594-023-01112-6" target="_blank" rel="noopener">Lane 2023 Nat Struct Mol Biol</a>）。</p>
+  <p data-lang="en">AlphaFold2/3 predicts a single static conformation; it does not capture conformational ensembles or allosteric switching. Low pLDDT in IDRs should be read as "dynamic" rather than "prediction failure" (see Lane 2023, Nat Struct Mol Biol).</p>
+</div>
+
+<div class="errata">
+  
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span><h4 data-zh="② 凝聚物的「液態」描述須謹慎" data-en="② 'Liquidity' of condensates needs nuance">② 凝聚物的「液態」描述須謹慎</h4>
+  <p data-lang="zh">早期 LLPS 文獻將許多 membraneless organelle 一律描述為「液滴」；近年 super-resolution 與 single-molecule 研究顯示，許多體外的「液滴」在細胞內呈現 sub-saturation cluster、network 或 nanocluster 形態（參考 <a href="https://doi.org/10.1038/s41580-023-00673-0" target="_blank" rel="noopener">Lyon 2024 Nat Rev MCB</a>、Mittag 系列）。「LLPS」應更廣義理解為 "biomolecular condensation"。</p>
+  <p data-lang="en">Early LLPS papers labeled many membraneless organelles as "droplets". Recent super-resolution and single-molecule work shows that many in-vitro droplets exist in cells as sub-saturation clusters, networks or nanoclusters (Lyon 2024 Nat Rev MCB, Mittag series). "LLPS" is better understood as the broader concept of "biomolecular condensation".</p>
+</div>
+
+<div class="errata">
+  
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span><h4 data-zh="③ Cuproptosis 仍在發展中" data-en="③ Cuproptosis is still emerging">③ Cuproptosis 仍在發展中</h4>
+  <p data-lang="zh">Tsvetkov 等 2022 提出 cuproptosis，但 NCCD 尚未正式將其納入 nomenclature（截至 2024）；機制是否獨立於 ferroptosis/apoptosis、是否需要 caspase 等仍有討論空間。本教程歸類為「emerging modality」。</p>
+  <p data-lang="en">Cuproptosis was defined by Tsvetkov et al. 2022, but the NCCD has not yet officially incorporated it into its nomenclature (as of 2024). Whether it is mechanistically independent from ferroptosis/apoptosis remains debated. This tutorial categorizes it as an "emerging modality".</p>
+</div>
+
+<div class="errata">
+  
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span><h4 data-zh="④ Yamanaka 因子部分重編程的「老化逆轉」尚未在人體確證" data-en="④ Partial-reprogramming 'age reversal' is not yet proven in humans">④ Yamanaka 部分重編程的老化逆轉尚未在人體確證</h4>
+  <p data-lang="zh">Belmonte (2016)、Sinclair (2020) 在小鼠展示部分重編程可改善老化表型，但人體臨床試驗甫展開；DNA methylation clock 的「年齡」與生理年齡的因果關係仍是研究議題。請以「假設」而非「結論」看待。</p>
+  <p data-lang="en">Belmonte (2016) and Sinclair (2020) showed that partial reprogramming improves aging phenotypes in mice, but human clinical trials have only just begun. The causal link between methylation-clock "age" and physiological age is still under investigation — treat as hypothesis, not conclusion.</p>
+</div>
+
+<div class="errata">
+
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑤ 教材版本提醒" data-en="⑤ Textbook edition note">⑤ 教材版本提醒</h4>
+  <p data-lang="zh">引用的 <em>Molecular Biology of the Cell</em> 為 7e（2022, Alberts/Heald），<em>Molecular Cell Biology</em> 為 9e（2021, Lodish）。較舊版本（MBoC 6e 2014、Lodish 8e 2016）在部分章節（凝聚物、3D 基因組、表觀轉錄體）已過時。</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑥ GPCR 並非「兩態開關」而是多態構象景觀" data-en="⑥ GPCRs are not two-state switches but multi-state landscapes">⑥ GPCR 不是「兩態開關」</h4>
+  <p data-lang="zh">早期教科書常將 GPCR 描述為「活化／非活化」兩態，但 single-molecule FRET 與 cryo-EM 已顯示同一受體可採取多個中間構象，且不同 ligand（agonist、partial agonist、biased agonist、inverse agonist）穩定不同子集，對應 G-protein 與 β-arrestin pathway 的偏好性（biased signaling）。請參考 <a href="https://doi.org/10.1146/annurev-pharmtox-010818-021957" target="_blank" rel="noopener">Wingler &amp; Lefkowitz 2020 Annu Rev Pharmacol Toxicol</a> 與 <a href="https://doi.org/10.1016/j.cell.2020.04.053" target="_blank" rel="noopener">Wingler 2020 Cell</a>。教學中「活化／非活化」應視為簡化模型。</p>
+  <p data-lang="en">Textbooks often portray GPCRs as binary "active/inactive" switches, but single-molecule FRET and cryo-EM show that a single receptor samples multiple intermediate conformations, with different ligand classes (agonist, partial agonist, biased agonist, inverse agonist) stabilizing distinct sub-ensembles that bias G-protein vs β-arrestin signaling (Wingler &amp; Lefkowitz 2020 ARPT; Wingler 2020 Cell). Treat the two-state cartoon as a teaching simplification.</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑦ 持續表現 Yamanaka 因子會致瘤" data-en="⑦ Sustained Yamanaka factor expression is oncogenic">⑦ 持續 OSKM 表現會致瘤</h4>
+  <p data-lang="zh">與 ④（部分重編程對老化的假設）不同，這是已被確證的現象：在小鼠體內持續表現 OSKM 會誘發 dedifferentiated teratoma 與多器官畸胎瘤，因此 in vivo reprogramming 必須使用 pulsed / cyclic / inducible 策略（doxycycline-off）以避免去分化失控。請參考 <a href="https://doi.org/10.1038/nature12586" target="_blank" rel="noopener">Abad et al. 2013 Nature</a> 與 <a href="https://doi.org/10.1016/j.cell.2016.11.052" target="_blank" rel="noopener">Ocampo et al. 2016 Cell</a>。「Yamanaka 因子可逆轉老化」不等於「可長期安全表現」。</p>
+  <p data-lang="en">Distinct from ④ (the aging-reversal hypothesis), this is well established: sustained OSKM expression in mice induces dedifferentiated teratomas and multi-organ tumors, so in-vivo reprogramming requires pulsed/cyclic/inducible regimes (e.g., doxycycline-off) to avoid uncontrolled dedifferentiation (Abad 2013 Nature; Ocampo 2016 Cell). "Yamanaka factors can rejuvenate" is not the same as "can be safely expressed long-term".</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑧ 觀察到凝聚物 ≠ 凝聚物具有功能" data-en="⑧ Observing a condensate ≠ that condensate is functional">⑧ 看到凝聚物不等於凝聚物有功能</h4>
+  <p data-lang="zh">與 ② 不同（②談「液態」描述的物理準確性），這一點談因果：許多 LLPS 文獻僅顯示「存在凝聚物」便宣稱該凝聚物驅動下游功能，但近年研究指出，許多體內 puncta 是 over-expression artifact、是上游訊號的旁觀者、或其消失並不影響下游活性。建議採用「凝聚物形成 vs 凝聚物功能」分離測試（如 IDR 突變、optogenetic Cry2-mediated 控制 condensate 但不改變蛋白濃度）。請參考 <a href="https://doi.org/10.1016/j.molcel.2021.07.030" target="_blank" rel="noopener">McSwiggen 2019 Genes Dev</a> 與 <a href="https://doi.org/10.1038/s41594-021-00659-6" target="_blank" rel="noopener">Düster 2021 Nat Struct Mol Biol</a>。</p>
+  <p data-lang="en">Distinct from ② (which concerns the physical accuracy of "liquid" language), this is a causation issue: many LLPS papers infer downstream function from the mere existence of a condensate, but recent work shows that many cellular puncta are over-expression artifacts, passive bystanders, or dispensable for the proposed activity. Use separation-of-function tests (IDR mutants, optogenetic Cry2 modules that toggle condensation without changing concentration) (McSwiggen 2019 Genes Dev; Düster 2021 NSMB).</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑨ 非典型 / LC3-associated 自噬（LAP、CASM）" data-en="⑨ Non-canonical autophagy (LAP, CASM)">⑨ 非典型自噬 LAP / CASM</h4>
+  <p data-lang="zh">教學常將「ATG-LC3 lipidation = canonical autophagy」，但 LC3 也會經由 V-ATPase–ATG16L1 axis 鎖定到單膜（single-membrane）結構，稱為 CASM（Conjugation of ATG8 to Single Membranes）；LAP（LC3-associated phagocytosis）是其代表。CASM 不形成 double-membrane autophagosome、不需要 ULK1/FIP200、卻仍使用 ATG12-ATG5-ATG16L1 與 ATG8。這在病原體吞噬、efferocytosis 與藥物誘導 (如 monensin、chloroquine) 中皆出現。請參考 <a href="https://doi.org/10.1038/s41580-022-00529-z" target="_blank" rel="noopener">Vargas 2023 Nat Rev MCB</a> 與 <a href="https://doi.org/10.1016/j.cell.2021.04.013" target="_blank" rel="noopener">Hooper 2022</a>。判斷 autophagy flux 不能只看 LC3 puncta。</p>
+  <p data-lang="en">"ATG–LC3 lipidation = canonical autophagy" is an oversimplification. LC3 can also be conjugated to single membranes via the V-ATPase–ATG16L1 axis (CASM, Conjugation of ATG8 to Single Membranes), of which LAP is the prototype. CASM does not form double-membrane autophagosomes, does not require ULK1/FIP200, yet still uses the ATG12-ATG5-ATG16L1 and ATG8 machinery — it operates in pathogen engulfment, efferocytosis, and drug-induced contexts (monensin, chloroquine). See Vargas 2023 Nat Rev MCB. LC3 puncta alone do not measure autophagic flux.</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑩ Nobel 獎是時代背書，而非當代里程碑" data-en="⑩ Nobel timing lags the breakthrough by 6–18 years">⑩ 諾貝爾獎與「最新進展」的時差</h4>
+  <p data-lang="zh">教學引用「Nobel-awarded」時應留意時差：Kobilka &amp; Lefkowitz 的 GPCR 結構工作在 2007 年（β2-AR crystal）達到關鍵突破，2012 年才獲頒 Nobel Chemistry；Karikó &amp; Weissman 的 modified-nucleoside mRNA 關鍵論文在 <a href="https://doi.org/10.1016/j.immuni.2005.06.008" target="_blank" rel="noopener">2005 Immunity</a>，但 <a href="https://www.nobelprize.org/prizes/medicine/2023/" target="_blank" rel="noopener">2023 Physiology or Medicine</a> 才獲獎；Charpentier &amp; Doudna 的 CRISPR-Cas9 2012 PNAS / Science，2020 才獲獎。故「最新 Nobel」≠「最新科學」，引用時建議標註「原始發表年」與「獲獎年」兩者。</p>
+  <p data-lang="en">When citing "Nobel-awarded" work, note the typical 6–18 year lag: Kobilka &amp; Lefkowitz's β2-AR crystal structure landed in 2007, the Chemistry Nobel in 2012; Karikó &amp; Weissman's modified-nucleoside mRNA paper appeared in Immunity 2005 but the Medicine Nobel was awarded only in 2023; Charpentier &amp; Doudna's CRISPR-Cas9 (PNAS/Science 2012) was honored in 2020. "Latest Nobel" ≠ "latest science" — cite both the original publication year and the award year.</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑪ AlphaFold 對 IDP、寡聚體與配體複合物的限制" data-en="⑪ AlphaFold limits for IDPs, oligomers and ligand complexes">⑪ AlphaFold 對 IDP / 寡聚體 / 配體的限制</h4>
+  <p data-lang="zh">與 ① 不同（①談「靜態構象」），這一點談具體適用範圍：(a) Intrinsically disordered proteins/regions 因為本就沒有單一結構，AF2 pLDDT 低不是「失敗」也不是「動態」，而是「不適用」；(b) AlphaFold-Multimer 對 transient / weak / 異源寡聚體準確度顯著下降，尤其抗體–抗原界面與膜蛋白組裝；(c) AlphaFold3（2024 Nature）雖支援核酸、配體、PTM，但對 ligand 結合模式的成功率（~76% in PoseBusters benchmark）仍低於 dedicated docking 工具，且非開源/受限商用授權。請參考 <a href="https://doi.org/10.1038/s41594-023-01034-3" target="_blank" rel="noopener">Bryant 2023 Nat Struct Mol Biol</a> 與 <a href="https://doi.org/10.1038/s41586-024-07487-w" target="_blank" rel="noopener">Abramson 2024 Nature</a>。生產用途仍需濕實驗或正交方法驗證。</p>
+  <p data-lang="en">Distinct from ① (which is about static vs dynamic structure), this concerns scope: (a) IDPs/IDRs have no single structure, so a low AF2 pLDDT here means "not applicable", not "failed" or "dynamic"; (b) AlphaFold-Multimer accuracy drops sharply for transient/weak/heteromeric assemblies, especially antibody–antigen interfaces and membrane-protein complexes; (c) AlphaFold3 (Nature 2024) adds nucleic acids, ligands, and PTMs but its ligand-pose success (~76% in the PoseBusters benchmark) still trails dedicated docking, and it is not open source under permissive license (Bryant 2023 NSMB; Abramson 2024 Nature). Production use still requires wet-lab or orthogonal validation.</p>
+</div>
+
+<div class="errata">
+  <span class="errata-label" data-zh="補充說明" data-en="Notes" style="display:inline-block;background:#e0e7ff;color:#3730a3;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px">補充說明 · Notes</span>
+  <h4 data-zh="⑫ UPR 與 ISR 不應混為一談；RIDD 與 ATF6β/CREB3 家族" data-en="⑫ UPR vs ISR; RIDD and the ATF6β/CREB3 family">⑫ UPR ≠ ISR；別忽略 RIDD 與 ATF6 家族</h4>
+  <p data-lang="zh">教學常把「PERK–eIF2α 磷酸化」直接與「UPR」劃等號，但 eIF2α phosphorylation 屬於更大的 Integrated Stress Response（ISR），由 PERK、PKR、GCN2、HRI 四種 kinase 共同匯聚。UPR 還包含 IRE1α（XBP1 splicing 與 RIDD — Regulated IRE1-Dependent Decay）與 ATF6（含 ATF6α、ATF6β 及 CREB3/CREB3L1–4 等 type-II membrane bZIP 家族成員）。RIDD 直接降解選擇性 mRNA（含 miRNA 前體），不是透過轉錄因子。請參考 <a href="https://doi.org/10.1126/science.aat5314" target="_blank" rel="noopener">Costa-Mattioli &amp; Walter 2020 Science</a> 與 <a href="https://doi.org/10.1038/s41580-020-0250-z" target="_blank" rel="noopener">Hetz 2020 Nat Rev MCB</a>。藥物開發須區分 ISRIB（針對 eIF2B）與 IRE1/PERK kinase 抑制劑的不同效應。</p>
+  <p data-lang="en">Equating "PERK–eIF2α phosphorylation" with "the UPR" is misleading. eIF2α phosphorylation belongs to the broader Integrated Stress Response (ISR), driven by four kinases (PERK, PKR, GCN2, HRI). The UPR also includes IRE1α — with XBP1 splicing and RIDD (Regulated IRE1-Dependent Decay of selected mRNAs and miRNA precursors) — and the ATF6 arm (ATF6α, ATF6β and the related CREB3/CREB3L1–4 type-II membrane bZIP family). Drug development must distinguish ISRIB (which targets eIF2B) from IRE1/PERK kinase inhibitors (Costa-Mattioli &amp; Walter 2020 Science; Hetz 2020 Nat Rev MCB).</p>
+</div>
+</section>
+<nav class="page-nav">
+  <a href="../index.html"><span class="nav-dir" data-zh="← 教學首頁" data-en="← Tutorial home">← 教學首頁</span><span class="nav-title" data-zh="回到主教學頁" data-en="Back to tutorial hub">回到主教學頁</span></a>
+  <a href="../mcb-quiz/index.html" target="_blank" rel="noopener"><span class="nav-dir" data-zh="互動考題 →" data-en="Interactive quiz →">互動考題 →</span><span class="nav-title" data-zh="互動式考題" data-en="Interactive Quiz">互動式考題</span></a>
+</nav>
+
+</main>
+<script src="../i18n.js"></script>
+</body>
+</html>

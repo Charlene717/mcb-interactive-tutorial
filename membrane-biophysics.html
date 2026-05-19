@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 3: 膜生物物理與脂質 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html" class="active">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 3 / 20 · BLOCK A</div>
+<h1 data-zh="膜生物物理與脂質組學" data-en="Membrane Biophysics &amp; Lipidomics">膜生物物理與脂質組學</h1>
+<p class="subtitle" data-lang="zh">不只是「液態鑲嵌」——脂筏、脂質不對稱、機械性質與 PI 訊號脂質如何重塑當代膜生物學。</p>
+<p class="subtitle" data-lang="en">Beyond "fluid mosaic" — rafts, asymmetry, mechanics, and PI signaling lipids reshaping modern membrane biology.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="當代觀點" data-en="MODERN VIEW">當代觀點</div>
+<h2 data-zh="從 1972 Singer-Nicolson 到今日的奈米尺度模型" data-en="From 1972 Singer-Nicolson to today's nanoscale model">從 1972 模型到今日</h2>
+<div data-lang="zh">
+<p>Singer-Nicolson <strong>fluid mosaic</strong> 模型開啟了膜生物學，但今天我們知道生物膜遠比一張流動的脂質海更複雜：</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>橫向異質性 (lateral heterogeneity)</strong>：膽固醇 + sphingolipid 富集的「<strong>脂筏 (lipid rafts)</strong>」直徑 10-200 nm，動態存在</li>
+  <li><strong>跨層不對稱 (transbilayer asymmetry)</strong>：外層富 PC/SM；內層富 PS/PE/PI——由 flippase/floppase/scramblase 維持</li>
+  <li><strong>機械性質</strong>：彎曲剛度 (κ_b)、表面張力、線張力——決定 vesicle 形成、cell shape、機械感應</li>
+  <li><strong>脂質訊號</strong>：PI(4,5)P₂、DAG、Ceramide、S1P 是訊號分子，不只是結構元件</li>
+</ul>
+</div>
+<div data-lang="en">
+<p>The Singer-Nicolson <strong>fluid mosaic</strong> model launched membrane biology, but today we know membranes are far more complex than a flowing lipid sea:</p>
+<ul style="margin-left:1.5em;color:var(--c-ink-light);">
+  <li><strong>Lateral heterogeneity</strong>: cholesterol/sphingolipid-rich <strong>lipid rafts</strong> 10–200 nm, dynamic</li>
+  <li><strong>Transbilayer asymmetry</strong>: outer leaflet PC/SM; inner PS/PE/PI — maintained by flippase/floppase/scramblase</li>
+  <li><strong>Mechanics</strong>: bending rigidity (κ_b), surface tension, line tension — drive vesicle formation, cell shape, mechanosensing</li>
+  <li><strong>Lipid signaling</strong>: PI(4,5)P₂, DAG, ceramide, S1P are signals, not just structural</li>
+</ul>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>PS 外翻訊號：</strong>正常細胞 PS 嚴格保留在內層；apoptosis 時 PS 外翻成為 "eat-me" 訊號（給巨噬細胞識別）。這是膜不對稱在程序性死亡的關鍵應用（→ Ch17）。</span>
+<span data-lang="en"><strong>PS externalization signal:</strong> PS is strictly inner-leaflet in healthy cells; during apoptosis it flips outward as an "eat-me" signal for macrophages — a key application of membrane asymmetry in programmed death (→ Ch17).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="脂筏" data-en="LIPID RAFTS">脂筏</div>
+<h2 data-zh="一、脂筏與奈米域 (Nanodomains)" data-en="I. Lipid Rafts &amp; Nanodomains">一、脂筏與奈米域</h2>
+<table class="comp-table">
+<thead><tr><th data-zh="特性" data-en="Property">特性</th><th data-zh="Lo (liquid-ordered / 筏)" data-en="Lo (liquid-ordered / raft)">Lo (脂筏)</th><th data-zh="Ld (liquid-disordered)" data-en="Ld (liquid-disordered)">Ld (非筏)</th></tr></thead>
+<tbody>
+<tr><td data-zh="主要脂質" data-en="Lipids">主要脂質</td><td>Cholesterol + Sphingomyelin (SM)</td><td>Glycerophospholipids (PC, PE)</td></tr>
+<tr><td data-zh="尺度" data-en="Scale">尺度</td><td data-zh="10–200 nm，瞬時 (μs–s)" data-en="10–200 nm, transient (μs–s)">10–200 nm，瞬時</td><td data-zh="連續膜域" data-en="Continuous membrane">連續膜域</td></tr>
+<tr><td data-zh="蛋白偏好" data-en="Protein affinity">蛋白偏好</td><td data-zh="GPI-anchored、palmitoylated、TM 短" data-en="GPI-anchored, palmitoylated, short TM">GPI-anchored, palmitoylated</td><td data-zh="長 TM、多次跨膜" data-en="Long TM, multipass">多次跨膜</td></tr>
+<tr><td data-zh="功能" data-en="Function">功能</td><td data-zh="訊號平台 (Src, TCR, BCR)、內吞 (caveolae)" data-en="Signaling platforms (Src, TCR), endocytosis (caveolae)">訊號 / 內吞</td><td data-zh="主流生化反應" data-en="Bulk biochemistry">主流生化</td></tr>
+<tr><td data-zh="偵測技術" data-en="Detection">偵測技術</td><td colspan="2" data-zh="STED、FCS、SMT、Laurdan GP imaging、DRMs（已逐漸不被採用）" data-en="STED, FCS, SMT, Laurdan GP, DRMs (deprecated)">STED、FCS、SMT、Laurdan GP</td></tr>
+</tbody>
+</table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>DRM 陷阱：</strong>傳統用 Triton X-100 4°C 分離 detergent-resistant membranes (DRMs) 被視為脂筏的代表，但這已被廣泛質疑——洗滌劑會誘導 artificial Lo domains。當代研究改用 GUV、STED-FCS、Laurdan GP imaging。</span>
+<span data-lang="en"><strong>DRM caveat:</strong> Traditional Triton X-100 / 4°C detergent-resistant membranes (DRMs) as raft markers are now widely questioned — detergents induce artificial Lo domains. Modern studies use GUVs, STED-FCS, and Laurdan GP imaging.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="磷脂醯肌醇" data-en="PHOSPHOINOSITIDES">磷脂醯肌醇訊號</div>
+<h2 data-zh="二、PI 訊號脂質——細胞器身分標籤" data-en="II. PI Signaling Lipids — Organelle Identity Tags">二、PI 訊號脂質</h2>
+<div data-lang="zh"><p>七種磷脂醯肌醇 (PtdIns) 由不同位置 (3,4,5) 磷酸化形成，分布於不同細胞器，作為「身分郵戳」吸引特定蛋白：</p></div>
+<div data-lang="en"><p>Seven phosphoinositides (PtdIns) form by phosphorylation at positions 3/4/5, distributing across organelles as "identity stamps" recruiting specific proteins:</p></div>
+<div class="card-grid cols-3">
+<div class="card"><h4>PI(4,5)P₂ (PIP2)</h4>
+<div data-lang="zh"><p>細胞膜內層。經 PLC 切為 IP₃ + DAG；招募 ezrin/radixin/moesin；actin 動力學關鍵。</p></div>
+<div data-lang="en"><p>Plasma membrane inner leaflet. Cleaved by PLC → IP₃ + DAG; recruits ezrin/radixin/moesin; key for actin dynamics.</p></div></div>
+<div class="card"><h4>PI(3,4,5)P₃ (PIP3)</h4>
+<div data-lang="zh"><p>PI3K 產物；招募 AKT、PDK1（PH domain）。PTEN 為其拮抗劑。PI3K/AKT 通路在癌症關鍵 (Ch9)。</p></div>
+<div data-lang="en"><p>PI3K product; recruits AKT, PDK1 (PH domain). Antagonized by PTEN. PI3K/AKT axis is pivotal in cancer (Ch9).</p></div></div>
+<div class="card"><h4>PI3P</h4>
+<div data-lang="zh"><p>Early endosome / phagophore (自噬). FYVE / PX domain 識別。自噬 (Ch18) 的關鍵脂質。</p></div>
+<div data-lang="en"><p>Early endosome / phagophore. Recognized by FYVE/PX domains. Key lipid in autophagy (Ch18).</p></div></div>
+<div class="card"><h4>PI4P</h4>
+<div data-lang="zh"><p>Golgi / TGN；與 OSBP 介導 cholesterol 反向運輸。MAMs 接觸點重要 (Ch16)。</p></div>
+<div data-lang="en"><p>Golgi/TGN; OSBP-mediated countertransport of cholesterol. Important at MAMs (Ch16).</p></div></div>
+<div class="card"><h4>PI(3,5)P₂</h4>
+<div data-lang="zh"><p>Late endosome / lysosome；TRPML1 通道調控；溶酶體 Ca²⁺ 釋放關鍵。</p></div>
+<div data-lang="en"><p>Late endosome/lysosome; regulates TRPML1 channels; key for lysosomal Ca²⁺ release.</p></div></div>
+<div class="card"><h4>PI(3,4)P₂</h4>
+<div data-lang="zh"><p>Macropinosome、recycling endosome；SHIP 磷酸酶產物，AKT 部分活化。</p></div>
+<div data-lang="en"><p>Macropinosomes, recycling endosomes; SHIP phosphatase product; partial AKT activation.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="三、脂質組學數據分析" data-en="III. Lipidomics Data Analysis">三、脂質組學數據分析</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="r">R · LipidR</button>
+    <button class="code-tab-btn" data-tab="py">Python · lipyd</button>
+    <button class="code-tab-btn" data-tab="md">MD · CHARMM-GUI</button>
+  </div>
+  <div class="code-tab-content active" data-tab="r"><pre><span class="comment"># LipidR — lipid class-level differential analysis</span>
+<span class="kw">library</span>(lipidr)
+data &lt;- read_skyline(<span class="str">"skyline_export.csv"</span>)
+data &lt;- add_sample_annotation(data, sample_meta)
+data &lt;- normalize_pqn(data, measure=<span class="str">"Area"</span>)
+<span class="comment"># 跑 lipid class 層級 PCA</span>
+plot_samples(data, type=<span class="str">"pca"</span>, color=<span class="str">"group"</span>)
+<span class="comment"># Class-level differential</span>
+res &lt;- de_analysis(data, group ~ <span class="num">1</span>)
+significant_lipidsets(res, p.cutoff=<span class="num">0.05</span>)</pre></div>
+  <div class="code-tab-content" data-tab="py"><pre><span class="comment"># lipyd — Python lipidomics</span>
+<span class="kw">import</span> lipyd.moldb <span class="kw">as</span> moldb
+<span class="kw">import</span> lipyd.lookup <span class="kw">as</span> lookup
+db = moldb.MoleculeDatabaseAggregator()
+<span class="comment"># 質譜匹配</span>
+hits = db.adduct_lookup(<span class="num">760.5851</span>, ionmode=<span class="str">"pos"</span>, tolerance=<span class="num">10</span>)
+<span class="kw">for</span> h <span class="kw">in</span> hits[:<span class="num">5</span>]:
+    <span class="func">print</span>(h.name, h.formula, h.exact_mass)
+<span class="comment"># 從 LipidMaps 取出 PI(38:4) 結構</span>
+pip2 = db.get_by_name(<span class="str">"PI(18:0/20:4)"</span>)
+<span class="func">print</span>(pip2.smiles)</pre></div>
+  <div class="code-tab-content" data-tab="md"><pre><span class="comment"># CHARMM-GUI Membrane Builder workflow</span>
+<span class="comment"># 1) 在 CHARMM-GUI 網頁建立雙層膜:</span>
+<span class="comment">#    POPC:POPE:Cholesterol = 60:30:10  (asymmetric)</span>
+<span class="comment">#    膜面積 80 × 80 Å²，含 TIP3P 水 + 0.15M KCl</span>
+<span class="comment"># 2) 下載 GROMACS 輸入</span>
+<span class="comment"># 3) Equilibration (NVT 5 ns → NPT 50 ns)</span>
+gmx grompp -f step6.0_minimization.mdp -c step5_input.gro -p topol.top -o em.tpr
+gmx mdrun -deffnm em
+<span class="comment"># 4) Production (200 ns @ 310K, semiisotropic)</span>
+gmx grompp -f production.mdp -c npt.gro -p topol.top -o prod.tpr
+gmx mdrun -deffnm prod -nb gpu</pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">1. 細胞膜內層大量富集 PS，但 apoptosis 時 PS 外翻成為「eat-me 訊號」，這是哪類酵素失活/活化的結果？</p>
+<p data-lang="en">1. PS resides in the inner leaflet but flips outward during apoptosis as an "eat-me" signal. Which enzymes cause this?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. Flippase 持續活化、Scramblase 抑制</span><span data-lang="en">A. Flippase remains active; scramblase inhibited</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. ATP 合成酶失調</span><span data-lang="en">B. ATP synthase dysregulation</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Flippase 抑制 + Scramblase (如 Xkr8) 活化</span><span data-lang="en">C. Flippase inhibition + scramblase (e.g., Xkr8) activation</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. PLC 大量水解 PI(4,5)P₂</span><span data-lang="en">D. Massive PLC hydrolysis of PI(4,5)P₂</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：caspase 切斷 Xkr8 自抑制區，使其活化；同時 P4-ATPase flippase 被切斷而失活。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: Caspase cleaves Xkr8 to activate; P4-ATPase flippase is also cleaved and inactivated.</div>
+</div>
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">2. PI3P 主要分布在哪個細胞器，並參與何種重要過程？</p>
+<p data-lang="en">2. Where is PI3P primarily found, and what key process does it serve?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 細胞膜——TCR 訊號</span><span data-lang="en">A. Plasma membrane — TCR signaling</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. Early endosome 與 phagophore——自噬</span><span data-lang="en">B. Early endosome &amp; phagophore — autophagy</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. Lysosome——蛋白質降解</span><span data-lang="en">C. Lysosome — protein degradation</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. 細胞核——染色質結構</span><span data-lang="en">D. Nucleus — chromatin structure</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：PI3P 由 VPS34 產生於 phagophore，是自噬起始的關鍵脂質訊號（Ch18 詳述）。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: PI3P is produced by VPS34 at the phagophore — a key initiation signal for autophagy (detailed in Ch18).</div>
+</div>
+<div class="quiz-q" data-ans="F">
+<p data-lang="zh">3.（是非）以 Triton X-100 在 4°C 分離 DRMs 是脂筏研究的金標準，可直接證明細胞內存在 Lo 域。</p>
+<p data-lang="en">3. (T/F) Triton X-100 at 4°C DRM isolation is the gold standard for raft research and directly proves the existence of Lo domains in cells.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>F</strong>：洗滌劑會誘導 artificial Lo 結構；當代研究改用 STED-FCS、Laurdan GP imaging、GUV 體外重組。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>F</strong>: Detergents induce artificial Lo structures; modern studies use STED-FCS, Laurdan GP, and GUV reconstitution.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="nucleic-acid-architecture.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 2 · 核酸高階結構" data-en="Ch 2 · Nucleic Acid Architecture">Ch 2 · 核酸高階結構</span></a>
+<a href="biomolecular-condensates.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 4 · 生物分子凝聚物與液-液相分離" data-en="Ch 4 · Biomolecular Condensates &amp;amp; LLPS">Ch 4 · 生物分子凝聚物與液-液相分離</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>

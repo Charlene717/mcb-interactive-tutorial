@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch 10: 機械轉導 — MCB Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>🧬</span> <span data-zh="分子與細胞生物學" data-en="Molecular &amp; Cell Biology">分子與細胞生物學</span></a>
+  <ul class="top-nav-links">
+    <li><a href="protein-structure-dynamics.html">蛋白動態</a></li>
+    <li><a href="nucleic-acid-architecture.html">核酸架構</a></li>
+    <li><a href="membrane-biophysics.html">膜生物物理</a></li>
+    <li><a href="biomolecular-condensates.html">LLPS</a></li>
+    <li><a href="chromatin-3d-genome.html">3D 基因組</a></li>
+    <li><a href="transcription-regulation.html">轉錄調控</a></li>
+    <li><a href="mrna-life-cycle.html">mRNA 生命週期</a></li>
+    <li><a href="translation-proteostasis.html">轉譯/穩態</a></li>
+    <li><a href="signal-transduction-networks.html">訊號網路</a></li>
+    <li><a href="mechanotransduction.html" class="active">機械轉導</a></li>
+    <li><a href="cytoskeleton-dynamics.html">細胞骨架</a></li>
+    <li><a href="cell-cycle-checkpoints.html">細胞週期</a></li>
+    <li><a href="nuclear-organization.html">核組織</a></li>
+    <li><a href="er-golgi-secretion.html">ER-Golgi</a></li>
+    <li><a href="mitochondria-dynamics.html">粒線體</a></li>
+    <li><a href="organelle-contacts-trafficking.html">胞器接觸</a></li>
+    <li><a href="cell-death-pathways.html">細胞死亡</a></li>
+    <li><a href="autophagy-quality-control.html">自噬</a></li>
+    <li><a href="cellular-senescence-stemness.html">衰老/幹性</a></li>
+    <li><a href="cell-biology-in-disease.html">疾病應用</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">CHAPTER 10 / 20 · BLOCK C</div>
+<h1 data-zh="機械轉導：細胞如何「感覺」力" data-en="Mechanotransduction: How Cells Feel Force">機械轉導：細胞如何「感覺」力</h1>
+<p class="subtitle" data-lang="zh">從 Piezo 三葉螺旋槳到 YAP/TAZ 核轉位——力學訊號如何被翻譯為化學與基因表達語言。</p>
+<p class="subtitle" data-lang="en">From Piezo's three-blade propeller to YAP/TAZ nuclear translocation — how mechanical signals are translated into chemical and transcriptional language.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="力學訊號的三條路徑" data-en="Three Routes for Mechanical Signaling">力學訊號的三條路徑</h2>
+<div data-lang="zh">
+<p>細胞並非被動的化學容器，而是<strong>持續感應並回應</strong>來自 ECM 硬度、流體剪應力、細胞間張力、滲透壓的機械輸入。2010 年 Patapoutian 實驗室發現 <strong>Piezo1/Piezo2</strong>（2021 Nobel）開啟了機械感受 (mechanosensation) 的分子時代，今日機械轉導已成為癌症 invasion、幹細胞分化、組織形態發生的核心議題。</p>
+<p>三條經典力傳感路徑：① <strong>機械敏感離子通道</strong>（Piezo、TRP、TREK、TMC）秒以下時程；② <strong>integrin-focal adhesion</strong> 將 ECM 力學耦合至 actin；③ <strong>LINC complex</strong> 將胞漿張力傳遞至核內染色質。</p>
+</div>
+<div data-lang="en">
+<p>Cells are not passive chemical containers — they continuously sense and respond to mechanical inputs from ECM stiffness, fluid shear, intercellular tension, and osmotic pressure. The 2010 discovery of <strong>Piezo1/Piezo2</strong> by Patapoutian (Nobel 2021) opened the molecular era of mechanosensation. Today mechanotransduction is central to cancer invasion, stem-cell differentiation, and tissue morphogenesis.</p>
+<p>Three canonical force-sensing routes: (1) <strong>mechanosensitive ion channels</strong> (Piezo, TRP, TREK, TMC), sub-second timescale; (2) <strong>integrin-focal adhesion</strong> coupling ECM force to actin; (3) <strong>LINC complex</strong> transmitting cytoplasmic tension to nuclear chromatin.</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>核心比喻：</strong>細胞像彈簧網路。力學輸入會改變這張網的張力分布——蛋白構象、酵素活性、轉錄因子定位都隨之重設。<strong>Tensional homeostasis</strong> 是當代力學生物學的中央概念。</span>
+<span data-lang="en"><strong>Core metaphor:</strong> A cell is a spring network. Mechanical input redistributes tension — protein conformations, enzyme activities, and transcription factor localization all reset. <strong>Tensional homeostasis</strong> is a central concept in modern mechanobiology.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Piezo / TRP" data-en="PIEZO / TRP">機械通道</div>
+<h2 data-zh="一、Piezo1/2：三葉螺旋槳通道" data-en="I. Piezo1/2: The Three-Blade Propeller Channel">一、Piezo1/2 三葉螺旋槳</h2>
+<div data-lang="zh">
+<p>Piezo1 為 <strong>三聚體 (trimer)</strong>，每單體約 2,500 殘基，總質量 &gt; 900 kDa。CryoEM (Ward et al., 2018; Lin et al., 2022) 顯示其呈<strong>三葉螺旋槳 (three-blade propeller)</strong> 構象——每片 blade 由 9 個 THU (transmembrane helical unit) 堆疊而成，整體形成 <strong>dome 構型</strong>，使局部膜呈 ~10 nm 深的凹陷。當膜張力增加 (~1.4 mN/m)，dome 趨於扁平，扭轉中央 CTD (C-terminal domain) 並開啟 pore。</p>
+<p><strong>新進展 (2023-2024):</strong> Cox 實驗室與 Coste 顯示 Piezo1 inactivation 動力學受 PI(4,5)P₂ 與 cholesterol 調控；STOML3 與 MyoTubularin 等 raft 蛋白可<strong>降低活化閾值</strong>。Piezo2 的 G2756X loss-of-function 突變導致 distal arthrogryposis；Piezo1 突變則造成 hereditary xerocytosis（脫水溶血）。</p>
+</div>
+<div data-lang="en">
+<p>Piezo1 is a <strong>trimer</strong>; each subunit has ~2,500 residues, total mass &gt;900 kDa. CryoEM (Ward et al., 2018; Lin et al., 2022) reveals a <strong>three-blade propeller</strong> — each blade contains 9 transmembrane helical units (THUs) stacked into a <strong>dome</strong> that bends the local membrane into a ~10 nm bowl. Increasing membrane tension (~1.4 mN/m) flattens the dome, twisting the central CTD to open the pore.</p>
+<p><strong>Recent (2023-2024):</strong> Cox &amp; Coste labs show Piezo1 inactivation kinetics are tuned by PI(4,5)P₂ and cholesterol; raft proteins STOML3 and MyoTubularin <strong>lower the activation threshold</strong>. Piezo2 G2756X loss-of-function causes distal arthrogryposis; Piezo1 mutations cause hereditary xerocytosis (dehydrating hemolysis).</p>
+</div>
+<table class="comp-table">
+<thead><tr><th data-zh="通道家族" data-en="Family">通道</th><th data-zh="刺激" data-en="Stimulus">刺激</th><th data-zh="組織分布" data-en="Tissue">組織</th><th data-zh="疾病" data-en="Disease">疾病</th></tr></thead>
+<tbody>
+<tr><td>Piezo1</td><td data-zh="剪應力、血壓" data-en="Shear, blood pressure">剪應力</td><td data-zh="紅血球、內皮、淋巴管" data-en="RBC, endothelium, lymphatic">RBC, 內皮</td><td data-zh="Xerocytosis；淋巴水腫" data-en="Xerocytosis, lymphedema">Xerocytosis</td></tr>
+<tr><td>Piezo2</td><td data-zh="輕觸、本體感覺" data-en="Touch, proprioception">輕觸</td><td data-zh="Merkel、感覺神經、肺" data-en="Merkel, sensory neurons, lung">Merkel cells</td><td data-zh="DA-IBP, breath issues" data-en="DA-IBP, breath issues">DA-IBP</td></tr>
+<tr><td>TRPV4</td><td data-zh="osmotic / heat / 機械" data-en="Osmo/heat/mechano">滲透壓</td><td data-zh="軟骨、腎、肺" data-en="Cartilage, kidney, lung">軟骨/腎</td><td data-zh="Brachyolmia, CMT2C" data-en="Brachyolmia, CMT2C">Brachyolmia</td></tr>
+<tr><td>TREK-1 (K2P)</td><td data-zh="拉伸活化 K⁺" data-en="Stretch-activated K⁺">拉伸</td><td data-zh="神經元、心肌" data-en="Neurons, cardiac">神經元</td><td data-zh="疼痛、麻醉敏感性" data-en="Pain, anesthetic sensitivity">疼痛</td></tr>
+<tr><td>TMC1/2</td><td data-zh="毛細胞 tip-link 力" data-en="Hair cell tip-link force">毛細胞</td><td data-zh="內耳毛細胞" data-en="Inner ear hair cells">毛細胞</td><td data-zh="耳聾 DFNB7/11" data-en="Deafness DFNB7/11">耳聾</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Focal adhesion" data-en="FOCAL ADHESION">焦點黏附</div>
+<h2 data-zh="二、Integrin–Talin–Vinculin 力傳感軸" data-en="II. Integrin–Talin–Vinculin Force-Sensing Axis">二、Integrin–Talin–Vinculin 力傳感</h2>
+<div data-lang="zh"><p><strong>Focal adhesion (FA)</strong> 是細胞與 ECM 的力學介面。Integrin αβ 異二聚體外側結合 fibronectin/collagen，內側招募 <strong>talin</strong>——talin 的 R3 螺旋束在 ~5 pN 力下展開，暴露 11 個 vinculin binding sites (VBS)，招募 vinculin 並進一步耦合至 F-actin。這是經典的<strong>force-induced unfolding/binding</strong>。</p>
+<p>Integrin 與 fibronectin 的鍵屬<strong>catch bond</strong>——力<strong>越大鍵越穩</strong>（與 slip bond 相反），這允許 FA 在拉力下穩定而非斷裂。FA 的成熟由 ~25 種蛋白組成 (paxillin, FAK, p130Cas, zyxin)，其中 <strong>p130Cas 的 substrate domain</strong> 在拉伸下暴露 Tyr 位點被 Src 磷酸化，是訊號放大關鍵。</p></div>
+<div data-lang="en"><p><strong>Focal adhesion (FA)</strong> is the mechanical interface between cell and ECM. Integrin αβ heterodimers bind ECM (fibronectin, collagen) extracellularly and recruit <strong>talin</strong> intracellularly. Talin's R3 helix bundle unfolds at ~5 pN, exposing 11 vinculin-binding sites (VBSs) that recruit vinculin and couple to F-actin — classic <strong>force-induced unfolding/binding</strong>.</p>
+<p>Integrin–fibronectin is a <strong>catch bond</strong> — force <strong>strengthens</strong> the bond (opposite of slip bond), keeping FAs stable under load. Mature FAs contain ~25 proteins (paxillin, FAK, p130Cas, zyxin); the <strong>p130Cas substrate domain</strong> stretches to expose Tyr sites for Src phosphorylation, a key amplification step.</p></div>
+<div class="card-grid cols-3">
+<div class="card"><div class="card-icon">🔗</div><h4>Talin rod</h4>
+<div data-lang="zh"><p>13 個 helix bundle，~5 pN 展開閾值。R3 最敏感——是 FA mechanosensor。</p></div>
+<div data-lang="en"><p>13 helix bundles, ~5 pN unfolding threshold. R3 most sensitive — the FA mechanosensor.</p></div></div>
+<div class="card"><div class="card-icon">🪢</div><h4>Catch bond</h4>
+<div data-lang="zh"><p>受力後鍵壽命增加。FimH-mannose、integrin-FN、selectin-PSGL1 都是典型 catch bond。</p></div>
+<div data-lang="en"><p>Bond lifetime increases under load. FimH-mannose, integrin-FN, selectin-PSGL1 are canonical catch bonds.</p></div></div>
+<div class="card"><div class="card-icon">⚓</div><h4>p130Cas</h4>
+<div data-lang="zh"><p>Substrate domain 含 15 個 YxxP，拉伸 ~50 nm 後 Tyr 暴露給 Src。</p></div>
+<div data-lang="en"><p>Substrate domain has 15 YxxP motifs; ~50 nm stretch exposes Tyr to Src.</p></div></div>
+</div>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<span data-lang="zh"><strong>Frangakis CryoET (2024):</strong> 在完整細胞內以 sub-tomogram averaging 解析了 FA 三維架構，揭示 integrin tail 與 talin 的角度遠比體外結晶更分散，說明<strong>原位結構</strong>對機械生物學至關重要。</span>
+<span data-lang="en"><strong>Frangakis CryoET (2024):</strong> Sub-tomogram averaging of FAs in intact cells revealed that integrin tail–talin angles are far more dispersed than crystal structures imply — <strong>in-situ structure</strong> is crucial for mechanobiology.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="YAP/TAZ" data-en="YAP/TAZ">硬度感應</div>
+<h2 data-zh="三、YAP/TAZ：ECM 硬度的轉錄翻譯器" data-en="III. YAP/TAZ: Transcriptional Translator of ECM Stiffness">三、YAP/TAZ 與 ECM 硬度</h2>
+<div data-lang="zh"><p>當 ECM 硬度從 <strong>soft (1 kPa, 腦)</strong> 增加到 <strong>stiff (40 kPa, 骨前)</strong>，actomyosin 張力 (NMII-pMLC) 上升，FA 成熟，<strong>RhoA-ROCK</strong> 軸活化。下游 <strong>Hippo pathway</strong> 中的 MST1/2-LATS1/2 激酶<strong>被抑制</strong>——LATS1/2 對 YAP 的 S127 磷酸化減少，YAP 失去 14-3-3 細胞質錨定，進入細胞核與 <strong>TEAD1-4</strong> 共活化 CTGF, CYR61, ANKRD1 等基因——驅動增殖、抗失巢凋亡 (anoikis)、EMT。</p>
+<p><strong>Engler 2006 經典實驗：</strong>MSC 在 1 kPa 凝膠分化為神經元；10 kPa → 肌肉；40 kPa → 骨——硬度單獨即可決定譜系。</p></div>
+<div data-lang="en"><p>As ECM stiffness rises from <strong>soft (1 kPa, brain)</strong> to <strong>stiff (40 kPa, pre-bone)</strong>, actomyosin tension (NMII-pMLC) increases, FAs mature, and <strong>RhoA-ROCK</strong> activates. Downstream <strong>Hippo</strong> kinases MST1/2-LATS1/2 are <strong>inhibited</strong> — LATS-mediated YAP S127 phosphorylation drops, YAP loses 14-3-3 cytosolic anchoring and enters the nucleus, where it co-activates CTGF, CYR61, ANKRD1 via <strong>TEAD1-4</strong> — driving proliferation, anoikis resistance, EMT.</p>
+<p><strong>Engler 2006 classic:</strong> MSCs on 1 kPa gel → neurons; 10 kPa → muscle; 40 kPa → bone. Stiffness alone determines lineage.</p></div>
+<div class="decision-tree">
+<h4 data-zh="🌳 YAP 是核內還是質內？" data-en="🌳 Is YAP nuclear or cytosolic?">🌳 YAP 在哪？</h4>
+<div class="dt-node"><span class="dt-q">Q1</span><span class="dt-arrow">→</span><span data-lang="zh">基質硬 (&gt;10 kPa) + 細胞鋪展 → actomyosin 高張力 → Hippo OFF → YAP <strong>核內</strong></span><span data-lang="en">Stiff (&gt;10 kPa) + spread cell → high actomyosin → Hippo OFF → YAP <strong>nuclear</strong></span></div>
+<div class="dt-node"><span class="dt-q">Q2</span><span class="dt-arrow">→</span><span data-lang="zh">基質軟 (&lt;1 kPa) + 圓化 → 低張力 → LATS1/2 ON → YAP-pS127 → 14-3-3 鎖在<strong>細胞質</strong></span><span data-lang="en">Soft (&lt;1 kPa) + rounded → low tension → LATS1/2 ON → YAP-pS127 → 14-3-3 anchoring <strong>cytosolic</strong></span></div>
+<div class="dt-node"><span class="dt-q">Q3</span><span class="dt-arrow">→</span><span data-lang="zh">高密度接觸 → contact inhibition → LATS ON → YAP 質內</span><span data-lang="en">High density → contact inhibition → LATS ON → YAP cytosolic</span></div>
+<div class="dt-node"><span class="dt-q">Q4</span><span class="dt-arrow">→</span><span data-lang="zh">YAP/TAZ-TEAD 抑制劑 (Verteporfin, IAG933 2024) → 阻斷介面 → 抑制 mesothelioma 等</span><span data-lang="en">YAP/TAZ-TEAD inhibitors (Verteporfin, IAG933 2024) → disrupt interface → suppress mesothelioma etc.</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="LINC 與核" data-en="LINC &amp; NUCLEUS">機械核</div>
+<h2 data-zh="四、LINC complex：從胞漿到染色質" data-en="IV. LINC Complex: From Cytosol to Chromatin">四、LINC complex 與機械核</h2>
+<div data-lang="zh"><p><strong>LINC (Linker of Nucleoskeleton and Cytoskeleton)</strong> 是橫跨核外膜 (ONM) 與核內膜 (INM) 的<strong>力學橋樑</strong>。ONM 上的 <strong>Nesprin (KASH domain)</strong> 與胞漿 actin/MT/IF 連接，其 KASH 尾穿過核周圍腔 (perinuclear space) 與 INM 的 <strong>SUN1/2 (三聚體)</strong> 結合，SUN N 端再與 lamin A/C 網狀核纖層接觸。</p>
+<p>當胞漿張力增加，LINC 將力直接傳至核膜<strong>使核變形</strong>——這會 (1) 拉開 NPC、加速核質運輸；(2) 改變 LADs (lamina-associated domains) 與 lamin 的接觸，重塑異染色質；(3) 活化 cPLA2 在核膜釋放 AA→eicosanoids。<strong>Lammerding (2023):</strong> 細胞穿越 &lt;3 μm 孔時核變形可導致核膜破裂、cGAS 進入並啟動先天免疫；同時 DNA 損傷增加（migrasome）。</p></div>
+<div data-lang="en"><p><strong>LINC (Linker of Nucleoskeleton and Cytoskeleton)</strong> spans ONM and INM as a <strong>mechanical bridge</strong>. ONM <strong>Nesprins (KASH)</strong> link to cytoplasmic actin/MT/IF; their KASH tail crosses the perinuclear space to bind <strong>SUN1/2 trimers</strong> on INM, whose N-termini contact the lamin A/C meshwork.</p>
+<p>Rising cytosolic tension transmits via LINC to <strong>deform the nucleus</strong> — (1) stretching NPCs accelerates nucleocytoplasmic transport; (2) altering LAD–lamin contacts remodels heterochromatin; (3) activating cPLA2 at the NE releases AA → eicosanoids. <strong>Lammerding (2023):</strong> cells squeezing through &lt;3 μm pores can rupture the NE, allowing cGAS entry and innate-immune activation; DNA damage accumulates.</p></div>
+<div class="callout danger"><span class="callout-icon">⛔</span><div>
+<span data-lang="zh"><strong>Laminopathies:</strong> Hutchinson-Gilford Progeria 由 LMNA C661T 產生 progerin（缺失 50 aa, 殘留 farnesyl），使核變脆且機械敏感性增加，外源剪應力導致細胞快速衰老——機械轉導疾病的範例（Ch13 詳述）。</span>
+<span data-lang="en"><strong>Laminopathies:</strong> Hutchinson-Gilford Progeria — LMNA C661T produces progerin (50-aa deletion, retained farnesyl). Nuclei become fragile and hyper-mechanosensitive; external shear accelerates senescence — a paradigm mechanotransduction disease (detailed in Ch13).</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="實作 lane" data-en="CODE LANE">實作 lane</div>
+<h2 data-zh="五、量測細胞力學的工作流" data-en="V. Workflows for Measuring Cellular Forces">五、量測力學工作流</h2>
+<div class="code-tabs">
+  <div class="code-tab-btns">
+    <button class="code-tab-btn active" data-tab="tfm">Python · TFM</button>
+    <button class="code-tab-btn" data-tab="r">R · YAP image score</button>
+    <button class="code-tab-btn" data-tab="afm">AFM (JPK / NanoWizard)</button>
+  </div>
+  <div class="code-tab-content active" data-tab="tfm"><pre><span class="comment"># Traction Force Microscopy — pyTFM (Bauer 2021)</span>
+<span class="kw">from</span> pyTFM.TFM_functions <span class="kw">import</span> calculate_deformation, TFM_tractions
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">from</span> skimage <span class="kw">import</span> io
+
+ref = io.imread(<span class="str">"beads_relaxed.tif"</span>)
+act = io.imread(<span class="str">"beads_active.tif"</span>)
+<span class="comment"># 1) PIV-based deformation field</span>
+u, v, mask = calculate_deformation(act, ref, window_size=<span class="num">64</span>, overlap=<span class="num">32</span>)
+<span class="comment"># 2) Fourier-Transform Traction Cytometry (FTTC)</span>
+tx, ty = TFM_tractions(u, v,
+    pixelsize_pix=<span class="num">0.108</span>,         <span class="comment"># μm/pixel</span>
+    young=<span class="num">10000</span>,                <span class="comment"># Pa (substrate E)</span>
+    sigma=<span class="num">0.49</span>, h=<span class="num">300</span>,           <span class="comment"># Poisson, gel thickness μm</span>
+    lambda_2=<span class="num">1e-10</span>)             <span class="comment"># regularization</span>
+<span class="comment"># 3) 總牽引力 (nN)</span>
+mag = np.sqrt(tx**<span class="num">2</span> + ty**<span class="num">2</span>)
+<span class="func">print</span>(<span class="str">"Total traction:"</span>, mag.sum() * (<span class="num">0.108e-6</span>)**<span class="num">2</span> * <span class="num">1e9</span>, <span class="str">"nN"</span>)</pre></div>
+  <div class="code-tab-content" data-tab="r"><pre><span class="comment"># YAP nuclear/cytoplasmic ratio quantification (CellProfiler+R)</span>
+<span class="kw">library</span>(tidyverse); <span class="kw">library</span>(ggpubr)
+df &lt;- read_csv(<span class="str">"yap_intensities.csv"</span>)  <span class="comment"># cols: cell_id, nuc_int, cyt_int, stiffness</span>
+df &lt;- df %&gt;% <span class="func">mutate</span>(NC_ratio = nuc_int / cyt_int,
+                  stiff_bin = <span class="func">cut</span>(stiffness, breaks=<span class="func">c</span>(<span class="num">0</span>,<span class="num">1</span>,<span class="num">10</span>,<span class="num">40</span>),
+                                   labels=<span class="func">c</span>(<span class="str">"soft"</span>,<span class="str">"med"</span>,<span class="str">"stiff"</span>)))
+<span class="comment"># ANOVA + Tukey HSD</span>
+fit &lt;- <span class="func">aov</span>(NC_ratio ~ stiff_bin, data=df)
+<span class="func">TukeyHSD</span>(fit)
+<span class="func">ggviolin</span>(df, x=<span class="str">"stiff_bin"</span>, y=<span class="str">"NC_ratio"</span>, fill=<span class="str">"stiff_bin"</span>) +
+  <span class="func">stat_compare_means</span>(comparisons=<span class="func">list</span>(<span class="func">c</span>(<span class="str">"soft"</span>,<span class="str">"stiff"</span>)))</pre></div>
+  <div class="code-tab-content" data-tab="afm"><pre><span class="comment"># JPK NanoWizard — Hertz model fitting for stiffness</span>
+<span class="comment"># 1) Cantilever calibration (thermal noise method)</span>
+<span class="comment">#    target spring constant k = 0.01 - 0.1 N/m (soft cantilever)</span>
+<span class="comment"># 2) Force curve: approach 2 μm @ 2 μm/s, setpoint 0.5 nN</span>
+<span class="comment"># 3) Hertz fit (paraboloid indenter):</span>
+<span class="comment">#    F = (4√R / 3) * E* * δ^(3/2)</span>
+<span class="comment">#    E_cell = E*(1-ν²); 細胞 ν≈0.5 → E ≈ 0.75 * E*</span>
+<span class="comment"># Typical values:</span>
+<span class="comment">#    MSCs on soft gel: 0.5-2 kPa</span>
+<span class="comment">#    HeLa: 1-3 kPa</span>
+<span class="comment">#    Cancer (high-grade): often softer (~0.5 kPa) — mech invasion advantage</span>
+<span class="comment"># 4) 推薦軟體: JPKSPM Data Processing, AtomicJ, PyAF</span></pre></div>
+</div>
+</section>
+
+<div class="quiz-section">
+<h3 data-zh="自我檢核（3 題）" data-en="Self-Check (3 Questions)">自我檢核（3 題）</h3>
+
+<div class="quiz-q" data-ans="B">
+<p data-lang="zh">1. Piezo1 在 CryoEM 中呈現「三葉螺旋槳」，其機械開關的核心機制為何？</p>
+<p data-lang="en">1. Piezo1 appears as a "three-blade propeller" in CryoEM. What is the core mechanism of its gating?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. 配體與 N 端結合誘導變構</span><span data-lang="en">A. Ligand binding to N-terminus induces allostery</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. 膜張力使 dome 扁平化，扭轉 CTD 開啟 pore</span><span data-lang="en">B. Membrane tension flattens the dome, twisting CTD to open the pore</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. 電位差直接驅動 S4 螺旋移動</span><span data-lang="en">C. Voltage drives S4 helix movement directly</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. Ca²⁺ 內流誘導 conformational change</span><span data-lang="en">D. Ca²⁺ influx induces conformational change</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>B</strong>：Piezo 的 dome 結構在膜張力下「壓平」釋放彈性能，扭轉 CTD 開啟離子通道。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>B</strong>: Piezo's dome flattens under membrane tension, releasing elastic energy that twists CTD open.</div>
+</div>
+
+<div class="quiz-q" data-ans="C">
+<p data-lang="zh">2. ECM 硬度為 40 kPa 時，下列何者最可能發生？</p>
+<p data-lang="en">2. On 40 kPa ECM, which is most likely to occur?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-k="A"><span data-lang="zh">A. LATS1/2 高度活化、YAP 留在質內</span><span data-lang="en">A. LATS1/2 highly active; YAP cytosolic</span></div>
+<div class="quiz-opt" data-k="B"><span data-lang="zh">B. RhoA-ROCK 抑制，actomyosin 鬆弛</span><span data-lang="en">B. RhoA-ROCK suppressed; actomyosin relaxed</span></div>
+<div class="quiz-opt" data-k="C"><span data-lang="zh">C. YAP 去磷酸化進入細胞核活化 TEAD 標靶基因</span><span data-lang="en">C. YAP dephosphorylated, enters nucleus, activates TEAD targets</span></div>
+<div class="quiz-opt" data-k="D"><span data-lang="zh">D. FA 解離、talin R3 折回</span><span data-lang="en">D. FAs dissolve; talin R3 refolds</span></div>
+</div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>C</strong>：硬基質 → 高張力 → Hippo OFF → YAP 核內 → CTGF/CYR61 活化（典型 MSC 骨向分化條件）。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>C</strong>: Stiff → high tension → Hippo OFF → nuclear YAP → CTGF/CYR61 (canonical osteogenic conditions).</div>
+</div>
+
+<div class="quiz-q" data-ans="T">
+<p data-lang="zh">3.（是非）當細胞穿越 &lt;3 μm 的孔時，LINC 介導的核變形可能導致核膜破裂與 cGAS 進入，啟動先天免疫並造成 DNA 損傷。</p>
+<p data-lang="en">3. (T/F) When cells squeeze through &lt;3 μm pores, LINC-mediated nuclear deformation can rupture the NE, allowing cGAS entry to trigger innate immunity and DNA damage.</p>
+<div class="quiz-options"><div class="quiz-opt" data-k="T">T</div><div class="quiz-opt" data-k="F">F</div></div>
+<div class="quiz-feedback" data-lang="zh">✔ <strong>T</strong>：Lammerding 等人 2023 工作確證此機制——核膜破裂為癌細胞 invasion 與 cGAS-STING 活化的關鍵節點。</div>
+<div class="quiz-feedback" data-lang="en">✔ <strong>T</strong>: Confirmed by Lammerding (2023) — NE rupture during confined migration drives cancer invasion and cGAS-STING activation.</div>
+</div>
+</div>
+
+<nav class="page-nav">
+<a href="signal-transduction-networks.html"><span class="nav-dir" data-zh="← 上一章" data-en="← Previous">← 上一章</span><span class="nav-title" data-zh="Ch 9 · 訊號傳導網路" data-en="Ch 9 · Signal Transduction Networks">Ch 9 · 訊號傳導網路</span></a>
+<a href="cytoskeleton-dynamics.html"><span class="nav-dir" data-zh="下一章 →" data-en="Next →">下一章 →</span><span class="nav-title" data-zh="Ch 11 · 細胞骨架動力學" data-en="Ch 11 · Cytoskeleton Dynamics">Ch 11 · 細胞骨架動力學</span></a>
+</nav>
+
+</main>
+<footer class="site-footer">© Charlene — Molecular &amp; Cellular Biology Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressBar').style.width=p+'%';});
+document.querySelectorAll('.code-tab-btn').forEach(b=>{b.onclick=()=>{const tab=b.dataset.tab;const parent=b.closest('.code-tabs');parent.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));parent.querySelectorAll('.code-tab-content').forEach(c=>c.classList.toggle('active',c.dataset.tab===tab));};});
+document.querySelectorAll('.quiz-q').forEach(q=>{const correct=q.dataset.ans;q.querySelectorAll('.quiz-opt').forEach(o=>{o.onclick=()=>{const fb=q.querySelectorAll('.quiz-feedback');if(o.dataset.k===correct){o.classList.add('correct');fb.forEach(x=>x.classList.add('show','correct-fb'));}else{o.classList.add('wrong');fb.forEach(x=>x.classList.add('show','wrong-fb'));}};});});
+</script>
+</body></html>
